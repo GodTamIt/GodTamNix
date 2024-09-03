@@ -39,13 +39,13 @@
       forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     overlays = import ./overlays {inherit inputs;};
     nixosConfigurations = {
-      m3-kratos = nixpkgs.lib.nixosSystem {
+      m3-kratos-vm = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/m3-kratos];
       };
     };
     homeConfigurations = {
-      "m3tam3re@m3tam3re" = home-manager.lib.homeManagerConfiguration {
+      "m3tam3re@m3-kratos-vm" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home/m3tam3re/m3tam3re.nix];
