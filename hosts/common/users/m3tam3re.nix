@@ -26,5 +26,5 @@
     packages = [inputs.home-manager.packages.${pkgs.system}.default];
   };
   home-manager.users.m3tam3re =
-    import m3tam3re/${config.networking.hostName}.nix;
+    import ../../../home/m3tam3re/${config.networking.hostName}.nix;
 }
