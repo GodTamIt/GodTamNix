@@ -51,19 +51,19 @@
       forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     overlays = import ./overlays {inherit inputs;};
     nixosConfigurations = {
-      m3-kratos-vm = nixpkgs.lib.nixosSystem {
+      IceCube = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/m3-kratos
+          ./hosts/IceCube
           inputs.disko.nixosModules.disko
         ];
       };
     };
     homeConfigurations = {
-      "m3tam3re@m3-kratos-vm" = home-manager.lib.homeManagerConfiguration {
+      "godtamit@IceCube" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/m3tam3re/m3-kratos.nix];
+        modules = [./home/godtamit/IceCube.nix];
       };
     };
   };

@@ -1,3 +1,3 @@
 {
-  imports = [./m3tam3re.nix];
+  imports = [./godtamit.nix];
 }
