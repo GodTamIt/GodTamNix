@@ -33,17 +33,17 @@
         }
       ];
       monitor = [
-        "DP-5,3840x2160@144,0x0,1.5"
-        "DP-6,3840x2160@144,3840x0,1.5"
+        "DP-2, 3840x2160@144, 0x0, 1.5, vrr, 1, bitdepth, 10, cm, hdr"
+        "DP-3, 3840x2160@144, 3840x0, 1.5, vrr, 1, bitdepth, 10, cm, hdr"
       ];
       workspace = [
-        "1, monitor:DP-5, default:true"
-        "2, monitor:DP-5"
-        "3, monitor:DP-5"
-        "4, monitor:DP-6"
-        "5, monitor:DP-5"
-        "6, monitor:DP-6"
-        "7, monitor:DP-6"
+        "1, monitor:DP-2, default:true"
+        "2, monitor:DP-2"
+        "3, monitor:DP-2"
+        "4, monitor:DP-3"
+        "5, monitor:DP-2"
+        "6, monitor:DP-3"
+        "7, monitor:DP-3"
       ];
     };
   };
