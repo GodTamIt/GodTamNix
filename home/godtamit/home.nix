@@ -25,6 +25,10 @@
   # environment.
   home.packages = with pkgs; [
     kitty
+    foot
+    firefox
+    antigravity
+    gtk3
     wofi
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -9,6 +10,12 @@ in {
   options.features.desktop.hyprland.enable = mkEnableOption "hyprland config";
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      hyprpaper
+      hypridle
+      gtk3
+    ];
+
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
@@ -54,12 +61,12 @@ in {
         };
 
         decoration = {
-          "col.shadow" = "rgba(1E202966)";
-          drop_shadow = true;
-          shadow_range = 60;
-          shadow_offset = "1 2";
-          shadow_render_power = 3;
-          shadow_scale = 0.97;
+          #"col.shadow" = "rgba(1E202966)";
+          #drop_shadow = true;
+          #shadow_range = 60;
+          #shadow_offset = "1 2";
+          #shadow_render_power = 3;
+          #shadow_scale = 0.97;
           rounding = 8;
           blur = {
             enabled = true;
@@ -90,51 +97,51 @@ in {
 
         master = {};
 
-        gestures = {
-          workspace_swipe = false;
-        };
+        #gestures = {
+        #  workspace_swipe = false;
+        #};
 
         windowrule = [
-          "float, file_progress"
-          "float, confirm"
-          "float, dialog"
-          "float, download"
-          "float, notification"
-          "float, error"
-          "float, splash"
-          "float, confirmreset"
-          "float, title:Open File"
-          "float, title:branchdialog"
-          "float, Lxappearance"
-          "float, Wofi"
-          "float, dunst"
-          "animation none,Wofi"
-          "float,viewnior"
-          "float,feh"
-          "float, pavucontrol-qt"
-          "float, pavucontrol"
-          "float, file-roller"
-          "fullscreen, wlogout"
-          "float, title:wlogout"
-          "fullscreen, title:wlogout"
-          "idleinhibit focus, mpv"
-          "idleinhibit fullscreen, firefox"
-          "float, title:^(Media viewer)$"
-          "float, title:^(Volume Control)$"
-          "float, title:^(Picture-in-Picture)$"
-          "size 800 600, title:^(Volume Control)$"
-          "move 75 44%, title:^(Volume Control)$"
+        #  "float, file_progress"
+        #  "float, confirm"
+        #  "float, dialog"
+        #  "float, download"
+        #  "float, notification"
+        #  "float, error"
+        #  "float, splash"
+        #  "float, confirmreset"
+        #  "float, title:(Open File)"
+        #  "float, title:branchdialog"
+        #  "float, Lxappearance"
+        #  "float, Wofi"
+        #  "float, dunst"
+        #  "animation none,Wofi"
+        #  "float,viewnior"
+        #  "float,feh"
+        #  "float, pavucontrol-qt"
+        #  "float, pavucontrol"
+        #  "float, file-roller"
+        #  "fullscreen, wlogout"
+        #  "float, title:wlogout"
+        #  "fullscreen, title:wlogout"
+        #  "idleinhibit focus, mpv"
+        #  "idleinhibit fullscreen, firefox"
+        #  "float, title:^(Media viewer)$"
+        #  "float, title:^(Volume Control)$"
+        #  "float, title:^(Picture-in-Picture)$"
+        #  "size 800 600, title:^(Volume Control)$"
+        #  "move 75 44%, title:^(Volume Control)$"
         ];
 
         "$mainMod" = "SUPER";
 
         bind = [
           "$mainMod, return, exec, kitty -e zellij-ps"
-          "$mainMod, t, exec, kitty -e fish -c 'neofetch; exec fish'"
+          "$mainMod, t, exec, foot"
           "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
-          "$mainMod, Space, togglefloating"
+          "$mainMod, Space, exec, wofi --show drun --allow-images"
           "$mainMod, q, killactive"
           "$mainMod, M, exit"
           "$mainMod, F, fullscreen"
@@ -172,12 +179,18 @@ in {
           "$mainMod, mouse_up, workspace, e-1"
         ];
 
+        binde = [
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+        ];
+
         bindm = [
           "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"
         ];
 
         windowrulev2 = [
+          "float,title:(Open File)"
           "workspace 1,class:(Emacs)"
           "workspace 3,opacity 1.0, class:(brave-browser)"
           "workspace 4,class:(com.obsproject.Studio)"

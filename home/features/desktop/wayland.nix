@@ -85,7 +85,7 @@ in {
         #window,
         #clock,
         #battery,
-        #pulseaudio,
+        #wireplumber,
         #network,
         #workspaces,
         #tray,
@@ -137,9 +137,11 @@ in {
 
         #clock {
             color: #fab387;
-            border-radius: 10px 0px 0px 10px;
+            border-radius: 0px 10px 10px 0px;
             margin-left: 0px;
+            margin-right: 10px;
             border-right: 0px;
+            padding-right: 10px;
         }
 
         #network {
@@ -148,8 +150,9 @@ in {
             border-right: 0px;
         }
 
-        #pulseaudio {
+        #wireplumber {
             color: #89b4fa;
+            border-radius: 10px 0 0 10px;
             border-left: 0px;
             border-right: 0px;
         }
@@ -168,7 +171,6 @@ in {
         }
 
         #custom-weather {
-            border-radius: 0px 10px 10px 0px;
             border-right: 0px;
             margin-left: 0px;
         }
@@ -182,16 +184,18 @@ in {
           passthrough = false;
           gtk-layer-shell = true;
           height = 0;
-          modules-left = ["clock" "custom/weather" "hyprland/workspaces"];
+          modules-left = ["hyprland/workspaces"];
           modules-center = ["hyprland/window"];
-          modules-right = [
-            "tray"
-          ];
+          modules-right = ["wireplumber" "custom/weather" "tray" "clock"];
 
+          # modules-center
           "hyprland/window" = {
             format = "👉 {}";
             seperate-outputs = true;
           };
+
+
+          # modules-left
           "hyprland/workspaces" = {
             disable-scroll = true;
             all-outputs = true;
@@ -215,19 +219,31 @@ in {
               "4" = [];
             };
           };
+
+
+          # modules-right
+          wireplumber = {
+            format = "{icon} {volume}%";
+            format-icons = {
+              default = ["" "" ""];
+            };
+          };
+
           "custom/weather" = {
-            format = "{}°C";
+            format = "{}°F";
             tooltip = true;
             interval = 3600;
-            exec = "wttrbar --location Pockau-Lengefeld";
+            exec = "wttrbar --main-indicator temp_F";
             return-type = "json";
           };
+
           tray = {
             icon-size = 13;
             spacing = 10;
           };
+
           clock = {
-            format = " {:%R   %d/%m}";
+            format = " {:%T   %a, %b %d}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           };
         };
@@ -236,7 +252,6 @@ in {
 
     home.packages = with pkgs; [
       grim
-      hyprlock
       qt6.qtwayland
       slurp
       waypipe
@@ -245,6 +260,8 @@ in {
       wl-clipboard
       wlogout
       wtype
+      wttrbar
+      xwayland
       ydotool
     ];
   };

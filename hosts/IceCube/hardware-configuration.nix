@@ -16,6 +16,7 @@
   boot.initrd.kernelModules = [ "xxhash" "xxhash_generic" ];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
+  boot.blacklistedKernelModules = ["nouveau"];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -26,10 +27,14 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
+  services.xserver.videoDrivers = ["nvidia"];
+
   hardware = {
     cpu = {
       amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
+
+    graphics.enable = true;
 
     nvidia = {
       # Modesetting is required
@@ -41,8 +46,9 @@
 
         # Fine-grained power management. Turns off GPU when not in use.
         # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-        finegrained = true;
+        finegrained = false;
       };
+
 
       # Use the Nvidia open source kernel module (not to be confused with the
       # independent third-party "nouveau" open source driver).
