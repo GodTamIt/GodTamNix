@@ -1,0 +1,19 @@
+{
+  pkgs,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [
+    btop
+    curl
+    dust
+    eza
+    git
+    fish
+    procs
+    ripgrep
+    starship
+    vim
+    zsh
+  ];
+}

@@ -1,70 +1,103 @@
 {
-  description = ''
-    For questions just DM me on X: https://twitter.com/@m3tam3re
-    There is also some NIXOS content on my YT channel: https://www.youtube.com/@m3tam3re
-
-    One of the best ways to learn NIXOS is to read other peoples configurations. I have personally learned a lot from Gabriel Fontes configs:
-    https://github.com/Misterio77/nix-starter-configs
-    https://github.com/Misterio77/nix-config
-
-    Please also check out the starter configs mentioned above.
-  '';
+  description = "GodTamNix";
 
   inputs = {
+    # Core Nix ecosystem
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-master.url = "github:NixOS/nixpkgs";
+    flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    # System management
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.3";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "";
+      };
+    };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    nix-rosetta-builder = {
+      # url = "github:cpick/nix-rosetta-builder";
+      url = "github:khaneliman/nix-rosetta-builder/speedfactor";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    nixos-wsl = {
+      url = "github:nix-community/nixos-wsl";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "";
+      };
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    # Applications & packages
+    anyrun-nixos-options = {
+      url = "github:n3oney/anyrun-nixos-options";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-
-    disko = {
-      url = "github:nix-community/disko";
+    catppuccin = {
+      url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    dotfiles = {
-      url = "git+https://code.m3tam3re.com/m3tam3re/dotfiles-flake-demo.git";
-      flake = false;
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hypr-socket-watch = {
+      url = "github:khaneliman/hypr-socket-watch";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+      };
+    };
+    nh = {
+      url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs-citrix-workspace.url = "github:NixOS/nixpkgs/87894d3b7116a8e1c4827d66e17b89099d218c50";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
     };
   };
 
-  outputs = {
-    self,
-    disko,
-    dotfiles,
-    home-manager,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    systems = [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    packages =
-      forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    overlays = import ./overlays {inherit inputs;};
-    nixosConfigurations = {
-      IceCube = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/IceCube
-          inputs.disko.nixosModules.disko
-        ];
-      };
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
+      imports = [
+        ./flake
+      ];
     };
-    homeConfigurations = {
-      "godtamit@IceCube" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/godtamit/IceCube.nix];
-      };
-    };
-  };
 }
