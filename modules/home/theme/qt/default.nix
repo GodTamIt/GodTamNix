@@ -25,10 +25,10 @@ in
     enable = lib.mkEnableOption "customizing qt and apply themes";
 
     theme = {
-      name = mkOpt str "Catppuccin-Macchiato-Blue" "The name of the kvantum theme to apply.";
+      name = mkOpt str "Catppuccin-Mocha-Mauve" "The name of the kvantum theme to apply.";
       package = mkOpt package (pkgs.catppuccin-kvantum.override {
-        accent = "blue";
-        variant = "macchiato";
+        accent = "mauve";
+        variant = "mocha";
       }) "The package to use for the theme.";
     };
 

@@ -59,7 +59,7 @@ in
         "macchiato"
         "mocha"
       ];
-      default = "macchiato";
+      default = "mocha";
       description = ''
         An optional theme flavor.
       '';
@@ -82,7 +82,7 @@ in
           enable = false;
 
           accent = "blue";
-          flavor = "macchiato";
+          flavor = "mocha";
 
           # keep-sorted start block=yes
           alacritty = enabled;
@@ -236,7 +236,7 @@ in
           };
 
           opencode.settings.theme = lib.mkForce "catppuccin";
-          vicinae.settings.theme.name = lib.mkForce "catppuccin-macchiato";
+          vicinae.settings.theme.name = lib.mkForce "catppuccin-mocha";
 
           tmux.plugins = [
             {

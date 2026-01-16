@@ -15,10 +15,10 @@ in
       theme = {
         qt = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
           theme = {
-            name = "Catppuccin-Macchiato-Blue";
+            name = "Catppuccin-Mocha-Mauve";
             package = pkgs.catppuccin-kvantum.override {
-              accent = "blue";
-              variant = "macchiato";
+              accent = "mauve";
+              variant = "mocha";
             };
           };
 

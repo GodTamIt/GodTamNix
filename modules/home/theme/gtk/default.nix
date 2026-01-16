@@ -21,10 +21,10 @@ in
     usePortal = lib.mkEnableOption "using the GTK Portal";
 
     cursor = {
-      name = mkOpt types.str "catppuccin-macchiato-blue-cursors" "The name of the cursor theme to apply.";
+      name = mkOpt types.str "catppuccin-mocha-mauve-cursors" "The name of the cursor theme to apply.";
       package = mkOpt types.package (
         if pkgs.stdenv.hostPlatform.isLinux then
-          pkgs.catppuccin-cursors.macchiatoBlue
+          pkgs.catppuccin-cursors.mochaMauve
         else
           pkgs.emptyDirectory
       ) "The package to use for the cursor theme.";
@@ -34,17 +34,17 @@ in
     icon = {
       name = mkOpt types.str "Papirus-Dark" "The name of the icon theme to apply.";
       package = mkOpt types.package (pkgs.catppuccin-papirus-folders.override {
-        accent = "blue";
-        flavor = "macchiato";
+        accent = "mauve";
+        flavor = "mocha";
       }) "The package to use for the icon theme.";
     };
 
     theme = {
-      name = mkOpt types.str "catppuccin-macchiato-blue-standard" "The name of the theme to apply";
+      name = mkOpt types.str "catppuccin-mocha-mauve-standard" "The name of the theme to apply";
       package = mkOpt types.package (pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
+        accents = [ "mauve" ];
         size = "standard";
-        variant = "macchiato";
+        variant = "mocha";
       }) "The package to use for the theme";
     };
   };

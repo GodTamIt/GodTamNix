@@ -14,24 +14,24 @@ in
       theme = {
         gtk = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
           cursor = {
-            name = "catppuccin-macchiato-blue-cursors";
-            package = pkgs.catppuccin-cursors.macchiatoBlue;
+            name = "catppuccin-mocha-mauve-cursors";
+            package = pkgs.catppuccin-cursors.mochaMauve;
             size = 32;
           };
 
           icon = {
             name = "Papirus-Dark";
             package = pkgs.catppuccin-papirus-folders.override {
-              accent = "blue";
-              flavor = "macchiato";
+              accent = "mauve";
+              flavor = "mocha";
             };
           };
 
           theme = {
-            name = "catppuccin-macchiato-blue-standard";
+            name = "catppuccin-mocha-blue-standard";
             package = pkgs.catppuccin-gtk.override {
-              accents = [ "blue" ];
-              variant = "macchiato";
+              accents = [ "mauve" ];
+              variant = "mocha";
             };
           };
         };
