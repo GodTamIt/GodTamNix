@@ -15,17 +15,17 @@
       email = lib.godtamnix.decode "b2hnb2R0YW1pdEBnbWFpbC5jb20=";
     };
 
-    programs.graphical.browsers.firefox = {
-      enable = true;
-      # gpuAcceleration = true;
-      # hardwareDecoding = true;
-      # setDefault = true;
+    programs.graphical.browsers = {
+      firefox = {
+        enable = true;
+        # gpuAcceleration = true;
+        # hardwareDecoding = true;
+        # setDefault = true;
+      };
     };
   };
 
   home.packages = with pkgs; [
-    antigravity
-    brave
     discord
     plex-desktop
 

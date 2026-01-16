@@ -33,13 +33,11 @@ in
       allowAliases = false;
       allowUnfree = true;
       permittedInsecurePackages = [
-        # NOTE: citrix
-        "libxml2-2.13.8"
-        "libsoup-2.74.3"
         # NOTE: needed by emulationstation
         "freeimage-3.18.0-unstable-2024-04-18"
         "mbedtls-2.28.10"
         # dev shells
+        "beekeeper-studio-5.5.3"
       ];
     };
   };

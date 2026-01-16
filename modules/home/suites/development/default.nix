@@ -1,14 +1,12 @@
 {
   config,
   lib,
-  osConfig ? { },
   pkgs,
-
+  # osConfig ? { },
   ...
 }:
 let
-  inherit (lib) mkIf mkDefault;
-  inherit (lib.godtamnix) enabled;
+  inherit (lib) mkIf;
 
   cfg = config.godtamnix.suites.development;
   # isWSL = osConfig.godtamnix.archetypes.wsl.enable or false;
@@ -56,12 +54,11 @@ in
         ]
         ++ lib.optionals cfg.nixEnable [
           hydra-check
-          godtamnix.build-by-path
+          # godtamnix.build-by-path
           nix-bisect
           nix-diff
           nix-fast-build
           nix-health
-          nix-index
           nix-output-monitor
           nix-update
           nixpkgs-hammering

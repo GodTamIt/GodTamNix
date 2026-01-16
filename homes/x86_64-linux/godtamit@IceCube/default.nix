@@ -24,7 +24,15 @@ in
     };
 
     suites = {
-      development = enabled;
+      development = {
+        enable = true;
+        awsEnable = true;
+        digitaloceanEnable = true;
+        dockerEnable = true;
+        kubernetesEnable = true;
+        nixEnable = true;
+        sqlEnable = true;
+      };
     };
 
     theme = {
@@ -36,6 +44,19 @@ in
       graphical = {
         bars = {
           waybar = enabled;
+        };
+
+        browsers = {
+          brave = {
+            enable = true;
+            commandLineArgs = [
+              "--enable-features=UseOzonePlatform"
+              "--ozone-platform=wayland"
+
+              # TODO(https://issues.chromium.org/issues/476172415): Remove once fixed
+              "--disable-features=WaylandWpColorManagerV1"
+            ];
+          };
         };
 
         desktop = {
