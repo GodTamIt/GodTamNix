@@ -23,10 +23,10 @@ in
       email = lib.godtamnix.decode "b2hnb2R0YW1pdEBnbWFpbC5jb20=";
     };
 
-    # theme = {
-    #   catppuccin = enabled;
-    #   stylix = enabled;
-    # };
+    theme = {
+      catppuccin = enabled;
+      stylix = enabled;
+    };
 
     programs = {
       graphical = {
@@ -38,21 +38,6 @@ in
           wayland = enabled;
           hyprland = enabled;
         };
-
-        # browsers = {
-        #   firefox = {
-        #     gpuAcceleration = true;
-        #     hardwareDecoding = true;
-        #     settings = {
-        #       # "dom.ipc.processCount.webIsolated" = 9;
-        #       # "dom.maxHardwareConcurrency" = 16;
-        #       "media.av1.enabled" = true;
-        #       # "media.ffvpx.enabled" = false;
-        #       # "media.hardware-video-decoding.force-enabled" = true;
-        #       "media.hardwaremediakeys.enabled" = true;
-        #     };
-        #   };
-        # };
       };
     };
   };
