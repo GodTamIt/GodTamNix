@@ -23,6 +23,10 @@ in
       email = lib.godtamnix.decode "b2hnb2R0YW1pdEBnbWFpbC5jb20=";
     };
 
+    suites = {
+      development = enabled;
+    };
+
     theme = {
       catppuccin = enabled;
       stylix = enabled;
