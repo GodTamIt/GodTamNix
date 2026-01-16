@@ -77,8 +77,7 @@ in
       wantedBy = [ "multi-user.target" ];
       # Ensure drivers are loaded
       after = [
-        "systemd-modules-load.service"
-        "display-manager.service"
+        "nvidia-persistenced.service"
       ];
       serviceConfig = {
         Type = "oneshot";
