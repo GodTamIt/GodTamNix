@@ -23,6 +23,7 @@ in
       enable = true;
       open = true;
       finegrained = false;
+      powerLimit = 300;
     };
   };
 
