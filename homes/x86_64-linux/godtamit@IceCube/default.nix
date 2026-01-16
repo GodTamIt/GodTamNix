@@ -70,7 +70,7 @@ in
           output = "DP-5";
           mode = "3840x2160@144";
           position = "0x0";
-          scale = 1.5;
+          scale = 1.33;
           bitdepth = 10;
           cm = "hdr";
           supports_hdr = 1;
@@ -84,7 +84,7 @@ in
           output = "DP-6";
           mode = "3840x2160@144";
           position = "auto";
-          scale = 1.5;
+          scale = 1.33;
           bitdepth = 10;
           cm = "hdr";
           supports_hdr = 1;
