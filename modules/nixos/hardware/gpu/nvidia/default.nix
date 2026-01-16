@@ -10,10 +10,10 @@ let
     mkOption
     types
     ;
-  cfg = config.godtamnix.hardware.nvidia;
+  cfg = config.godtamnix.hardware.gpu.nvidia;
 in
 {
-  options.godtamnix.hardware.nvidia = {
+  options.godtamnix.hardware.gpu.nvidia = {
     enable = mkEnableOption "Nvidia GPU configuration";
 
     open = mkOption {
@@ -22,10 +22,18 @@ in
       description = "Use the Nvidia open source kernel module";
     };
 
-    finegrained = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable fine-grained power management";
+    powerManagement = {
+      enable = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Nvidia power management. Experimental, and can cause sleep/suspend to fail.";
+      };
+
+      finegrained = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable fine-grained power management. Turns off GPU when not in use. Experimental and only works on modern Nvidia GPUs (Turing or newer).";
+      };
     };
 
     powerLimit = mkOption {
@@ -48,12 +56,7 @@ in
         modesetting.enable = true;
 
         powerManagement = {
-          # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-          enable = true;
-
-          # Fine-grained power management. Turns off GPU when not in use.
-          # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-          inherit (cfg) finegrained;
+          inherit (cfg.powerManagement) enable finegrained;
         };
 
         # Use the Nvidia open source kernel module (not to be confused with the

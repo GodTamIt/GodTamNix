@@ -19,12 +19,6 @@ in
   godtamnix = {
     # Enables core system configuration
     nix = enabled;
-    hardware.nvidia = {
-      enable = true;
-      open = true;
-      finegrained = false;
-      powerLimit = 300;
-    };
   };
 
   # Bootloader.

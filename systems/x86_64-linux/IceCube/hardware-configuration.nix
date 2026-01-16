@@ -8,13 +8,30 @@
   pkgs,
   ...
 }:
+let
+  inherit (lib.godtamnix) enabled;
+in
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  # N.B.: This is the CachyOS kernel best tuned for Zen 3 (no AVX-512).
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+  godtamnix = {
+    hardware = {
+      cpu.amd = enabled;
+
+      gpu.nvidia = {
+        enable = true;
+        open = true;
+        powerLimit = 300;
+      };
+    };
+  };
+
+  # This uses the Xanmod kernel, which is a community-maintained kernel that is
+  # optimized for throughput, performance, and stability.
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelParams = [ ];
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "ahci"
@@ -27,7 +44,7 @@
     "xxhash"
     "xxhash_generic"
   ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
