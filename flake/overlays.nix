@@ -39,7 +39,10 @@ let
       );
     };
 
-  allOverlays = (lib.attrValues dynamicOverlaysSet) ++ [ godtamnixPackagesOverlay ];
+  allOverlays = (lib.attrValues dynamicOverlaysSet) ++ [
+    godtamnixPackagesOverlay
+    inputs.nix-cachyos-kernel.overlays.default
+  ];
 
 in
 {
@@ -47,6 +50,9 @@ in
     overlays = dynamicOverlaysSet // {
       default = godtamnixPackagesOverlay;
       godtamnix = godtamnixPackagesOverlay;
+
+      # Use the pinned version so the binary cache is available.
+      cachyos = inputs.nix-cachyos-kernel.overlays.pinned;
     };
 
     perSystem =

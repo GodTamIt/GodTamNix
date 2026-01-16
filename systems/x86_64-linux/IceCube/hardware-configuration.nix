@@ -5,6 +5,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }:
 {
@@ -12,6 +13,8 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  # N.B.: This is the CachyOS kernel best tuned for Zen 3 (no AVX-512).
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "ahci"
