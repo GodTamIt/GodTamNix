@@ -158,13 +158,13 @@ in {
 
       workspace = [
         "1, monitor:DP-5, default:true"
-        "2, monitor:DP-5"
-        "3, monitor:DP-5"
-        "4, monitor:DP-5"
-        "5, monitor:DP-6"
-        "6, monitor:DP-6"
-        "7, monitor:DP-6"
-        "8, monitor:DP-6"
+        "2, monitor:DP-5, persistent:true"
+        "3, monitor:DP-5, persistent:true"
+        "4, monitor:DP-5, persistent:true"
+        "5, monitor:DP-6, persistent:true"
+        "6, monitor:DP-6, persistent:true"
+        "7, monitor:DP-6, persistent:true"
+        "8, monitor:DP-6, persistent:true"
       ];
     };
   };

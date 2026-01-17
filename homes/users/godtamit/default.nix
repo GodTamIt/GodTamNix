@@ -26,6 +26,7 @@
 
   home.packages = with pkgs; [
     discord
+    ferdium
     neofetch
     signal-desktop
 

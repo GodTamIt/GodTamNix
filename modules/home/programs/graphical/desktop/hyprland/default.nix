@@ -142,6 +142,12 @@ in {
           "float on, match:title ^(Open (File|Folder))$"
           "float on, match:title ^(Select (File|Folder))))$"
 
+          # Workspace rules
+          "workspace 2, match:class antigravity"
+          "workspace 4, match:class ferdium"
+          "workspace 5, match:class firefox"
+          "workspace 6, match:class (YouTube Music Desktop App)"
+
           # "opaque, class:(firefox)"
           # "workspace 1, class:^(Emacs)$"
           # "workspace 3, opacity 1.0, class:^(brave-browser)$"
@@ -151,7 +157,7 @@ in {
         "$mainMod" = "SUPER";
 
         bind = [
-          "$mainMod, return, exec, kitty -e zellij-ps"
+          "$mainMod, return, exec, antigravity"
           "$mainMod, t, exec, kitty"
           "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
@@ -190,8 +196,8 @@ in {
           "$mainMod SHIFT, 8, movetoworkspace, 8"
           "$mainMod SHIFT, 9, movetoworkspace, 9"
           "$mainMod SHIFT, 0, movetoworkspace, 10"
-          "$mainMod, right, workspace, e+1"
-          "$mainMod, left, workspace, e-1"
+          "$mainMod, right, workspace, m+1"
+          "$mainMod, left, workspace, m-1"
         ];
 
         # Repeatable + locked
