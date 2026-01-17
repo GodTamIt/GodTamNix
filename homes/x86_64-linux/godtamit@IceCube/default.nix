@@ -31,6 +31,12 @@ in {
         nixEnable = true;
         sqlEnable = true;
       };
+
+      video = {
+        enable = true;
+        kdenliveEnable = true;
+        obsEnable = true;
+      };
     };
 
     theme = {
