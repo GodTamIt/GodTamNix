@@ -49,6 +49,7 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configure keymap in X11
+  services.xserver.enable = true;
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -67,16 +68,17 @@ in
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
     # ELECTRON_OZONE_PLATFORM_HINT = "auto";
     NIXOS_OZONE_WL = "1";
   };
 
   services.displayManager.sddm = {
     enable = true;
-    wayland = {
-      enable = true;
-      compositor = "weston";
-    };
+    #wayland = {
+    #  enable = true;
+    #  compositor = "weston";
+    #};
   };
 
   # Use catppuccin themed sddm
