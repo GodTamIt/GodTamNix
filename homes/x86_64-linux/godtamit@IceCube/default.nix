@@ -49,7 +49,39 @@ in {
     programs = {
       graphical = {
         bars = {
-          waybar = enabled;
+          waybar = {
+            enable = true;
+
+            modules = {
+              workspaces = {
+                enable = true;
+
+                persistentWorkspaces = {
+                  "*" = [
+                    1
+                    2
+                    3
+                    4
+                    5
+                    6
+                    7
+                    8
+                  ];
+                };
+
+                formatIcons = {
+                  "1" = "";
+                  "2" = "󰈮";
+                  "3" = "";
+                  "4" = "󰭹";
+                  "5" = "󰈹";
+                  "6" = "󰎆";
+                  "7" = "";
+                  "8" = "󱤘";
+                };
+              };
+            };
+          };
         };
 
         browsers = {
@@ -130,10 +162,11 @@ in {
         "1, monitor:DP-5, default:true"
         "2, monitor:DP-5"
         "3, monitor:DP-5"
-        "4, monitor:DP-6"
+        "4, monitor:DP-5"
         "5, monitor:DP-6"
         "6, monitor:DP-6"
         "7, monitor:DP-6"
+        "8, monitor:DP-6"
       ];
     };
   };

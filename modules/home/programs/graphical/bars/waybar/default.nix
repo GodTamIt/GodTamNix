@@ -193,6 +193,7 @@ in {
                   5
                   6
                   7
+                  8
                 ];
               };
               description = "Persistent workspaces configuration.";
@@ -200,13 +201,14 @@ in {
             formatIcons = mkOption {
               type = types.attrs;
               default = {
-                "1" = "󰣇";
-                "2" = "";
-                "3" = "";
-                "4" = "󰇮";
-                "5" = "";
-                "6" = "";
-                "7" = "";
+                "1" = "";
+                "2" = "󰈮";
+                "3" = "";
+                "4" = "󰭹";
+                "5" = "󰈹";
+                "6" = "󰎆";
+                "7" = "";
+                "8" = "󱤘";
               };
               description = "Icons for workspaces.";
             };
