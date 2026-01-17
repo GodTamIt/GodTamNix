@@ -2,17 +2,14 @@
   config,
   inputs,
   lib,
-
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf getExe;
   inherit (inputs) home-manager;
 
   cfg = config.godtamnix.programs.graphical.apps.discord;
-in
-{
+in {
   options.godtamnix.programs.graphical.apps.discord = {
     enable = lib.mkEnableOption "Discord";
     canary.enable = lib.mkEnableOption "Discord Canary";
@@ -27,8 +24,9 @@ in
         ++ lib.optional cfg.firefox.enable pkgs.godtamnix.discord-firefox;
 
       activation = mkIf pkgs.stdenv.hostPlatform.isLinux {
-        betterdiscordInstall = # bash
-          home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        betterdiscordInstall =
+          # bash
+          home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
             echo "Running betterdiscord install"
             ${getExe pkgs.betterdiscordctl} install || ${getExe pkgs.betterdiscordctl} reinstall || true
           '';

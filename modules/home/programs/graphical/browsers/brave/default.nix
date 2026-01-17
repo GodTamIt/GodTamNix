@@ -3,11 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.godtamnix.programs.graphical.browsers.brave;
-in
-{
+in {
   options.godtamnix.programs.graphical.browsers.brave = {
     enable = lib.mkEnableOption "Brave Browser";
 

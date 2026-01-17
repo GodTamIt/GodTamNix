@@ -4,9 +4,9 @@
   pkgs,
   namespace,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     types
     mkIf
     mkDefault
@@ -17,12 +17,11 @@ let
   cfg = config.${namespace}.user;
 
   home-directory =
-    if cfg.name == null then
-      null
-    else if pkgs.stdenv.hostPlatform.isDarwin then
-      "/Users/${cfg.name}"
-    else
-      "/home/${cfg.name}";
+    if cfg.name == null
+    then null
+    else if pkgs.stdenv.hostPlatform.isDarwin
+    then "/Users/${cfg.name}"
+    else "/home/${cfg.name}";
 
   defaultIcon = pkgs.stdenvNoCC.mkDerivation {
     name = "default-icon";
@@ -30,17 +29,20 @@ let
 
     dontUnpack = true;
 
-    installPhase = /* bash */ ''
-      cp $src $out
-    '';
+    installPhase =
+      /*
+      bash
+      */
+      ''
+        cp $src $out
+      '';
 
     passthru = {
       fileName = defaultIconFileName;
     };
   };
   defaultIconFileName = "profile.png";
-in
-{
+in {
   options.${namespace}.user = {
     enable = mkOpt types.bool false "Whether to configure the user account.";
     email = mkOpt types.str "ohgodtamit@gmail.com" "The email of the user.";

@@ -3,13 +3,11 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkDefault mkIf;
 
   cfg = config.${namespace}.nix;
-in
-{
+in {
   config = mkIf cfg.enable {
     documentation = {
       man.generateCaches = mkDefault true;
@@ -36,13 +34,13 @@ in
 
       optimise = {
         automatic = true;
-        dates = [ "04:00" ];
+        dates = ["04:00"];
       };
 
       settings = {
         # bail early on missing cache hits
         connect-timeout = 5;
-        experimental-features = [ "cgroups" ];
+        experimental-features = ["cgroups"];
         keep-going = true;
         use-cgroups = true;
       };

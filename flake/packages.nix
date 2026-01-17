@@ -2,44 +2,42 @@
   inputs,
   lib,
   ...
-}:
-{
-  perSystem =
-    { pkgs, ... }:
-    let
+}: {
+  perSystem = {pkgs, ...}: let
+    packageFunctions =
+      if builtins.pathExists ../packages
+      then
+        lib.filesystem.packagesFromDirectoryRecursive {
+          directory = ../packages;
+          callPackage = file: _args: import file;
+        }
+      else {};
 
-      packageFunctions =
-        if builtins.pathExists ../packages then
-          lib.filesystem.packagesFromDirectoryRecursive {
-            directory = ../packages;
-            callPackage = file: _args: import file;
-          }
-        else
-          { };
-
-      builtPackages = lib.fix (
-        self:
+    builtPackages = lib.fix (
+      self:
         lib.mapAttrs (
-          _name: packageData:
-          let
+          _name: packageData: let
             packageFn = packageData.default or packageData;
           in
-          pkgs.callPackage packageFn (
-            self
-            // {
-              inherit inputs;
-            }
-          )
-        ) packageFunctions
-      );
+            pkgs.callPackage packageFn (
+              self
+              // {
+                inherit inputs;
+              }
+            )
+        )
+        packageFunctions
+    );
 
-      supportedPackages = lib.filterAttrs (
+    supportedPackages =
+      lib.filterAttrs (
         _name: package:
-        package != null
-        && (!(package ? meta.platforms) || lib.meta.availableOn pkgs.stdenv.hostPlatform package)
-      ) builtPackages;
-    in
-    {
-      packages = supportedPackages;
-    };
+          package
+          != null
+          && (!(package ? meta.platforms) || lib.meta.availableOn pkgs.stdenv.hostPlatform package)
+      )
+      builtPackages;
+  in {
+    packages = supportedPackages;
+  };
 }

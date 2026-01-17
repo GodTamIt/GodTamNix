@@ -3,13 +3,11 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkMerge mkEnableOption;
 
   cfg = config.${namespace}.system.input;
-in
-{
+in {
   options.${namespace}.system.input = {
     enable = mkEnableOption "macOS input";
   };

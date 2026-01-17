@@ -3,14 +3,12 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
   inherit (lib.godtamnix) enabled;
 
   cfg = config.godtamnix.suites.audio;
-in
-{
+in {
   options.godtamnix.suites.audio = {
     enable = lib.mkEnableOption "common system audio configuration";
   };

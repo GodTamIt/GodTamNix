@@ -1,21 +1,20 @@
-{ inputs }:
-_final: _prev:
-let
-  godtamnixLib = import ./default.nix { inherit inputs; };
-in
-{
+{inputs}: _final: _prev: let
+  godtamnixLib = import ./default.nix {inherit inputs;};
+in {
   # Expose godtamnix module functions directly
   godtamnix = godtamnixLib.flake.lib.module;
 
   # Expose all godtamnix lib namespaces
-  inherit (godtamnixLib.flake.lib)
+  inherit
+    (godtamnixLib.flake.lib)
     file
     system
     theme
     base64
     ;
 
-  inherit (godtamnixLib.flake.lib.file)
+  inherit
+    (godtamnixLib.flake.lib.file)
     getFile
     getNixFiles
     importFiles
@@ -26,7 +25,8 @@ in
     mergeAttrs
     ;
 
-  inherit (godtamnixLib.flake.lib.module)
+  inherit
+    (godtamnixLib.flake.lib.module)
     mkOpt
     mkOpt'
     mkBoolOpt

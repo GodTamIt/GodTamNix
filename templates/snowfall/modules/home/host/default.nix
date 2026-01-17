@@ -3,12 +3,10 @@
   host ? null,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) types;
   inherit (lib.${namespace}) mkOpt;
-in
-{
+in {
   options.${namespace}.host = {
     name = mkOpt (types.nullOr types.str) host "The host name.";
   };

@@ -1,15 +1,12 @@
 {
   config,
   lib,
-
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib.godtamnix) capitalize;
   cfg = config.godtamnix.theme.catppuccin;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     godtamnix = {
       theme = {

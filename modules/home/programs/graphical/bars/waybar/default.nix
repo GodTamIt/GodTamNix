@@ -4,14 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.godtamnix.programs.graphical.bars.waybar;
 
   # Helper to make modules conditional
-  mkModule = condition: name: if condition then [ name ] else [ ];
-in
-{
+  mkModule = condition: name:
+    if condition
+    then [name]
+    else [];
+in {
   options.godtamnix.programs.graphical.bars.waybar = {
     enable = mkEnableOption "Waybar";
 
@@ -31,7 +32,7 @@ in
         default = true;
       };
       clock = mkOption {
-        default = { };
+        default = {};
         type = types.submodule {
           options = {
             enable = mkOption {
@@ -77,7 +78,7 @@ in
         default = true;
       };
       memory = mkOption {
-        default = { };
+        default = {};
         type = types.submodule {
           options = {
             enable = mkOption {
@@ -108,7 +109,7 @@ in
         };
       };
       cpu = mkOption {
-        default = { };
+        default = {};
         type = types.submodule {
           options = {
             enable = mkOption {
@@ -139,7 +140,7 @@ in
         description = "Enables lock, reboot, and power buttons";
       };
       weather = mkOption {
-        default = { };
+        default = {};
         type = types.submodule {
           options = {
             enable = mkOption {
@@ -158,7 +159,7 @@ in
         };
       };
       workspaces = mkOption {
-        default = { };
+        default = {};
         type = types.submodule {
           options = {
             enable = mkOption {
@@ -241,7 +242,7 @@ in
             ++ (mkModule cfg.modules.clock.enable "clock")
             ++ (mkModule cfg.modules.weather.enable "custom/weather");
 
-          modules-center = [ "hyprland/window" ];
+          modules-center = ["hyprland/window"];
 
           modules-right =
             (mkModule cfg.modules.network "network")
@@ -406,14 +407,13 @@ in
           "hyprland/window" = {
             format = "👉 {}";
             icon = true;
-            seperate-outputs = true;
+            separate-outputs = true;
           };
         };
       };
     };
 
-    home.packages =
-      with pkgs;
+    home.packages = with pkgs;
       [
         grim
         hyprlock

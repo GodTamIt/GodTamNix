@@ -3,13 +3,11 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkForce;
 
   cfg = config.${namespace}.system.locale;
-in
-{
+in {
   options.${namespace}.system.locale = {
     enable = lib.mkEnableOption "managing locale settings";
   };

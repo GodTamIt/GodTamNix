@@ -4,9 +4,9 @@
   pkgs,
   inputs,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkEnableOption
     mkIf
     mkMerge
@@ -19,8 +19,7 @@ let
   palette = import ./colors.nix;
 
   cfg = config.godtamnix.theme.catppuccin;
-in
-{
+in {
   imports = [
     ./gtk.nix
     ./qt.nix
@@ -241,11 +240,15 @@ in
           tmux.plugins = [
             {
               plugin = pkgs.tmuxPlugins.catppuccin;
-              extraConfig = /* Bash */ ''
-                set -g @catppuccin_flavour '${cfg.flavor}'
-                set -g @catppuccin_host 'on'
-                set -g @catppuccin_user 'on'
-              '';
+              extraConfig =
+                /*
+                Bash
+                */
+                ''
+                  set -g @catppuccin_flavour '${cfg.flavor}'
+                  set -g @catppuccin_host 'on'
+                  set -g @catppuccin_user 'on'
+                '';
             }
           ];
 

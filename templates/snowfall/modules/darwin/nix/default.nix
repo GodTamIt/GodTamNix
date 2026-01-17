@@ -3,11 +3,9 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   cfg = config.${namespace}.nix;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     nix = {
       # Options that aren't supported through nix-darwin

@@ -1,35 +1,34 @@
-{ inputs }:
+{inputs}:
 /**
-  Create a NixOS system configuration.
+Create a NixOS system configuration.
 
-  # Inputs
+# Inputs
 
-  `system`
+`system`
 
-  : System architecture
+: System architecture
 
-  `hostname`
+`hostname`
 
-  : Host name
+: Host name
 
-  `username`
+`username`
 
-  : User name
+: User name
 
-  `modules`
+`modules`
 
-  : List of additional modules
+: List of additional modules
 */
 {
   system,
   hostname,
   username ? "godtamit",
-  modules ? [ ],
+  modules ? [],
   ...
-}:
-let
+}: let
   flake = inputs.self or (throw "mkSystem requires 'inputs.self' to be passed");
-  common = import ./common.nix { inherit inputs; };
+  common = import ./common.nix {inherit inputs;};
 
   extendedLib = common.mkExtendedLib flake inputs.nixpkgs;
   matchingHomes = common.mkHomeConfigs {
@@ -49,46 +48,48 @@ let
     isNixOS = true;
   };
 in
-inputs.nixpkgs.lib.nixosSystem {
-  inherit system;
+  inputs.nixpkgs.lib.nixosSystem {
+    inherit system;
 
-  specialArgs = common.mkSpecialArgs {
-    inherit
-      inputs
-      hostname
-      username
-      extendedLib
-      ;
-  };
+    specialArgs = common.mkSpecialArgs {
+      inherit
+        inputs
+        hostname
+        username
+        extendedLib
+        ;
+    };
 
-  modules = [
-    { _module.args.lib = extendedLib; }
+    modules =
+      [
+        {_module.args.lib = extendedLib;}
 
-    # Configure nixpkgs with overlays
-    {
-      nixpkgs = {
-        inherit system;
-      }
-      // common.mkNixpkgsConfig flake;
-    }
+        # Configure nixpkgs with overlays
+        {
+          nixpkgs =
+            {
+              inherit system;
+            }
+            // common.mkNixpkgsConfig flake;
+        }
 
-    inputs.home-manager.nixosModules.home-manager
-    inputs.lanzaboote.nixosModules.lanzaboote
-    inputs.sops-nix.nixosModules.sops
-    inputs.disko.nixosModules.disko
-    inputs.stylix.nixosModules.stylix
-    inputs.catppuccin.nixosModules.catppuccin
-    inputs.nix-index-database.nixosModules.nix-index
-    inputs.nix-flatpak.nixosModules.nix-flatpak
+        inputs.home-manager.nixosModules.home-manager
+        inputs.lanzaboote.nixosModules.lanzaboote
+        inputs.sops-nix.nixosModules.sops
+        inputs.disko.nixosModules.disko
+        inputs.stylix.nixosModules.stylix
+        inputs.catppuccin.nixosModules.catppuccin
+        inputs.nix-index-database.nixosModules.nix-index
+        inputs.nix-flatpak.nixosModules.nix-flatpak
 
-    # Auto-inject home configurations for this system+hostname
-    homeManagerConfig
+        # Auto-inject home configurations for this system+hostname
+        homeManagerConfig
 
-    # Import all nixos modules recursively
-  ]
-  ++ (extendedLib.importModulesRecursive ../../modules/nixos)
-  ++ [
-    ../../systems/${system}/${hostname}
-  ]
-  ++ modules;
-}
+        # Import all nixos modules recursively
+      ]
+      ++ (extendedLib.importModulesRecursive ../../modules/nixos)
+      ++ [
+        ../../systems/${system}/${hostname}
+      ]
+      ++ modules;
+  }

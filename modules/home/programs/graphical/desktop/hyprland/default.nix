@@ -4,11 +4,9 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.godtamnix.programs.graphical.desktop.hyprland;
-in
-{
+in {
   options.godtamnix.programs.graphical.desktop.hyprland.enable = mkEnableOption "Hyprland";
 
   config = mkIf cfg.enable {
@@ -97,7 +95,7 @@ in
           preserve_split = true;
         };
 
-        master = { };
+        master = {};
 
         #gestures = {
         #  workspace_swipe = false;
@@ -181,11 +179,21 @@ in
           "$mainMod, mouse_up, workspace, e-1"
         ];
 
+        # Repeatable + locked
         binde = [
           ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
         ];
 
+        # Locked
+        bindl = [
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86AudioNext, exec, playerctl next"
+          ", XF86AudioPrev, exec, playerctl previous"
+        ];
+
+        # Mouse
         bindm = [
           "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"

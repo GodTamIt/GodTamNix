@@ -1,7 +1,6 @@
 let
   catppuccin = import ../colors.nix;
-in
-{
+in {
   filetype = {
     rules = [
       {

@@ -4,15 +4,12 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.godtamnix.nix;
-in
-{
+in {
   options.godtamnix.nix.enable = mkEnableOption "Basic Nix home-manager settings.";
 
   config = mkIf cfg.enable {
-
     home.packages = with pkgs; [
       grim
       hyprlock

@@ -4,22 +4,19 @@
   namespace,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (inputs) pre-commit-hooks-nix;
 in
-pre-commit-hooks-nix.lib.${pkgs.stdenv.hostPlatform.system}.run {
-  src = ./.;
-  hooks =
-    let
+  pre-commit-hooks-nix.lib.${pkgs.stdenv.hostPlatform.system}.run {
+    src = ./.;
+    hooks = let
       excludes = [
         "flake.lock"
         "CHANGELOG.md"
       ];
       fail_fast = true;
       verbose = true;
-    in
-    {
+    in {
       actionlint.enable = true;
       clang-format.enable = true;
       clang-tidy.enable = true;
@@ -46,7 +43,7 @@ pre-commit-hooks-nix.lib.${pkgs.stdenv.hostPlatform.system}.run {
         description = "pre-push hook for git-cliff";
         entry = "${lib.getExe pkgs.${namespace}.git-cliff}";
         language = "system";
-        stages = [ "pre-push" ];
+        stages = ["pre-push"];
       };
 
       luacheck.enable = true;
@@ -72,10 +69,10 @@ pre-commit-hooks-nix.lib.${pkgs.stdenv.hostPlatform.system}.run {
       shfmt = {
         enable = true;
 
-        excludes = [ ".*.p10k.zsh$" ];
+        excludes = [".*.p10k.zsh$"];
       };
 
       statix.enable = true;
       # treefmt.enable = true;
     };
-}
+  }

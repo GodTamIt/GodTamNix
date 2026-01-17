@@ -3,19 +3,19 @@
   self,
   lib,
   ...
-}:
-let
+}: let
   inherit (self.lib.file) parseSystemConfigurations filterNixOSSystems filterDarwinSystems;
 
   systemsPath = ../systems;
   allSystems = parseSystemConfigurations systemsPath;
-in
-{
+in {
   flake = {
     nixosConfigurations = lib.mapAttrs' (
-      _name:
-      { system, hostname, ... }:
-      {
+      _name: {
+        system,
+        hostname,
+        ...
+      }: {
         name = hostname;
         value = self.lib.system.mkSystem {
           inherit inputs system hostname;
@@ -25,9 +25,11 @@ in
     ) (filterNixOSSystems allSystems);
 
     darwinConfigurations = lib.mapAttrs' (
-      _name:
-      { system, hostname, ... }:
-      {
+      _name: {
+        system,
+        hostname,
+        ...
+      }: {
         name = hostname;
         value = self.lib.system.mkDarwin {
           inherit inputs system hostname;

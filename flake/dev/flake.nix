@@ -53,5 +53,5 @@
   };
 
   # This flake is only used for its inputs.
-  outputs = _inputs: { };
+  outputs = _inputs: {};
 }

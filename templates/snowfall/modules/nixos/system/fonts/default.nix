@@ -4,13 +4,11 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
 
   cfg = config.${namespace}.system.fonts;
-in
-{
+in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       font-manager
@@ -27,19 +25,18 @@ in
         antialias = true;
         hinting.enable = true;
 
-        defaultFonts =
-          let
-            common = [
-              "MonaspaceNeon NF"
-              "CascadiaCode"
-              "Symbols Nerd Font"
-              "Noto Color Emoji"
-            ];
-          in
+        defaultFonts = let
+          common = [
+            "MonaspaceNeon NF"
+            "CascadiaCode"
+            "Symbols Nerd Font"
+            "Noto Color Emoji"
+          ];
+        in
           lib.mapAttrs (_: fonts: fonts ++ common) {
-            serif = [ "Noto Serif" ];
-            sansSerif = [ "Lexend" ];
-            emoji = [ "Noto Color Emoji" ];
+            serif = ["Noto Serif"];
+            sansSerif = ["Lexend"];
+            emoji = ["Noto Color Emoji"];
             monospace = [
               "Source Code Pro Medium"
               "Source Han Mono"

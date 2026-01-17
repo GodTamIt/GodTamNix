@@ -1,7 +1,6 @@
 let
   catppuccin = import ../colors.nix;
-in
-{
+in {
   mode = {
     normal_main = {
       fg = catppuccin.colors.base.hex;
@@ -36,8 +35,8 @@ in
     border = {
       fg = catppuccin.colors.blue.hex;
     };
-    title = { };
-    value = { };
+    title = {};
+    value = {};
     selected = {
       reversed = true;
     };
@@ -50,14 +49,14 @@ in
     active = {
       fg = catppuccin.colors.pink.hex;
     };
-    inactive = { };
+    inactive = {};
   };
 
   tasks = {
     border = {
       fg = catppuccin.colors.blue.hex;
     };
-    title = { };
+    title = {};
     hovered = {
       underline = true;
     };

@@ -3,19 +3,19 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   cfg = config.${namespace}.system.env;
-in
-{
+in {
   options.${namespace}.system.env = lib.mkOption {
     apply = lib.mapAttrs (
-      _n: v: if lib.isList v then lib.concatMapStringsSep ":" toString v else (toString v)
+      _n: v:
+        if lib.isList v
+        then lib.concatMapStringsSep ":" toString v
+        else (toString v)
     );
-    default = { };
+    default = {};
     description = "A set of environment variables to set.";
-    type =
-      with lib.types;
+    type = with lib.types;
       attrsOf (oneOf [
         str
         path
@@ -34,9 +34,14 @@ in
       };
 
       extraInit = lib.concatStringsSep "\n" (
-        lib.mapAttrsToList (n: v: /* bash */ ''
-          export ${n}="${v}"
-        '') cfg
+        lib.mapAttrsToList (n: v:
+          /*
+          bash
+          */
+          ''
+            export ${n}="${v}"
+          '')
+        cfg
       );
 
       pathsToLink = [

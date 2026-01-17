@@ -1,14 +1,11 @@
 {
   config,
   lib,
-
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.godtamnix.theme.catppuccin;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     godtamnix = {
       theme = {
@@ -30,7 +27,7 @@ in
           theme = {
             name = "catppuccin-mocha-blue-standard";
             package = pkgs.catppuccin-gtk.override {
-              accents = [ "mauve" ];
+              accents = ["mauve"];
               variant = "mocha";
             };
           };

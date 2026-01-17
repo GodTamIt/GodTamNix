@@ -3,13 +3,11 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkForce;
 
   cfg = config.${namespace}.system.networking;
-in
-{
+in {
   config = mkIf (cfg.dns == "dnsmasq") {
     networking.networkmanager.dns = "dnsmasq";
     services.resolved.enable = mkForce false;
@@ -27,6 +25,5 @@ in
         ];
       };
     };
-
   };
 }

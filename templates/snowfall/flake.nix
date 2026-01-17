@@ -22,25 +22,23 @@
     };
   };
 
-  outputs =
-    inputs:
-    let
-      inherit (inputs) snowfall-lib;
+  outputs = inputs: let
+    inherit (inputs) snowfall-lib;
 
-      lib = snowfall-lib.mkLib {
-        inherit inputs;
-        src = ./.;
+    lib = snowfall-lib.mkLib {
+      inherit inputs;
+      src = ./.;
 
-        snowfall = {
-          meta = {
-            name = "khanelisnow";
-            title = "khanelisnow";
-          };
-
-          namespace = "khanelisnow";
+      snowfall = {
+        meta = {
+          name = "khanelisnow";
+          title = "khanelisnow";
         };
+
+        namespace = "khanelisnow";
       };
-    in
+    };
+  in
     lib.mkFlake {
       alias = {
         packages = {
@@ -53,6 +51,6 @@
         allowUnfree = true;
       };
 
-      outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
+      outputs-builder = channels: {formatter = channels.nixpkgs.nixfmt-rfc-style;};
     };
 }

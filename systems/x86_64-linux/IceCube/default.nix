@@ -5,11 +5,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib.godtamnix) enabled;
-in
-{
+in {
   imports = [
     # Include the results of the hardware scan.
     ./disks.nix
@@ -53,10 +51,14 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configure keymap in X11
-  services.xserver.enable = true;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  services = {
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
   };
 
   # Allow unfree packages

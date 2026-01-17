@@ -3,8 +3,7 @@
   mkShell,
   pkgs,
   ...
-}:
-let
+}: let
   packages = with pkgs; [
     deadnix
     hydra-check
@@ -26,17 +25,18 @@ let
     statix
   ];
 in
-mkShell {
-  inherit packages;
+  mkShell {
+    inherit packages;
 
-  shellHook = ''
-    echo "🔨 Nix DevShell"
-    echo ""
-    echo "📦 Available packages:"
-    ${lib.concatMapStringsSep "\n" (
-      pkg: ''echo "  - ${pkg.pname or pkg.name or "unknown"} (${pkg.version or "unknown"})"''
-    ) packages}
-    echo ""
-    echo "💡 This shell contains advanced Nix development tools"
-  '';
-}
+    shellHook = ''
+      echo "🔨 Nix DevShell"
+      echo ""
+      echo "📦 Available packages:"
+      ${lib.concatMapStringsSep "\n" (
+          pkg: ''echo "  - ${pkg.pname or pkg.name or "unknown"} (${pkg.version or "unknown"})"''
+        )
+        packages}
+      echo ""
+      echo "💡 This shell contains advanced Nix development tools"
+    '';
+  }

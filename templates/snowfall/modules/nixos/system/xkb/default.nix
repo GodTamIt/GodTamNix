@@ -3,13 +3,11 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
 
   cfg = config.${namespace}.system.xkb;
-in
-{
+in {
   options.${namespace}.system.xkb = {
     enable = lib.mkEnableOption "xkb";
   };

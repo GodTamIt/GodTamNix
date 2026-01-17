@@ -2,11 +2,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib.godtamnix) enabled;
-in
-{
+in {
   imports = [
     ../../users/godtamit
   ];

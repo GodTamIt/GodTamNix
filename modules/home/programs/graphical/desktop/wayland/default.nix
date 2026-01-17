@@ -4,11 +4,9 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.godtamnix.programs.graphical.desktop.wayland;
-in
-{
+in {
   options.godtamnix.programs.graphical.desktop.wayland.enable =
     mkEnableOption "wayland extra tools and config";
 

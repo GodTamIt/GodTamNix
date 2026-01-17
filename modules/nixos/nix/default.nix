@@ -2,14 +2,12 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkDefault mkIf;
 
   cfg = config.godtamnix.nix;
-in
-{
-  imports = [ (lib.getFile "modules/common/nix/default.nix") ];
+in {
+  imports = [(lib.getFile "modules/common/nix/default.nix")];
 
   options.godtamnix.nix = {
     enable = lib.mkEnableOption "Nix settings";
@@ -44,14 +42,14 @@ in
 
       optimise = {
         automatic = true;
-        dates = [ "04:00" ];
+        dates = ["04:00"];
       };
 
       settings = {
         auto-allocate-uids = true;
         # bail early on missing cache hits
         connect-timeout = 5;
-        experimental-features = [ "nix-command flakes cgroups auto-allocate-uids" ];
+        experimental-features = ["nix-command flakes cgroups auto-allocate-uids"];
         keep-going = true;
         use-cgroups = true;
 

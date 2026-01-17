@@ -2,17 +2,16 @@
   config,
   lib,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkIf
     mkEnableOption
     mkOption
     types
     ;
   cfg = config.godtamnix.hardware.gpu.nvidia;
-in
-{
+in {
   options.godtamnix.hardware.gpu.nvidia = {
     enable = mkEnableOption "Nvidia GPU configuration";
 
@@ -44,9 +43,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = ["nvidia"];
 
-    boot.blacklistedKernelModules = [ "nouveau" ];
+    boot.blacklistedKernelModules = ["nouveau"];
 
     hardware = {
       graphics.enable = true;
@@ -77,7 +76,7 @@ in
     # Systemd service for power limit
     systemd.services.nvidia-power-limit = mkIf (cfg.powerLimit != null) {
       description = "Set Nvidia GPU Power Limit";
-      wantedBy = [ "multi-user.target" ];
+      wantedBy = ["multi-user.target"];
       # Ensure drivers are loaded
       after = [
         "nvidia-persistenced.service"

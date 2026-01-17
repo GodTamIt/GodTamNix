@@ -3,9 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     types
     mkIf
     mkDefault
@@ -16,14 +16,12 @@ let
   cfg = config.godtamnix.user;
 
   home-directory =
-    if cfg.name == null then
-      null
-    else if pkgs.stdenv.hostPlatform.isDarwin then
-      "/Users/${cfg.name}"
-    else
-      "/home/${cfg.name}";
-in
-{
+    if cfg.name == null
+    then null
+    else if pkgs.stdenv.hostPlatform.isDarwin
+    then "/Users/${cfg.name}"
+    else "/home/${cfg.name}";
+in {
   options.godtamnix.user = {
     enable = mkOpt types.bool false "Whether to configure the user account.";
     email = mkOpt (types.nullOr types.str) null "The email of the user.";
@@ -47,19 +45,20 @@ in
       ];
 
       home = {
-        file = {
-          "Desktop/.keep".text = "";
-          "Documents/.keep".text = "";
-          "Downloads/.keep".text = "";
-          "Music/.keep".text = "";
-          "Pictures/.keep".text = "";
-          "Videos/.keep".text = "";
-        }
-        // lib.optionalAttrs (cfg.icon != null) {
-          ".face".source = cfg.icon;
-          ".face.icon".source = cfg.icon;
-          "Pictures/${cfg.icon.fileName or (baseNameOf cfg.icon)}".source = cfg.icon;
-        };
+        file =
+          {
+            "Desktop/.keep".text = "";
+            "Documents/.keep".text = "";
+            "Downloads/.keep".text = "";
+            "Music/.keep".text = "";
+            "Pictures/.keep".text = "";
+            "Videos/.keep".text = "";
+          }
+          // lib.optionalAttrs (cfg.icon != null) {
+            ".face".source = cfg.icon;
+            ".face.icon".source = cfg.icon;
+            "Pictures/${cfg.icon.fileName or (baseNameOf cfg.icon)}".source = cfg.icon;
+          };
 
         # Only set homeDirectory if cfg.home is not null
         homeDirectory = mkIf (cfg.home != null) (mkDefault cfg.home);
@@ -71,7 +70,7 @@ in
         home-manager = enabled;
 
         git = mkMerge [
-          { enable = true; }
+          {enable = true;}
           (mkIf (cfg.fullName != null) {
             settings.user.name = cfg.fullName;
           })

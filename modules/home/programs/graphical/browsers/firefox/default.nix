@@ -2,8 +2,7 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.godtamnix.programs.graphical.browsers.firefox;
 
   lock-false = {
@@ -14,15 +13,14 @@ let
     Value = true;
     Status = "locked";
   };
-in
-{
+in {
   options.godtamnix.programs.graphical.browsers.firefox = {
     enable = lib.mkEnableOption "Firefox Browser";
 
     languagePacks = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       description = "List of language packs to install";
-      default = [ "en-US" ];
+      default = ["en-US"];
     };
 
     policies = lib.mkOption {

@@ -3,9 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     types
     mkDefault
     mkIf
@@ -13,14 +13,12 @@ let
     ;
 
   # Use direct implementations to avoid circular dependency
-  mkOpt =
-    type: default: description:
-    mkOption { inherit type default description; };
+  mkOpt = type: default: description:
+    mkOption {inherit type default description;};
   mkBoolOpt = mkOpt types.bool;
 
   cfg = config.godtamnix.theme.qt;
-in
-{
+in {
   options.godtamnix.theme.qt = with types; {
     enable = lib.mkEnableOption "customizing qt and apply themes";
 
@@ -64,9 +62,11 @@ in
 
       Troubleshooting = {
         force_raster_widgets = mkOpt types.int 1 "Whether to force rastering of widgets";
-        ignored_applications = mkOpt (types.nullOr (
-          types.listOf types.str
-        )) null "List of applications to ignore"; # You might need to adjust this depending on Nix version
+        ignored_applications =
+          mkOpt (types.nullOr (
+            types.listOf types.str
+          ))
+          null "List of applications to ignore"; # You might need to adjust this depending on Nix version
       };
     };
   };
@@ -99,8 +99,8 @@ in
     };
 
     xdg.configFile = {
-      "qt5ct/qt5ct.conf".text = lib.generators.toINI { } cfg.settings;
-      "qt6ct/qt6ct.conf".text = lib.generators.toINI { } cfg.settings;
+      "qt5ct/qt5ct.conf".text = lib.generators.toINI {} cfg.settings;
+      "qt6ct/qt6ct.conf".text = lib.generators.toINI {} cfg.settings;
     };
 
     qt = {
@@ -110,7 +110,7 @@ in
         name = mkDefault "qtct";
       };
 
-      style = mkDefault { name = "qt6ct-style"; };
+      style = mkDefault {name = "qt6ct-style";};
     };
   };
 }

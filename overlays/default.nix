@@ -1,2 +1,1 @@
-_: final: prev:
-{ }
+_: _final: _prev: {}

@@ -4,9 +4,9 @@
   pkgs,
   namespace,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     types
     mkIf
     mkDefault
@@ -15,11 +15,10 @@ let
   inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.system.networking;
-in
-{
+in {
   options.${namespace}.system.networking = with types; {
     enable = lib.mkEnableOption "networking support";
-    hosts = mkOpt attrs { } "An attribute set to merge with <option>networking.hosts</option>";
+    hosts = mkOpt attrs {} "An attribute set to merge with <option>networking.hosts</option>";
     optimizeTcp = mkBoolOpt false "Optimize TCP connections";
     dns = mkOpt (types.enum [
       "dnsmasq"
@@ -31,13 +30,14 @@ in
     boot = {
       extraModprobeConfig = "options bonding max_bonds=0";
 
-      kernelModules = [
-        "af_packet"
-      ]
-      ++ lib.optionals cfg.optimizeTcp [
-        "tls"
-        "tcp_bbr"
-      ];
+      kernelModules =
+        [
+          "af_packet"
+        ]
+        ++ lib.optionals cfg.optimizeTcp [
+          "tls"
+          "tcp_bbr"
+        ];
 
       kernel.sysctl = {
         # TCP hardening
@@ -118,13 +118,14 @@ in
     ];
 
     networking = {
-      hosts = {
-        "127.0.0.1" = cfg.hosts."127.0.0.1" or [ ];
-      }
-      // cfg.hosts;
+      hosts =
+        {
+          "127.0.0.1" = cfg.hosts."127.0.0.1" or [];
+        }
+        // cfg.hosts;
 
       firewall = {
-        allowedUDPPorts = [ 5353 ];
+        allowedUDPPorts = [5353];
         allowedTCPPorts = [
           443
           8080

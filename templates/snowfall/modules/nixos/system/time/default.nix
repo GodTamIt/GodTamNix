@@ -4,19 +4,17 @@
   pkgs,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
 
   cfg = config.${namespace}.system.time;
-in
-{
+in {
   options.${namespace}.system.time = {
     enable = lib.mkEnableOption "time related settings";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.openntpd ];
+    environment.systemPackages = [pkgs.openntpd];
 
     networking.timeServers = [
       "0.nixos.pool.ntp.org"

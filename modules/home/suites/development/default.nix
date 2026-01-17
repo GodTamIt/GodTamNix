@@ -4,15 +4,13 @@
   pkgs,
   # osConfig ? { },
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
 
   cfg = config.godtamnix.suites.development;
   # isWSL = osConfig.godtamnix.archetypes.wsl.enable or false;
   isWSL = false;
-in
-{
+in {
   options.godtamnix.suites.development = {
     enable = lib.mkEnableOption "common development configuration";
     awsEnable = lib.mkEnableOption "AWS development configuration";
@@ -28,8 +26,7 @@ in
 
   config = mkIf cfg.enable {
     home = {
-      packages =
-        with pkgs;
+      packages = with pkgs;
         [
           antigravity
           go
@@ -55,6 +52,7 @@ in
         ++ lib.optionals cfg.nixEnable [
           hydra-check
           # godtamnix.build-by-path
+          alejandra
           nix-bisect
           nix-diff
           nix-fast-build
@@ -67,11 +65,11 @@ in
           nurl
         ]
         ++ lib.optionals cfg.gameEnable (
-          [ gdevelop ]
+          [gdevelop]
           ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
             godot
             # NOTE: removed from nixpkgs
-            # ue4
+            # Unreal Engine 4
             unityhub
           ]
         )

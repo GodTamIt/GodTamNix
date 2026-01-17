@@ -2,23 +2,20 @@
   config,
   lib,
   pkgs,
-
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
 
   cfg = config.godtamnix.hardware.cpu.amd;
-in
-{
+in {
   options.godtamnix.hardware.cpu.amd = {
     enable = lib.mkEnableOption "support for amd cpu";
   };
 
   config = mkIf cfg.enable {
     boot = {
-      blacklistedKernelModules = [ "k10temp" ];
-      extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+      blacklistedKernelModules = ["k10temp"];
+      extraModulePackages = [config.boot.kernelPackages.zenpower];
       kernelModules = [
         "kvm-amd" # amd virtualization
         "zenpower" # zenpower is for reading cpu info, i.e voltage
@@ -30,10 +27,10 @@ in
       # passive: In this mode, the driver behaves similarly to the legacy acpi-cpufreq driver, with the OS requesting specific performance states (P-states). It does not fully leverage the CPPC mechanism and is generally not the recommended choice.
       # active (EPP): In this mode, also known as Energy Performance Preference (EPP), the driver provides a simple "hint" to the CPU firmware, biasing it towards either performance or energy efficiency. The firmware then autonomously makes the final, granular frequency decisions based on real-time workload, thermal, and power conditions.
       # guided: This mode represents a hybrid approach. The OS governor requests a minimum and maximum performance level, and the hardware platform is then free to autonomously select the most appropriate frequency within that range.
-      kernelParams = [ "amd_pstate=guided" ];
+      kernelParams = ["amd_pstate=guided"];
     };
 
-    environment.systemPackages = [ pkgs.amdctl ];
+    environment.systemPackages = [pkgs.amdctl];
 
     hardware.cpu.amd.updateMicrocode = true;
 

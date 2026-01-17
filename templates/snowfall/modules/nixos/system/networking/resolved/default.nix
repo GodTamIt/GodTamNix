@@ -3,13 +3,11 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkForce;
 
   cfg = config.${namespace}.system.networking;
-in
-{
+in {
   config = mkIf (cfg.dns == "systemd-resolved") {
     networking.networkmanager.dns = "systemd-resolved";
     services.dnsmasq.enable = mkForce false;
@@ -19,13 +17,13 @@ in
       # dnssec = "true";
       # this is necessary to get tailscale picking up your headscale instance
       # and allows you to ping connected hosts by hostname
-      domains = [ "~." ];
+      domains = ["~."];
       dnsovertls = "true";
       # extraConfig =
       #   mkIf cfg.dns == "dnsmasq" ''
       #     DNSStubListener=false
       #   '';
-      fallbackDns = [ "192.168.1.1" ];
+      fallbackDns = ["192.168.1.1"];
     };
   };
 }

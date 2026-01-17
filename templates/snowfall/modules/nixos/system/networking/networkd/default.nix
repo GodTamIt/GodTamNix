@@ -3,13 +3,11 @@
   lib,
   namespace,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkForce;
 
   cfg = config.${namespace}.system.networking;
-in
-{
+in {
   config = mkIf cfg.enable {
     networking.useNetworkd = mkForce true;
 
@@ -20,7 +18,7 @@ in
       wait-online = {
         enable = false;
         anyInterface = true;
-        extraArgs = [ "--ipv4" ];
+        extraArgs = ["--ipv4"];
       };
 
       # https://wiki.archlinux.org/title/Systemd-networkd
@@ -28,7 +26,7 @@ in
         # leave the kernel dummy devies unmanagaed
         "10-dummy" = {
           matchConfig.Name = "dummy*";
-          networkConfig = { };
+          networkConfig = {};
           # linkConfig.ActivationPolicy = "always-down";
           linkConfig.Unmanaged = "yes";
         };

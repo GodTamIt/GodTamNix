@@ -1,31 +1,29 @@
-{ inputs }:
-let
+{inputs}: let
   inherit (inputs.nixpkgs.lib) filterAttrs mapAttrs';
-in
-{
+in {
   /**
-    Create an extended library with the flake's overlay.
+  Create an extended library with the flake's overlay.
 
-    # Inputs
+  # Inputs
 
-    `flake`
+  `flake`
 
-    : 1\. Function argument
+  : 1\. Function argument
 
-    `nixpkgs`
+  `nixpkgs`
 
-    : 2\. Function argument
+  : 2\. Function argument
   */
   mkExtendedLib = flake: nixpkgs: nixpkgs.lib.extend flake.lib.overlay;
 
   /**
-    Create a nixpkgs configuration with overlays and unfree packages enabled.
+  Create a nixpkgs configuration with overlays and unfree packages enabled.
 
-    # Inputs
+  # Inputs
 
-    `flake`
+  `flake`
 
-    : 1\. Function argument
+  : 1\. Function argument
   */
   mkNixpkgsConfig = flake: {
     overlays = builtins.attrValues flake.overlays;
@@ -43,91 +41,89 @@ in
   };
 
   /**
-    Get home configurations matching a specific system and hostname.
+  Get home configurations matching a specific system and hostname.
 
-    # Inputs
+  # Inputs
 
-    `flake`
+  `flake`
 
-    : Flake instance
+  : Flake instance
 
-    `system`
+  `system`
 
-    : System architecture
+  : System architecture
 
-    `hostname`
+  `hostname`
 
-    : Host name
+  : Host name
   */
-  mkHomeConfigs =
-    {
-      flake,
-      system,
-      hostname,
-    }:
-    let
-      inherit (flake.lib.file) parseHomeConfigurations;
-      homesPath = ../../homes;
-      allHomes = parseHomeConfigurations homesPath;
-    in
+  mkHomeConfigs = {
+    flake,
+    system,
+    hostname,
+  }: let
+    inherit (flake.lib.file) parseHomeConfigurations;
+    homesPath = ../../homes;
+    allHomes = parseHomeConfigurations homesPath;
+  in
     filterAttrs (
       _name: homeConfig: homeConfig.system == system && homeConfig.hostname == hostname
-    ) allHomes;
+    )
+    allHomes;
 
   /**
-    Create a Home Manager configuration for a system.
+  Create a Home Manager configuration for a system.
 
-    # Inputs
+  # Inputs
 
-    `extendedLib`
+  `extendedLib`
 
-    : Extended library
+  : Extended library
 
-    `inputs`
+  `inputs`
 
-    : Flake inputs
+  : Flake inputs
 
-    `system`
+  `system`
 
-    : System architecture
+  : System architecture
 
-    `matchingHomes`
+  `matchingHomes`
 
-    : Matching home configurations
+  : Matching home configurations
 
-    `isNixOS`
+  `isNixOS`
 
-    : Whether the system is NixOS
+  : Whether the system is NixOS
   */
-  mkHomeManagerConfig =
-    {
-      extendedLib,
-      inputs,
-      system,
-      matchingHomes,
-      isNixOS ? true,
-    }:
-    if matchingHomes != { } then
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = {
-            inherit inputs system;
-            inherit (inputs) self;
-            lib = extendedLib;
-            flake-parts-lib = inputs.flake-parts.lib;
-          };
-          sharedModules = [
-            { _module.args.lib = extendedLib; }
+  mkHomeManagerConfig = {
+    extendedLib,
+    inputs,
+    system,
+    matchingHomes,
+    isNixOS ? true,
+  }:
+    if matchingHomes != {}
+    then {
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        extraSpecialArgs = {
+          inherit inputs system;
+          inherit (inputs) self;
+          lib = extendedLib;
+          flake-parts-lib = inputs.flake-parts.lib;
+        };
+        sharedModules =
+          [
+            {_module.args.lib = extendedLib;}
           ]
           ++ (
-            if isNixOS then
-              [
-                inputs.home-manager.flakeModules.home-manager
-              ]
-            else
-              [ ]
+            if isNixOS
+            then [
+              inputs.home-manager.flakeModules.home-manager
+            ]
+            else []
           )
           ++ [
             inputs.catppuccin.homeModules.catppuccin
@@ -136,65 +132,66 @@ in
             inputs.sops-nix.homeManagerModules.sops
           ]
           ++ (extendedLib.importModulesRecursive ../../modules/home);
-          users = mapAttrs' (_name: homeConfig: {
+        users =
+          mapAttrs' (_name: homeConfig: {
             name = homeConfig.username;
-            value = {
-              imports = [ homeConfig.path ];
-              home = {
-                inherit (homeConfig) username;
-                homeDirectory = inputs.nixpkgs.lib.mkDefault (
-                  if isNixOS then "/home/${homeConfig.username}" else "/Users/${homeConfig.username}"
-                );
-              };
-            }
-            // (
-              if isNixOS then
-                {
+            value =
+              {
+                imports = [homeConfig.path];
+                home = {
+                  inherit (homeConfig) username;
+                  homeDirectory = inputs.nixpkgs.lib.mkDefault (
+                    if isNixOS
+                    then "/home/${homeConfig.username}"
+                    else "/Users/${homeConfig.username}"
+                  );
+                };
+              }
+              // (
+                if isNixOS
+                then {
                   _module.args.username = homeConfig.username;
                 }
-              else
-                { }
-            );
-          }) matchingHomes;
-        };
-      }
-    else
-      { };
+                else {}
+              );
+          })
+          matchingHomes;
+      };
+    }
+    else {};
 
   /**
-    Create special arguments for system configurations.
+  Create special arguments for system configurations.
 
-    # Inputs
+  # Inputs
 
-    `inputs`
+  `inputs`
 
-    : Flake inputs
+  : Flake inputs
 
-    `hostname`
+  `hostname`
 
-    : Host name
+  : Host name
 
-    `users`
+  `users`
 
-    : List of usernames
+  : List of usernames
 
-    `extendedLib`
+  `extendedLib`
 
-    : Extended library
+  : Extended library
   */
-  mkSpecialArgs =
-    {
-      inputs,
-      hostname,
-      username,
-      extendedLib,
-    }:
-    {
-      inherit inputs hostname username;
-      inherit (inputs) self;
-      lib = extendedLib;
-      flake-parts-lib = inputs.flake-parts.lib;
-      format = "system";
-      host = hostname;
-    };
+  mkSpecialArgs = {
+    inputs,
+    hostname,
+    username,
+    extendedLib,
+  }: {
+    inherit inputs hostname username;
+    inherit (inputs) self;
+    lib = extendedLib;
+    flake-parts-lib = inputs.flake-parts.lib;
+    format = "system";
+    host = hostname;
+  };
 }

@@ -4,22 +4,20 @@
   pkgs,
   options,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkEnableOption
     mkIf
     types
     ;
 
   # Use direct mkOpt implementation to avoid circular dependency
-  mkOpt =
-    type: default: description:
-    lib.mkOption { inherit type default description; };
+  mkOpt = type: default: description:
+    lib.mkOption {inherit type default description;};
 
   cfg = config.godtamnix.theme.stylix;
-in
-{
+in {
   options.godtamnix.theme.stylix = {
     enable = mkEnableOption "stylix theme for applications";
     theme = mkOpt types.str "catppuccin-mocha" "base16 theme file name";
@@ -27,7 +25,9 @@ in
     cursor = {
       name = mkOpt types.str "catppuccin-mocha-mauve-cursors" "The name of the cursor theme to apply.";
       package = mkOpt types.package (
-        if pkgs.stdenv.hostPlatform.isLinux then pkgs.catppuccin-cursors.mochaMauve else pkgs.emptyDirectory
+        if pkgs.stdenv.hostPlatform.isLinux
+        then pkgs.catppuccin-cursors.mochaMauve
+        else pkgs.emptyDirectory
       ) "The package to use for the cursor theme.";
       size = mkOpt types.int 32 "The size of the cursor.";
     };
@@ -70,15 +70,24 @@ in
 
           serif = {
             package = pkgs.monaspace;
-            name = if pkgs.stdenv.hostPlatform.isDarwin then "Monaspace Neon NF" else "MonaspaceNeon NF";
+            name =
+              if pkgs.stdenv.hostPlatform.isDarwin
+              then "Monaspace Neon NF"
+              else "MonaspaceNeon NF";
           };
           sansSerif = {
             package = pkgs.monaspace;
-            name = if pkgs.stdenv.hostPlatform.isDarwin then "Monaspace Neon NF" else "MonaspaceNeon NF";
+            name =
+              if pkgs.stdenv.hostPlatform.isDarwin
+              then "Monaspace Neon NF"
+              else "MonaspaceNeon NF";
           };
           monospace = {
             package = pkgs.monaspace;
-            name = if pkgs.stdenv.hostPlatform.isDarwin then "Monaspace Krypton NF" else "MonaspaceKrypton NF";
+            name =
+              if pkgs.stdenv.hostPlatform.isDarwin
+              then "Monaspace Krypton NF"
+              else "MonaspaceKrypton NF";
           };
           emoji = {
             package = pkgs.noto-fonts-color-emoji;
@@ -103,54 +112,55 @@ in
           popups = 1.0;
         };
 
-        targets = {
-          # Set profile names for firefox
-          firefox.profileNames = [ config.godtamnix.user.name ];
+        targets =
+          {
+            # Set profile names for firefox
+            firefox.profileNames = [config.godtamnix.user.name];
 
-          # TODO: Very custom styling, integrate with their variables
-          # Currently setup only for catppuccin/nix
-          vscode.enable = false;
+            # TODO: Very custom styling, integrate with their variables
+            # Currently setup only for catppuccin/nix
+            vscode.enable = false;
 
-          # Disable targets when catppuccin is enabled
-          alacritty.enable = !config.godtamnix.theme.catppuccin.enable;
-          bat.enable = !config.godtamnix.theme.catppuccin.enable;
-          btop.enable = !config.godtamnix.theme.catppuccin.enable;
-          cava.enable = !config.godtamnix.theme.catppuccin.enable;
-          fish.enable = !config.godtamnix.theme.catppuccin.enable;
-          foot.enable = !config.godtamnix.theme.catppuccin.enable;
-          fzf.enable = !config.godtamnix.theme.catppuccin.enable;
-          ghostty.enable = !config.godtamnix.theme.catppuccin.enable;
-          gitui.enable = !config.godtamnix.theme.catppuccin.enable;
-          helix.enable = !config.godtamnix.theme.catppuccin.enable;
-          k9s.enable = !config.godtamnix.theme.catppuccin.enable;
-          kitty = {
-            enable = !config.godtamnix.theme.catppuccin.enable;
+            # Disable targets when catppuccin is enabled
+            alacritty.enable = !config.godtamnix.theme.catppuccin.enable;
+            bat.enable = !config.godtamnix.theme.catppuccin.enable;
+            btop.enable = !config.godtamnix.theme.catppuccin.enable;
+            cava.enable = !config.godtamnix.theme.catppuccin.enable;
+            fish.enable = !config.godtamnix.theme.catppuccin.enable;
+            foot.enable = !config.godtamnix.theme.catppuccin.enable;
+            fzf.enable = !config.godtamnix.theme.catppuccin.enable;
+            ghostty.enable = !config.godtamnix.theme.catppuccin.enable;
+            gitui.enable = !config.godtamnix.theme.catppuccin.enable;
+            helix.enable = !config.godtamnix.theme.catppuccin.enable;
+            k9s.enable = !config.godtamnix.theme.catppuccin.enable;
+            kitty = {
+              enable = !config.godtamnix.theme.catppuccin.enable;
+            };
+            lazygit.enable = !config.godtamnix.theme.catppuccin.enable;
+            ncspot.enable = !config.godtamnix.theme.catppuccin.enable;
+            neovim.enable = !config.godtamnix.theme.catppuccin.enable;
+            tmux.enable = !config.godtamnix.theme.catppuccin.enable;
+            vesktop.enable = !config.godtamnix.theme.catppuccin.enable;
+            vicinae.enable = !config.godtamnix.theme.catppuccin.enable;
+            yazi.enable = !config.godtamnix.theme.catppuccin.enable;
+            zathura.enable = !config.godtamnix.theme.catppuccin.enable;
+            zellij.enable = !config.godtamnix.theme.catppuccin.enable;
+          }
+          // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+            gnome.enable = !config.godtamnix.theme.catppuccin.enable;
+            # FIXME: not working
+            gtk.enable = false;
+            hyprland.enable = !config.godtamnix.theme.catppuccin.enable;
+            # FIXME:: upstream needs module fix
+            hyprlock.useWallpaper = false;
+            hyprlock.enable = false;
+            qt.enable = !config.godtamnix.theme.catppuccin.enable;
+            sway.enable = !config.godtamnix.theme.catppuccin.enable;
+            # TODO: Very custom styling, integrate with their variables
+            # Currently setup only for catppuccin/nix
+            swaync.enable = false;
+            waybar.enable = !config.godtamnix.theme.catppuccin.enable;
           };
-          lazygit.enable = !config.godtamnix.theme.catppuccin.enable;
-          ncspot.enable = !config.godtamnix.theme.catppuccin.enable;
-          neovim.enable = !config.godtamnix.theme.catppuccin.enable;
-          tmux.enable = !config.godtamnix.theme.catppuccin.enable;
-          vesktop.enable = !config.godtamnix.theme.catppuccin.enable;
-          vicinae.enable = !config.godtamnix.theme.catppuccin.enable;
-          yazi.enable = !config.godtamnix.theme.catppuccin.enable;
-          zathura.enable = !config.godtamnix.theme.catppuccin.enable;
-          zellij.enable = !config.godtamnix.theme.catppuccin.enable;
-        }
-        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
-          gnome.enable = !config.godtamnix.theme.catppuccin.enable;
-          # FIXME: not working
-          gtk.enable = false;
-          hyprland.enable = !config.godtamnix.theme.catppuccin.enable;
-          # FIXME:: upstream needs module fix
-          hyprlock.useWallpaper = false;
-          hyprlock.enable = false;
-          qt.enable = !config.godtamnix.theme.catppuccin.enable;
-          sway.enable = !config.godtamnix.theme.catppuccin.enable;
-          # TODO: Very custom styling, integrate with their variables
-          # Currently setup only for catppuccin/nix
-          swaync.enable = false;
-          waybar.enable = !config.godtamnix.theme.catppuccin.enable;
-        };
       };
     }
   );

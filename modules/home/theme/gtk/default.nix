@@ -2,11 +2,11 @@
   config,
   lib,
   pkgs,
-  osConfig ? { },
+  osConfig ? {},
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkIf
     mkDefault
     types
@@ -14,8 +14,7 @@ let
   inherit (lib.godtamnix) mkOpt boolToNum nested-default-attrs;
 
   cfg = config.godtamnix.theme.gtk;
-in
-{
+in {
   options.godtamnix.theme.gtk = {
     enable = lib.mkEnableOption "customizing GTK and apply themes";
     usePortal = lib.mkEnableOption "using the GTK Portal";
@@ -23,7 +22,9 @@ in
     cursor = {
       name = mkOpt types.str "catppuccin-mocha-mauve-cursors" "The name of the cursor theme to apply.";
       package = mkOpt types.package (
-        if pkgs.stdenv.hostPlatform.isLinux then pkgs.catppuccin-cursors.mochaMauve else pkgs.emptyDirectory
+        if pkgs.stdenv.hostPlatform.isLinux
+        then pkgs.catppuccin-cursors.mochaMauve
+        else pkgs.emptyDirectory
       ) "The package to use for the cursor theme.";
       size = mkOpt types.int 32 "The size of the cursor.";
     };
@@ -39,7 +40,7 @@ in
     theme = {
       name = mkOpt types.str "catppuccin-mocha-mauve-standard" "The name of the theme to apply";
       package = mkOpt types.package (pkgs.catppuccin-gtk.override {
-        accents = [ "mauve" ];
+        accents = ["mauve"];
         size = "standard";
         variant = "mocha";
       }) "The package to use for the theme";
@@ -70,7 +71,7 @@ in
       };
     };
 
-    dbus.packages = [ pkgs.dconf ];
+    dbus.packages = [pkgs.dconf];
 
     dconf = {
       enable = true;
@@ -78,7 +79,7 @@ in
       settings = nested-default-attrs {
         "org/gnome/shell" = {
           disable-user-extensions = false;
-          enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+          enabled-extensions = ["user-theme@gnome-shell-extensions.gcampax.github.com"];
         };
 
         "org/gnome/shell/extensions/user-theme" = {
@@ -153,11 +154,9 @@ in
     };
 
     xdg = {
-      systemDirs.data =
-        let
-          schema = pkgs.gsettings-desktop-schemas;
-        in
-        [ "${schema}/share/gsettings-schemas/${schema.name}" ];
+      systemDirs.data = let
+        schema = pkgs.gsettings-desktop-schemas;
+      in ["${schema}/share/gsettings-schemas/${schema.name}"];
     };
   };
 }

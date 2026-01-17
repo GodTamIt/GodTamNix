@@ -1,6 +1,4 @@
-{ inputs }:
-final: _prev:
-let
+{inputs}: final: _prev: let
   # citrix = import inputs.nixpkgs-citrix-workspace {
   #   inherit (final.stdenv.hostPlatform) system;
   #   inherit (final) config;
@@ -13,8 +11,7 @@ let
     inherit (final.stdenv.hostPlatform) system;
     inherit (final) config;
   };
-in
-{
+in {
   #          ╭──────────────────────────────────────────────────────────╮
   #          │                Citrix last known working                 │
   #          ╰──────────────────────────────────────────────────────────╯
@@ -34,7 +31,8 @@ in
   #          ╭──────────────────────────────────────────────────────────╮
   #          │ From nixpkgs-master (fast updating / want latest always) │
   #          ╰──────────────────────────────────────────────────────────╯
-  inherit (master)
+  inherit
+    (master)
     antigravity
     claude-code
     gemini-cli
@@ -55,10 +53,10 @@ in
   #          │   From nixpkgs-unstable (reasonable update / stability   │
   #          │                         balance)                         │
   #          ╰──────────────────────────────────────────────────────────╯
-  inherit (unstable)
+  inherit
+    (unstable)
     # Misc
     _1password-gui
-
     # Online services to keep up to date
     element-desktop
     signal-desktop
