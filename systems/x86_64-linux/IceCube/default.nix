@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   lib,
+  pkgs,
   ...
 }:
 let
@@ -57,13 +58,46 @@ in
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
-  environment.systemPackages = [ ];
+  environment.systemPackages = with pkgs; [
+    fira-code
+    nerd-fonts.fira-code
+    noto-fonts
+  ];
 
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     # ELECTRON_OZONE_PLATFORM_HINT = "auto";
     NIXOS_OZONE_WL = "1";
+  };
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland = {
+      enable = true;
+      compositor = "weston";
+    };
+  };
+
+  # Use catppuccin themed sddm
+  catppuccin = {
+    enable = true;
+    sddm = {
+      enable = true;
+      flavor = "mocha";
+      font = "Noto Sans";
+      fontSize = "9";
+      # background = "some/path";
+      # userIcon = true;
+    };
+  };
+
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+    fish = enabled;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -81,14 +115,6 @@ in
     enable = true;
     settings.PermitRootLogin = "no";
     allowSFTP = true;
-  };
-
-  programs = {
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
-    fish = enabled;
   };
 
   # This value determines the NixOS release from which the default
