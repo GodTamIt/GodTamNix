@@ -106,8 +106,6 @@ in {
   };
 
   home.packages = with pkgs; [
-    foot
-    kitty
     wofi
   ];
 

@@ -152,7 +152,7 @@ in {
 
         bind = [
           "$mainMod, return, exec, kitty -e zellij-ps"
-          "$mainMod, t, exec, foot"
+          "$mainMod, t, exec, kitty"
           "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
