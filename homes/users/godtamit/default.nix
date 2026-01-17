@@ -26,7 +26,6 @@
 
   home.packages = with pkgs; [
     discord
-    plex-desktop
     signal-desktop
 
     # Fonts

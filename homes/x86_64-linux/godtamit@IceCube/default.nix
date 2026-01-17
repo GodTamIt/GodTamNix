@@ -32,6 +32,8 @@ in {
         sqlEnable = true;
       };
 
+      multimedia = enabled;
+
       video = {
         enable = true;
         kdenliveEnable = true;
