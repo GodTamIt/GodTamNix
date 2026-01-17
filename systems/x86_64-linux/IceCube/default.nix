@@ -20,6 +20,10 @@ in
   godtamnix = {
     # Enables core system configuration
     nix = enabled;
+
+    suites = {
+      audio = enabled;
+    };
   };
 
   # Bootloader.
