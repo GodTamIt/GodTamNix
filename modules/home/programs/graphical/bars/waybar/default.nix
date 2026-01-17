@@ -293,7 +293,7 @@ in
             format-wifi = "󰤨 {essid}";
             format-ethernet = " Wired ";
             tooltip-format = "<span color='#FF1493'> 󰅧 </span>{bandwidthUpBytes}  <span color='#00BFFF'> 󰅢 </span>{bandwidthDownBytes}";
-            format-linked = "󱘖 {ifname} (No IP)";
+            #format-linked = "󱘖 {ifname} (No IP)";
             format-disconnected = " Disconnected";
             format-alt = "󰤨 {signalStrength}%";
             interval = 1;
