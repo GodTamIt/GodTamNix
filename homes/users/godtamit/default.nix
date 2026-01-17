@@ -26,6 +26,7 @@
 
   home.packages = with pkgs; [
     discord
+    neofetch
     signal-desktop
 
     # Fonts
@@ -45,6 +46,10 @@
         set -x NIX_PATH nixpkgs=channel:nixos-unstable
         set -x NIX_LOG info
         set -x TERMINAL kitty
+      '';
+
+      interactiveShellInit = ''
+        neofetch
       '';
 
       shellAbbrs = {
