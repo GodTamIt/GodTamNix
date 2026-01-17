@@ -74,7 +74,7 @@ in {
             passes = 3;
           };
           active_opacity = 0.9;
-          inactive_opacity = 0.5;
+          inactive_opacity = 0.6;
         };
 
         animations = {
@@ -101,36 +101,51 @@ in {
         #  workspace_swipe = false;
         #};
 
+        # windowrule = [
+        #  "float, file_progress"
+        #  "float, confirm"
+        #  "float, dialog"
+        #  "float, download"
+        #  "float, notification"
+        #  "float, error"
+        #  "float, splash"
+        #  "float, confirmreset"
+        #  "float, title:(Open File)"
+        #  "float, title:branchdialog"
+        #  "float, Lxappearance"
+        #  "float, Wofi"
+        #  "float, dunst"
+        #  "animation none,Wofi"
+        #  "float,viewnior"
+        #  "float,feh"
+        #  "float, pavucontrol-qt"
+        #  "float, pavucontrol"
+        #  "float, file-roller"
+        #  "fullscreen, wlogout"
+        #  "float, title:wlogout"
+        #  "fullscreen, title:wlogout"
+        #  "idleinhibit focus, mpv"
+        #  "idleinhibit fullscreen, firefox"
+        #  "float, title:^(Media viewer)$"
+        #  "float, title:^(Volume Control)$"
+        #  "float, title:^(Picture-in-Picture)$"
+        #  "size 800 600, title:^(Volume Control)$"
+        #  "move 75 44%, title:^(Volume Control)$"
+        # ];
+
         windowrule = [
-          #  "float, file_progress"
-          #  "float, confirm"
-          #  "float, dialog"
-          #  "float, download"
-          #  "float, notification"
-          #  "float, error"
-          #  "float, splash"
-          #  "float, confirmreset"
-          #  "float, title:(Open File)"
-          #  "float, title:branchdialog"
-          #  "float, Lxappearance"
-          #  "float, Wofi"
-          #  "float, dunst"
-          #  "animation none,Wofi"
-          #  "float,viewnior"
-          #  "float,feh"
-          #  "float, pavucontrol-qt"
-          #  "float, pavucontrol"
-          #  "float, file-roller"
-          #  "fullscreen, wlogout"
-          #  "float, title:wlogout"
-          #  "fullscreen, title:wlogout"
-          #  "idleinhibit focus, mpv"
-          #  "idleinhibit fullscreen, firefox"
-          #  "float, title:^(Media viewer)$"
-          #  "float, title:^(Volume Control)$"
-          #  "float, title:^(Picture-in-Picture)$"
-          #  "size 800 600, title:^(Volume Control)$"
-          #  "move 75 44%, title:^(Volume Control)$"
+          "opacity 0.9 override 0.9 override, match:class firefox"
+          "opacity 0.9 override 0.9 override, match:class antigravity"
+          "opacity 1.0 override 0.9 override, match:class brave-browser"
+
+          # Floating popups
+          "float on, match:title ^(Open (File|Folder))$"
+          "float on, match:title ^(Select (File|Folder))))$"
+
+          # "opaque, class:(firefox)"
+          # "workspace 1, class:^(Emacs)$"
+          # "workspace 3, opacity 1.0, class:^(brave-browser)$"
+          # "workspace 4, class:^(com.obsproject.Studio)$"
         ];
 
         "$mainMod" = "SUPER";
@@ -175,8 +190,8 @@ in {
           "$mainMod SHIFT, 8, movetoworkspace, 8"
           "$mainMod SHIFT, 9, movetoworkspace, 9"
           "$mainMod SHIFT, 0, movetoworkspace, 10"
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
+          "$mainMod, right, workspace, e+1"
+          "$mainMod, left, workspace, e-1"
         ];
 
         # Repeatable + locked
@@ -197,13 +212,6 @@ in {
         bindm = [
           "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"
-        ];
-
-        windowrulev2 = [
-          "float,title:(Open File)"
-          "workspace 1,class:(Emacs)"
-          "workspace 3,opacity 1.0, class:(brave-browser)"
-          "workspace 4,class:(com.obsproject.Studio)"
         ];
       };
     };
