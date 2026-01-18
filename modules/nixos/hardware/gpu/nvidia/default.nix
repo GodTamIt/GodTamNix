@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit
@@ -48,7 +49,14 @@ in {
     boot.blacklistedKernelModules = ["nouveau"];
 
     hardware = {
-      graphics.enable = true;
+      graphics = {
+        enable = true;
+
+        extraPackages = with pkgs; [
+          nvidia-vaapi-driver
+          ocl-icd
+        ];
+      };
 
       nvidia = {
         # Modesetting is required
@@ -71,6 +79,23 @@ in {
 
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
+    };
+
+    environment = {
+      sessionVariables = {
+        # Apps can use the NVIDIA VA-API bridge
+        LIBVA_DRIVER_NAME = "nvidia";
+        # Required for the VA-API driver to work on Wayland
+        NVD_BACKEND = "direct";
+        # OpenGL apps use the NVIDIA driver
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+
+        GBM_BACKEND = "nvidia-drm";
+      };
+
+      systemPackages = with pkgs; [
+        nvtopPackages.nvidia
+      ];
     };
 
     # Systemd service for power limit
