@@ -53,6 +53,7 @@ in {
         enable = true;
 
         extraPackages = with pkgs; [
+          libva-utils
           nvidia-vaapi-driver
           ocl-icd
         ];
