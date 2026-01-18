@@ -143,10 +143,12 @@ in {
           sensitivity = -0.5;
         }
       ];
-      #monitor = [
-      #  "DP-5, 3840x2160@144, 0x0, 1.5, vrr, 1, bitdepth, 10, cm, hdr"
-      #  "DP-6, 3840x2160@144, 3840x0, 1.5, vrr, 1, bitdepth, 10, cm, hdr"
-      #];
+      exec-once = [
+        "firefox"
+        "antigravity"
+        "ferdium"
+        "signal-desktop"
+      ];
       monitorv2 = [
         {
           #output = "desc:207NTQDFW364";

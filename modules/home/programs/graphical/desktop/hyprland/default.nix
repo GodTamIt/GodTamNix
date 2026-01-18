@@ -136,9 +136,9 @@ in {
         # ];
 
         windowrule = [
-          "opacity 0.9 override 0.9 override, match:class firefox"
-          "opacity 0.9 override 0.9 override, match:class antigravity"
-          "opacity 1.0 override 0.9 override, match:class brave-browser"
+          "opacity 0.9 override 0.85 override, match:class firefox"
+          "opacity 0.9 override 0.85 override, match:class antigravity"
+          "opacity 0.9 override 0.85 override, match:class brave-browser"
 
           # Floating popups
           "float on, match:title ^(Open (File|Folder))$"
@@ -147,6 +147,7 @@ in {
           # Workspace rules
           "workspace 2, match:class antigravity"
           "workspace 4, match:class ferdium"
+          "workspace 4, match:class signal"
           "workspace 5, match:class firefox"
           "workspace 6, match:class (YouTube Music Desktop App)"
 
@@ -198,8 +199,8 @@ in {
           "$mainMod SHIFT, 8, movetoworkspace, 8"
           "$mainMod SHIFT, 9, movetoworkspace, 9"
           "$mainMod SHIFT, 0, movetoworkspace, 10"
-          "$mainMod, right, workspace, m+1"
-          "$mainMod, left, workspace, m-1"
+          "$mainMod CONTROL, right, workspace, m+1"
+          "$mainMod CONTROL, left, workspace, m-1"
 
           # Screenshot a window
           "$mainMod, PRINT, exec, hyprshot -m window"
