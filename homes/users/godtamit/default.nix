@@ -50,8 +50,8 @@
       '';
 
       interactiveShellInit = ''
-        neofetch
         set -x fish_greeting # This sets the greeting to nothing
+        neofetch
       '';
 
       shellAbbrs = {
