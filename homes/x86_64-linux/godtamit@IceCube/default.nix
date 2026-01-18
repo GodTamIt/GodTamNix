@@ -85,7 +85,10 @@ in {
           brave = {
             enable = true;
             commandLineArgs = [
-              "--enable-features=UseOzonePlatform"
+              # Note:
+              #   * https://github.com/chromium/chromium/blob/main/docs/gpu/vaapi.md#vaapi-on-linux
+              #   * https://canonical.github.io/inbrowser-encode-test/
+              "--enable-features=UseOzonePlatform,VaapiOnNvidiaGPUs,AcceleratedVideoEncoder"
               "--ozone-platform=wayland"
 
               # TODO(https://issues.chromium.org/issues/476172415): Remove once fixed
