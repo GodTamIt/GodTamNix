@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib.godtamnix) enabled;
 in {
   imports = [
@@ -117,7 +121,9 @@ in {
   };
 
   home = {
-    # packages = with pkgs; [];
+    packages = with pkgs; [
+      thunar
+    ];
 
     sessionVariables = {
       BROWSER = "firefox";
