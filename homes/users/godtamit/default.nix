@@ -29,6 +29,7 @@
     ferdium
     neofetch
     signal-desktop
+    webull-desktop
 
     # Fonts
     fira-code
