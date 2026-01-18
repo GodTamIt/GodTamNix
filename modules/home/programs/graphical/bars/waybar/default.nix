@@ -24,8 +24,20 @@ in {
 
     modules = {
       launcher = mkOption {
-        type = types.bool;
-        default = true;
+        default = {};
+        type = types.submodule {
+          options = {
+            enable = mkOption {
+              type = types.bool;
+              default = true;
+            };
+            onClick = mkOption {
+              type = types.str;
+              default = "${pkgs.vicinae}/bin/vicinae toggle";
+              description = "Action on click.";
+            };
+          };
+        };
       };
       tray = mkOption {
         type = types.bool;
@@ -235,7 +247,7 @@ in {
           spacing = 0;
 
           modules-left =
-            (mkModule cfg.modules.launcher "custom/launcher")
+            (mkModule cfg.modules.launcher.enable "custom/launcher")
             ++ (mkModule cfg.modules.workspaces.enable "hyprland/workspaces")
             ++ (mkModule cfg.modules.tray "tray")
             ++ (mkModule cfg.modules.power "custom/lock")
@@ -267,7 +279,7 @@ in {
 
           "custom/launcher" = {
             format = "";
-            on-click = "${pkgs.wofi}/bin/wofi --show drun";
+            on-click = cfg.modules.launcher.onClick;
             tooltip = false;
           };
 

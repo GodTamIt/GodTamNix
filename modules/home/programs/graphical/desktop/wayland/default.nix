@@ -14,7 +14,6 @@ in {
     home.packages = with pkgs; [
       grim
       gtk3
-      hyprlock
       qt6.qtwayland
       slurp
       waypipe

@@ -12,7 +12,9 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       hyprpaper
+      hyprlock
       hypridle
+      hyprshot
       gtk3
     ];
 
@@ -162,7 +164,7 @@ in {
           "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
-          "$mainMod, Space, exec, wofi --show drun --allow-images"
+          "$mainMod, Space, exec, vicinae toggle"
           "$mainMod, q, killactive"
           "$mainMod, M, exit"
           "$mainMod, F, fullscreen"
@@ -198,6 +200,13 @@ in {
           "$mainMod SHIFT, 0, movetoworkspace, 10"
           "$mainMod, right, workspace, m+1"
           "$mainMod, left, workspace, m-1"
+
+          # Screenshot a window
+          "$mainMod, PRINT, exec, hyprshot -m window"
+          # Screenshot a monitor
+          "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
+          # Screenshot a region
+          "$mainMod SHIFT, PRINT, exec, hyprshot -m region"
         ];
 
         # Repeatable + locked

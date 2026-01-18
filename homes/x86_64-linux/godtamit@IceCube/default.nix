@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{lib, ...}: let
   inherit (lib.godtamnix) enabled;
 in {
   imports = [
@@ -101,13 +97,39 @@ in {
           wayland = enabled;
           hyprland = enabled;
         };
+
+        launchers = {
+          vicinae = enabled;
+        };
       };
     };
   };
 
-  home.packages = with pkgs; [
-    wofi
-  ];
+  home = {
+    # packages = with pkgs; [];
+
+    sessionVariables = {
+      BROWSER = "firefox";
+    };
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+      "application/xhtml+xml" = "firefox.desktop";
+      "application/x-extension-htm" = "firefox.desktop";
+      "application/x-extension-html" = "firefox.desktop";
+      "application/x-extension-shtml" = "firefox.desktop";
+      "application/x-extension-xhtml" = "firefox.desktop";
+      "application/x-extension-xht" = "firefox.desktop";
+    };
+  };
 
   wayland.windowManager.hyprland = {
     settings = {
