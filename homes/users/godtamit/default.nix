@@ -29,6 +29,7 @@
     ferdium
     neofetch
     signal-desktop
+    unzrip
     webull-desktop
 
     # Fonts
