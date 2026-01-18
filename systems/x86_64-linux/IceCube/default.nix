@@ -21,6 +21,7 @@ in {
 
     suites = {
       audio = enabled;
+      gaming = enabled;
     };
   };
 

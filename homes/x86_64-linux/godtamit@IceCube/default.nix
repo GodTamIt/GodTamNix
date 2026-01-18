@@ -28,6 +28,7 @@ in {
         sqlEnable = true;
       };
 
+      gaming = enabled;
       multimedia = enabled;
 
       video = {
@@ -100,6 +101,13 @@ in {
 
         launchers = {
           vicinae = enabled;
+        };
+
+        tools = {
+          mangohud = {
+            enable = true;
+            enableSessionWide = true;
+          };
         };
       };
     };
