@@ -29,6 +29,7 @@
     ferdium
     neofetch
     signal-desktop
+    unzrip
     webull-desktop
 
     # Fonts
@@ -61,6 +62,7 @@
         ls = "eza";
         grep = "rg";
         ps = "procs";
+        unzip = "unzrip";
 
         # Git aliases
         gco = "git checkout";
