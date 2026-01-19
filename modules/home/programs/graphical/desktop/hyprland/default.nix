@@ -158,11 +158,12 @@ in {
         ];
 
         "$mainMod" = "SUPER";
+        "$shiftMod" = "SUPER SHIFT";
 
         bind = [
           "$mainMod, return, exec, antigravity"
           "$mainMod, t, exec, kitty"
-          "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
+          "$shiftMod, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
           "$mainMod, Space, exec, vicinae toggle"
@@ -171,9 +172,9 @@ in {
           "$mainMod, F, fullscreen"
           "$mainMod, V, togglefloating"
           "$mainMod, D, exec, wofi --show drun --allow-images"
-          "$mainMod SHIFT, S, exec, bemoji"
+          "$shiftMod, S, exec, bemoji"
           "$mainMod, P, exec, wofi-pass"
-          "$mainMod SHIFT, P, pseudo"
+          "$shiftMod, P, pseudo"
           "$mainMod, J, togglesplit"
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
@@ -189,25 +190,25 @@ in {
           "$mainMod, 8, workspace, 8"
           "$mainMod, 9, workspace, 9"
           "$mainMod, 0, workspace, 10"
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-          "$mainMod SHIFT, 5, movetoworkspace, 5"
-          "$mainMod SHIFT, 6, movetoworkspace, 6"
-          "$mainMod SHIFT, 7, movetoworkspace, 7"
-          "$mainMod SHIFT, 8, movetoworkspace, 8"
-          "$mainMod SHIFT, 9, movetoworkspace, 9"
-          "$mainMod SHIFT, 0, movetoworkspace, 10"
+          "$shiftMod, 1, movetoworkspace, 1"
+          "$shiftMod, 2, movetoworkspace, 2"
+          "$shiftMod, 3, movetoworkspace, 3"
+          "$shiftMod, 4, movetoworkspace, 4"
+          "$shiftMod, 5, movetoworkspace, 5"
+          "$shiftMod, 6, movetoworkspace, 6"
+          "$shiftMod, 7, movetoworkspace, 7"
+          "$shiftMod, 8, movetoworkspace, 8"
+          "$shiftMod, 9, movetoworkspace, 9"
+          "$shiftMod, 0, movetoworkspace, 10"
           "$mainMod CONTROL, right, workspace, m+1"
           "$mainMod CONTROL, left, workspace, m-1"
 
           # Screenshot a window
           "$mainMod, PRINT, exec, hyprshot -m window"
           # Screenshot a monitor
-          "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
+          ", PRINT, exec, hyprshot -m output"
           # Screenshot a region
-          "$mainMod SHIFT, PRINT, exec, hyprshot -m region"
+          "$shiftMod, PRINT, exec, hyprshot -m region"
         ];
 
         # Repeatable + locked

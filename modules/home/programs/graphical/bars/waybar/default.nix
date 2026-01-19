@@ -348,7 +348,7 @@ in {
                 "  "
               ];
             };
-            on-click-right = "pavucontrol -t 3";
+            on-click-right = "kitty --class 'floating_terminal' -e wiremix";
             on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             tooltip = true;
             tooltip-format = "Volume: {volume}%";
@@ -442,6 +442,7 @@ in {
         ydotool
       ]
       ++ optional cfg.modules.temperature lm_sensors
-      ++ optional cfg.modules.weather.enable wttrbar;
+      ++ optional cfg.modules.weather.enable wttrbar
+      ++ optional cfg.modules.pipewire wiremix;
   };
 }
