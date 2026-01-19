@@ -161,10 +161,10 @@ in {
         }
       ];
       exec-once = [
-        "firefox"
-        "antigravity"
         "ferdium"
         "signal-desktop"
+        "firefox"
+        "antigravity"
       ];
       monitorv2 = [
         {
