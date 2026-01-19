@@ -7,13 +7,13 @@
   font-weight: bold;
 }
 
-#workspaces{
-  background-color: rgba(24,24,37,1.0);
+#workspaces {
+  background-color: rgba(24, 24, 37, 1.0);
   border: none;
   box-shadow: none;
 }
 
-#tray{
+#tray {
   margin: 6px 3px;
   background-color: rgba(36, 36, 52, 0.8);
   padding: 6px 12px;
@@ -30,8 +30,10 @@
 #window,
 #clock,
 #custom-launcher,
-#custom-power,
+#custom-lock,
+#custom-suspend,
 #custom-reboot,
+#custom-power,
 #custom-weather,
 #bluetooth,
 #battery,
@@ -41,8 +43,7 @@
 #custom-temperature,
 #memory,
 #cpu,
-#network,
-#custom-lock {
+#network {
   border-radius: 6px;
   margin: 6px 3px;
   padding: 4px 12px;
@@ -53,50 +54,68 @@
 #clock {
   background-color: #89b4fa;
 }
+
 #custom-launcher {
   background-color: #89b4fa;
   color: #11111b;
   margin-left: 10px;
-  padding-right: 15px; 
+  padding-right: 15px;
   padding-left: 10px;
 }
-#custom-power {
-  background-color: #f38ba8;
+
+#custom-lock {
+  background-color: #94e2d5;
 }
+
+#custom-suspend {
+  background-color: #f9e2af;
+}
+
 #custom-reboot {
   background-color: #a6e3a1;
 }
+
+#custom-power {
+  background-color: #f38ba8;
+}
+
 #custom-weather {
   background-color: #e4c1f9;
 }
+
 #bluetooth {
   background-color: #f9e2af;
 }
+
 #battery {
   background-color: #cba6f7;
 }
+
 #pulseaudio,
 #wireplumber {
   background-color: #89dceb;
 }
+
 #backlight {
   background-color: #a6a3a1;
 }
+
 #custom-temperature {
   background-color: #74c7ec;
 }
+
 #memory {
   background-color: #f7768e;
 }
+
 #cpu {
   background-color: #f38ba8;
 }
+
 #network {
   background-color: #fab387;
 }
-#custom-lock {
-  background-color: #94e2d5;
-}
+
 #window {
   background-color: #74c7ec;
 }

@@ -149,7 +149,7 @@ in {
       power = mkOption {
         type = types.bool;
         default = true;
-        description = "Enables lock, reboot, and power buttons";
+        description = "Enables lock, suspend, reboot, and power buttons";
       };
       weather = mkOption {
         default = {};
@@ -251,6 +251,7 @@ in {
             ++ (mkModule cfg.modules.workspaces.enable "hyprland/workspaces")
             ++ (mkModule cfg.modules.tray "tray")
             ++ (mkModule cfg.modules.power "custom/lock")
+            ++ (mkModule cfg.modules.power "custom/suspend")
             ++ (mkModule cfg.modules.power "custom/reboot")
             ++ (mkModule cfg.modules.power "custom/power")
             ++ (mkModule cfg.modules.clock.enable "clock")
@@ -288,6 +289,13 @@ in {
             on-click = "${pkgs.hyprlock}/bin/hyprlock";
             tooltip = true;
             tooltip-format = "Lock Screen";
+          };
+
+          "custom/suspend" = {
+            format = "󰤄";
+            on-click = "systemctl suspend";
+            tooltip = true;
+            tooltip-format = "Suspend";
           };
 
           "custom/reboot" = {
