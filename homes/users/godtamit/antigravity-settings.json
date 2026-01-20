@@ -45,7 +45,8 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[svelte]": {
-		"editor.rulers": [100]
+		"editor.rulers": [100],
+		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
 	"[markdown]": {
 		"editor.rulers": [80, 100]
