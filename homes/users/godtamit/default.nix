@@ -59,6 +59,7 @@
       shellAbbrs = {
         ".." = "cd ..";
         "..." = "cd ../..";
+        ag = "antigravity";
         ls = "eza";
         grep = "rg";
         ps = "procs";
