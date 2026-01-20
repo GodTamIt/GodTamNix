@@ -11,7 +11,6 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      hyprpaper
       hyprlock
       hypridle
       hyprshot
@@ -28,7 +27,6 @@ in {
 
         exec-once = [
           "waybar"
-          "hyprpaper"
           "hypridle"
           "wl-paste -p -t text --watch clipman store -P --histpath=\"~/.local/share/clipman-primary.json\""
         ];

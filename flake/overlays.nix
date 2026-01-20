@@ -30,7 +30,10 @@
     godtamnix = prev.lib.fix (
       self:
         prev.lib.mapAttrs (
-          _name: func: final.callPackage func (self // {inherit inputs;})
+          _name: func: let
+            packageFn = func.default or func;
+          in
+            final.callPackage packageFn (self // {inherit inputs;})
         )
         packageFunctions
     );

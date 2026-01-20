@@ -120,6 +120,31 @@ in {
     };
   };
 
+  services = {
+    hyprpaper = {
+      enable = true;
+
+      settings = {
+        wallpaper = [
+          {
+            monitor = "DP-5";
+            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-japan-0.jpg";
+            fit_mode = "cover";
+          }
+          {
+            monitor = "DP-6";
+            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-japan-1.jpg";
+            fit_mode = "cover";
+          }
+          {
+            monitor = "";
+            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-japan.jpg";
+          }
+        ];
+      };
+    };
+  };
+
   home = {
     packages = with pkgs; [
       mission-center

@@ -84,6 +84,8 @@
           "*.ico"
           "*.ini"
           "*.micro"
+          "*.jpg"
+          "*.jpeg"
           "*.png"
           "*.svg"
           "*.tmux"
