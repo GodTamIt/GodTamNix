@@ -25,7 +25,7 @@ in {
     powerManagement = {
       enable = mkOption {
         type = types.bool;
-        default = false;
+        default = true;
         description = "Nvidia power management. Experimental, and can cause sleep/suspend to fail.";
       };
 

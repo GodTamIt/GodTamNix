@@ -67,6 +67,8 @@ in {
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    usbutils
+
     fira-code
     nerd-fonts.fira-code
     noto-fonts
