@@ -63,4 +63,13 @@ in {
     teams-for-linux
     ytmdesktop
     ;
+
+  # aquamarine = prev.aquamarine.overrideAttrs (old: {
+  #   src = prev.fetchFromGitHub {
+  #     owner = "gulafaran";
+  #     repo = "aquamarine";
+  #     rev = "1f1ba1e79b6a90780d437b8cea4d0967d2333211";
+  #     hash = "sha256-XXrDUeITQvDtejcRqJUnSCyjlU8pSDuOIBOA40udnPs="; # The real hash
+  #   };
+  # });
 }
