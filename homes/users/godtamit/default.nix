@@ -84,6 +84,15 @@
         push.autoSetupRemote = true;
       };
     };
+
+    starship = {
+      enable = true;
+
+      enableFishIntegration = true;
+      enableInteractive = true;
+
+      settings = fromTOML (builtins.readFile ./starship.toml);
+    };
   };
 
   xdg.configFile."Antigravity/Users/settings.json".source = ./antigravity-settings.json;

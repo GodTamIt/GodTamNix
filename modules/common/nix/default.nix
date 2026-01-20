@@ -8,7 +8,6 @@
     fish
     procs
     ripgrep
-    starship
     vim
     zsh
   ];
