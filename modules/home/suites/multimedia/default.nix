@@ -14,6 +14,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      imagemagick
       plex-desktop
       vlc
       ytmdesktop
