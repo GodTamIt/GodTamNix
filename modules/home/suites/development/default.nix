@@ -27,6 +27,18 @@ in {
 
   config = mkIf cfg.enable {
     programs = {
+      direnv = {
+        enable = true;
+
+        nix-direnv = enabled;
+
+        enableBashIntegration = true;
+        enableFishIntegration = true;
+        enableZshIntegration = true;
+
+        silent = true;
+      };
+
       kitty = enabled;
     };
 
