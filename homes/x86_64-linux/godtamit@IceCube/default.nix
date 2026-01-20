@@ -122,6 +122,7 @@ in {
 
   home = {
     packages = with pkgs; [
+      mission-center
       thunar
     ];
 
