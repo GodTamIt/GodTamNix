@@ -15,25 +15,21 @@
       programs = {
         actionlint.enable = true;
         alejandra.enable = true;
-        biome = {
-          enable = true;
-          settings.formatter.formatWithErrors = true;
-        };
         clang-format.enable = true;
         deadnix = {
           enable = true;
           no-lambda-arg = true;
         };
-        deno = {
-          enable = true;
-          # Using biome for these
-          excludes = [
-            "*.ts"
-            "*.js"
-            "*.json"
-            "*.jsonc"
-          ];
-        };
+        # deno = {
+        #   enable = true;
+        #   # Using prettier for these
+        #   excludes = [
+        #     "*.ts"
+        #     "*.js"
+        #     "*.json"
+        #     "*.jsonc"
+        #   ];
+        # };
         fantomas.enable = true;
         fish_indent.enable = true;
         gofmt.enable = true;
@@ -46,6 +42,14 @@
         # nixfmt = {
         #   enable = true;
         #   package = pkgs.nixfmt;
+        # };
+        # prettier = {
+        #   enable = true;
+        #   settings = {
+        #     editorconfig = false;
+        #     useTabs = false;
+        #     tabWidth = 2;
+        #   };
         # };
         ruff-check.enable = true;
         ruff-format.enable = true;

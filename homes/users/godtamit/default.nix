@@ -77,4 +77,6 @@
       };
     };
   };
+
+  xdg.configFile."Antigravity/Users/settings.json".source = ./antigravity-settings.json;
 }

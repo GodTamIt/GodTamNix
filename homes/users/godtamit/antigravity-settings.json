@@ -1,0 +1,65 @@
+{
+	"editor.fontFamily": "'FiraCode Nerd Font', 'monospace', monospace",
+	"editor.fontSize": 12,
+	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "file",
+	"editor.inlineSuggest.enabled": true,
+	"editor.largeFileOptimizations": true,
+	"editor.minimap.enabled": false,
+	"editor.renderWhitespace": "boundary",
+
+	"terminal.integrated.fontSize": 12,
+
+	"clangd.onConfigChanged": "restart",
+
+	"go.toolsManagement.autoUpdate": false,
+	"go.toolsManagement.checkForUpdates": "off",
+
+	"nix.formatterPath": "alejandra",
+
+	"rust-analyzer.cargo.features": "all",
+
+	"shellformat.useEditorConfig": true,
+
+	"svelte.enable-ts-plugin": true,
+
+	"workbench.colorTheme": "Catppuccin Mocha",
+
+	"[git-commit]": {
+		"editor.rulers": [50, 72]
+	},
+	"[python]": {
+		"editor.rulers": [79, 88]
+	},
+	"[rust]": {
+		"editor.rulers": [100]
+	},
+	"[cpp]": {
+		"editor.rulers": [80, 100]
+	},
+	"[javascript]": {
+		"editor.rulers": [80, 100]
+	},
+	"[typescript]": {
+		"editor.rulers": [80, 100],
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[svelte]": {
+		"editor.rulers": [100]
+	},
+	"[markdown]": {
+		"editor.rulers": [80, 100]
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[dockercompose]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.autoIndent": "advanced",
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	}
+}
