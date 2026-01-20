@@ -128,17 +128,17 @@ in {
         wallpaper = [
           {
             monitor = "DP-5";
-            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-japan-0.jpg";
+            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-mclaren-0.png";
             fit_mode = "cover";
           }
           {
             monitor = "DP-6";
-            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-japan-1.jpg";
+            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-mclaren-1.png";
             fit_mode = "cover";
           }
           {
             monitor = "";
-            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-japan.jpg";
+            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-mclaren.png";
           }
         ];
       };

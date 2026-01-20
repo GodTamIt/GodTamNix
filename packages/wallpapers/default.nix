@@ -6,7 +6,7 @@
   assets = ../../assets/wallpapers;
 
   # Filter for image files only to avoid issues with other files
-  isImage = name: lib.hasSuffix ".jpg" name || lib.hasSuffix ".png" || lib.hasSuffix ".jpeg";
+  isImage = name: lib.hasSuffix ".jpg" name || lib.hasSuffix ".png" name || lib.hasSuffix ".jpeg" name;
   images = lib.filter isImage (builtins.attrNames (builtins.readDir assets));
 
   # Helper to clean up filenames
