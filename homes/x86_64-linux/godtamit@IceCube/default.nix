@@ -163,6 +163,7 @@ in {
       exec-once = [
         "ferdium"
         "signal-desktop"
+        "ytmdesktop"
         "firefox"
         "antigravity"
       ];
