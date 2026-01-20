@@ -233,7 +233,7 @@ in {
       ];
 
       workspace = [
-        "1, monitor:DP-5, default:true"
+        "1, monitor:DP-5, persistent:true, default:true"
         "2, monitor:DP-5, persistent:true"
         "3, monitor:DP-5, persistent:true"
         "4, monitor:DP-5, persistent:true"
