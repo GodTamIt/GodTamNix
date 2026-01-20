@@ -76,6 +76,14 @@
         gst = "git status";
       };
     };
+
+    git = {
+      enable = true;
+
+      settings = {
+        push.autoSetupRemote = true;
+      };
+    };
   };
 
   xdg.configFile."Antigravity/Users/settings.json".source = ./antigravity-settings.json;
