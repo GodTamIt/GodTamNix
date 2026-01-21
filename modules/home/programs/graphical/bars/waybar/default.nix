@@ -117,6 +117,11 @@ in {
               default = "RAM: {used:0.2f}G/{total:0.2f}G";
               description = "Tooltip format for the memory module.";
             };
+            onClick = mkOption {
+              type = types.str;
+              default = "missioncenter";
+              description = "Action on click.";
+            };
           };
         };
       };
@@ -142,6 +147,11 @@ in {
               type = types.bool;
               default = true;
               description = "Whether to show a tooltip for the cpu module.";
+            };
+            onClick = mkOption {
+              type = types.str;
+              default = "missioncenter";
+              description = "Action on click.";
             };
           };
         };
@@ -266,8 +276,8 @@ in {
             ++ (mkModule cfg.modules.pipewire "wireplumber")
             ++ (mkModule cfg.modules.backlight "backlight")
             ++ (mkModule cfg.modules.temperature "custom/temperature")
-            ++ (mkModule cfg.modules.memory.enable "memory")
-            ++ (mkModule cfg.modules.cpu.enable "cpu");
+            ++ (mkModule cfg.modules.cpu.enable "cpu")
+            ++ (mkModule cfg.modules.memory.enable "memory");
 
           "hyprland/workspaces" = {
             inherit (cfg.modules.workspaces) format;
@@ -375,12 +385,14 @@ in {
             inherit (cfg.modules.memory) interval;
             inherit (cfg.modules.memory) tooltip;
             tooltip-format = cfg.modules.memory.tooltipFormat;
+            on-click = cfg.modules.memory.onClick;
           };
 
           cpu = {
             inherit (cfg.modules.cpu) format;
             inherit (cfg.modules.cpu) interval;
             inherit (cfg.modules.cpu) tooltip;
+            on-click = cfg.modules.cpu.onClick;
           };
 
           clock = {

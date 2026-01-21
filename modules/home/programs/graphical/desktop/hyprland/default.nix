@@ -203,7 +203,7 @@ in {
 
           # Screenshot a monitor
           ", PRINT, exec, hyprshot -m output --clipboard-only"
-          "$CONTROL, PRINT, exec, hyprshot -m output -o ~/Pictures/screenshots"
+          "CONTROL, PRINT, exec, hyprshot -m output -o ~/Pictures/screenshots"
           # Screenshot a window
           "$mainMod, PRINT, exec, hyprshot -m window --clipboard-only"
           "$mainMod CONTROL, PRINT, exec, hyprshot -m window -o ~/Pictures/screenshots"
