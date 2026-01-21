@@ -39,7 +39,19 @@ in {
         silent = true;
       };
 
-      kitty = enabled;
+      kitty = {
+        enable = true;
+        enableGitIntegration = true;
+
+        font = {
+          name = "FiraCode Nerd Font";
+          size = 9;
+        };
+
+        shellIntegration = {
+          enableFishIntegration = true;
+        };
+      };
     };
 
     home.packages = with pkgs;
