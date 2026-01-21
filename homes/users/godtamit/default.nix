@@ -93,6 +93,12 @@
 
       settings = fromTOML (builtins.readFile ./starship.toml);
     };
+
+    yazi = {
+      enable = true;
+
+      enableFishIntegration = true;
+    };
   };
 
   xdg.configFile."Antigravity/Users/settings.json".source = ./antigravity-settings.json;
