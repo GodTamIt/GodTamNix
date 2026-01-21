@@ -195,11 +195,11 @@ in {
         }
       ];
       exec-once = [
-        "ferdium"
-        "signal-desktop"
-        "ytmdesktop"
-        "firefox"
-        "antigravity"
+        "[workspace 4 silent] ferdium"
+        "[workspace 4 silent] signal-desktop"
+        "[workspace 6 silent] ytmdesktop"
+        "[workspace 5 silent] firefox"
+        "[workspace 2 silent] antigravity"
       ];
       monitorv2 = [
         {
