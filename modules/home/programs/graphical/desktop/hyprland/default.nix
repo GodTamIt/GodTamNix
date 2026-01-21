@@ -144,10 +144,8 @@ in {
           "float on, match:title ^(Select (File|Folder))))$"
 
           # Workspace rules
-          "workspace 2, match:class antigravity"
           "workspace 4, match:class ferdium"
           "workspace 4, match:class signal"
-          "workspace 5, match:class firefox"
           "workspace 6, match:class (YouTube Music Desktop App)"
 
           # "opaque, class:(firefox)"
@@ -202,12 +200,15 @@ in {
           "$mainMod CONTROL, right, workspace, m+1"
           "$mainMod CONTROL, left, workspace, m-1"
 
-          # Screenshot a window
-          "$mainMod, PRINT, exec, hyprshot -m window"
           # Screenshot a monitor
-          ", PRINT, exec, hyprshot -m output"
+          ", PRINT, exec, hyprshot -m output --clipboard-only"
+          "$CONTROL, PRINT, exec, hyprshot -m output -o ~/Pictures/screenshots"
+          # Screenshot a window
+          "$mainMod, PRINT, exec, hyprshot -m window --clipboard-only"
+          "$mainMod CONTROL, PRINT, exec, hyprshot -m window -o ~/Pictures/screenshots"
           # Screenshot a region
-          "$shiftMod, PRINT, exec, hyprshot -m region"
+          "$shiftMod, PRINT, exec, hyprshot -m region --clipboard-only"
+          "$shiftMod CONTROL, PRINT, exec, hyprshot -m region -o ~/Pictures/screenshots"
         ];
 
         # Repeatable + locked
