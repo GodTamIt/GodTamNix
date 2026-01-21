@@ -63,31 +63,22 @@ in {
         fonts = {
           sizes = {
             desktop = 11;
-            applications = 12;
-            terminal = 13;
-            popups = 12;
+            applications = 11;
+            terminal = 9;
+            popups = 11;
           };
 
           serif = {
-            package = pkgs.monaspace;
-            name =
-              if pkgs.stdenv.hostPlatform.isDarwin
-              then "Monaspace Neon NF"
-              else "MonaspaceNeon NF";
+            package = pkgs.source-serif;
+            name = "Source Serif 4";
           };
           sansSerif = {
-            package = pkgs.monaspace;
-            name =
-              if pkgs.stdenv.hostPlatform.isDarwin
-              then "Monaspace Neon NF"
-              else "MonaspaceNeon NF";
+            package = pkgs.source-sans;
+            name = "Source Sans 3";
           };
           monospace = {
-            package = pkgs.monaspace;
-            name =
-              if pkgs.stdenv.hostPlatform.isDarwin
-              then "Monaspace Krypton NF"
-              else "MonaspaceKrypton NF";
+            package = pkgs.cascadia-code;
+            name = "Cascadia Code NF";
           };
           emoji = {
             package = pkgs.noto-fonts-color-emoji;

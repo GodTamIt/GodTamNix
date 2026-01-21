@@ -40,8 +40,8 @@ in {
       };
 
       Fonts = {
-        fixed = mkOpt types.str "MonaspaceKrypton NF 10" "Fixed font type";
-        general = mkOpt types.str "MonaspaceNeon NF 10" "General font type";
+        fixed = mkOpt types.str "Cascadia Code NF 9" "Fixed font type";
+        general = mkOpt types.str "Source Sans 3 11" "General font type";
       };
 
       Interface = {

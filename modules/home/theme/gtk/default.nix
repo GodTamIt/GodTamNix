@@ -90,7 +90,7 @@ in {
           color-scheme = "prefer-dark";
           cursor-size = cfg.cursor.size;
           cursor-theme = cfg.cursor.name;
-          font-name = "${osConfig.godtamnix.system.fonts.default or "MonaspaceNeon NF"} ${
+          font-name = "${osConfig.godtamnix.system.fonts.default or "Source Sans 3"} ${
             toString (osConfig.godtamnix.system.fonts.size or 10)
           }";
           gtk-theme = cfg.theme.name;
@@ -103,7 +103,7 @@ in {
       enable = true;
 
       font = {
-        name = mkDefault (osConfig.godtamnix.system.fonts.default or "MonaspaceNeon NF");
+        name = mkDefault (osConfig.godtamnix.system.fonts.default or "Source Sans 3");
         size = mkDefault (osConfig.godtamnix.system.fonts.size or 10);
       };
 

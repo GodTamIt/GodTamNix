@@ -44,7 +44,7 @@ in {
         enableGitIntegration = true;
 
         font = {
-          name = "MonaspaceNeon NF";
+          name = "Cascadia Code NF";
           size = 9;
         };
 

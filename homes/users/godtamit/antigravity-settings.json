@@ -1,5 +1,5 @@
 {
-	"editor.fontFamily": "'MonaspaceNeon NF', 'FiraCode Nerd Font', 'monospace', monospace",
+	"editor.fontFamily": "'Cascadia Code NF', 'FiraCode Nerd Font', 'monospace', monospace",
 	"editor.fontSize": 12,
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "file",

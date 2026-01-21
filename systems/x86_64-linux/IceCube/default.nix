@@ -23,6 +23,10 @@ in {
       audio = enabled;
       gaming = enabled;
     };
+
+    system = {
+      fonts = enabled;
+    };
   };
 
   # Bootloader.

@@ -1,19 +1,22 @@
 {
   config,
   lib,
-  pkgs,
-  namespace,
   ...
 }: let
   inherit (lib) mkIf;
 
-  cfg = config.${namespace}.system.fonts;
+  cfg = config.godtamnix.system.fonts;
 in {
+  imports = [(lib.getFile "modules/common/system/fonts/default.nix")];
+
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      font-manager
-      fontpreview
-    ];
+    # environment.systemPackages =
+    #   with pkgs;
+    #   (lib.optionals (!config.godtamnix.archetypes.wsl.enable or false) [
+    #     font-manager
+    #     fontpreview
+    #     smile
+    #   ]);
 
     fonts = {
       packages = cfg.fonts;
@@ -27,19 +30,17 @@ in {
 
         defaultFonts = let
           common = [
-            "CascadiaCode"
+            "Source Sans 3"
+            "Cascadia Code"
             "Symbols Nerd Font"
             "Noto Color Emoji"
           ];
         in
           lib.mapAttrs (_: fonts: fonts ++ common) {
-            serif = ["Noto Serif"];
-            sansSerif = ["Lexend"];
+            serif = ["Source Serif 4"];
+            sansSerif = ["Source Sans 3"];
             emoji = ["Noto Color Emoji"];
-            monospace = [
-              "Source Code Pro Medium"
-              "Source Han Mono"
-            ];
+            monospace = ["Cascadia Code NF"];
           };
       };
 
