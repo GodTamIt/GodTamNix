@@ -44,7 +44,7 @@ in {
         enableGitIntegration = true;
 
         font = {
-          name = "FiraCode Nerd Font";
+          name = "MonaspaceNeon NF";
           size = 9;
         };
 

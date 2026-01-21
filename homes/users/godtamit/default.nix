@@ -31,14 +31,6 @@
     signal-desktop
     unzrip
     webull-desktop
-
-    # Fonts
-    fira-code
-    fira-code-symbols
-    font-awesome
-    font-manager
-    nerd-fonts.fira-code
-    noto-fonts
   ];
 
   programs = {

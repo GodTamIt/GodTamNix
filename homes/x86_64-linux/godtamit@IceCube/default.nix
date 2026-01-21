@@ -44,6 +44,11 @@ in {
 
     theme = {
       catppuccin = enabled;
+      gtk = {
+        enable = true;
+        usePortal = true;
+      };
+      qt = enabled;
       stylix = enabled;
     };
 
