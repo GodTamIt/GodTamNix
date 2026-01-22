@@ -42,7 +42,7 @@ in {
           kb_variant = "";
           kb_model = "";
           kb_rules = "";
-          kb_options = "ctrl:nocaps";
+          kb_options = "";
           follow_mouse = 1;
 
           touchpad = {
