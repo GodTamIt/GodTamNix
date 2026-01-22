@@ -57,7 +57,15 @@
         ps = "procs";
         unzip = "unzrip";
 
+        # k8s aliases
+        k = "kubectl";
+        kctx = "kubectx";
+        kns = "kubens";
+
         # Git aliases
+        gbrclean = "git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); git branch -D $branch; end";
+        gbrls = "git branch -v";
+        gfp = "git fetch --prune";
         gco = "git checkout";
         gcoom = "git commit";
         gcoom-a = "git commit --amend";
@@ -66,6 +74,7 @@
         gpshfwl = "git push --force-with-lease";
         gpff = "git pull --ff-only";
         gst = "git status";
+        gunstage = "git restore --staged";
       };
     };
 
