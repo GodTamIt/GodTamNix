@@ -366,7 +366,7 @@ in {
                 "  "
               ];
             };
-            on-click-right = "kitty --class 'floating_terminal' -e 'wiremix --tab output'";
+            on-click-right = "kitty --class 'floating_terminal' -e wiremix --tab output";
             on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             tooltip = true;
             tooltip-format = "Volume: {volume}%";
