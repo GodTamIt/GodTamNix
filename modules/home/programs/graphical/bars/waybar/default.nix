@@ -439,7 +439,7 @@ in {
           };
 
           "hyprland/window" = {
-            format = "👉 {}";
+            format = "{}";
             icon = true;
             separate-outputs = true;
           };
