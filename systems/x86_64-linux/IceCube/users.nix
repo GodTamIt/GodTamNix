@@ -14,6 +14,7 @@
           "power"
           "mpd"
           "docker"
+          "podman"
         ];
         shell = pkgs.fish;
       };

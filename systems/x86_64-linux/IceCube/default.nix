@@ -27,6 +27,10 @@ in {
     system = {
       fonts = enabled;
     };
+
+    virtualisation = {
+      podman = enabled;
+    };
   };
 
   # Bootloader.
