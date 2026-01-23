@@ -54,70 +54,77 @@ in {
       };
     };
 
-    home.packages = with pkgs;
-      [
-        antigravity
-        go
-        jq
-        rclone
-        rsync
-      ]
-      ++ lib.optionals (!isWSL) [
-        # bruno
-        # neovide
-        postman
-      ]
-      ++ lib.optionals cfg.awsEnable [
-        awscli
-      ]
-      ++ lib.optionals cfg.dockerEnable [
-        podman
-        podman-tui
-      ]
-      ++ lib.optionals cfg.digitaloceanEnable [
-        doctl
-      ]
-      ++ lib.optionals cfg.nixEnable [
-        hydra-check
-        # godtamnix.build-by-path
-        alejandra
-        nix-bisect
-        nix-diff
-        nix-fast-build
-        nix-health
-        nix-output-monitor
-        nix-update
-        nixpkgs-hammering
-        nixpkgs-lint-community
-        nixpkgs-review
-        nurl
-      ]
-      ++ lib.optionals cfg.gameEnable (
-        [gdevelop]
-        ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-          godot
-          # NOTE: removed from nixpkgs
-          # Unreal Engine 4
-          unityhub
+    home = {
+      packages = with pkgs;
+        [
+          antigravity
+          go
+          jq
+          rclone
+          rsync
         ]
-      )
-      ++ lib.optionals cfg.kubernetesEnable [
-        atmos
-        kubectl
-        kubectx
-        kubernetes-helmPlugins.helm-diff
-        helm
-        helmfile
-      ]
-      ++ lib.optionals cfg.sqlEnable [
-        dbeaver-bin
-        beekeeper-studio
-      ]
-      ++ lib.optionals cfg.aiEnable [
-        # NOTE: hard to get out of neovim
-        # antigravity
-        github-mcp-server
-        github-copilot-cli
-      ];
+        ++ lib.optionals (!isWSL) [
+          # bruno
+          # neovide
+          postman
+        ]
+        ++ lib.optionals cfg.awsEnable [
+          awscli
+        ]
+        ++ lib.optionals cfg.dockerEnable [
+          podman
+          podman-compose
+          podman-tui
+        ]
+        ++ lib.optionals cfg.digitaloceanEnable [
+          doctl
+        ]
+        ++ lib.optionals cfg.nixEnable [
+          hydra-check
+          # godtamnix.build-by-path
+          alejandra
+          nix-bisect
+          nix-diff
+          nix-fast-build
+          nix-health
+          nix-output-monitor
+          nix-update
+          nixpkgs-hammering
+          nixpkgs-lint-community
+          nixpkgs-review
+          nurl
+        ]
+        ++ lib.optionals cfg.gameEnable (
+          [gdevelop]
+          ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+            godot
+            # NOTE: removed from nixpkgs
+            # Unreal Engine 4
+            unityhub
+          ]
+        )
+        ++ lib.optionals cfg.kubernetesEnable [
+          atmos
+          kubectl
+          kubectx
+          kubernetes-helmPlugins.helm-diff
+          helm
+          helmfile
+        ]
+        ++ lib.optionals cfg.sqlEnable [
+          dbeaver-bin
+          beekeeper-studio
+        ]
+        ++ lib.optionals cfg.aiEnable [
+          # NOTE: hard to get out of neovim
+          # antigravity
+          github-mcp-server
+          github-copilot-cli
+        ];
+
+      shellAliases = mkIf cfg.dockerEnable {
+        docker-compose = "podman-compose";
+      };
+    };
   };
 }
