@@ -15,6 +15,8 @@ in {
 
   godtamnix = {
     hardware = {
+      bluetooth = enabled;
+
       cpu.amd = enabled;
 
       gpu.nvidia = {
