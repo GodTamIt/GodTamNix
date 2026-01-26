@@ -11,7 +11,7 @@ in {
   imports = [
     # Include the results of the hardware scan.
     ./disks.nix
-    ./hardware-configuration.nix
+    ./hardware.nix
     ./users.nix
   ];
 
