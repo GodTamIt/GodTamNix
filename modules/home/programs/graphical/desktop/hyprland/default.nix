@@ -161,7 +161,7 @@ in {
           "$mainMod, t, exec, kitty"
           "$shiftMod, e, exec, kitty -e zellij_nvim"
           "$mainMod, o, exec, thunar"
-          "$mainMod, y, exec, fish -c yy"
+          "$mainMod, y, exec, kitty -e fish -c 'yy; exec fish'"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
           "$mainMod, Space, exec, vicinae toggle"
           "$mainMod, q, killactive"
