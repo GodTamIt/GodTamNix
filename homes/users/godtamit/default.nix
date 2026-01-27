@@ -86,6 +86,19 @@
       };
     };
 
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+
+      matchBlocks = {
+        "BeastieServerV2" = {
+          hostname = lib.godtamnix.decode "YmVhc3RpZXNlcnZlcnYyLmdvZHRhbWl0LmNvbQ==";
+          user = "godtamit";
+          port = 38888;
+        };
+      };
+    };
+
     starship = {
       enable = true;
 
