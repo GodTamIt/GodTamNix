@@ -37,6 +37,16 @@ in {
         enableZshIntegration = true;
 
         silent = true;
+
+        stdlib = ''
+          layout_godtamnix() {
+            if [ -f flake.nix ]; then
+              use flake
+            else
+              use flake github:godtamit/godtamnix#$1
+            fi
+          }
+        '';
       };
 
       kitty = {

@@ -1,26 +1,29 @@
 {
-  description = "Rust Project Template";
+  description = "A Rust development template";
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = {nixpkgs}: let
-    systems = [
-      "x86_64-linux"
-      "aarch64-linux"
-    ];
+  outputs = {
+    nixpkgs,
+    rust-overlay,
+  }: let
+    systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
     forEachSystem = nixpkgs.lib.genAttrs systems;
-
-    pkgsForEach = nixpkgs.legacyPackages;
-  in rec {
+    pkgsFor = system:
+      import nixpkgs {
+        inherit system;
+        overlays = [(import rust-overlay)];
+      };
+  in {
     packages = forEachSystem (system: {
-      default = pkgsForEach.${system}.callPackage ./default.nix {};
+      default = (pkgsFor system).callPackage ./default.nix {};
     });
 
     devShells = forEachSystem (system: {
-      default = pkgsForEach.${system}.callPackage ./shell.nix {};
+      default = (pkgsFor system).callPackage ./shell.nix {};
     });
-
-    hydraJobs = packages;
   };
 }

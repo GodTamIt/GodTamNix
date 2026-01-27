@@ -24,10 +24,10 @@ Common templates: rust, python, node, go, c, cpp, dotnetf, angular
 
 ```bash
 # List templates
-nix flake show github:khaneliman/godtamnix#templates
+nix flake show github:godtamit/godtamnix#templates
 
 # Initialize new project from template
-nix flake init -t github:khaneliman/godtamnix#rust
+nix flake init -t github:godtamit/godtamnix#rust
 
 # Or from local repo
 nix flake init -t .#rust
