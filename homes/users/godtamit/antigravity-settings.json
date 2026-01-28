@@ -8,6 +8,7 @@
 	"editor.minimap.enabled": false,
 	"editor.renderWhitespace": "boundary",
 
+	"terminal.integrated.defaultProfile.linux": "fish",
 	"terminal.integrated.fontSize": 12,
 
 	"clangd.onConfigChanged": "restart",
