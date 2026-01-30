@@ -38,6 +38,7 @@ in {
     gemini-cli
     opencode
     yaziPlugins
+    yt-dlp
     ;
 
   # python3 = _prev.python3.override {
