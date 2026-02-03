@@ -147,6 +147,11 @@ in {
           "workspace 4, match:class signal"
           "workspace 6, match:class (YouTube Music Desktop App)"
 
+          # Gaming
+          "fullscreen on, match:class gamescope"
+          "immediate on, match:class gamescope"
+          "content game, match:class gamescope"
+
           # "opaque, class:(firefox)"
           # "workspace 1, class:^(Emacs)$"
           # "workspace 3, opacity 1.0, class:^(brave-browser)$"
