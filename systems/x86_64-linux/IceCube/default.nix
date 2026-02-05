@@ -26,6 +26,8 @@ in {
 
     system = {
       fonts = enabled;
+
+      printing = enabled;
     };
 
     virtualisation = {
