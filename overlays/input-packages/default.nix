@@ -37,6 +37,7 @@ in {
     claude-code
     gemini-cli
     opencode
+    signal-desktop
     yaziPlugins
     yt-dlp
     ;
@@ -60,7 +61,6 @@ in {
     _1password-gui
     # Online services to keep up to date
     element-desktop
-    signal-desktop
     teams-for-linux
     ytmdesktop
     ;
