@@ -108,6 +108,10 @@
       settings = fromTOML (builtins.readFile ./starship.toml);
     };
 
+    trippy = {
+      enable = true;
+    };
+
     yazi = {
       enable = true;
 
