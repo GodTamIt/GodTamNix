@@ -33,7 +33,6 @@ in {
   #          ╰──────────────────────────────────────────────────────────╯
   inherit
     (master)
-    antigravity
     claude-code
     gemini-cli
     opencode
@@ -42,6 +41,20 @@ in {
     yt-dlp
     ytmdesktop
     ;
+
+  # Leave this until Antigravity (likely upstream VSCode) adopts Electron 40+.
+  # https://github.com/microsoft/vscode/issues/284464
+  antigravity = master.antigravity.overrideAttrs (oldAttrs: {
+    nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [final.makeWrapper];
+
+    # Use postFixup instead of postInstall - it runs after all other phases
+    postFixup =
+      (oldAttrs.postFixup or "")
+      + ''
+        wrapProgram $out/bin/antigravity \
+          --append-flags "--disable-features=WaylandWpColorManagerV1"
+      '';
+  });
 
   # python3 = _prev.python3.override {
   #   packageOverrides = _pyFinal: _pyPrev: {
