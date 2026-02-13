@@ -40,6 +40,7 @@ in {
     signal-desktop
     yaziPlugins
     yt-dlp
+    ytmdesktop
     ;
 
   # python3 = _prev.python3.override {
@@ -62,7 +63,6 @@ in {
     # Online services to keep up to date
     element-desktop
     teams-for-linux
-    ytmdesktop
     ;
 
   # aquamarine = prev.aquamarine.overrideAttrs (old: {
