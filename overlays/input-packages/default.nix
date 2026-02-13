@@ -36,7 +36,6 @@ in {
     claude-code
     gemini-cli
     opencode
-    signal-desktop
     yaziPlugins
     yt-dlp
     ytmdesktop
@@ -47,11 +46,21 @@ in {
   antigravity = master.antigravity.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [final.makeWrapper];
 
-    # Use postFixup instead of postInstall - it runs after all other phases
     postFixup =
       (oldAttrs.postFixup or "")
       + ''
         wrapProgram $out/bin/antigravity \
+          --append-flags "--disable-features=WaylandWpColorManagerV1"
+      '';
+  });
+
+  # Leave this until Signal adopts Electron 40+.
+  signal-desktop = master.signal-desktop.overrideAttrs (oldAttrs: {
+    nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [final.makeWrapper];
+    postFixup =
+      (oldAttrs.postFixup or "")
+      + ''
+        wrapProgram $out/bin/signal-desktop \
           --append-flags "--disable-features=WaylandWpColorManagerV1"
       '';
   });
