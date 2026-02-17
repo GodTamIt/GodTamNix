@@ -152,6 +152,7 @@ in {
 
   home = {
     packages = with pkgs; [
+      onlyoffice-desktopeditors
       thunar
     ];
 
