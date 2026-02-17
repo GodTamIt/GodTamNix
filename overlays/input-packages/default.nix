@@ -36,6 +36,7 @@ in {
     claude-code
     gemini-cli
     opencode
+    plex-desktop
     yaziPlugins
     yt-dlp
     ytmdesktop
