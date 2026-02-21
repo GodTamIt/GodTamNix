@@ -24,10 +24,10 @@ in {
         winetricks
       ]
       ++ lib.optionals cfg.wayland [
-        wineWowPackages.waylandFull
+        winePackages.waylandFull
       ]
       ++ lib.optionals (!cfg.wayland) [
-        wineWowPackages.unstableFull
+        winePackages.unstableFull
       ];
   };
 }
