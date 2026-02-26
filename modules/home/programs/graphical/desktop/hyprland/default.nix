@@ -163,10 +163,11 @@ in {
 
         bind = [
           "$mainMod, return, exec, antigravity"
-          "$mainMod, t, exec, kitty"
-          "$shiftMod, e, exec, kitty -e zellij_nvim"
-          "$mainMod, o, exec, thunar"
-          "$mainMod, y, exec, kitty -e fish -c 'yy; exec fish'"
+          "$mainMod, T, exec, kitty"
+          "$mainMod, O, exec, thunar"
+          "$mainMod, Y, exec, kitty -e fish -c 'yy; exec fish'"
+          "$mainMod, B, exec, firefox --new-window"
+          "$mainMod, L, exec, hyprlock"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
           "$mainMod, Space, exec, vicinae toggle"
           "$mainMod, q, killactive"
