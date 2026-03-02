@@ -35,7 +35,7 @@ in {
         "freeimage-3.18.0-unstable-2024-04-18"
         "mbedtls-2.28.10"
         # dev shells
-        "beekeeper-studio-5.5.5"
+        "beekeeper-studio-5.5.7"
       ];
     };
   };

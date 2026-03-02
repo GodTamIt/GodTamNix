@@ -3,7 +3,8 @@
   lib,
   ...
 }: let
-  inherit (lib) mkDefault mkIf;
+  inherit (lib) mkIf;
+  inherit (lib.godtamnix) enabled;
 
   cfg = config.godtamnix.nix;
 in {
@@ -15,7 +16,7 @@ in {
 
   config = mkIf cfg.enable {
     documentation = {
-      man.generateCaches = mkDefault true;
+      man.cache = enabled;
 
       nixos = {
         enable = true;
