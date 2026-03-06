@@ -151,6 +151,7 @@ in {
           "fullscreen on, match:class gamescope"
           "immediate on, match:class gamescope"
           "content game, match:class gamescope"
+          "focus_on_activate off, match:class gamescope"
 
           # "opaque, class:(firefox)"
           # "workspace 1, class:^(Emacs)$"
