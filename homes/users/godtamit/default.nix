@@ -26,8 +26,8 @@
 
   home.packages = with pkgs; [
     discord
+    fastfetch
     ferdium
-    neofetch
     signal-desktop
     unzrip
     webull-desktop
@@ -45,7 +45,7 @@
 
       interactiveShellInit = ''
         set -x fish_greeting # This sets the greeting to nothing
-        neofetch
+        fastfetch
       '';
 
       shellAbbrs = {
