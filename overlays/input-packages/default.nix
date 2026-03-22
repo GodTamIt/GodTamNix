@@ -1,4 +1,4 @@
-{inputs}: final: prev: let
+{inputs}: final: _prev: let
   # citrix = import inputs.nixpkgs-citrix-workspace {
   #   inherit (final.stdenv.hostPlatform) system;
   #   inherit (final) config;
@@ -88,12 +88,12 @@ in {
     teams-for-linux
     ;
 
-  aquamarine = prev.aquamarine.overrideAttrs (_old: {
-    src = prev.fetchFromGitHub {
-      owner = "hyprwm";
-      repo = "aquamarine";
-      rev = "d67142c8c0966c94ecf88beddb14003256d8058c";
-      hash = "sha256-XXrDUeITQvDtejcRqJUnSCyjlU8pSDuOIBOA40udnPs="; # The real hash
-    };
-  });
+  # aquamarine = prev.aquamarine.overrideAttrs (_old: {
+  #   src = prev.fetchFromGitHub {
+  #     owner = "hyprwm";
+  #     repo = "aquamarine";
+  #     rev = "d67142c8c0966c94ecf88beddb14003256d8058c";
+  #     hash = "sha256-XXrDUeITQvDtejcRqJUnSCyjlU8pSDuOIBOA40udnPs="; # The real hash
+  #   };
+  # });
 }
