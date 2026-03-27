@@ -104,6 +104,8 @@ in {
               "--disable-features=WaylandWpColorManagerV1"
             ];
           };
+
+          google-chrome = enabled;
         };
 
         desktop = {
