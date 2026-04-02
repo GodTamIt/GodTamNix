@@ -30,6 +30,7 @@ in {
         kubernetesEnable = true;
         nixEnable = true;
         sqlEnable = true;
+        aiEnable = true;
       };
 
       gaming = enabled;
