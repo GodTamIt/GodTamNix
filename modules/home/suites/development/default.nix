@@ -136,5 +136,12 @@ in {
         docker-compose = "podman-compose";
       };
     };
+
+    godtamnix = mkIf cfg.aiEnable {
+      programs.terminal.ai = {
+        opencode = lib.mkDefault enabled;
+        rtk = lib.mkDefault enabled;
+      };
+    };
   };
 }
