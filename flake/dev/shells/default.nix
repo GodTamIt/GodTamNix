@@ -12,6 +12,7 @@
     nh
     statix
     sops
+    pre-commit
     self'.formatter
   ];
 in
