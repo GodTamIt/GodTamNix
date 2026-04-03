@@ -34,12 +34,20 @@ in {
   inherit
     (master)
     claude-code
-    gemini-cli
-    opencode
     plex-desktop
     yaziPlugins
     yt-dlp
     ytmdesktop
+    ;
+
+  #          ╭──────────────────────────────────────────────────────────╮
+  #          │          From llm-agents (AI tools repository)           │
+  #          ╰──────────────────────────────────────────────────────────╯
+  inherit
+    (inputs.llm-agents.packages.${final.stdenv.hostPlatform.system})
+    gemini-cli
+    opencode
+    rtk
     ;
 
   # Leave this until Antigravity (likely upstream VSCode) adopts Electron 40+.
