@@ -46,6 +46,7 @@ in {
   inherit
     (inputs.llm-agents.packages.${final.stdenv.hostPlatform.system})
     gemini-cli
+    oh-my-opencode
     opencode
     rtk
     ;

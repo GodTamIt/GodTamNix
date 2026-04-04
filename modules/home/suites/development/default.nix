@@ -139,6 +139,7 @@ in {
 
     godtamnix = mkIf cfg.aiEnable {
       programs.terminal.ai = {
+        oh-my-opencode = lib.mkDefault enabled;
         opencode = lib.mkDefault enabled;
         rtk = lib.mkDefault enabled;
       };
