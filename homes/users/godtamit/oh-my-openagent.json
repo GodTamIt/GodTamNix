@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "sisyphus": {
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
+    },
+    "hephaestus": {
+      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+    },
+    "oracle": {
+      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+    },
+    "librarian": {
+      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+    },
+    "explore": {
+      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+    },
+    "multimodal-looker": {
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
+    },
+    "prometheus": {
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
+    },
+    "metis": {
+      "model": "deepinfra/zai-org/GLM-5"
+    },
+    "momus": {
+      "model": "deepinfra/zai-org/GLM-5"
+    },
+    "atlas": {
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
+    },
+    "sisyphus-junior": {
+      "model": "deepinfra-custom/stepfun-ai/Step-3.5-Flash"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
+    },
+    "ultrabrain": {
+      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+    },
+    "deep": {
+      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+    },
+    "artistry": {
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
+    },
+    "quick": {
+      "model": "deepinfra-custom/stepfun-ai/Step-3.5-Flash"
+    },
+    "unspecified-low": {
+      "model": "deepinfra-custom/stepfun-ai/Step-3.5-Flash"
+    },
+    "unspecified-high": {
+      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+    },
+    "writing": {
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
+    }
+  }
+}

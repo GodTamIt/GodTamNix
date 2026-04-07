@@ -22,6 +22,11 @@
         # setDefault = true;
       };
     };
+
+    programs.terminal.ai.opencode = {
+      settings = builtins.fromJSON (builtins.readFile ./opencode.json);
+      ohMyOpenAgent = builtins.fromJSON (builtins.readFile ./oh-my-openagent.json);
+    };
   };
 
   home.packages = with pkgs; [
