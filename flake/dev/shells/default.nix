@@ -22,7 +22,7 @@ in
     shellHook = ''
       ${config.pre-commit.installationScript}
 
-      echo "🚀 GodtamNix development environment"
+      echo "🚀 GodTamNix development environment"
       echo ""
       echo "📦 Available packages:"
       ${lib.concatMapStringsSep "\n" (
