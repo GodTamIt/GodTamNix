@@ -8,7 +8,7 @@
       "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
     },
     "oracle": {
-      "model": "deepinfra/zai-org/GLM-5.1"
+      "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "librarian": {
       "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
@@ -40,7 +40,7 @@
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "ultrabrain": {
-      "model": "deepinfra/zai-org/GLM-5.1"
+      "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "deep": {
       "model": "deepinfra-custom/google/gemma4-31B-it"
@@ -55,7 +55,7 @@
       "model": "deepinfra/zai-org/GLM-4.7-Flash"
     },
     "unspecified-high": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra-custom/google/gemma4-31B-it"
     },
     "writing": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
