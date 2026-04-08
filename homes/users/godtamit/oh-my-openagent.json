@@ -37,7 +37,7 @@
   },
   "categories": {
     "visual-engineering": {
-      "model": "deepinfra-custom/Qwen/Qwen2.5-VL-32B-Instruct"
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "ultrabrain": {
       "model": "deepinfra/zai-org/GLM-5.1"
