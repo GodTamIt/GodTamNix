@@ -26,7 +26,7 @@
       "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "momus": {
-      "model": "deepinfra-custom/Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo"
+      "model": "deepinfra-custom/google/gemma4-31B-it"
     },
     "atlas": {
       "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
@@ -43,7 +43,7 @@
       "model": "deepinfra/zai-org/GLM-5.1"
     },
     "deep": {
-      "model": "deepinfra/google/gemma4-31B-it"
+      "model": "deepinfra-custom/google/gemma4-31B-it"
     },
     "artistry": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
@@ -55,7 +55,7 @@
       "model": "deepinfra/zai-org/GLM-4.7-Flash"
     },
     "unspecified-high": {
-      "model": "deepinfra-custom/Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo"
+      "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "writing": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
