@@ -32,7 +32,7 @@
       "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
     },
     "sisyphus-junior": {
-      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+      "model": "deepinfra-custom/google/gemma-4-31B-it"
     }
   },
   "categories": {

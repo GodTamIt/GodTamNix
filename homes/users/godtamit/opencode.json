@@ -9,7 +9,7 @@
         "baseURL": "https://api.deepinfra.com/v1/openai"
       },
       "models": {
-        "google/gemma4-31B-it": {
+        "google/gemma-4-31B-it": {
           "name": "Gemma 4 31B",
           "limit": { "context": 262144, "output": 262144 },
           "modalities": { "input": ["text", "image"], "output": ["text"] }
