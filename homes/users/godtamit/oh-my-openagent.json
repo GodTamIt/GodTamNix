@@ -5,22 +5,22 @@
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
-      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+      "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "oracle": {
       "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "librarian": {
-      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
     "explore": {
-      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+      "model": "deepinfra/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8"
     },
     "multimodal-looker": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "prometheus": {
-      "model": "deepinfra/moonshotai/Kimi-K2.5"
+      "model": "deepinfra/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8"
     },
     "metis": {
       "model": "deepinfra-custom/zai-org/GLM-5.1"
@@ -40,25 +40,25 @@
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "ultrabrain": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
     "deep": {
-      "model": "deepinfra-custom/google/gemma4-31B-it"
+      "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "artistry": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "quick": {
-      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
-    },
-    "unspecified-low": {
-      "model": "deepinfra/zai-org/GLM-4.7-Flash"
-    },
-    "unspecified-high": {
       "model": "deepinfra-custom/google/gemma4-31B-it"
     },
+    "unspecified-low": {
+      "model": "deepinfra-custom/google/gemma4-31B-it"
+    },
+    "unspecified-high": {
+      "model": "deepinfra-custom/zai-org/GLM-5.1"
+    },
     "writing": {
-      "model": "deepinfra/moonshotai/Kimi-K2.5"
+      "model": "deepinfra/meta-llama/Llama-4-Scout-17B-16E-Instruct"
     }
   }
 }
