@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib) mkIf mkOption types;
@@ -29,6 +30,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = lib.optional (lib.elem "oh-my-openagent" (finalSettings.plugin or [])) pkgs.oh-my-opencode;
+
     programs.opencode = {
       enable = true;
       settings = finalSettings;
