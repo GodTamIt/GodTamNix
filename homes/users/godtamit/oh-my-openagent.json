@@ -14,13 +14,13 @@
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
     "explore": {
-      "model": "deepinfra/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
     "multimodal-looker": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "prometheus": {
-      "model": "deepinfra/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8"
+      "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "metis": {
       "model": "deepinfra-custom/zai-org/GLM-5.1"
@@ -58,7 +58,7 @@
       "model": "deepinfra-custom/zai-org/GLM-5.1"
     },
     "writing": {
-      "model": "deepinfra/meta-llama/Llama-4-Scout-17B-16E-Instruct"
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
     }
   }
 }
