@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
     },
     "oracle": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
     },
     "librarian": {
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
@@ -20,10 +20,10 @@
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "prometheus": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
     },
     "metis": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
     },
     "momus": {
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
@@ -43,7 +43,7 @@
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
     "deep": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
     },
     "artistry": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
@@ -55,7 +55,7 @@
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
     "unspecified-high": {
-      "model": "deepinfra-custom/zai-org/GLM-5.1"
+      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
     },
     "writing": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
