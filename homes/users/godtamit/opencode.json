@@ -35,6 +35,41 @@
           "modalities": { "input": ["text", "image"], "output": ["text"] }
         }
       }
+    },
+    "novita": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Novita",
+      "options": {
+        "baseURL": "https://api.novita.ai/openai"
+      },
+      "models": {
+        "google/gemma-4-31B-it": {
+          "name": "Gemma 4 31B",
+          "limit": { "context": 262144, "output": 131072 },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text", "image"]
+          }
+        },
+        "moonshotai/kimi-k2.5": {
+          "name": "Kimi K2.5",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text", "image"]
+          }
+        },
+        "minimax/minimax-m2.7": {
+          "name": "MiniMax M2.7",
+          "limit": { "context": 262144, "output": 131072 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] }
+        },
+        "zai-org/glm-5.1": {
+          "name": "GLM-5.1",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] }
+        }
+      }
     }
   }
 }

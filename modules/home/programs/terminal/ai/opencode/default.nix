@@ -8,11 +8,15 @@
 
   cfg = config.godtamnix.programs.terminal.ai.opencode;
 
-  # Merge oh-my-openagent into the plugin list if it has configuration
+  # Merge plugins into the plugin list if they have configuration
+  extraPlugins =
+    (lib.optional (cfg.ohMyOpenAgent != {}) "oh-my-openagent")
+    ++ (lib.optional (cfg.ohMyOpenCodeSlim != {}) "oh-my-opencode-slim");
+
   finalSettings =
     cfg.settings
-    // lib.optionalAttrs (cfg.ohMyOpenAgent != {}) {
-      plugin = lib.unique ((cfg.settings.plugin or []) ++ ["oh-my-openagent"]);
+    // {
+      plugin = lib.unique ((cfg.settings.plugin or []) ++ extraPlugins);
     };
 in {
   options.godtamnix.programs.terminal.ai.opencode = {
@@ -27,10 +31,17 @@ in {
       default = {};
       description = "Settings for oh-my-openagent (oh-my-openagent.jsonc)";
     };
+    ohMyOpenCodeSlim = mkOption {
+      type = types.attrs;
+      default = {};
+      description = "Settings for oh-my-opencode-slim (oh-my-opencode-slim.jsonc)";
+    };
   };
 
   config = mkIf cfg.enable {
-    home.packages = lib.optional (lib.elem "oh-my-openagent" (finalSettings.plugin or [])) pkgs.oh-my-opencode;
+    home.packages = lib.flatten [
+      (lib.optional (lib.elem "oh-my-openagent" (finalSettings.plugin or [])) pkgs.oh-my-opencode)
+    ];
 
     programs.opencode = {
       enable = true;
@@ -39,6 +50,10 @@ in {
 
     xdg.configFile."opencode/oh-my-openagent.jsonc" = mkIf (cfg.ohMyOpenAgent != {}) {
       text = builtins.toJSON cfg.ohMyOpenAgent;
+    };
+
+    xdg.configFile."opencode/oh-my-opencode-slim.jsonc" = mkIf (cfg.ohMyOpenCodeSlim != {}) {
+      text = builtins.toJSON cfg.ohMyOpenCodeSlim;
     };
   };
 }

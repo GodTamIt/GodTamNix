@@ -1,0 +1,63 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "preset": "best",
+  "presets": {
+    "best": {
+      "orchestrator": {
+        "model": "deepinfra/moonshotai/Kimi-K2.5",
+        "skills": ["*"],
+        "mcps": ["*"]
+      },
+      "oracle": {
+        "model": "deepinfra-custom/zai-org/GLM-5.1",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "deepinfra/deepseek-ai/DeepSeek-V3.2",
+        "variant": "low",
+        "skills": [],
+        "mcps": ["websearch", "context7", "grep_app"]
+      },
+      "explorer": {
+        "model": "deepinfra/deepseek-ai/DeepSeek-V3.2",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "deepinfra/moonshotai/Kimi-K2.5",
+        "skills": ["agent-browser"],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "deepinfra/MiniMaxAI/MiniMax-M2.5",
+        "skills": [],
+        "mcps": []
+      }
+    }
+  },
+  "multiplexer": {
+    "type": "auto",
+    "layout": "main-vertical",
+    "main_pane_size": 60
+  },
+  "council": {
+    "master": { "model": "deepinfra/moonshotai/Kimi-K2.5" },
+    "default_preset": "balanced",
+    "presets": {
+      "balanced": {
+        "alpha": { "model": "deepinfra-custom/google/gemma-4-31B-it" },
+        "beta": { "model": "deepinfra/deepseek-ai/DeepSeek-V3.2" },
+        "gamma": { "model": "deepinfra/moonshotai/Kimi-K2.5" }
+      },
+      "heavy": {
+        "reviewer": { "model": "deepinfra-custom/google/gemma-4-31B-it" },
+        "coder": { "model": "deepinfra/deepseek-ai/DeepSeek-V3.2" },
+        "creative": { "model": "deepinfra/moonshotai/Kimi-K2.5" },
+        "thinker": { "model": "deepinfra-custom/zai-org/GLM-5.1" },
+        "fixer": { "model": "deepinfra/MiniMaxAI/MiniMax-M2.5" }
+      }
+    }
+  }
+}
