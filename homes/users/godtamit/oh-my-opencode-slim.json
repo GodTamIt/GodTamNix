@@ -78,18 +78,18 @@
     "main_pane_size": 60
   },
   "council": {
-    "master": { "model": "novita-ai/moonshotai/kimi-k2.5" },
+    "master": { "model": "deepinfra/moonshotai/Kimi-K2.5" },
     "default_preset": "balanced",
     "presets": {
       "balanced": {
         "alpha": { "model": "deepinfra-custom/google/gemma-4-31B-it" },
         "beta": { "model": "deepinfra/deepseek-ai/DeepSeek-V3.2" },
-        "gamma": { "model": "novita-ai/moonshotai/kimi-k2.5" }
+        "gamma": { "model": "deepinfra/moonshotai/Kimi-K2.5" }
       },
       "heavy": {
         "reviewer": { "model": "deepinfra-custom/google/gemma-4-31B-it" },
         "coder": { "model": "deepinfra/deepseek-ai/DeepSeek-V3.2" },
-        "creative": { "model": "novita-ai/moonshotai/kimi-k2.5" },
+        "creative": { "model": "deepinfra/moonshotai/Kimi-K2.5" },
         "thinker": { "model": "deepinfra-custom/zai-org/GLM-5.1" },
         "fixer": { "model": "deepinfra/MiniMaxAI/MiniMax-M2.5" }
       }
