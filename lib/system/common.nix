@@ -130,6 +130,7 @@ in {
             inputs.hypr-socket-watch.homeManagerModules.default
             inputs.nix-index-database.homeModules.nix-index
             inputs.sops-nix.homeManagerModules.sops
+            inputs.plasma-manager.homeManagerModules.plasma-manager
           ]
           ++ (extendedLib.importModulesRecursive ../../modules/home);
         users =
