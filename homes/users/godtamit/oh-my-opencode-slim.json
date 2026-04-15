@@ -9,7 +9,7 @@
         "mcps": ["*"]
       },
       "oracle": {
-        "model": "deepinfra-custom/zai-org/GLM-5.1",
+        "model": "deepinfra/zai-org/GLM-5.1",
         "variant": "high",
         "skills": [],
         "mcps": []
@@ -44,7 +44,7 @@
         "mcps": ["*"]
       },
       "oracle": {
-        "model": "deepinfra-custom/zai-org/GLM-5.1",
+        "model": "deepinfra/zai-org/GLM-5.1",
         "variant": "high",
         "skills": [],
         "mcps": []
@@ -90,7 +90,7 @@
         "reviewer": { "model": "deepinfra-custom/google/gemma-4-31B-it" },
         "coder": { "model": "deepinfra/deepseek-ai/DeepSeek-V3.2" },
         "creative": { "model": "deepinfra/moonshotai/Kimi-K2.5" },
-        "thinker": { "model": "deepinfra-custom/zai-org/GLM-5.1" },
+        "thinker": { "model": "deepinfra/zai-org/GLM-5.1" },
         "fixer": { "model": "deepinfra/MiniMaxAI/MiniMax-M2.5" }
       }
     }

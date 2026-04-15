@@ -5,10 +5,10 @@
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
+      "model": "deepinfra/zai-org/GLM-5.1"
     },
     "oracle": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
+      "model": "deepinfra/zai-org/GLM-5.1"
     },
     "librarian": {
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
@@ -20,16 +20,16 @@
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "prometheus": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
+      "model": "deepinfra/zai-org/GLM-5.1"
     },
     "metis": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
+      "model": "deepinfra/zai-org/GLM-5.1"
     },
     "momus": {
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
     "atlas": {
-      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
+      "model": "novita-ai/minimax/minimax-m2.7"
     },
     "sisyphus-junior": {
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
@@ -43,19 +43,19 @@
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
     "deep": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
+      "model": "deepinfra/zai-org/GLM-5.1"
     },
     "artistry": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "quick": {
-      "model": "deepinfra/zai-org/GLM-4.7-Flash"
-    },
-    "unspecified-low": {
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
     },
+    "unspecified-low": {
+      "model": "novita-ai/minimax/minimax-m2.7"
+    },
     "unspecified-high": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-R1-0528"
+      "model": "deepinfra/zai-org/GLM-5.1"
     },
     "writing": {
       "model": "deepinfra/moonshotai/Kimi-K2.5"
