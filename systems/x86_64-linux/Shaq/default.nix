@@ -66,19 +66,6 @@ in {
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Configure keymap in X11
-  services = {
-    displayManager.defaultSession = "plasma";
-
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -136,6 +123,8 @@ in {
 
   # List services that you want to enable:
   services = {
+    displayManager.defaultSession = "plasma";
+
     openssh = {
       enable = true;
       settings.PermitRootLogin = "no";
@@ -143,6 +132,14 @@ in {
     };
 
     udisks2 = enabled;
+
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
   };
 
   # This value determines the NixOS release from which the default
