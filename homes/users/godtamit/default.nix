@@ -125,5 +125,5 @@
     };
   };
 
-  xdg.configFile."Antigravity/Users/settings.json".source = ./antigravity-settings.json;
+  xdg.configFile."Antigravity/User/settings.json".source = ./antigravity-settings.json;
 }
