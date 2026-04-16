@@ -93,12 +93,25 @@ in {
     NIXOS_OZONE_WL = "1";
   };
 
-  godtamnix.system = {
-    display-manager.sddm = {
+  services.displayManager.sddm = {
+    enable = true;
+    #wayland = {
+    #  enable = true;
+    #  compositor = "weston";
+    #};
+  };
+
+  # Use catppuccin themed sddm
+  catppuccin = {
+    enable = true;
+    sddm = {
       enable = true;
-      catppuccin.enable = true;
+      flavor = "mocha";
+      font = "Noto Sans";
+      fontSize = "9";
+      # background = "some/path";
+      # userIcon = true;
     };
-    desktop.kde.enable = true;
   };
 
   programs = {
