@@ -39,6 +39,11 @@ in {
             default = pkgs.fish;
             description = "The shell to use for the user.";
           };
+          authorizedKeys = mkOption {
+            type = types.listOf types.str;
+            default = [];
+            description = "The public SSH keys for the user.";
+          };
         };
       }
     );
@@ -64,6 +69,8 @@ in {
                 "input"
               ]
               ++ userCfg.extraGroups;
+
+            openssh.authorizedKeys.keys = userCfg.authorizedKeys;
           }
           // userCfg.extraOptions
       )
