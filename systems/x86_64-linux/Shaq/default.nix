@@ -120,6 +120,7 @@ in {
       xwayland.enable = true;
     };
     fish = enabled;
+    zsh = enabled;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
