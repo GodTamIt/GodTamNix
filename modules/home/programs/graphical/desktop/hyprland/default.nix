@@ -166,7 +166,7 @@ in {
           "$mainMod, return, exec, antigravity"
           "$mainMod, T, exec, kitty"
           "$mainMod, O, exec, thunar"
-          "$mainMod, Y, exec, kitty -e fish -c 'yy; exec fish'"
+          "$mainMod, Y, exec, kitty -e fish -c 'y; exec fish'"
           "$mainMod, B, exec, firefox --new-window"
           "$mainMod, L, exec, hyprlock"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
