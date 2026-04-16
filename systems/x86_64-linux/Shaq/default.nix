@@ -76,32 +76,13 @@ in {
     fira-code
     nerd-fonts.fira-code
     noto-fonts
+
+    elegant-sddm
   ];
 
   environment.sessionVariables = {
     # ELECTRON_OZONE_PLATFORM_HINT = "auto";
     NIXOS_OZONE_WL = "1";
-  };
-
-  services.displayManager.sddm = {
-    enable = true;
-    #wayland = {
-    #  enable = true;
-    #  compositor = "weston";
-    #};
-  };
-
-  # Use catppuccin themed sddm
-  catppuccin = {
-    enable = true;
-    sddm = {
-      enable = true;
-      flavor = "mocha";
-      font = "Noto Sans";
-      fontSize = "9";
-      # background = "some/path";
-      # userIcon = true;
-    };
   };
 
   programs = {
@@ -123,7 +104,30 @@ in {
 
   # List services that you want to enable:
   services = {
-    displayManager.defaultSession = "plasma";
+    displayManager = {
+      defaultSession = "plasma";
+
+      sddm = {
+        enable = true;
+
+        theme = "${pkgs.elegant-sddm}/share/sddm/themes/Elegant";
+
+        settings = {
+          Users = {
+            RememberLastSession = false;
+          };
+          Autologin = {
+            # 'plasma' is typically the name for the Wayland session
+            # Use 'plasmax11' if you are sticking to X11
+            Session = "plasma";
+          };
+        };
+        #wayland = {
+        #  enable = true;
+        #  compositor = "weston";
+        #};
+      };
+    };
 
     openssh = {
       enable = true;
