@@ -22,6 +22,7 @@ in {
     suites = {
       audio = enabled;
       gaming = enabled;
+      kde = enabled;
     };
 
     hardware = {
@@ -67,6 +68,8 @@ in {
 
   # Configure keymap in X11
   services = {
+    displayManager.defaultSession = "plasma";
+
     xserver = {
       enable = true;
       xkb = {
