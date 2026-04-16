@@ -12,6 +12,7 @@
     nh
     statix
     sops
+    ssh-to-age
     pre-commit
     self'.formatter
   ];
