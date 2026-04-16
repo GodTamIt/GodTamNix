@@ -32,6 +32,7 @@
 #custom-launcher,
 #custom-lock,
 #custom-suspend,
+#custom-logout,
 #custom-reboot,
 #custom-power,
 #custom-weather,
@@ -69,6 +70,10 @@
 
 #custom-suspend {
   background-color: #f9e2af;
+}
+
+#custom-logout {
+  background-color: #ffd6a6;
 }
 
 #custom-reboot {

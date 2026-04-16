@@ -265,6 +265,7 @@ in {
             ++ (mkModule cfg.modules.tray "tray")
             ++ (mkModule cfg.modules.power "custom/lock")
             ++ (mkModule cfg.modules.power "custom/suspend")
+            ++ (mkModule cfg.modules.power "custom/logout")
             ++ (mkModule cfg.modules.power "custom/reboot")
             ++ (mkModule cfg.modules.power "custom/power")
             ++ (mkModule cfg.modules.clock.enable "clock")
@@ -309,6 +310,13 @@ in {
             on-click = "systemctl suspend";
             tooltip = true;
             tooltip-format = "Suspend";
+          };
+
+          "custom/logout" = {
+            format = "󰿅";
+            on-click = "hyprctl dispatch exit";
+            tooltip = true;
+            tooltip-format = "Logout";
           };
 
           "custom/reboot" = {
