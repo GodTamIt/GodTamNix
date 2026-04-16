@@ -28,6 +28,7 @@ in {
     (master)
     claude-code
     plex-desktop
+    webull-desktop
     yaziPlugins
     yt-dlp
     ytmdesktop
