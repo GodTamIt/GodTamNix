@@ -151,6 +151,11 @@ in {
         ];
       };
     };
+
+    udiskie = {
+      enable = true;
+      automount = true;
+    };
   };
 
   home = {

@@ -131,12 +131,14 @@ in {
   # };
 
   # List services that you want to enable:
+  services = {
+    openssh = {
+      enable = true;
+      settings.PermitRootLogin = "no";
+      allowSFTP = true;
+    };
 
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    settings.PermitRootLogin = "no";
-    allowSFTP = true;
+    udisks2 = enabled;
   };
 
   # This value determines the NixOS release from which the default
