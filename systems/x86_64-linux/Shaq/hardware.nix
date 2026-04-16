@@ -21,8 +21,6 @@ in {
 
       gpu.intel = {
         enable = true;
-        open = true;
-        powerLimit = 300;
       };
     };
   };
