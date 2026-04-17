@@ -1,67 +1,69 @@
 {
-	"editor.fontFamily": "'Cascadia Code NF', 'FiraCode Nerd Font', 'monospace', monospace",
-	"editor.fontSize": 12,
-	"editor.formatOnSave": true,
-	"editor.formatOnSaveMode": "file",
-	"editor.inlineSuggest.enabled": true,
-	"editor.largeFileOptimizations": true,
-	"editor.minimap.enabled": false,
-	"editor.renderWhitespace": "boundary",
+  "editor.fontFamily": "'Cascadia Code NF', 'FiraCode Nerd Font', 'monospace', monospace",
+  "editor.fontSize": 12,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.inlineSuggest.enabled": true,
+  "editor.largeFileOptimizations": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary",
 
-	"terminal.integrated.defaultProfile.linux": "fish",
-	"terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 12,
 
-	"clangd.onConfigChanged": "restart",
+  "clangd.onConfigChanged": "restart",
 
-	"go.toolsManagement.autoUpdate": false,
-	"go.toolsManagement.checkForUpdates": "off",
+  "go.toolsManagement.autoUpdate": false,
+  "go.toolsManagement.checkForUpdates": "off",
 
-	"nix.formatterPath": "alejandra",
+  "nix.formatterPath": "alejandra",
 
-	"rust-analyzer.cargo.features": "all",
+  "rust-analyzer.cargo.features": "all",
 
-	"shellformat.useEditorConfig": true,
+  "shellformat.useEditorConfig": true,
 
-	"svelte.enable-ts-plugin": true,
+  "svelte.enable-ts-plugin": true,
 
-	"workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Catppuccin Mocha",
 
-	"[git-commit]": {
-		"editor.rulers": [50, 72]
-	},
-	"[python]": {
-		"editor.rulers": [79, 88]
-	},
-	"[rust]": {
-		"editor.rulers": [100]
-	},
-	"[cpp]": {
-		"editor.rulers": [80, 100]
-	},
-	"[javascript]": {
-		"editor.rulers": [80, 100]
-	},
-	"[typescript]": {
-		"editor.rulers": [80, 100],
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[svelte]": {
-		"editor.rulers": [100],
-		"editor.defaultFormatter": "svelte.svelte-vscode"
-	},
-	"[markdown]": {
-		"editor.rulers": [80, 100]
-	},
-	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[dockercompose]": {
-		"editor.insertSpaces": true,
-		"editor.tabSize": 2,
-		"editor.autoIndent": "advanced",
-		"editor.defaultFormatter": "redhat.vscode-yaml"
-	}
+  "[git-commit]": {
+    "editor.rulers": [50, 72]
+  },
+  "[python]": {
+    "editor.rulers": [79, 88]
+  },
+  "[rust]": {
+    "editor.rulers": [100]
+  },
+  "[cpp]": {
+    "editor.rulers": [80, 100]
+  },
+  "[javascript]": {
+    "editor.rulers": [80, 100]
+  },
+  "[typescript]": {
+    "editor.rulers": [80, 100],
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {
+    "editor.rulers": [100],
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[markdown]": {
+    "editor.rulers": [80, 100]
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "editor.wordWrap": "on",
+  "terminal.integrated.stickyScroll.enabled": false,
+  "terminal.integrated.defaultProfile.linux": "fish"
 }
