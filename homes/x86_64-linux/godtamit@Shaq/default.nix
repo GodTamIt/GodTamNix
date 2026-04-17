@@ -184,9 +184,9 @@ in {
         "application/x-extension-xhtml" = "firefox.desktop";
         "application/x-extension-xht" = "firefox.desktop";
       };
-
-      configFile."mimeapps.list".force = true;
     };
+
+    configFile."mimeapps.list".force = true;
   };
 
   wayland.windowManager.hyprland = {
