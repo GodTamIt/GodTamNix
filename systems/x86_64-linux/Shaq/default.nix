@@ -4,6 +4,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   inherit (lib.godtamnix) enabled;
@@ -12,6 +13,7 @@ in {
     # Include the results of the hardware scan.
     ./disks.nix
     ./hardware.nix
+    ./sops.nix
     ./users.nix
   ];
 
@@ -48,6 +50,10 @@ in {
     hostName = "Shaq";
     wireless = enabled;
     networkmanager = enabled;
+
+    firewall = {
+      enable = true;
+    };
   };
 
   # Configure network proxy if necessary
@@ -129,9 +135,32 @@ in {
       };
     };
 
+    ddclient = {
+      enable = true;
+      protocol = "cloudflare";
+      use = "web, web=checkip.dyndns.org";
+
+      # The actual domain you want to update
+      zone = lib.godtamnix.decode "YXN0LmxpdmU=";
+      domains = [(lib.godtamnix.decode "c2hhcS5kZXYuYXN0LmxpdmU=")];
+
+      username = "token";
+      passwordFile = config.sops.secrets.cloudflare_api_token.path;
+
+      # How often to check for an IP change (e.g., every 5 minutes)
+      interval = "2min";
+    };
+
     openssh = {
       enable = true;
-      settings.PermitRootLogin = "no";
+      ports = [38888];
+
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
+
       allowSFTP = true;
     };
 

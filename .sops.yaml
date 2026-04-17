@@ -1,0 +1,9 @@
+keys:
+  - &Shaq age1dsq3jfksmka0gdkxpqpfglyvcusutspj007y4yzsmwfyfyp92yusy7wnlg
+  - &godtamit-Shaq age1c3jfx5pxy0ttfxwkwp9cmrclg0en4t04j09342ed622pc5kal9essafrhp
+creation_rules:
+  - path_override: secrets/Shaq/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *Shaq
+          - *godtamit-Shaq
