@@ -13,14 +13,6 @@ in {
     # This gets the basic nix options setup.
     nix = enabled;
 
-    # Create the user account.
-    user = {
-      enable = true;
-      name = "godtamit";
-      fullName = "Christopher Tam";
-      email = lib.godtamnix.decode "b2hnb2R0YW1pdEBnbWFpbC5jb20=";
-    };
-
     suites = {
       development = {
         enable = true;
