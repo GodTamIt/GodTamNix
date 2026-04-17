@@ -17,7 +17,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs;
       [
-        ffmpeg_7-full
+        ffmpeg-full
         handbrake
         mkvtoolnix
         yt-dlp
