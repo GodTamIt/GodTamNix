@@ -102,6 +102,12 @@
           user = "godtamit";
           port = 38888;
         };
+
+        "shaq" = {
+          hostname = lib.godtamnix.decode "c2hhcS5kZXYuYXN0LmxpdmU=";
+          user = "godtamit";
+          port = 38888;
+        };
       };
     };
 
