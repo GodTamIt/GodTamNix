@@ -185,8 +185,6 @@ in {
         "application/x-extension-xht" = "firefox.desktop";
       };
     };
-
-    configFile."mimeapps.list".force = true;
   };
 
   wayland.windowManager.hyprland = {
