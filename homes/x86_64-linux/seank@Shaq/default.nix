@@ -16,24 +16,23 @@ in {
     # Create the user account.
     user = {
       enable = true;
-      name = "godtamit";
-      fullName = "Christopher Tam";
-      email = lib.godtamnix.decode "b2hnb2R0YW1pdEBnbWFpbC5jb20=";
+      name = "seank";
+      fullName = "Sean Khosrowshahi";
+      email = lib.godtamnix.decode "c2VhbkBhc3QubGl2ZQo=";
     };
 
     suites = {
       development = {
         enable = true;
         awsEnable = true;
-        digitaloceanEnable = true;
+        digitaloceanEnable = false;
         dockerEnable = true;
-        kubernetesEnable = true;
-        nixEnable = true;
+        kubernetesEnable = false;
+        nixEnable = false;
         sqlEnable = true;
         aiEnable = true;
       };
 
-      gaming = enabled;
       multimedia = enabled;
 
       video = {
@@ -103,6 +102,8 @@ in {
       #   "application/x-extension-xht" = "firefox.desktop";
       # };
     };
+
+    configFile."mimeapps.list".force = true;
   };
 
   home.stateVersion = "25.11";
