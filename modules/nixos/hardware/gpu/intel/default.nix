@@ -35,6 +35,8 @@ in {
         extraPackages = with pkgs;
           [
             intel-media-driver # VA-API (iHD) userspace
+            libva-utils
+            intel-gpu-tools
             vpl-gpu-rt # oneVPL (QSV) runtime
           ]
           ++ lib.optionals cfg.enableCompute [
