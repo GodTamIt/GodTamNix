@@ -45,6 +45,16 @@
       };
     };
 
+    zsh = {
+      enable = true;
+      autocd = true;
+
+      autosuggestion = {
+        enable = true;
+        strategy = "history";
+      };
+    };
+
     ssh = {
       enable = true;
       enableDefaultConfig = false;
