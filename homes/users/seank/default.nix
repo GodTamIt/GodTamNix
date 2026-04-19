@@ -45,14 +45,19 @@
       };
     };
 
-    zsh = {
+    fish = {
       enable = true;
-      autocd = true;
 
-      autosuggestion = {
-        enable = true;
-        strategy = "history";
-      };
+      loginShellInit = ''
+        set -x NIX_PATH nixpkgs=channel:nixos-unstable
+        set -x NIX_LOG info
+        set -x TERMINAL kitty
+      '';
+
+      interactiveShellInit = ''
+        set -x fish_greeting # This sets the greeting to nothing
+        fastfetch
+      '';
     };
 
     ssh = {

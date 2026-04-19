@@ -39,7 +39,7 @@
           "docker"
           "podman"
         ];
-        shell = pkgs.zsh;
+        shell = pkgs.fish;
       };
     };
   };
