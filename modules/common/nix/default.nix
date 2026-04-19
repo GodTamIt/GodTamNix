@@ -10,5 +10,8 @@
     ripgrep
     vim
     zsh
+
+    libva-utils
+    pciutils
   ];
 }
