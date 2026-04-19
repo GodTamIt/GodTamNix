@@ -26,7 +26,7 @@ in {
   config = mkIf cfg.enable {
     services.xserver.videoDrivers = ["modesetting"];
 
-    boot.kernelParams = ["i915.enable_guc=3"];
+    boot.initrd.kernelModules = ["xe"];
 
     hardware = {
       graphics = {
