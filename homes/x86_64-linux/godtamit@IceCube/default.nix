@@ -154,6 +154,7 @@ in {
     packages = with pkgs; [
       onlyoffice-desktopeditors
       thunar
+      zoom-us
     ];
 
     sessionVariables = {
