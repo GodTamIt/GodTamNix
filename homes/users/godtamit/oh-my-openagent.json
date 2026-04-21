@@ -32,7 +32,7 @@
       "model": "novita-ai/minimax/minimax-m2.7"
     },
     "sisyphus-junior": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+      "model": "novita-ai/minimax/minimax-m2.7"
     }
   },
   "categories": {
