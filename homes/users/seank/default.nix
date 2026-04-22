@@ -83,5 +83,5 @@
   };
 
   xdg.configFile."Antigravity/Users/settings.json".source = ./antigravity-settings.json;
-  xdg.configFile."mimeapps.list".force = true;
+  xdg.configFile."gtk-2.0/gtkrc".force = true;
 }

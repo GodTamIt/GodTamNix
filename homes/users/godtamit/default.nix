@@ -132,4 +132,5 @@
   };
 
   xdg.configFile."Antigravity/User/settings.json".source = ./antigravity-settings.json;
+  xdg.configFile."gtk-2.0/gtkrc".force = true;
 }
