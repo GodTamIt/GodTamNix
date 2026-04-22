@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   inherit (lib.godtamnix) enabled;
@@ -115,6 +116,18 @@ in {
             enable = true;
             enableSessionWide = true;
           };
+        };
+      };
+    };
+  };
+
+  programs = {
+    direnv = {
+      config = {
+        whitelist = {
+          prefix = [
+            "${config.home.homeDirectory}/src/assist"
+          ];
         };
       };
     };
