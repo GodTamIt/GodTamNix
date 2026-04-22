@@ -81,6 +81,7 @@
         gpff = "git pull --ff-only";
         gst = "git status";
         gunstage = "git restore --staged";
+        gwt = "git worktree";
       };
     };
 
