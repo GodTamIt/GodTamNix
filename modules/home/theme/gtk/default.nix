@@ -109,6 +109,7 @@ in {
 
       gtk2 = {
         configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+        force = true;
         extraConfig = ''
           gtk-xft-antialias=1
           gtk-xft-hinting=1
