@@ -32,7 +32,7 @@
       "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
     },
     "sisyphus-junior": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+      "model": "deepinfra/MiniMaxAI/MiniMax-M2.5"
     }
   },
   "categories": {
