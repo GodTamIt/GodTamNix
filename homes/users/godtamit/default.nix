@@ -86,6 +86,9 @@
         gst = "git status";
         gunstage = "git restore --staged";
         gwt = "git worktree";
+        gwtrm = "git worktree remove";
+        gwtrmf = "git worktree remove -f";
+        gwtkill = "git kill-tree";
       };
     };
 
@@ -94,6 +97,10 @@
 
       settings = {
         push.autoSetupRemote = true;
+      };
+
+      aliases = {
+        kill-tree = "!f() { git worktree remove -f \"$1\" && git branch -D \"$1\"; }; f";
       };
     };
 
