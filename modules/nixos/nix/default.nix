@@ -76,5 +76,12 @@ in {
         ];
       };
     };
+
+    programs = {
+      # Enable nix-ld to allow non-Nix binaries to run.
+      nix-ld = {
+        enable = true;
+      };
+    };
   };
 }
