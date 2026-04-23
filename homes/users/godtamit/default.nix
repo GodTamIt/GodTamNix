@@ -40,6 +40,10 @@
   ];
 
   programs = {
+    claude-code = {
+      enable = true;
+    };
+
     fish = {
       enable = true;
 
