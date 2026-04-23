@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "deepinfra-custom/moonshotai/Kimi-K2.6"
+      "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "hephaestus": {
       "model": "deepinfra/zai-org/GLM-5.1"
@@ -20,7 +20,7 @@
       "model": "deepinfra/moonshotai/Kimi-K2.5"
     },
     "prometheus": {
-      "model": "deepinfra-custom/moonshotai/Kimi-K2.6"
+      "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "metis": {
       "model": "deepinfra/zai-org/GLM-5.1"
@@ -37,7 +37,7 @@
   },
   "categories": {
     "visual-engineering": {
-      "model": "deepinfra-custom/moonshotai/Kimi-K2.6"
+      "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "ultrabrain": {
       "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
@@ -46,7 +46,7 @@
       "model": "deepinfra/zai-org/GLM-5.1"
     },
     "artistry": {
-      "model": "deepinfra-custom/moonshotai/Kimi-K2.6"
+      "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "quick": {
       "model": "novita-ai/minimax/minimax-m2.7"
@@ -58,7 +58,7 @@
       "model": "deepinfra/zai-org/GLM-5.1"
     },
     "writing": {
-      "model": "deepinfra-custom/moonshotai/Kimi-K2.6"
+      "model": "deepinfra/moonshotai/Kimi-K2.6"
     }
   }
 }
