@@ -19,10 +19,13 @@
           "limit": { "context": 262144, "output": 262144 },
           "modalities": { "input": ["text", "image"], "output": ["text"] }
         },
-        "Qwen/Qwen2.5-VL-32B-Instruct": {
-          "name": "Qwen2.5 VL 32B Instruct",
-          "limit": { "context": 128000, "output": 128000 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] }
+        "moonshotai/Kimi-K2.6": {
+          "name": "Kimi K2.6",
+          "limit": { "context": 262144, "output": 16384 },
+          "modalities": {
+            "input": ["text", "image", "video"],
+            "output": ["text"]
+          }
         },
         "stepfun-ai/Step-3.5-Flash": {
           "name": "Step-3.5-Flash",
