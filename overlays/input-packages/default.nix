@@ -26,7 +26,6 @@ in {
   #          ╰──────────────────────────────────────────────────────────╯
   inherit
     (master)
-    claude-code
     plex-desktop
     webull-desktop
     yaziPlugins
@@ -39,6 +38,7 @@ in {
   #          ╰──────────────────────────────────────────────────────────╯
   inherit
     (inputs.llm-agents.packages.${final.stdenv.hostPlatform.system})
+    claude-code
     gemini-cli
     oh-my-opencode
     opencode
