@@ -100,7 +100,7 @@
       };
 
       aliases = {
-        kill-tree = "!f() { git worktree remove -f \"$1\" && git branch -D \"$1\"; }; f";
+        kill-tree = "!f() { if git show-ref --verify --quiet refs/heads/\"$1\"; then git worktree remove -f \"$1\" && git branch -D \"$1\"; else echo \"Branch $1 not found\"; fi; }; f";
       };
     };
 
