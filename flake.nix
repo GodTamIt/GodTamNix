@@ -82,6 +82,10 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs = {

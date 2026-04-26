@@ -21,6 +21,7 @@ in {
         dockerEnable = true;
         kubernetesEnable = true;
         nixEnable = true;
+        rustEnable = true;
         sqlEnable = true;
         aiEnable = true;
       };

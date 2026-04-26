@@ -21,6 +21,7 @@ in {
     goEnable = lib.mkEnableOption "go development configuration";
     kubernetesEnable = lib.mkEnableOption "Kubernetes development configuration";
     nixEnable = lib.mkEnableOption "nix development configuration";
+    rustEnable = lib.mkEnableOption "rust development configuration";
     sqlEnable = lib.mkEnableOption "sql development configuration";
     aiEnable = lib.mkEnableOption "ai development configuration";
   };
@@ -137,10 +138,14 @@ in {
       };
     };
 
-    godtamnix = mkIf cfg.aiEnable {
-      programs.terminal.ai = {
-        opencode = lib.mkDefault enabled;
-        rtk = lib.mkDefault enabled;
+    godtamnix = {
+      programs.terminal = {
+        ai = mkIf cfg.aiEnable {
+          opencode = lib.mkDefault enabled;
+          rtk = lib.mkDefault enabled;
+        };
+
+        tools.rust = mkIf cfg.rustEnable enabled;
       };
     };
   };

@@ -55,6 +55,8 @@ in {
 
         # Use the pinned version so the binary cache is available.
         cachyos = inputs.nix-cachyos-kernel.overlays.pinned;
+
+        rust = inputs.rust-overlay.overlays.default;
       };
 
     perSystem = {
