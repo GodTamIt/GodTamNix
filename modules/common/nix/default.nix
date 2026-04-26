@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    # Basic utilities
     btop
     curl
     dust
@@ -8,6 +9,7 @@
     fish
     procs
     ripgrep
+    tmux
     vim
     zsh
 
