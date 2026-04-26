@@ -50,6 +50,7 @@ in {
         auto-allocate-uids = true;
         # bail early on missing cache hits
         connect-timeout = 5;
+        download-buffer-size = 268435456; # 256 MiB
         experimental-features = ["nix-command flakes cgroups auto-allocate-uids"];
         keep-going = true;
         use-cgroups = true;
