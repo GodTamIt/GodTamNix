@@ -31,6 +31,7 @@ in {
     yaziPlugins
     yt-dlp
     ytmdesktop
+    zed-editor
     ;
 
   #          ╭──────────────────────────────────────────────────────────╮

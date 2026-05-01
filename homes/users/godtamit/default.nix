@@ -141,6 +141,16 @@
       enableFishIntegration = true;
       shellWrapperName = "y";
     };
+
+    zed-editor = {
+      enable = true;
+
+      # This populates the userSettings "auto_install_extensions"
+      extensions = ["nix" "toml" "make" "catppuccin" "svelte" "graphql"];
+
+      # Everything inside of these brackets are Zed options
+      userSettings = builtins.fromJSON (builtins.readFile ./zed-settings.json);
+    };
   };
 
   xdg.configFile."Antigravity/User/settings.json".source = ./antigravity-settings.json;
