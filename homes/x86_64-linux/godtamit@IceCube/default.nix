@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   config,
@@ -8,6 +9,7 @@
 in {
   imports = [
     ../../users/godtamit
+    inputs.open-design.homeManagerModules.default
   ];
 
   godtamnix = {
@@ -135,6 +137,16 @@ in {
   };
 
   services = {
+    open-design = {
+      enable = true;
+      autoStart = true;
+
+      webFrontend = {
+        enable = true;
+        port = 17457;
+      };
+    };
+
     hyprpaper = {
       enable = true;
 

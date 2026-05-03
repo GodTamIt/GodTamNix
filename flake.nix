@@ -96,6 +96,14 @@
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
     };
+
+    open-design = {
+      url = "github:GodTamIt/open-design/nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs = inputs:
