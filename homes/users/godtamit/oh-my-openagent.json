@@ -11,13 +11,13 @@
       "model": "deepinfra/zai-org/GLM-5.1"
     },
     "librarian": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+      "model": "novita-ai/deepseek/deepseek-v4-flash"
     },
     "explore": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+      "model": "novita-ai/deepseek/deepseek-v4-flash"
     },
     "multimodal-looker": {
-      "model": "deepinfra/moonshotai/Kimi-K2.5"
+      "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "prometheus": {
       "model": "deepinfra/moonshotai/Kimi-K2.6"
@@ -26,7 +26,7 @@
       "model": "deepinfra/zai-org/GLM-5.1"
     },
     "momus": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+      "model": "novita-ai/deepseek/deepseek-v4-flash"
     },
     "atlas": {
       "model": "novita-ai/minimax/minimax-m2.7"
@@ -40,7 +40,7 @@
       "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "ultrabrain": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V3.2"
+      "model": "novita-ai/deepseek/deepseek-v4-flash"
     },
     "deep": {
       "model": "deepinfra/zai-org/GLM-5.1"
