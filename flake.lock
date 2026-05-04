@@ -930,11 +930,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777850821,
-        "narHash": "sha256-AgMm0nufFb0erZakTe1YNtauXun15UF8uIWdJTOTKTQ=",
+        "lastModified": 1777852150,
+        "narHash": "sha256-QxpeLr6pID4kL/z96TyUv01n3RQJJV+Kw7ezTJ4N8fg=",
         "owner": "GodTamIt",
         "repo": "open-design",
-        "rev": "c2557ee2bc16794993f10c1926c646a262e7d031",
+        "rev": "1662a379991d1266e1e5a6616df26d699c95cb5f",
         "type": "github"
       },
       "original": {
