@@ -29,7 +29,7 @@
       "model": "deepinfra/zai-org/GLM-5.1"
     },
     "atlas": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
+      "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "sisyphus-junior": {
       "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
