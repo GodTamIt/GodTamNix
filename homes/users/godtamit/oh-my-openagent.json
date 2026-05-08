@@ -11,10 +11,10 @@
       "model": "deepinfra/zai-org/GLM-5.1"
     },
     "librarian": {
-      "model": "novita-ai/deepseek/deepseek-v4-flash"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
     },
     "explore": {
-      "model": "novita-ai/deepseek/deepseek-v4-flash"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
     },
     "multimodal-looker": {
       "model": "deepinfra/moonshotai/Kimi-K2.6"
@@ -26,13 +26,13 @@
       "model": "deepinfra/zai-org/GLM-5.1"
     },
     "momus": {
-      "model": "novita-ai/deepseek/deepseek-v4-flash"
+      "model": "deepinfra/zai-org/GLM-5.1"
     },
     "atlas": {
-      "model": "novita-ai/minimax/minimax-m2.7"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
     },
     "sisyphus-junior": {
-      "model": "novita-ai/minimax/minimax-m2.7"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
     }
   },
   "categories": {
@@ -40,7 +40,7 @@
       "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "ultrabrain": {
-      "model": "novita-ai/deepseek/deepseek-v4-flash"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
     },
     "deep": {
       "model": "deepinfra/zai-org/GLM-5.1"
@@ -49,10 +49,10 @@
       "model": "deepinfra/moonshotai/Kimi-K2.6"
     },
     "quick": {
-      "model": "novita-ai/minimax/minimax-m2.7"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
     },
     "unspecified-low": {
-      "model": "novita-ai/minimax/minimax-m2.7"
+      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
     },
     "unspecified-high": {
       "model": "deepinfra/zai-org/GLM-5.1"
