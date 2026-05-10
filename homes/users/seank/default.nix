@@ -79,6 +79,19 @@
       settings = fromTOML (builtins.readFile ./starship.toml);
     };
 
+    vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
+        graphql.vscode-graphql
+        mkhl.direnv
+        redhat.vscode-yaml
+        rust-lang.rust-analyzer
+        svelte.svelte-vscode
+      ];
+    };
+
     yazi = {
       enable = true;
       enableFishIntegration = true;
