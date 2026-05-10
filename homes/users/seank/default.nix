@@ -37,6 +37,10 @@
   ];
 
   programs = {
+    claude-code = {
+      enable = true;
+    };
+
     git = {
       enable = true;
 
