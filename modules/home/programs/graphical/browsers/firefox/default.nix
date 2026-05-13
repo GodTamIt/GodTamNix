@@ -125,6 +125,8 @@ in {
           "browser.newtabpage.activity-stream.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+
+          "widget.wayland.fractional-scale.enabled" = lock-false;
         };
       };
     };
@@ -134,6 +136,8 @@ in {
     programs.firefox = {
       enable = true;
       inherit (cfg) policies languagePacks;
+
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
     };
   };
 }
