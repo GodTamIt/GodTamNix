@@ -914,16 +914,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1777852150,
-        "narHash": "sha256-QxpeLr6pID4kL/z96TyUv01n3RQJJV+Kw7ezTJ4N8fg=",
-        "owner": "GodTamIt",
+        "lastModified": 1778681641,
+        "narHash": "sha256-cxH281ubbFLMiqXOePJa8lC0YPY6U2JNxdxBqVtnt48=",
+        "owner": "nexu-io",
         "repo": "open-design",
-        "rev": "1662a379991d1266e1e5a6616df26d699c95cb5f",
+        "rev": "7c8305f4862796cebe0e05b6fc6406823a8debf2",
         "type": "github"
       },
       "original": {
-        "owner": "GodTamIt",
-        "ref": "nix",
+        "owner": "nexu-io",
+        "ref": "main",
         "repo": "open-design",
         "type": "github"
       }
