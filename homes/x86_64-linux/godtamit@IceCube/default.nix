@@ -143,6 +143,7 @@ in {
 
       webFrontend = {
         enable = true;
+        host = "http://127.0.0.1";
         port = 17457;
 
         allowedOrigins = [
