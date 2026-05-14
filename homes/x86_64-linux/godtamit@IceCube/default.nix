@@ -147,7 +147,9 @@ in {
 
         allowedOrigins = [
           "http://localhost:17457"
+          "https://localhost:17457"
           "http://127.0.0.1:17457"
+          "https://127.0.0.1:17457"
         ];
       };
     };
