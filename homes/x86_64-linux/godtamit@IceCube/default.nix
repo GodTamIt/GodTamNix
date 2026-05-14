@@ -144,6 +144,11 @@ in {
       webFrontend = {
         enable = true;
         port = 17457;
+
+        allowedOrigins = [
+          "http://localhost:17457"
+          "http://127.0.0.1:17457"
+        ];
       };
     };
 
