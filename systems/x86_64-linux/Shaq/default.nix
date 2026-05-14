@@ -139,7 +139,7 @@ in {
     ddclient = {
       enable = true;
       protocol = "cloudflare";
-      use = "web, web=checkip.dyndns.org";
+      usev4 = "webv4, webv4=checkip.dyndns.org";
 
       # The actual domain you want to update
       zone = lib.godtamnix.decode "YXN0LmxpdmU=";
