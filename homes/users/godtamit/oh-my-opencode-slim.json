@@ -4,34 +4,33 @@
   "presets": {
     "open": {
       "orchestrator": {
-        "model": "deepinfra/moonshotai/Kimi-K2.5",
+        "model": "deepinfra/moonshotai/Kimi-K2.6",
         "skills": ["*"],
         "mcps": ["*"]
       },
       "oracle": {
         "model": "deepinfra/zai-org/GLM-5.1",
-        "variant": "high",
         "skills": [],
         "mcps": []
       },
       "librarian": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V3.2",
+        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
         "variant": "low",
         "skills": [],
         "mcps": ["websearch", "context7", "grep_app"]
       },
       "explorer": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V3.2",
+        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
         "skills": [],
         "mcps": []
       },
       "designer": {
-        "model": "deepinfra/moonshotai/Kimi-K2.5",
+        "model": "deepinfra/moonshotai/Kimi-K2.6",
         "skills": ["agent-browser"],
         "mcps": []
       },
       "fixer": {
-        "model": "deepinfra/MiniMaxAI/MiniMax-M2.5",
+        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
         "skills": [],
         "mcps": []
       }
@@ -39,7 +38,7 @@
 
     "open-novita": {
       "orchestrator": {
-        "model": "novita-ai/moonshotai/kimi-k2.5",
+        "model": "novita-ai/moonshotai/kimi-k2.6",
         "skills": ["*"],
         "mcps": ["*"]
       },
@@ -50,23 +49,23 @@
         "mcps": []
       },
       "librarian": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V3.2",
+        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
         "variant": "low",
         "skills": [],
         "mcps": ["websearch", "context7", "grep_app"]
       },
       "explorer": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V3.2",
+        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
         "skills": [],
         "mcps": []
       },
       "designer": {
-        "model": "novita-ai/moonshotai/kimi-k2.5",
+        "model": "novita-ai/moonshotai/kimi-k2.6",
         "skills": ["agent-browser"],
         "mcps": []
       },
       "fixer": {
-        "model": "deepinfra/MiniMaxAI/MiniMax-M2.5",
+        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
         "skills": [],
         "mcps": []
       }
@@ -78,20 +77,19 @@
     "main_pane_size": 60
   },
   "council": {
-    "master": { "model": "deepinfra/moonshotai/Kimi-K2.5" },
+    "master": { "model": "deepinfra/moonshotai/Kimi-K2.6" },
     "default_preset": "balanced",
     "presets": {
       "balanced": {
-        "alpha": { "model": "deepinfra-custom/google/gemma-4-31B-it" },
-        "beta": { "model": "deepinfra/deepseek-ai/DeepSeek-V3.2" },
-        "gamma": { "model": "deepinfra/moonshotai/Kimi-K2.5" }
+        "alpha": { "model": "xai/grok-4.3" },
+        "beta": { "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash" },
+        "gamma": { "model": "deepinfra/zai-org/GLM-5.1" }
       },
       "heavy": {
-        "reviewer": { "model": "deepinfra-custom/google/gemma-4-31B-it" },
-        "coder": { "model": "deepinfra/deepseek-ai/DeepSeek-V3.2" },
-        "creative": { "model": "deepinfra/moonshotai/Kimi-K2.5" },
-        "thinker": { "model": "deepinfra/zai-org/GLM-5.1" },
-        "fixer": { "model": "deepinfra/MiniMaxAI/MiniMax-M2.5" }
+        "reviewer": { "model": "xai/grok-4.3" },
+        "coder": { "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash" },
+        "creative": { "model": "deepinfra/moonshotai/Kimi-K2.6" },
+        "thinker": { "model": "deepinfra/zai-org/GLM-5.1" }
       }
     }
   }
