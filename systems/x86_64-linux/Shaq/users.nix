@@ -15,6 +15,7 @@
           "mpd"
           "docker"
           "podman"
+          "kvm"
         ];
         shell = pkgs.fish;
 
