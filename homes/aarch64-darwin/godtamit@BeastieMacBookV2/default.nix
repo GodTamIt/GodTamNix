@@ -40,6 +40,10 @@ in {
     };
   };
 
+  programs = {
+    kitty.font.size = lib.mkForce 11;
+  };
+
   home = {
     packages = with pkgs; [
       aldente
