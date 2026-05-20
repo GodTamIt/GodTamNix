@@ -52,10 +52,9 @@ in {
             inherit (config.users.users.${config.system.primaryUser}) home;
             hmApps = "${home}/Applications/Home Manager Apps";
           in [
-            "${hmApps}/kitty.app"
             "${hmApps}/Firefox.app"
-            "${hmApps}/Brave Browser.app"
-            "${hmApps}/Zed.app"
+            "${hmApps}/kitty.app"
+            "${hmApps}/Antigravity.app"
             "${hmApps}/Discord.app"
             "${hmApps}/Signal.app"
             "/Applications/Plex.app"
