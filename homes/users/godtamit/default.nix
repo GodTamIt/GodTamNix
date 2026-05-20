@@ -30,14 +30,18 @@
     };
   };
 
-  home.packages = with pkgs; [
-    discord
-    fastfetch
-    ferdium
-    signal-desktop
-    unzrip
-    webull-desktop
-  ];
+  home.packages = with pkgs;
+    [
+      bitwarden-desktop
+      discord
+      fastfetch
+      signal-desktop
+      unzrip
+    ]
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+      ferdium
+      webull-desktop
+    ];
 
   programs = {
     claude-code = {

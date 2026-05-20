@@ -119,7 +119,10 @@ in {
           kubectl
           kubectx
           kubernetes-helmPlugins.helm-diff
-          helm
+          # NOTE: pkgs.helm is the audio synth plugin (Linux-only). The
+          # Kubernetes package manager is pkgs.kubernetes-helm. The previous
+          # `helm` here was silently installing the wrong package on Linux.
+          kubernetes-helm
           helmfile
         ]
         ++ lib.optionals cfg.sqlEnable [

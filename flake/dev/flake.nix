@@ -8,7 +8,6 @@
       url = "path:./../..";
       # Unneeded in dev flake
       inputs = {
-        khanelivim.follows = "";
         disko.follows = "";
         lanzaboote.follows = "";
         nix-darwin.follows = "";
@@ -19,12 +18,9 @@
         firefox-addons.follows = "";
         hypr-socket-watch.follows = "";
         nh.follows = "";
-        nixpkgs-citrix-workspace.follows = "";
         nix-flatpak.follows = "";
         nix-index-database.follows = "";
         stylix.follows = "";
-        waybar.follows = "";
-        yazi-flavors.follows = "";
       };
     };
 

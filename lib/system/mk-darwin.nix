@@ -76,7 +76,13 @@ in
         inputs.home-manager.darwinModules.home-manager
         inputs.sops-nix.darwinModules.sops
         inputs.stylix.darwinModules.stylix
-        inputs.nix-rosetta-builder.darwinModules.default
+        # NOTE: nix-rosetta-builder is opt-in (it bootstraps a NixOS-on-Rosetta
+        # VM as a Linux remote builder). On a fresh Mac without an existing
+        # Linux builder, importing the module causes activation to try building
+        # aarch64-linux derivations locally and fail with "platform mismatch".
+        # Re-add this and configure `services.rosetta-builder` when you actually
+        # want to build Linux things from this Mac.
+        # inputs.nix-rosetta-builder.darwinModules.default
 
         # Auto-inject home configurations for this system+hostname
         homeManagerConfig

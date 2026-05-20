@@ -303,7 +303,14 @@ in {
   */
   parseHomeConfigurations = homesPath: let
     entries = builtins.readDir homesPath;
-    systemArchs = lib.filter (name: entries.${name} == "directory") (builtins.attrNames entries);
+    # Only treat <arch>-<os> directories (e.g. "x86_64-linux", "aarch64-darwin")
+    # as system buckets. Shared user trees like `homes/users/` would otherwise
+    # be parsed as a fake system named "users" and produce bogus configs.
+    isSystemArchName = name:
+      builtins.match "[a-z0-9_]+-[a-z]+" name != null;
+    systemArchs = lib.filter (
+      name: entries.${name} == "directory" && isSystemArchName name
+    ) (builtins.attrNames entries);
 
     generateHomeConfigs = system: let
       systemPath = homesPath + "/${system}";
