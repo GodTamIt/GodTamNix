@@ -37,12 +37,16 @@ in {
         on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
 
         gaps = {
-          inner.horizontal = 6;
-          inner.vertical = 6;
-          outer.left = 6;
-          outer.bottom = 6;
-          outer.top = 6;
-          outer.right = 6;
+          inner = {
+            horizontal = 6;
+            vertical = 6;
+          };
+          outer = {
+            left = 6;
+            bottom = 6;
+            top = 6;
+            right = 6;
+          };
         };
 
         # Modifier strategy (with mod = "alt" / "cmd"):

@@ -107,6 +107,31 @@ in {
         };
       };
 
+      # Menu bar icons (Control Center modules). The `NSStatusItem Visible …`
+      # keys control whether the icon appears in the menu bar; the bare module
+      # keys control Control Center visibility (2 = menu bar + CC, 8 = CC only,
+      # 24 = hidden). A `killall ControlCenter` is needed for changes to apply.
+      defaults.CustomUserPreferences."com.apple.controlcenter" = {
+        "NSStatusItem Visible WiFi" = true;
+        "NSStatusItem Visible Bluetooth" = true;
+        "NSStatusItem Visible Battery" = false;
+        "NSStatusItem Visible BatteryShowPercentage" = false;
+        "NSStatusItem Visible NowPlaying" = false;
+        "NSStatusItem Visible Spotlight" = false;
+        WiFi = 2;
+        Bluetooth = 2;
+        Battery = 8;
+        NowPlaying = 8;
+        Spotlight = 24;
+      };
+
+      # Menu bar clock: show date + seconds.
+      defaults.CustomUserPreferences."com.apple.menuextra.clock" = {
+        ShowDate = 1;
+        ShowSeconds = true;
+        IsAnalog = false;
+      };
+
       # macOS state version — bump only if upstream nix-darwin docs say so
       stateVersion = 6;
 
