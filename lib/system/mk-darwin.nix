@@ -74,6 +74,7 @@ in
         }
 
         inputs.home-manager.darwinModules.home-manager
+        inputs.mac-app-util.darwinModules.default
         inputs.sops-nix.darwinModules.sops
         inputs.stylix.darwinModules.stylix
         # NOTE: nix-rosetta-builder is opt-in (it bootstraps a NixOS-on-Rosetta

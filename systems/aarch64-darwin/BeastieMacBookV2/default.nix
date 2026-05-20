@@ -22,14 +22,15 @@ in {
 
     services.autoraise = enabled;
 
+    suites.media = enabled;
+
+    programs.windscribe = enabled;
+
     tools.homebrew = {
       enable = true;
       masEnable = true;
 
-      casks = [
-        "windscribe"
-      ];
-
+      casks = [];
       brews = [];
 
       # App Store apps — requires being signed in to the App Store before

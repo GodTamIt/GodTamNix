@@ -38,10 +38,28 @@ in {
           autohide = true;
           show-recents = false;
           mru-spaces = false;
-          tilesize = 36;
+          tilesize = 64;
           minimize-to-application = true;
           # Aerospace + macOS Spaces don't play well with animations
           expose-animation-duration = 0.1;
+
+          # NOTE: persistent-apps REPLACES the dock contents; it doesn't append.
+          # Home-manager apps go via ~/Applications/Home Manager Apps (created
+          # by mac-app-util). Homebrew casks land in /Applications/<Name>.app
+          # only after the first rebuild that installs the cask, so those dock
+          # entries will show a "?" until then.
+          persistent-apps = let
+            inherit (config.users.users.${config.system.primaryUser}) home;
+            hmApps = "${home}/Applications/Home Manager Apps";
+          in [
+            "${hmApps}/kitty.app"
+            "${hmApps}/Firefox.app"
+            "${hmApps}/Brave Browser.app"
+            "${hmApps}/Zed.app"
+            "${hmApps}/Discord.app"
+            "${hmApps}/Signal.app"
+            "/Applications/Plex.app"
+          ];
         };
 
         finder = {

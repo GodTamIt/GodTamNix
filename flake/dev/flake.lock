@@ -586,6 +586,7 @@
         "hypr-socket-watch": [],
         "lanzaboote": [],
         "llm-agents": "llm-agents",
+        "mac-app-util": [],
         "nh": [],
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nix-darwin": [],

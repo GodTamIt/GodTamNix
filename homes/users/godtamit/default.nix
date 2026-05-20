@@ -41,6 +41,9 @@
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       ferdium
       webull-desktop
+    ]
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+      scroll-reverser
     ];
 
   programs = {

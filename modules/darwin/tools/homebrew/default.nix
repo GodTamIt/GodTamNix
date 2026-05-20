@@ -54,7 +54,7 @@ in {
         cleanup = "none";
       };
 
-      taps = cfg.taps;
+      inherit (cfg) taps;
       brews =
         cfg.brews
         ++ lib.optionals cfg.masEnable ["mas"];

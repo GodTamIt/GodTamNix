@@ -59,7 +59,7 @@ in {
         # except when mod is already alt — then nav collapses to just alt
         # (alt+h, alt+arrow, …) since the doubled "alt-alt-…" form is invalid.
         mode.main.binding = let
-          mod = cfg.mod;
+          inherit (cfg) mod;
           shift = "${mod}-shift";
           nav =
             if mod == "alt"

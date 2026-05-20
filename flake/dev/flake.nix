@@ -17,6 +17,7 @@
         catppuccin.follows = "";
         firefox-addons.follows = "";
         hypr-socket-watch.follows = "";
+        mac-app-util.follows = "";
         nh.follows = "";
         nix-flatpak.follows = "";
         nix-index-database.follows = "";

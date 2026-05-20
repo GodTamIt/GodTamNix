@@ -35,6 +35,15 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    # Bridges home-manager-installed .app bundles into Spotlight/Launchpad/Dock
+    # by trampolining them into ~/Applications/Home Manager Apps and
+    # /Applications/Nix Apps. Without it, GUI apps from home-manager (kitty,
+    # firefox, zed, etc.) only live in the nix store and are invisible to
+    # macOS surfaces.
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     nix-rosetta-builder = {
       url = "github:cpick/nix-rosetta-builder";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
