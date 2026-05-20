@@ -2,63 +2,63 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "deepinfra/moonshotai/Kimi-K2.6"
+      "model": "CrofAI/kimi-k2.6"
     },
     "hephaestus": {
-      "model": "deepinfra/zai-org/GLM-5.1"
+      "model": "CrofAI/glm-5.1"
     },
     "oracle": {
-      "model": "deepinfra/zai-org/GLM-5.1"
+      "model": "CrofAI/glm-5.1"
     },
     "librarian": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
+      "model": "CrofAI/deepseek-v4-flash"
     },
     "explore": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
+      "model": "CrofAI/deepseek-v4-flash"
     },
     "multimodal-looker": {
-      "model": "deepinfra/moonshotai/Kimi-K2.6"
+      "model": "CrofAI/kimi-k2.6"
     },
     "prometheus": {
-      "model": "deepinfra/moonshotai/Kimi-K2.6"
+      "model": "CrofAI/kimi-k2.6"
     },
     "metis": {
-      "model": "xai/grok-4.3"
+      "model": "CrofAI/mimo-v2.5-pro"
     },
     "momus": {
-      "model": "xai/grok-4.3"
+      "model": "CrofAI/mimo-v2.5-pro"
     },
     "atlas": {
-      "model": "deepinfra/moonshotai/Kimi-K2.6"
+      "model": "CrofAI/kimi-k2.6"
     },
     "sisyphus-junior": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
+      "model": "CrofAI/deepseek-v4-flash"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "deepinfra/moonshotai/Kimi-K2.6"
+      "model": "CrofAI/kimi-k2.6"
     },
     "ultrabrain": {
-      "model": "xai/grok-4.3"
+      "model": "CrofAI/mimo-v2.5-pro"
     },
     "deep": {
-      "model": "deepinfra/zai-org/GLM-5.1"
+      "model": "CrofAI/glm-5.1"
     },
     "artistry": {
-      "model": "deepinfra/moonshotai/Kimi-K2.6"
+      "model": "CrofAI/kimi-k2.6"
     },
     "quick": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
+      "model": "CrofAI/deepseek-v4-flash"
     },
     "unspecified-low": {
-      "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash"
+      "model": "CrofAI/deepseek-v4-flash"
     },
     "unspecified-high": {
-      "model": "deepinfra/zai-org/GLM-5.1"
+      "model": "CrofAI/glm-5.1"
     },
     "writing": {
-      "model": "deepinfra/moonshotai/Kimi-K2.6"
+      "model": "CrofAI/kimi-k2.6"
     }
   }
 }

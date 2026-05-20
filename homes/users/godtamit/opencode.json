@@ -14,11 +14,6 @@
           "limit": { "context": 262144, "output": 262144 },
           "modalities": { "input": ["text", "image"], "output": ["text"] }
         },
-        "Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo": {
-          "name": "Qwen3 Coder 480B A35B Instruct Turbo",
-          "limit": { "context": 262144, "output": 262144 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] }
-        },
         "moonshotai/Kimi-K2.6": {
           "name": "Kimi K2.6",
           "limit": { "context": 262144, "output": 16384 },
@@ -34,28 +29,130 @@
         }
       }
     },
-    "novita": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Novita",
+    "CrofAI": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "CrofAI",
       "options": {
-        "baseURL": "https://api.novita.ai/openai"
+        "baseURL": "https://anthropic.nahcrof.com/v1"
       },
       "models": {
-        "google/gemma-4-31B-it": {
-          "name": "Gemma 4 31B",
-          "limit": { "context": 262144, "output": 131072 },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text", "image"]
-          }
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro",
+          "limit": { "context": 1000000, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
         },
-        "moonshotai/kimi-k2.5": {
+        "deepseek-v4-pro-precision": {
+          "name": "DeepSeek V4 Pro (Precision)",
+          "limit": { "context": 1000000, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash",
+          "limit": { "context": 1000000, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "deepseek-v3.2": {
+          "name": "DeepSeek V3.2",
+          "limit": { "context": 163840, "output": 163840 },
+          "modalities": { "input": ["text"], "output": ["text"] }
+        },
+        "mimo-v2.5-pro": {
+          "name": "MiMo-V2.5-Pro",
+          "limit": { "context": 1000000, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "mimo-v2.5-pro-precision": {
+          "name": "MiMo-V2.5-Pro (Precision)",
+          "limit": { "context": 1000000, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "glm-5.1": {
+          "name": "GLM 5.1",
+          "limit": { "context": 202752, "output": 202752 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "glm-5.1-precision": {
+          "name": "GLM 5.1 (Precision)",
+          "limit": { "context": 202752, "output": 202752 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "greg": {
+          "name": "Greg (Experiment)",
+          "limit": { "context": 229376, "output": 229376 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] }
+        },
+        "kimi-k2.6": {
+          "name": "Kimi K2.6",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "kimi-k2.6-precision": {
+          "name": "Kimi K2.6 (Precision)",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "kimi-k2.5": {
           "name": "Kimi K2.5",
           "limit": { "context": 262144, "output": 262144 },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text", "image"]
-          }
+          "modalities": { "input": ["text", "image"], "output": ["text"] }
+        },
+        "kimi-k2.5-lightning": {
+          "name": "Kimi K2.5 (Lightning)",
+          "limit": { "context": 131072, "output": 32768 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "glm-5": {
+          "name": "GLM 5",
+          "limit": { "context": 202752, "output": 202752 },
+          "modalities": { "input": ["text"], "output": ["text"] }
+        },
+        "glm-4.7": {
+          "name": "GLM 4.7",
+          "limit": { "context": 202752, "output": 202752 },
+          "modalities": { "input": ["text"], "output": ["text"] }
+        },
+        "glm-4.7-flash": {
+          "name": "GLM 4.7 Flash",
+          "limit": { "context": 202752, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] }
+        },
+        "gemma-4-31b-it": {
+          "name": "Google Gemma 4 31B",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] }
+        },
+        "minimax-m2.5": {
+          "name": "MiniMax M2.5",
+          "limit": { "context": 204800, "output": 131072 },
+          "modalities": { "input": ["text"], "output": ["text"] }
+        },
+        "qwen3.6-27b": {
+          "name": "Qwen 3.6 27B",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "qwen3.5-397b-a17b": {
+          "name": "Qwen 3.5 397B A17B",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "qwen3.5-9b": {
+          "name": "Qwen 3.5 9B",
+          "limit": { "context": 262144, "output": 262144 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
         }
       }
     }

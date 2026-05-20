@@ -4,33 +4,33 @@
   "presets": {
     "open": {
       "orchestrator": {
-        "model": "deepinfra/moonshotai/Kimi-K2.6",
+        "model": "CrofAI/kimi-k2.6",
         "skills": ["*"],
         "mcps": ["*"]
       },
       "oracle": {
-        "model": "deepinfra/zai-org/GLM-5.1",
+        "model": "CrofAI/glm-5.1",
         "skills": [],
         "mcps": []
       },
       "librarian": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
+        "model": "CrofAI/deepseek-v4-flash",
         "variant": "low",
         "skills": [],
         "mcps": ["websearch", "context7", "grep_app"]
       },
       "explorer": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
+        "model": "CrofAI/deepseek-v4-flash",
         "skills": [],
         "mcps": []
       },
       "designer": {
-        "model": "deepinfra/moonshotai/Kimi-K2.6",
+        "model": "CrofAI/kimi-k2.6",
         "skills": ["agent-browser"],
         "mcps": []
       },
       "fixer": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
+        "model": "CrofAI/deepseek-v4-flash",
         "skills": [],
         "mcps": []
       }
@@ -43,19 +43,19 @@
         "mcps": ["*"]
       },
       "oracle": {
-        "model": "deepinfra/zai-org/GLM-5.1",
+        "model": "CrofAI/glm-5.1",
         "variant": "high",
         "skills": [],
         "mcps": []
       },
       "librarian": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
+        "model": "CrofAI/deepseek-v4-flash",
         "variant": "low",
         "skills": [],
         "mcps": ["websearch", "context7", "grep_app"]
       },
       "explorer": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
+        "model": "CrofAI/deepseek-v4-flash",
         "skills": [],
         "mcps": []
       },
@@ -65,7 +65,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash",
+        "model": "CrofAI/deepseek-v4-flash",
         "skills": [],
         "mcps": []
       }
@@ -77,19 +77,19 @@
     "main_pane_size": 60
   },
   "council": {
-    "master": { "model": "deepinfra/moonshotai/Kimi-K2.6" },
+    "master": { "model": "CrofAI/kimi-k2.6" },
     "default_preset": "balanced",
     "presets": {
       "balanced": {
-        "alpha": { "model": "xai/grok-4.3" },
-        "beta": { "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash" },
-        "gamma": { "model": "deepinfra/zai-org/GLM-5.1" }
+        "alpha": { "model": "CrofAI/mimo-v2.5-pro" },
+        "beta": { "model": "CrofAI/deepseek-v4-flash" },
+        "gamma": { "model": "CrofAI/glm-5.1" }
       },
       "heavy": {
-        "reviewer": { "model": "xai/grok-4.3" },
-        "coder": { "model": "deepinfra/deepseek-ai/DeepSeek-V4-Flash" },
-        "creative": { "model": "deepinfra/moonshotai/Kimi-K2.6" },
-        "thinker": { "model": "deepinfra/zai-org/GLM-5.1" }
+        "reviewer": { "model": "CrofAI/mimo-v2.5-pro" },
+        "coder": { "model": "CrofAI/deepseek-v4-flash" },
+        "creative": { "model": "CrofAI/kimi-k2.6" },
+        "thinker": { "model": "CrofAI/glm-5.1" }
       }
     }
   }
