@@ -131,10 +131,6 @@ in {
             inputs.nix-index-database.homeModules.nix-index
             inputs.sops-nix.homeManagerModules.sops
           ]
-          # mac-app-util: trampolines home-manager .app bundles into
-          # ~/Applications/Home Manager Apps so Spotlight/Launchpad/Dock can see
-          # them. Darwin-only; the module isn't safe to load on Linux.
-          ++ (optional (!isNixOS) inputs.mac-app-util.homeManagerModules.default)
           ++ (extendedLib.importModulesRecursive ../../modules/home);
         users =
           mapAttrs' (_name: homeConfig: {
