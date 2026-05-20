@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{lib, ...}: let
   inherit (lib.godtamnix) enabled;
 in {
   imports = [
@@ -12,7 +8,10 @@ in {
 
   godtamnix = {
     nix = enabled;
-    system = enabled;
+    system = {
+      enable = true;
+      fonts = enabled;
+    };
 
     desktop.wms.aerospace = {
       enable = true;
@@ -49,10 +48,4 @@ in {
   };
 
   time.timeZone = "America/New_York";
-
-  fonts.packages = with pkgs; [
-    fira-code
-    nerd-fonts.fira-code
-    noto-fonts
-  ];
 }
