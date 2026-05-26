@@ -23,7 +23,10 @@ in {
 
     suites.media = enabled;
 
-    programs.windscribe = enabled;
+    programs = {
+      windscribe = enabled;
+      affinity = enabled;
+    };
 
     tools.homebrew = {
       enable = true;
