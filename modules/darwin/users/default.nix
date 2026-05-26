@@ -90,14 +90,16 @@ in {
     # under `system.activationScripts` are accepted by the option type but
     # never invoked by `/run/current-system/activate`.
     system.activationScripts.postActivation.text = let
-      entries = lib.mapAttrsToList (name: userCfg: ''
-        target="${userCfg.shell}/bin/${userCfg.shell.meta.mainProgram or (lib.getName userCfg.shell)}"
-        current=$(/usr/bin/dscl . -read /Users/${name} UserShell 2>/dev/null | /usr/bin/awk '{print $2}' || true)
-        if [ -n "$target" ] && [ "$current" != "$target" ]; then
-          echo "setting login shell for ${name} to $target (was $current)"
-          /usr/bin/dscl . -create /Users/${name} UserShell "$target"
-        fi
-      '') cfg;
+      entries =
+        lib.mapAttrsToList (name: userCfg: ''
+          target="${userCfg.shell}/bin/${userCfg.shell.meta.mainProgram or (lib.getName userCfg.shell)}"
+          current=$(/usr/bin/dscl . -read /Users/${name} UserShell 2>/dev/null | /usr/bin/awk '{print $2}' || true)
+          if [ -n "$target" ] && [ "$current" != "$target" ]; then
+            echo "setting login shell for ${name} to $target (was $current)"
+            /usr/bin/dscl . -create /Users/${name} UserShell "$target"
+          fi
+        '')
+        cfg;
     in
       lib.concatStringsSep "\n" entries;
   };

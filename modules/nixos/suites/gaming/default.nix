@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib) mkIf;
@@ -19,6 +20,10 @@ in {
 
         protontricks = enabled;
         gamescopeSession = enabled;
+
+        extraCompatPackages = with pkgs; [
+          proton-ge-bin
+        ];
       };
     };
   };

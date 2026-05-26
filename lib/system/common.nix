@@ -1,5 +1,5 @@
 {inputs}: let
-  inherit (inputs.nixpkgs.lib) filterAttrs mapAttrs' optional;
+  inherit (inputs.nixpkgs.lib) filterAttrs mapAttrs';
 in {
   /**
   Create an extended library with the flake's overlay.
