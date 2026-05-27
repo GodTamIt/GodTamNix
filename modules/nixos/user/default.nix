@@ -23,7 +23,7 @@ in {
           };
           isTrusted = mkOption {
             type = types.bool;
-            default = true;
+            default = false;
             description = "Whether to add this user to nix.settings.trusted-users.";
           };
           extraGroups = mkOption {

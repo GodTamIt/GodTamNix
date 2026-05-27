@@ -22,6 +22,19 @@
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPCb/cyVAr89lBJUzEH2gjiDTP+JZJGECxlwQU9cUEuJ godtamit@BeastieMacBookV2"
         ];
       };
+
+      jlh = {
+        fullName = "Lance Hasson";
+        initialPassword = "password";
+        isTrusted = true;
+        extraGroups = [
+          "nix"
+          "systemd-journal"
+          "docker"
+          "podman"
+        ];
+        shell = pkgs.fish;
+      };
     };
   };
 }
