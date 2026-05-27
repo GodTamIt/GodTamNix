@@ -4,7 +4,7 @@
   "presets": {
     "open": {
       "orchestrator": {
-        "model": "CrofAI/kimi-k2.6",
+        "model": "CrofAI/mimo-v2.5-pro",
         "skills": ["*"],
         "mcps": ["*"]
       },
@@ -82,12 +82,12 @@
     "presets": {
       "balanced": {
         "alpha": { "model": "CrofAI/mimo-v2.5-pro" },
-        "beta": { "model": "CrofAI/deepseek-v4-flash" },
+        "beta": { "model": "CrofAI/deepseek-v4-pro" },
         "gamma": { "model": "CrofAI/glm-5.1" }
       },
       "heavy": {
         "reviewer": { "model": "CrofAI/mimo-v2.5-pro" },
-        "coder": { "model": "CrofAI/deepseek-v4-flash" },
+        "coder": { "model": "CrofAI/deepseek-v4-pro" },
         "creative": { "model": "CrofAI/kimi-k2.6" },
         "thinker": { "model": "CrofAI/glm-5.1" }
       }
