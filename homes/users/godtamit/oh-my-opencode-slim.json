@@ -25,7 +25,7 @@
         "mcps": []
       },
       "designer": {
-        "model": "CrofAI/kimi-k2.6",
+        "model": "CrofAI/kimi-k2.6-precision",
         "skills": ["agent-browser"],
         "mcps": []
       },
