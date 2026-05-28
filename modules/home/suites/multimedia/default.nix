@@ -13,11 +13,18 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      imagemagick
-      plex-desktop
-      vlc
-      ytmdesktop
-    ];
+    home.packages = with pkgs;
+      [
+        imagemagick
+        (
+          if stdenv.hostPlatform.isDarwin
+          then vlc-bin
+          else vlc
+        )
+        ytmdesktop
+      ]
+      ++ lib.optionals (stdenv.hostPlatform.isLinux && stdenv.hostPlatform.isx86_64) [
+        plex-desktop
+      ];
   };
 }

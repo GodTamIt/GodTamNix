@@ -22,6 +22,8 @@ in {
         sqlEnable = true;
         aiEnable = true;
       };
+
+      multimedia = enabled;
     };
 
     theme = {
