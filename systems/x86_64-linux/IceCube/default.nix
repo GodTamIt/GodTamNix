@@ -4,6 +4,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   inherit (lib.godtamnix) enabled;
@@ -12,6 +13,7 @@ in {
     # Include the results of the hardware scan.
     ./disks.nix
     ./hardware.nix
+    ./sops.nix
     ./users.nix
   ];
 
@@ -47,17 +49,12 @@ in {
     hostName = "IceCube";
     wireless = enabled;
     networkmanager = enabled;
+
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [48888];
+    };
   };
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -132,9 +129,32 @@ in {
 
   # List services that you want to enable:
   services = {
+    ddclient = {
+      enable = true;
+      protocol = "cloudflare";
+      usev4 = "webv4, webv4=checkip.dyndns.org";
+
+      # The actual domain you want to update
+      zone = lib.godtamnix.decode "Z29kdGFtaXQuY29t";
+      domains = [(lib.godtamnix.decode "aWNlY3ViZS5nb2R0YW1pdC5jb20=")];
+
+      username = "token";
+      passwordFile = config.sops.secrets.cloudflare_api_token.path;
+
+      # How often to check for an IP change (e.g., every 5 minutes)
+      interval = "2min";
+    };
+
     openssh = {
       enable = true;
-      settings.PermitRootLogin = "no";
+      ports = [48888];
+
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
+
       allowSFTP = true;
     };
 

@@ -22,6 +22,7 @@
         authorizedKeys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPCb/cyVAr89lBJUzEH2gjiDTP+JZJGECxlwQU9cUEuJ godtamit@BeastieMacBookV2"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINVma8utCSpsAs4XDWYESKGSs+Wc7PKtUspMUPaD36kn godtamit@IceCube"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIELizHggQNC5IjYQfxXhnxIZRXWJ4iC0R/FIj5fbeX4A godtamit@Shaq"
         ];
       };
 

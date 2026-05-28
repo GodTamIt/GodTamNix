@@ -91,6 +91,10 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    ssh-to-age = {
+      url = "github:Mic92/ssh-to-age/v1.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";

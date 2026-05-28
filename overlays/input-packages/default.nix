@@ -46,6 +46,14 @@ in {
     rtk
     ;
 
+  #          ╭──────────────────────────────────────────────────────────╮
+  #          │        From ssh-to-age (AGE key derivation from SSH)     │
+  #          ╰──────────────────────────────────────────────────────────╯
+  inherit
+    (inputs.ssh-to-age.packages.${final.stdenv.hostPlatform.system})
+    ssh-to-age
+    ;
+
   # Leave this until Antigravity (likely upstream VSCode) adopts Electron 40+.
   # https://github.com/microsoft/vscode/issues/284464
   antigravity = master.antigravity.overrideAttrs (oldAttrs: {

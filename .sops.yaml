@@ -7,13 +7,20 @@ keys:
   #   grep -oE 'age1[0-9a-z]+' ~/.config/sops/age/keys.txt   # this prints the public key
   # Then replace the placeholder below with the real value (one line, no quotes).
   - &godtamit-BeastieMacBookV2 age1REPLACE_ME_AFTER_GENERATING_ON_MAC
+  - &IceCube age1qfyt67lmzynymvstl0e7l0sstgh2wev6htt34s2lphapzsdr246s5txqm8
+  - &godtamit-IceCube age1gmxyeqces6e0t2d5v5lcplm7e4fkw64w4yvfcjz2ca4ee2k43v5smre7z9
 creation_rules:
-  - path_override: secrets/Shaq/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/Shaq/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
           - *Shaq
           - *godtamit-Shaq
-  - path_override: secrets/BeastieMacBookV2/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/IceCube/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *IceCube
+          - *godtamit-IceCube
+  - path_regex: secrets/BeastieMacBookV2/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
           - *godtamit-BeastieMacBookV2

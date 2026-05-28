@@ -122,6 +122,12 @@
           port = 38888;
         };
 
+        "IceCube" = {
+          hostname = lib.godtamnix.decode "aWNlY3ViZS5nb2R0YW1pdC5jb20=";
+          user = "godtamit";
+          port = 48888;
+        };
+
         "shaq" = {
           hostname = lib.godtamnix.decode "c2hhcS5kZXYuYXN0LmxpdmU=";
           user = "godtamit";
