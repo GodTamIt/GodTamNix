@@ -7,10 +7,6 @@
     inherit (final.stdenv.hostPlatform) system;
     inherit (final) config;
   };
-  unstable = import inputs.nixpkgs-unstable {
-    inherit (final.stdenv.hostPlatform) system;
-    inherit (final) config;
-  };
 in {
   #          ╭──────────────────────────────────────────────────────────╮
   #          │                 Firefox Addon repository                 │
@@ -97,14 +93,6 @@ in {
   #          │   From nixpkgs-unstable (reasonable update / stability   │
   #          │                         balance)                         │
   #          ╰──────────────────────────────────────────────────────────╯
-  inherit
-    (unstable)
-    # Misc
-    _1password-gui
-    # Online services to keep up to date
-    element-desktop
-    teams-for-linux
-    ;
 
   # aquamarine = prev.aquamarine.overrideAttrs (_old: {
   #   src = prev.fetchFromGitHub {
