@@ -22,6 +22,7 @@ in {
   #          ╰──────────────────────────────────────────────────────────╯
   inherit
     (master)
+    firefox
     plex-desktop
     webull-desktop
     yaziPlugins
