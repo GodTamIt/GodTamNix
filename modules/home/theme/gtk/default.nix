@@ -133,6 +133,10 @@ in {
         gtk-xft-hintstyle = "hintslight";
       };
 
+      # Keep applying the GTK theme to GTK4 apps (new default is null starting
+      # with home.stateVersion 26.05).
+      gtk4.theme = config.gtk.theme;
+
       gtk4.extraConfig = {
         gtk-application-prefer-dark-theme = true;
         gtk-decoration-layout = "appmenu:none";

@@ -19,6 +19,9 @@ in {
 
     wayland.windowManager.hyprland = {
       enable = true;
+      # Keep the legacy hyprlang config format (new default is "lua" starting
+      # with home.stateVersion 26.05).
+      configType = "hyprlang";
 
       settings = {
         xwayland = {

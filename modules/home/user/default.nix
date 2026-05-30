@@ -64,6 +64,11 @@ in {
         homeDirectory = mkIf (cfg.home != null) (mkDefault cfg.home);
 
         username = mkDefault cfg.name;
+
+        # Home Manager tracks unstable and can briefly report a newer release
+        # than nixpkgs around release time (e.g. HM 26.11 vs nixpkgs 26.05).
+        # Silence the mismatch warning; the configuration still evaluates fine.
+        enableNixpkgsReleaseCheck = false;
       };
 
       programs = {
