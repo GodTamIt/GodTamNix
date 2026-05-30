@@ -20,7 +20,9 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       # Keep the legacy hyprlang config format (new default is "lua" starting
-      # with home.stateVersion 26.05).
+      # with home.stateVersion 26.05). Our config uses hyprlang features
+      # ($mainMod/$shiftMod variables, $-substitution in binds) that do not
+      # translate to Hyprland's Lua `hl.*` API.
       configType = "hyprlang";
 
       settings = {

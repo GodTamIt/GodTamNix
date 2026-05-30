@@ -105,10 +105,12 @@ in {
           gitui = enabled;
           glamour = enabled;
           helix = enabled;
-          hyprland = mkIf config.godtamnix.programs.graphical.desktop.hyprland.enable {
-            enable = true;
-            inherit (cfg) accent;
-          };
+          # NOTE: catppuccin's Hyprland integration injects a `colors` setting
+          # as a Lua-inline value (require('themes.catppuccin')), which is only
+          # valid with `wayland.windowManager.hyprland.configType = "lua"`. We
+          # use the legacy hyprlang config and define our own border colors, so
+          # this is disabled to avoid an invalid `colors { ... }` block.
+          hyprland.enable = false;
           k9s = {
             enable = true;
             transparent = true;
