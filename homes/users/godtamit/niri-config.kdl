@@ -1,0 +1,230 @@
+// niri config — generic part. Deployed as ~/.config/niri/config.kdl by
+// homes/users/godtamit/default.nix (xdg.configFile."niri/config.kdl").
+//
+// Host-specific settings (monitors, workspace pinning, app autostart, mouse
+// sensitivity) live in ./niri-host.kdl, pulled in below via niri's `include`.
+// This mirrors how the Hyprland config is split: the generic bits live with the
+// module/user, the host bits live in the per-host home config.
+//
+// niri is a scrollable-tiling compositor, so some Hyprland concepts
+// (dwindle/master layouts, pseudo, togglesplit) have no 1:1 equivalent; those
+// are noted inline. KDL format: https://kdl.dev — "/-" comments out a node.
+// Reference: https://niri-wm.github.io/niri/Configuration:-Introduction
+
+// niri resolves relative includes against ~/.config/niri/, so this picks up the
+// host.kdl symlink that home-manager places next to this file.
+include "host.kdl"
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+        numlock
+    }
+
+    touchpad {
+        natural-scroll
+    }
+
+    // Hyprland: input.follow_mouse = 1 (focus follows the pointer).
+    focus-follows-mouse
+}
+
+layout {
+    // Hyprland: gaps_in / gaps_out = 5.
+    gaps 5
+
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 0.99
+    }
+
+    default-column-width { proportion 0.5; }
+
+    // Hyprland drew a thin coloured border and no focus ring, so disable the
+    // focus ring and enable the border with the same colours/size.
+    focus-ring {
+        off
+    }
+
+    border {
+        width 1
+        active-color "#9742b5ee"
+        inactive-color "#595959aa"
+    }
+}
+
+// Hyprland had all animations disabled. niri lays workspaces out as a vertical
+// per-monitor stack, so enabling the workspace-switch animation gives a vertical
+// slide when moving between workspaces (Mod+Ctrl+Left/Right, the Mod+number
+// binds, or moving a window to another workspace). Everything else stays off to
+// keep the Hyprland-like minimal feel — replace this whole block with
+// `animations { off }` to kill it, or delete the per-animation `off` lines to
+// opt into niri's full default set.
+animations {
+    window-open { off; }
+    window-close { off; }
+    window-movement { off; }
+    window-resize { off; }
+    horizontal-view-movement { off; }
+    config-notification-open-close { off; }
+    exit-confirmation-open-close { off; }
+    screenshot-ui-open { off; }
+    overview-open-close { off; }
+
+    // The vertical slide we want. This is niri's default workspace-switch spring;
+    // lower `stiffness` for a slower/longer slide, raise it for a snappier one.
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+}
+
+// Hyprland: env XCURSOR_SIZE = 32. (WLR_NO_HARDWARE_CURSORS is wlroots-only and
+// does not apply to niri.)
+cursor {
+    xcursor-size 32
+}
+
+// Ask clients to drop their CSD so niri draws clean borders around them,
+// closer to Hyprland's bordered tiling look.
+prefer-no-csd
+
+// Hyprland screenshot binds saved into ~/Pictures/screenshots.
+screenshot-path "~/Pictures/screenshots/Screenshot_from_%Y-%m-%d %H-%M-%S.png"
+
+// Don't pop the hotkey cheatsheet on every launch.
+hotkey-overlay {
+    skip-at-startup
+}
+
+// Session daemons (user-generic). hypridle = idle/lock daemon; the spawn-sh line
+// keeps the primary-selection clipboard history. Host-specific app autostart
+// (ferdium, signal, etc.) lives in host.kdl. waybar starts via its own systemd
+// user service on the graphical session, so it is not spawned here.
+spawn-at-startup "hypridle"
+spawn-sh-at-startup "wl-paste -p -t text --watch clipman store -P --histpath=\"~/.local/share/clipman-primary.json\""
+
+// ─── Window rules (Hyprland windowrule + decoration opacity) ────────────────
+
+// Hyprland: decoration.rounding = 8.
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+// Hyprland: decoration.active_opacity = 0.995 / inactive_opacity = 0.99.
+window-rule {
+    opacity 0.9
+}
+window-rule {
+    match is-active=false
+    opacity 0.8
+}
+
+// Certain programs need to be more opaque (functional)
+window-rule {
+    match app-id=r#"firefox$"#
+    match app-id=r#"(?i)antigravity"#
+    match app-id=r#"(?i)brave"#
+    opacity 0.9
+}
+window-rule {
+    match app-id=r#"firefox$"# is-active=false
+    match app-id=r#"(?i)antigravity"# is-active=false
+    match app-id=r#"(?i)brave"# is-active=false
+    opacity 0.85
+}
+
+// Float certain windows
+window-rule {
+    match title=r#"^Open (File|Folder)$"#
+    match title=r#"^Select (File|Folder)$"#
+    open-floating true
+}
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Gaming rules
+window-rule {
+    match app-id=r#"(?i)gamescope"#
+    open-fullscreen true
+}
+
+// ─── Key bindings (Hyprland binds) ──────────────────────────────────────────
+// "Mod" is Super on a TTY session. In Hyprland: $mainMod = SUPER,
+// $shiftMod = SUPER SHIFT.
+binds {
+    // Launchers / apps
+    Mod+Return  { spawn "antigravity"; }
+    Mod+T       { spawn "kitty"; }
+    Mod+O       { spawn "thunar"; }
+    Mod+Y       { spawn "kitty" "-e" "fish" "-c" "y; exec fish"; }
+    Mod+B       { spawn "firefox" "--new-window"; }
+    Mod+L       { spawn "hyprlock"; }
+    Mod+Escape  { spawn "wlogout" "-p" "layer-shell"; }
+    Mod+Space   { spawn "vicinae" "toggle"; }
+    Mod+D       { spawn "wofi" "--show" "drun" "--allow-images"; }
+    Mod+Shift+S { spawn "bemoji"; }
+    Mod+P       { spawn "wofi-pass"; }
+
+    // Window management
+    Mod+Q { close-window; }
+    // Maximize to 100% size but keep the gaps
+    Mod+M { maximize-column; }
+    Mod+F { fullscreen-window; }
+    Mod+V { toggle-window-floating; }
+
+    // Focus
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-workspace-up; }
+    Mod+Down  { focus-workspace-down; }
+
+    // Moving windows
+    Mod+Ctrl+Left  { consume-or-expel-window-left; }
+    Mod+Ctrl+Right { consume-or-expel-window-right; }
+    Mod+Ctrl+Up { move-window-to-workspace-up; }
+    Mod+Ctrl+Down { move-window-to-workspace-down; }
+
+    // Screenshots (Hyprland used hyprshot; niri has built-in actions).
+    // write-to-disk=false == hyprshot --clipboard-only.
+    Print                { screenshot-screen write-to-disk=false; }   // output  → clipboard
+    Ctrl+Print           { screenshot-screen; }                       // output  → save
+    Mod+Print            { screenshot-window write-to-disk=false; }   // window  → clipboard
+    Mod+Ctrl+Print       { screenshot-window; }                       // window  → save
+    // niri's interactive region screenshot always saves to disk *and* copies
+    // to the clipboard (no clipboard-only variant), so both region combos map
+    // to the same action.
+    Mod+Shift+Print      { screenshot; }                              // region  → save + clipboard
+    Mod+Shift+Ctrl+Print { screenshot; }                              // region  → save + clipboard
+
+    // Media keys (Hyprland binde/bindl). allow-when-locked mirrors bindl.
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
+
+    // ── niri-specific extras (no Hyprland equivalent, but niri needs a way to
+    // rearrange the scrollable layout) ──
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma        { consume-window-into-column; }
+    Mod+Period       { expel-window-from-column; }
+    Mod+R            { switch-preset-column-width; }
+    Mod+C            { center-column; }
+    Mod+Minus        { set-column-width "-10%"; }
+    Mod+Equal        { set-column-width "+10%"; }
+    Mod+Shift+Slash  { show-hotkey-overlay; }
+}
+
+// Mouse: niri natively moves windows with Mod + left-drag and resizes with
+// Mod + right-drag, matching Hyprland's bindm mouse:272 / mouse:273.

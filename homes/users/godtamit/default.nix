@@ -2,6 +2,7 @@
 #
 # home-manager init ./
 {
+  config,
   lib,
   pkgs,
   ...
@@ -166,5 +167,15 @@
     };
   };
 
-  xdg.configFile."Antigravity/User/settings.json".source = ./antigravity-settings.json;
+  xdg.configFile =
+    {
+      "Antigravity/User/settings.json".source = ./antigravity-settings.json;
+    }
+    # niri reads ~/.config/niri/config.kdl (the generic config). It `include`s
+    # host.kdl, which each host supplies from its own home config — e.g. the
+    # IceCube outputs/workspaces live in homes/x86_64-linux/godtamit@IceCube/.
+    # Deployed only where the niri module is enabled for the host.
+    // lib.optionalAttrs config.godtamnix.programs.graphical.desktop.niri.enable {
+      "niri/config.kdl".source = ./niri-config.kdl;
+    };
 }

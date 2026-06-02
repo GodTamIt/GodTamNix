@@ -108,6 +108,7 @@ in {
         desktop = {
           wayland = enabled;
           hyprland = enabled;
+          niri = enabled;
         };
 
         launchers = {
@@ -219,6 +220,13 @@ in {
         "application/x-extension-xhtml" = "firefox.desktop";
         "application/x-extension-xht" = "firefox.desktop";
       };
+    };
+
+    # niri host-specific config (outputs, workspace pinning, mouse, autostart).
+    # The generic config.kdl in the shared user config pulls this in via
+    # `include "host.kdl"`. Gated so it only deploys when niri is enabled here.
+    configFile = lib.optionalAttrs config.godtamnix.programs.graphical.desktop.niri.enable {
+      "niri/host.kdl".source = ./niri-host.kdl;
     };
   };
 

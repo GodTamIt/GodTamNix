@@ -1,0 +1,66 @@
+// niri config — host-specific part for IceCube. Lives next to this host's home
+// config (homes/x86_64-linux/godtamit@IceCube/) and is deployed as
+// ~/.config/niri/host.kdl by that default.nix. The generic config.kdl (in the
+// shared user config) pulls it in via `include "host.kdl"`.
+//
+// This mirrors the host-specific Hyprland settings in this directory's
+// default.nix (monitors, workspace pinning, app autostart, mouse sensitivity).
+//
+// Each host that enables niri must provide its own host.kdl — these
+// outputs/workspaces are IceCube's. (config.kdl's `include "host.kdl"` is a hard
+// requirement; niri errors if the included file is missing.)
+
+// Dual 4K@144 displays
+output "DP-5" {
+    mode "3840x2160@144"
+    scale 1.33
+    position x=0 y=0
+    variable-refresh-rate
+    max-bpc 10
+}
+
+output "DP-6" {
+    mode "3840x2160@144"
+    scale 1.33
+    variable-refresh-rate
+    max-bpc 10
+}
+
+// Persistent, named workspaces pinned to outputs. Hyprland pinned workspaces
+// 1-4 to DP-5 and 5-8 to DP-6. Naming them "1".."8" lets the numeric binds
+// (focus-workspace "N") and the open-on-workspace window rules in config.kdl
+// work regardless of niri's per-monitor workspace indices.
+workspace "dev" { open-on-output "DP-5"; }
+workspace "chat" { open-on-output "DP-5"; }
+workspace "browser" { open-on-output "DP-6"; }
+workspace "media" { open-on-output "DP-6"; }
+
+// Autostarted apps (Hyprland exec-once launched these with [workspace N silent];
+// the open-on-workspace window rules in config.kdl route them onto the right
+// workspaces).
+spawn-at-startup "ferdium"
+spawn-at-startup "signal-desktop"
+spawn-at-startup "ytmdesktop"
+spawn-at-startup "firefox"
+spawn-at-startup "antigravity"
+
+// Workspace assignments
+window-rule {
+    match app-id=r#"(?i)ferdium"#
+    match app-id=r#"(?i)signal"#
+    open-on-workspace "chat"
+}
+window-rule {
+    match app-id=r#"(?i)youtube.?music"#
+    open-on-workspace "media"
+}
+window-rule {
+    match at-startup=true
+    match app-id=r#"firefox$"#
+    open-on-workspace "browser"
+}
+window-rule {
+    match at-startup=true
+    match app-id=r#"(?i)antigravity"#
+    open-on-workspace "dev"
+}

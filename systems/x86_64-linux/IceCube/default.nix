@@ -116,6 +116,12 @@ in {
       enable = true;
       xwayland.enable = true;
     };
+    # Registers niri as a selectable SDDM session and sets up its portals.
+    # niri auto-manages xwayland-satellite when it is on PATH (see the niri
+    # home module), so no separate Xwayland NixOS option is needed.
+    niri = {
+      enable = true;
+    };
     fish = enabled;
   };
 
