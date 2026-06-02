@@ -44,16 +44,20 @@ window-rule {
     match app-id=r#"(?i)ferdium"#
     match app-id=r#"(?i)signal"#
     open-on-workspace "chat"
+    open-focused false
 }
 window-rule {
     match app-id=r#"(?i)youtube.?music"#
     open-on-workspace "media"
+    open-focused false
 }
 window-rule {
     match at-startup=true app-id=r#"firefox$"#
     open-on-workspace "browser"
+    open-focused false
 }
 window-rule {
     match at-startup=true app-id=r#"(?i)antigravity"#
     open-on-workspace "dev"
+    open-focused false
 }

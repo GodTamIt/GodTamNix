@@ -110,13 +110,11 @@ spawn-sh-at-startup "wl-paste -p -t text --watch clipman store -P --histpath=\"~
 
 // ─── Window rules (Hyprland windowrule + decoration opacity) ────────────────
 
-// Hyprland: decoration.rounding = 8.
 window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
 }
 
-// Hyprland: decoration.active_opacity = 0.995 / inactive_opacity = 0.99.
 window-rule {
     match is-active=true
     opacity 0.9
