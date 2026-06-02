@@ -238,5 +238,8 @@ binds {
     Mod+Shift+Slash  { show-hotkey-overlay; }
 }
 
-// Mouse: niri natively moves windows with Mod + left-drag and resizes with
-// Mod + right-drag, matching Hyprland's bindm mouse:272 / mouse:273.
+gestures {
+    hot-corners {
+        off
+    }
+}
