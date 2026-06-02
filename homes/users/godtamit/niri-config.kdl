@@ -167,8 +167,8 @@ binds {
     Mod+O       { spawn "thunar"; }
     Mod+Y       { spawn "kitty" "-e" "fish" "-c" "y; exec fish"; }
     Mod+B       { spawn "firefox" "--new-window"; }
-    // Lock via noctalia's built-in lock screen (replaces hyprlock).
-    Mod+L       { spawn "noctalia" "msg" "session" "lock"; }
+    // Lock the session with hyprlock.
+    Mod+L       { spawn "hyprlock"; }
     Mod+Escape  { spawn "wlogout" "-p" "layer-shell"; }
     Mod+Space   { spawn "vicinae" "toggle"; }
     Mod+D       { spawn "wofi" "--show" "drun" "--allow-images"; }

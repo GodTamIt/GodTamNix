@@ -50,12 +50,10 @@ window-rule {
     open-on-workspace "media"
 }
 window-rule {
-    match at-startup=true
-    match app-id=r#"firefox$"#
+    match at-startup=true app-id=r#"firefox$"#
     open-on-workspace "browser"
 }
 window-rule {
-    match at-startup=true
-    match app-id=r#"(?i)antigravity"#
+    match at-startup=true app-id=r#"(?i)antigravity"#
     open-on-workspace "dev"
 }

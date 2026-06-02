@@ -23,6 +23,7 @@ in {
   inherit
     (master)
     plex-desktop
+    wayle
     webull-desktop
     yaziPlugins
     yt-dlp

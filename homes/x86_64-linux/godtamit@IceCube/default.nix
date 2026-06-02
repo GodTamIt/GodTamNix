@@ -90,10 +90,8 @@ in {
             };
           };
 
-          # Replacement bar for niri. Comes up via its own systemd user service
-          # on the graphical session.
           noctalia = {
-            enable = true;
+            enable = false;
             autostart = true;
 
             settings = {
@@ -153,6 +151,11 @@ in {
               };
             };
           };
+
+          wayle = {
+            enable = true;
+            settings = fromTOML (builtins.readFile ./wayle.toml);
+          };
         };
 
         browsers = {
@@ -175,13 +178,7 @@ in {
 
         desktop = {
           wayland = enabled;
-          hyprland = {
-            enable = true;
-            # IceCube runs both niri and Hyprland sessions, and noctalia runs in
-            # both, so use noctalia's lock screen here too. This also drops
-            # hyprlock from IceCube entirely (niri and waybar no longer pull it).
-            lockCommand = "noctalia msg session lock";
-          };
+          hyprland = enabled;
           niri = enabled;
         };
 
@@ -208,6 +205,49 @@ in {
           ];
         };
       };
+    };
+
+    wlogout = {
+      enable = true;
+
+      layout = [
+        {
+          label = "lock";
+          action = "hyprlock";
+          text = "Lock";
+          keybind = "l";
+        }
+        # {
+        #   label = "hibernate";
+        #   action = "systemctl hibernate";
+        #   text = "Hibernate";
+        #   keybind = "h";
+        # }
+        {
+          label = "logout";
+          action = "loginctl terminate-user $USER";
+          text = "Logout";
+          keybind = "e";
+        }
+        {
+          label = "shutdown";
+          action = "systemctl poweroff";
+          text = "Shutdown";
+          keybind = "s";
+        }
+        {
+          label = "suspend";
+          action = "systemctl suspend";
+          text = "Suspend";
+          keybind = "u";
+        }
+        {
+          label = "reboot";
+          action = "systemctl reboot";
+          text = "Reboot";
+          keybind = "r";
+        }
+      ];
     };
   };
 

@@ -11,8 +11,10 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      # Locking is handled by noctalia (`noctalia msg session lock`, bound to
-      # Mod+L in niri-config.kdl), so hyprlock is intentionally not installed.
+      # hyprlock is the lock screen (bound to Mod+L in niri-config.kdl); hypridle
+      # drives idle-locking. Installed here so niri-only hosts can lock without
+      # depending on the Hyprland module also being enabled.
+      hyprlock
       hypridle
       gtk3
       # niri integrates xwayland-satellite automatically when it is on PATH

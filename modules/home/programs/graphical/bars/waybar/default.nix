@@ -468,7 +468,6 @@ in {
         wf-recorder
         wl-mirror
         wl-clipboard
-        wlogout
         wtype
         ydotool
       ]
