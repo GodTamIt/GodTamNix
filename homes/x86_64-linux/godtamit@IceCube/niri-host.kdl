@@ -16,14 +16,12 @@ output "DP-5" {
     scale 1.33
     position x=0 y=0
     variable-refresh-rate
-    max-bpc 10
 }
 
 output "DP-6" {
     mode "3840x2160@144"
     scale 1.33
     variable-refresh-rate
-    max-bpc 10
 }
 
 // Persistent, named workspaces pinned to outputs.

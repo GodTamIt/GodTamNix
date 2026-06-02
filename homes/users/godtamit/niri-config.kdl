@@ -188,11 +188,22 @@ binds {
     Mod+Up    { focus-workspace-up; }
     Mod+Down  { focus-workspace-down; }
 
-    // Moving windows
-    Mod+Ctrl+Left  { consume-or-expel-window-left; }
-    Mod+Ctrl+Right { consume-or-expel-window-right; }
+    // Jump focus to the monitor on the left/right.
+    Mod+Alt+Left  { focus-monitor-left; }
+    Mod+Alt+Right { focus-monitor-right; }
+
+    // Moving windows. move-column-left/right slides the whole column past its
+    // neighbour without first pulling that neighbour into the column — unlike
+    // consume-or-expel-window-* (still bound to Mod+[ / Mod+]), which stacks
+    // windows vertically into a single column.
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+Up { move-window-to-workspace-up; }
     Mod+Ctrl+Down { move-window-to-workspace-down; }
+
+    // Move the focused column to the monitor on the left/right.
+    Mod+Ctrl+Alt+Left  { move-column-to-monitor-left; }
+    Mod+Ctrl+Alt+Right { move-column-to-monitor-right; }
 
     // Screenshots (Hyprland used hyprshot; niri has built-in actions).
     // write-to-disk=false == hyprshot --clipboard-only.
