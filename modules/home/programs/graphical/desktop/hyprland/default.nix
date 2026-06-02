@@ -38,7 +38,9 @@ in {
         env = [
           "XCURSOR_SIZE,32"
           "WLR_NO_HARDWARE_CURSORS,1"
-          "GTK_THEME,Dracula"
+          # GTK theme is driven by the gtk module (settings.ini/dconf ->
+          # catppuccin-mocha-mauve). Don't force a non-existent "Dracula" theme
+          # here; it only made GTK3 apps fall back to the default theme.
         ];
 
         input = {
@@ -73,17 +75,17 @@ in {
           #shadow_render_power = 3;
           #shadow_scale = 0.97;
           rounding = 8;
-          blur = {
-            enabled = true;
-            size = 3;
-            passes = 3;
-          };
-          active_opacity = 0.9;
-          inactive_opacity = 0.6;
+          # blur = {
+          #   enabled = true;
+          #   size = 8;
+          #   passes = 3;
+          # };
+          active_opacity = 0.995;
+          inactive_opacity = 0.99;
         };
 
         animations = {
-          enabled = true;
+          enabled = false;
           bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
           animation = [
             "windows, 1, 7, myBezier"
@@ -96,7 +98,6 @@ in {
         };
 
         dwindle = {
-          pseudotile = true;
           preserve_split = true;
         };
 
@@ -139,9 +140,9 @@ in {
         # ];
 
         windowrule = [
-          "opacity 0.9 override 0.85 override, match:class firefox"
-          "opacity 0.9 override 0.85 override, match:class antigravity"
-          "opacity 0.9 override 0.85 override, match:class brave-browser"
+          "opacity 0.997 override 0.992 override, match:class firefox"
+          "opacity 0.997 override 0.992 override, match:class antigravity"
+          "opacity 0.997 override 0.992 override, match:class brave-browser"
 
           # Floating popups
           "float on, match:title ^(Open (File|Folder))$"
@@ -184,7 +185,7 @@ in {
           "$shiftMod, S, exec, bemoji"
           "$mainMod, P, exec, wofi-pass"
           "$shiftMod, P, pseudo"
-          "$mainMod, J, togglesplit"
+          "$mainMod, J, layoutmsg, togglesplit"
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
           "$mainMod, up, movefocus, u"
