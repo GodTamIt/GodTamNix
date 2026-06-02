@@ -119,6 +119,7 @@ window-rule {
 
 // Hyprland: decoration.active_opacity = 0.995 / inactive_opacity = 0.99.
 window-rule {
+    match is-active=true
     opacity 0.9
 }
 window-rule {
@@ -167,7 +168,8 @@ binds {
     Mod+O       { spawn "thunar"; }
     Mod+Y       { spawn "kitty" "-e" "fish" "-c" "y; exec fish"; }
     Mod+B       { spawn "firefox" "--new-window"; }
-    Mod+L       { spawn "hyprlock"; }
+    // Lock via noctalia's built-in lock screen (replaces hyprlock).
+    Mod+L       { spawn "noctalia" "msg" "session" "lock"; }
     Mod+Escape  { spawn "wlogout" "-p" "layer-shell"; }
     Mod+Space   { spawn "vicinae" "toggle"; }
     Mod+D       { spawn "wofi" "--show" "drun" "--allow-images"; }

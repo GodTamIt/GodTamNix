@@ -7,15 +7,30 @@
 with lib; let
   cfg = config.godtamnix.programs.graphical.desktop.hyprland;
 in {
-  options.godtamnix.programs.graphical.desktop.hyprland.enable = mkEnableOption "Hyprland";
+  options.godtamnix.programs.graphical.desktop.hyprland = {
+    enable = mkEnableOption "Hyprland";
+
+    lockCommand = mkOption {
+      type = types.str;
+      default = "hyprlock";
+      description = ''
+        Command bound to $mainMod+L to lock the session. Defaults to hyprlock,
+        which is then installed by this module. Set to another locker (e.g.
+        "noctalia msg session lock") on hosts that lock a different way; hyprlock
+        is not installed when this is changed away from the default.
+      '';
+    };
+  };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      hyprlock
-      hypridle
-      hyprshot
-      gtk3
-    ];
+    home.packages = with pkgs;
+      [
+        hypridle
+        hyprshot
+        gtk3
+      ]
+      # Only pull in hyprlock when it is actually the configured locker.
+      ++ lib.optional (cfg.lockCommand == "hyprlock") hyprlock;
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -174,7 +189,7 @@ in {
           "$mainMod, O, exec, thunar"
           "$mainMod, Y, exec, kitty -e fish -c 'y; exec fish'"
           "$mainMod, B, exec, firefox --new-window"
-          "$mainMod, L, exec, hyprlock"
+          "$mainMod, L, exec, ${cfg.lockCommand}"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
           "$mainMod, Space, exec, vicinae toggle"
           "$mainMod, q, killactive"

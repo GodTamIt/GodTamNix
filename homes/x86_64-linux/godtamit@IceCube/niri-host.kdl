@@ -26,10 +26,7 @@ output "DP-6" {
     max-bpc 10
 }
 
-// Persistent, named workspaces pinned to outputs. Hyprland pinned workspaces
-// 1-4 to DP-5 and 5-8 to DP-6. Naming them "1".."8" lets the numeric binds
-// (focus-workspace "N") and the open-on-workspace window rules in config.kdl
-// work regardless of niri's per-monitor workspace indices.
+// Persistent, named workspaces pinned to outputs.
 workspace "dev" { open-on-output "DP-5"; }
 workspace "chat" { open-on-output "DP-5"; }
 workspace "browser" { open-on-output "DP-6"; }

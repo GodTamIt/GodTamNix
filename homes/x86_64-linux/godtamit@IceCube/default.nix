@@ -52,8 +52,12 @@ in {
     programs = {
       graphical = {
         bars = {
+          # Replaced by noctalia on niri. waybar's workspace/window modules are
+          # hardcoded to Hyprland IPC and don't function under niri, so it is
+          # disabled here — flip back to `true` to restore it. The waybar module
+          # itself stays in the repo and is still used as-is on Shaq (Hyprland).
           waybar = {
-            enable = true;
+            enable = false;
 
             modules = {
               workspaces = {
@@ -85,6 +89,70 @@ in {
               };
             };
           };
+
+          # Replacement bar for niri. Comes up via its own systemd user service
+          # on the graphical session.
+          noctalia = {
+            enable = true;
+            autostart = true;
+
+            settings = {
+              bar.default = {
+                background_opacity = 0.5;
+                center = ["active_window"];
+                start = ["Vicinae" "wallpaper" "workspaces" "clock" "weather"];
+                end = [
+                  "media"
+                  "notifications"
+                  "clipboard"
+                  "network"
+                  "bluetooth"
+                  "volume"
+                  "cpu"
+                  "ram"
+                  "battery"
+                  "control-center"
+                  "session"
+                ];
+                margin_ends = 9;
+                scale = 1.1;
+                widget_spacing = 16;
+              };
+
+              lockscreen.blurred_desktop = true;
+
+              shell = {
+                font_family = "Noto Sans";
+                settings_show_advanced = true;
+                telemetry_enabled = true;
+              };
+
+              theme = {
+                source = "community";
+                community_palette = "Catppuccin Lavender";
+                wallpaper_scheme = "m3-tonal-spot";
+              };
+
+              weather = {
+                address = "Jersey City, NJ, United States";
+                refresh_minutes = 10;
+                unit = "imperial";
+              };
+
+              widget = {
+                Vicinae = {
+                  type = "custom_button";
+                  command = "vicinae toggle";
+                  glyph = "search";
+                };
+                media = {
+                  art_size = 32.0;
+                  max_length = 120;
+                  title_scroll = "always";
+                };
+              };
+            };
+          };
         };
 
         browsers = {
@@ -107,7 +175,13 @@ in {
 
         desktop = {
           wayland = enabled;
-          hyprland = enabled;
+          hyprland = {
+            enable = true;
+            # IceCube runs both niri and Hyprland sessions, and noctalia runs in
+            # both, so use noctalia's lock screen here too. This also drops
+            # hyprlock from IceCube entirely (niri and waybar no longer pull it).
+            lockCommand = "noctalia msg session lock";
+          };
           niri = enabled;
         };
 

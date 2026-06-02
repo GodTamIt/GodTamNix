@@ -91,6 +91,12 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    # Quickshell-based Wayland shell/bar. Exposes homeModules.default
+    # (programs.noctalia.*); wired up via the noctalia home module.
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell/v5";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ssh-to-age = {
       url = "github:Mic92/ssh-to-age/v1.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
