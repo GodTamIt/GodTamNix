@@ -126,16 +126,21 @@ window-rule {
 
 // Certain programs need to be more opaque (functional)
 window-rule {
-    match app-id=r#"firefox$"#
-    match app-id=r#"(?i)antigravity"#
-    match app-id=r#"(?i)brave"#
-    opacity 0.9
+    match app-id=r#"firefox$"# is-active=true
+    match app-id=r#"(?i)antigravity"# is-active=true
+    match app-id=r#"(?i)brave"# is-active=true
+    match app-id=r#"(?i)vlc"# is-active=true
+    opacity 0.95
 }
 window-rule {
     match app-id=r#"firefox$"# is-active=false
     match app-id=r#"(?i)antigravity"# is-active=false
     match app-id=r#"(?i)brave"# is-active=false
     opacity 0.85
+}
+window-rule {
+    match app-id=r#"(?i)vlc"#
+    opacity 1.0
 }
 
 // Float certain windows
@@ -146,6 +151,7 @@ window-rule {
 }
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"firefox$"# title="^Extension: \(Bitwarden Password Manager\)"
     open-floating true
 }
 
