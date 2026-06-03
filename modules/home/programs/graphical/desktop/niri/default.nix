@@ -22,5 +22,25 @@ in {
       # `programs.niri` module.
       xwayland-satellite
     ];
+
+    xdg = {
+      portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-gnome
+        ];
+
+        config = {
+          common = {
+            default = lib.mkDefault ["gtk"];
+          };
+          niri = {
+            "org.freedesktop.impl.portal.ScreenCast" = ["gnome"];
+            "org.freedesktop.impl.portal.Screenshot" = ["gnome"];
+          };
+        };
+      };
+    };
   };
 }
