@@ -26,9 +26,12 @@ output "DP-6" {
 
 // Persistent, named workspaces pinned to outputs.
 workspace "dev" { open-on-output "DP-5"; }
+workspace "nix" { open-on-output "DP-5"; }
 workspace "chat" { open-on-output "DP-5"; }
+workspace "misc" { open-on-output "DP-5"; }
 workspace "browser" { open-on-output "DP-6"; }
 workspace "media" { open-on-output "DP-6"; }
+workspace "gaming" { open-on-output "DP-6"; }
 
 // Autostarted apps (Hyprland exec-once launched these with [workspace N silent];
 // the open-on-workspace window rules in config.kdl route them onto the right
@@ -60,4 +63,25 @@ window-rule {
     match at-startup=true app-id=r#"(?i)antigravity"#
     open-on-workspace "dev"
     open-focused false
+}
+
+// ─── Permanent workspace keybinds ────────────────────────────────────────────
+binds {
+    // Focus a workspace by number (order matches the workspace declarations above).
+    Mod+1 { focus-workspace "dev"; }
+    Mod+2 { focus-workspace "nix"; }
+    Mod+3 { focus-workspace "chat"; }
+    Mod+4 { focus-workspace "misc"; }
+    Mod+5 { focus-workspace "browser"; }
+    Mod+6 { focus-workspace "media"; }
+    Mod+7 { focus-workspace "gaming"; }
+
+    // Move the focused column to a workspace.
+    Mod+Shift+1 { move-column-to-workspace "dev"; }
+    Mod+Shift+2 { move-column-to-workspace "nix"; }
+    Mod+Shift+3 { move-column-to-workspace "chat"; }
+    Mod+Shift+4 { move-column-to-workspace "misc"; }
+    Mod+Shift+5 { move-column-to-workspace "browser"; }
+    Mod+Shift+6 { move-column-to-workspace "media"; }
+    Mod+Shift+7 { move-column-to-workspace "gaming"; }
 }
