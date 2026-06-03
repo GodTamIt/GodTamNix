@@ -40,19 +40,21 @@ dropdown-show-seconds = true
 
 [modules.cpu]
 "icon-name" = "ld-cpu"
+left-click = "missioncenter"
 
 [modules.dashboard]
 dropdown-lock-command = "hyprlock"
 dropdown-logout-command = "niri msg action quit --skip-confirmation"
 
 [modules."niri-workspaces"]
-"hide-trailing-empty" = false
-"active-color" = "status-warning"
+hide-trailing-empty = false
+active-color = "status-warning"
 
 [modules.ram]
 "poll-interval-ms" = 2000
 format = "{{ used_gib}} / {{ total_gib }} GiB"
 "icon-name" = "ld-memory-stick"
+left-click = "missioncenter"
 
 [modules.weather]
 location = "Jersey City"
