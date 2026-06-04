@@ -5,26 +5,25 @@
 }: let
   inherit (lib.godtamnix) enabled;
 in {
-  environment.systemPackages = with pkgs;
-    [
-      # Basic utilities
-      btop
-      curl
-      dust
-      eza
-      git
-      fish
-      procs
-      ripgrep
-      tmux
-      vim
-      zsh
-    ]
-    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-      # Linux-only: libva-utils references libdrm; pciutils is Linux PCI bus tooling
-      libva-utils
-      pciutils
-    ];
+  environment.systemPackages = with pkgs; [
+    # Basic utilities
+    btop
+    curl
+    dust
+    eza
+    git
+    fish
+    procs
+    ripgrep
+    tmux
+    vim
+    zsh
+
+    # Default fonts for all systems
+    fira-code
+    nerd-fonts.fira-code
+    noto-fonts
+  ];
 
   programs = {
     fish = enabled;

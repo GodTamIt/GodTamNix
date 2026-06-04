@@ -1,2 +1,5 @@
 [default.extend-words]
 ane = "ane"
+
+[files]
+extend-exclude = ["secrets/"]

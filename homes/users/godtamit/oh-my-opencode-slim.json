@@ -4,33 +4,33 @@
   "presets": {
     "open": {
       "orchestrator": {
-        "model": "CrofAI/mimo-v2.5-pro",
+        "model": "minimax-coding-plan/MiniMax-M3",
         "skills": ["*"],
         "mcps": ["*"]
       },
       "oracle": {
-        "model": "CrofAI/glm-5.1",
+        "model": "minimax-coding-plan/MiniMax-M3",
         "skills": [],
         "mcps": []
       },
       "librarian": {
-        "model": "CrofAI/deepseek-v4-flash",
+        "model": "minimax-coding-plan/MiniMax-M3",
         "variant": "low",
         "skills": [],
         "mcps": ["websearch", "context7", "grep_app"]
       },
       "explorer": {
-        "model": "CrofAI/deepseek-v4-flash",
+        "model": "minimax-coding-plan/MiniMax-M3",
         "skills": [],
         "mcps": []
       },
       "designer": {
-        "model": "CrofAI/kimi-k2.6-precision",
+        "model": "minimax-coding-plan/MiniMax-M3",
         "skills": ["agent-browser"],
         "mcps": []
       },
       "fixer": {
-        "model": "CrofAI/deepseek-v4-flash",
+        "model": "minimax-coding-plan/MiniMax-M3",
         "skills": [],
         "mcps": []
       }
@@ -77,16 +77,16 @@
     "main_pane_size": 60
   },
   "council": {
-    "master": { "model": "CrofAI/kimi-k2.6" },
+    "master": { "model": "minimax-coding-plan/MiniMax-M3" },
     "default_preset": "balanced",
     "presets": {
       "balanced": {
-        "alpha": { "model": "CrofAI/mimo-v2.5-pro" },
+        "alpha": { "model": "minimax-coding-plan/MiniMax-M3" },
         "beta": { "model": "CrofAI/deepseek-v4-pro" },
         "gamma": { "model": "CrofAI/glm-5.1" }
       },
       "heavy": {
-        "reviewer": { "model": "CrofAI/mimo-v2.5-pro" },
+        "reviewer": { "model": "minimax-coding-plan/MiniMax-M3" },
         "coder": { "model": "CrofAI/deepseek-v4-pro" },
         "creative": { "model": "CrofAI/kimi-k2.6" },
         "thinker": { "model": "CrofAI/glm-5.1" }

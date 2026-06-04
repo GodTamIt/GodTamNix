@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib) mkIf;
@@ -27,6 +28,13 @@ in {
         };
       };
     };
+
+    # On all NixOS installs, provide basic debugging tools.
+    environment.systemPackages = with pkgs; [
+      libva-utils
+      usbutils
+      pciutils
+    ];
 
     # NixOS config options
     # Check corresponding shared imported module

@@ -1,0 +1,80 @@
+// niri config — host-specific part for BeastieServerV2. Lives next to this
+// host's home config (homes/x86_64-linux/godtamit@BeastieServerV2/) and is
+// deployed as ~/.config/niri/host.kdl by that default.nix. The generic
+// config.kdl (in the shared user config) pulls it in via `include "host.kdl"`.
+//
+// BeastieServerV2 is a NAS doubling as a HTPC with a single display (typically
+// a TV over HDMI, or a monitor for administration). Mirrors the host-specific
+// settings in this directory's default.nix.
+//
+// Each host that enables niri must provide its own host.kdl — config.kdl's
+// `include "host.kdl"` is a hard requirement; niri errors if the file is
+// missing.
+
+// BeastieServerV2 — typically a single display (HTPC mode over HDMI, or a
+// single monitor for administration). Adjust the output name below to match
+// what `niri msg outputs` reports on first boot. Common values: HDMI-A-1,
+// DP-1, eDP-1, or your TV's reported name.
+output "HDMI-A-1" {
+    mode "3840x2160@120"  // pick your TV/monitor native mode
+    scale 1.33
+    variable-refresh-rate
+}
+
+// Persistent, named workspaces pinned to the single output.
+workspace "dev" { open-on-output "HDMI-A-1"; }
+workspace "nix" { open-on-output "HDMI-A-1"; }
+workspace "chat" { open-on-output "HDMI-A-1"; }
+workspace "misc" { open-on-output "HDMI-A-1"; }
+workspace "browser" { open-on-output "HDMI-A-1"; }
+workspace "media" { open-on-output "HDMI-A-1"; }
+workspace "gaming" { open-on-output "HDMI-A-1"; }
+
+// Workspace assignments (same as IceCube — host-generic window rules).
+window-rule {
+    match app-id=r#"(?i)ferdium"#
+    match app-id=r#"(?i)signal"#
+    open-on-workspace "chat"
+    open-focused false
+}
+window-rule {
+    match app-id=r#"(?i)youtube.?music"#
+    open-on-workspace "media"
+    open-focused false
+}
+window-rule {
+    match at-startup=true app-id=r#"firefox$"#
+    open-on-workspace "browser"
+    open-focused false
+}
+window-rule {
+    match at-startup=true app-id=r#"(?i)antigravity"#
+    open-on-workspace "dev"
+    open-focused false
+}
+window-rule {
+    match app-id=r#"(?i)steam"#
+    open-on-workspace "gaming"
+    open-focused false
+}
+
+// ─── Permanent workspace keybinds ────────────────────────────────────────────
+binds {
+    // Focus a workspace by number (order matches the workspace declarations above).
+    Mod+1 { focus-workspace "dev"; }
+    Mod+2 { focus-workspace "nix"; }
+    Mod+3 { focus-workspace "chat"; }
+    Mod+4 { focus-workspace "misc"; }
+    Mod+5 { focus-workspace "browser"; }
+    Mod+6 { focus-workspace "media"; }
+    Mod+7 { focus-workspace "gaming"; }
+
+    // Move the focused column to a workspace.
+    Mod+Shift+1 { move-column-to-workspace "dev"; }
+    Mod+Shift+2 { move-column-to-workspace "nix"; }
+    Mod+Shift+3 { move-column-to-workspace "chat"; }
+    Mod+Shift+4 { move-column-to-workspace "misc"; }
+    Mod+Shift+5 { move-column-to-workspace "browser"; }
+    Mod+Shift+6 { move-column-to-workspace "media"; }
+    Mod+Shift+7 { move-column-to-workspace "gaming"; }
+}

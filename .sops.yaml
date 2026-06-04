@@ -7,6 +7,16 @@ keys:
   #   grep -oE 'age1[0-9a-z]+' ~/.config/sops/age/keys.txt   # this prints the public key
   # Then replace the placeholder below with the real value (one line, no quotes).
   - &godtamit-BeastieMacBookV2 age1REPLACE_ME_AFTER_GENERATING_ON_MAC
+  # TODO(BeastieServerV2): generate and paste the host's + user's age public keys.
+  # After first NixOS install on BeastieServerV2:
+  #   sudo nix shell nixpkgs#age -c age-keygen -o /etc/sops/age/keys.txt   # host key
+  #   nix shell nixpkgs#age -c age-keygen -o ~/.config/sops/age/keys.txt   # user key
+  #   grep -oE 'age1[0-9a-z]+' /etc/sops/age/keys.txt                       # host pubkey
+  #   grep -oE 'age1[0-9a-z]+' ~/.config/sops/age/keys.txt                  # user pubkey
+  # Then replace the placeholders below with the real values, re-run
+  # `sops updatekeys secrets/BeastieServerV2/default.yaml`, and re-build.
+  - &BeastieServerV2 age1REPLACE_ME_HOST_KEY
+  - &godtamit-BeastieServerV2 age1REPLACE_ME_USER_KEY
   - &IceCube age1qfyt67lmzynymvstl0e7l0sstgh2wev6htt34s2lphapzsdr246s5txqm8
   - &godtamit-IceCube age1gmxyeqces6e0t2d5v5lcplm7e4fkw64w4yvfcjz2ca4ee2k43v5smre7z9
 creation_rules:
@@ -24,3 +34,9 @@ creation_rules:
     key_groups:
       - age:
           - *godtamit-BeastieMacBookV2
+  - path_regex: secrets/BeastieServerV2/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *godtamit-IceCube
+          # - *BeastieServerV2
+          # - *godtamit-BeastieServerV2
