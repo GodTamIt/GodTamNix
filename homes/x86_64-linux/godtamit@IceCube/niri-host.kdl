@@ -64,6 +64,11 @@ window-rule {
     open-on-workspace "dev"
     open-focused false
 }
+window-rule {
+    match app-id=r#"(?i)steam"#
+    open-on-workspace "gaming"
+    open-focused false
+}
 
 // ─── Permanent workspace keybinds ────────────────────────────────────────────
 binds {
