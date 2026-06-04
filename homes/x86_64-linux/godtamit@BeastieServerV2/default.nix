@@ -103,6 +103,14 @@ in {
       };
     };
 
+    fish = {
+      shellInit = ''
+        set -x PLEX /mnt/array-media/Plex/
+        set -x CMP /mnt/array-media/docker/data/completed/
+        set -x UP /mnt/array-media/docker/data/uploaded/
+      '';
+    };
+
     wlogout = {
       enable = true;
 
