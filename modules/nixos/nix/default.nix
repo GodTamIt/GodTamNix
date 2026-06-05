@@ -51,6 +51,7 @@ in {
       daemonIOSchedPriority = 7;
 
       gc = {
+        automatic = true;
         dates = "03:00";
         options = "--delete-older-than 30d";
       };
