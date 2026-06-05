@@ -50,6 +50,7 @@ in {
     packages = with pkgs; [
       aldente
       antigravity
+      bitwarden-desktop
       google-chrome
     ];
 

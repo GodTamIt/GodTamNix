@@ -33,7 +33,6 @@
 
   home.packages = with pkgs;
     [
-      bitwarden-desktop
       discord
       fastfetch
       signal-desktop
