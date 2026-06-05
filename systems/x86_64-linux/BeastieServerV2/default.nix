@@ -168,7 +168,6 @@ in {
     jellyfin = {
       enable = true;
       openFirewall = true;
-      user = "godtamit";
       hardwareAcceleration = {
         enable = true;
         type = "vaapi";
@@ -202,7 +201,6 @@ in {
     plex = {
       enable = true;
       openFirewall = true;
-      user = "godtamit";
 
       accelerationDevices = [
         "/dev/dri/renderD128"

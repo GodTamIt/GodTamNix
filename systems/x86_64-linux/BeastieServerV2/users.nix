@@ -15,6 +15,8 @@
           "mpd"
           "docker"
           "podman"
+          "plex"
+          "jellyfin"
         ];
         shell = pkgs.fish;
 
