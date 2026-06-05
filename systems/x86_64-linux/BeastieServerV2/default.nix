@@ -168,6 +168,7 @@ in {
     jellyfin = {
       enable = true;
       openFirewall = true;
+      user = "godtamit";
       hardwareAcceleration = {
         enable = true;
         type = "vaapi";
