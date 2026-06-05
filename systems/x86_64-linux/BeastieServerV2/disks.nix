@@ -75,7 +75,7 @@ in {
       fsType = "btrfs";
       mountPoint = "/mnt/array";
       options = [
-        "subvol=@"
+        "subvol=/"
         "noatime"
         "noautodefrag"
         "nodiratime"
