@@ -198,6 +198,7 @@ in {
 
   home = {
     packages = with pkgs; [
+      mnamer
       thunar
     ];
 
