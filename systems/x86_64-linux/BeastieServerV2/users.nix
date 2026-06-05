@@ -16,6 +16,7 @@
           "docker"
           "podman"
           "media"
+          "tor"
         ];
         shell = pkgs.fish;
 
@@ -30,5 +31,6 @@
 
   users.groups = {
     media = {};
+    tor = {};
   };
 }
