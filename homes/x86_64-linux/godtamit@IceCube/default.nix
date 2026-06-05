@@ -52,44 +52,6 @@ in {
     programs = {
       graphical = {
         bars = {
-          # Replaced by noctalia on niri. waybar's workspace/window modules are
-          # hardcoded to Hyprland IPC and don't function under niri, so it is
-          # disabled here — flip back to `true` to restore it. The waybar module
-          # itself stays in the repo and is still used as-is on Shaq (Hyprland).
-          waybar = {
-            enable = false;
-
-            modules = {
-              workspaces = {
-                enable = true;
-
-                persistentWorkspaces = {
-                  "*" = [
-                    1
-                    2
-                    3
-                    4
-                    5
-                    6
-                    7
-                    8
-                  ];
-                };
-
-                formatIcons = {
-                  "1" = "";
-                  "2" = "󰈮";
-                  "3" = "";
-                  "4" = "󰭹";
-                  "5" = "󰈹";
-                  "6" = "󰎆";
-                  "7" = "";
-                  "8" = "󱤘";
-                };
-              };
-            };
-          };
-
           noctalia = {
             enable = false;
             autostart = true;
@@ -178,7 +140,7 @@ in {
 
         desktop = {
           wayland = enabled;
-          hyprland = enabled;
+          # hyprland = enabled;
           niri = enabled;
         };
 
