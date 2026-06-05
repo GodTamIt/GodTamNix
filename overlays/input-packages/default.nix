@@ -7,6 +7,11 @@
     inherit (final.stdenv.hostPlatform) system;
     inherit (final) config;
   };
+
+  unstable = import inputs.nixpkgs-unstable {
+    inherit (final.stdenv.hostPlatform) system;
+    inherit (final) config;
+  };
 in {
   #          ╭──────────────────────────────────────────────────────────╮
   #          │                 Firefox Addon repository                 │
@@ -18,17 +23,27 @@ in {
   };
 
   #          ╭──────────────────────────────────────────────────────────╮
+  #          │   From nixpkgs-unstable (faster updates but with cache)  │
+  #          ╰──────────────────────────────────────────────────────────╯
+  inherit
+    (unstable)
+    brave
+    firefox
+    google-chrome
+    plex-desktop
+    ytmdesktop
+    zed-editor
+    ;
+
+  #          ╭──────────────────────────────────────────────────────────╮
   #          │ From nixpkgs-master (fast updating / want latest always) │
   #          ╰──────────────────────────────────────────────────────────╯
   inherit
     (master)
-    plex-desktop
     wayle
     webull-desktop
     yaziPlugins
     yt-dlp
-    ytmdesktop
-    zed-editor
     ;
 
   #          ╭──────────────────────────────────────────────────────────╮
@@ -65,7 +80,7 @@ in {
   });
 
   # Leave this until Signal adopts Electron 40+.
-  signal-desktop = master.signal-desktop.overrideAttrs (oldAttrs: {
+  signal-desktop = unstable.signal-desktop.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [final.makeWrapper];
     postFixup =
       (oldAttrs.postFixup or "")
@@ -80,20 +95,6 @@ in {
   openldap = prev.openldap.overrideAttrs {
     doCheck = false;
   };
-
-  # python3 = _prev.python3.override {
-  #   packageOverrides = _pyFinal: _pyPrev: {
-  #     # TODO: remove after hitting channel
-  #     inherit (master.python3Packages) fastmcp mcp;
-  #   };
-  # };
-  #
-  # python3Packages = final.python3.pkgs;
-
-  #          ╭──────────────────────────────────────────────────────────╮
-  #          │   From nixpkgs-unstable (reasonable update / stability   │
-  #          │                         balance)                         │
-  #          ╰──────────────────────────────────────────────────────────╯
 
   # aquamarine = prev.aquamarine.overrideAttrs (_old: {
   #   src = prev.fetchFromGitHub {

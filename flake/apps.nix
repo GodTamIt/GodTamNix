@@ -8,11 +8,23 @@ _: {
       core = {
         description = "Core Nix ecosystem";
         inputs = [
+          "nix-cachyos-kernel"
           "nixpkgs"
           "nixpkgs-unstable"
           "nixpkgs-master"
           "flake-compat"
           "flake-parts"
+          "llm-agents"
+        ];
+      };
+
+      edge = {
+        description = "Bleeding edge and fast updating inputs.";
+        inputs = [
+          "nixpkgs-master"
+          "nixpkgs-unstable"
+          "llm-agents"
+          "rust-overlay"
         ];
       };
 
@@ -22,6 +34,7 @@ _: {
           "disko"
           "home-manager"
           "lanzaboote"
+          "mac-app-util"
           "nix-darwin"
           "nix-rosetta-builder"
           "nixos-wsl"
@@ -36,9 +49,12 @@ _: {
           "catppuccin"
           "firefox-addons"
           "hypr-socket-watch"
+          "llm-agents"
           "nh"
           "nix-flatpak"
           "nix-index-database"
+          "open-design"
+          "rust-overlay"
           "stylix"
         ];
       };
