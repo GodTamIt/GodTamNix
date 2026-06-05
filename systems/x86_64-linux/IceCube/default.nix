@@ -26,10 +26,6 @@ in {
       gaming = enabled;
     };
 
-    hardware = {
-      hid = enabled;
-    };
-
     system = {
       fonts = enabled;
 

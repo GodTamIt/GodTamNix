@@ -27,10 +27,6 @@ in {
       kde = enabled;
     };
 
-    hardware = {
-      hid = enabled;
-    };
-
     system = {
       fonts = enabled;
 

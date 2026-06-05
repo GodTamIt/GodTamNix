@@ -25,10 +25,6 @@ in {
       gaming = enabled;
     };
 
-    hardware = {
-      hid = enabled;
-    };
-
     system = {
       fonts = enabled;
 
@@ -86,7 +82,10 @@ in {
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [38888];
+      allowedTCPPorts = [
+        9091
+        38888
+      ];
     };
   };
 
