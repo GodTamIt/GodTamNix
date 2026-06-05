@@ -38,5 +38,5 @@ creation_rules:
     key_groups:
       - age:
           - *godtamit-IceCube
-          # - *BeastieServerV2
-          # - *godtamit-BeastieServerV2
+          - *BeastieServerV2
+          - *godtamit-BeastieServerV2
