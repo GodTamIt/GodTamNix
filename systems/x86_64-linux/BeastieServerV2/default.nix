@@ -1,7 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
-{lib, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib.godtamnix) enabled;
 in {
   imports = [
@@ -59,18 +63,18 @@ in {
   };
 
   # Let's Encrypt via Cloudflare DNS-01.
-  # security.acme = {
-  #   acceptTerms = true;
-  #   defaults = {
-  #     email = lib.godtamnix.decode "b2hnb2R0YW1pdEBnbWFpbC5jb20=";
-  #     group = "nginx";
-  #     reloadServices = ["nginx"];
-  #     server = "https://acme-staging-v02.api.letsencrypt.org/directory";
-  #     dnsProvider = "cloudflare";
-  #     environmentFile = config.sops.secrets.cloudflare_acme_credentials.path;
-  #     dnsPropagationCheck = true;
-  #   };
-  # };
+  security.acme = {
+    acceptTerms = true;
+    defaults = {
+      email = lib.godtamnix.decode "b2hnb2R0YW1pdEBnbWFpbC5jb20=";
+      group = "nginx";
+      reloadServices = ["nginx"];
+      # server = "https://acme-staging-v02.api.letsencrypt.org/directory";
+      dnsProvider = "cloudflare";
+      environmentFile = config.sops.secrets.cloudflare_acme_credentials.path;
+      dnsPropagationCheck = true;
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot = enabled;
@@ -138,26 +142,26 @@ in {
 
   # List services that you want to enable:
   services = {
-    # ddclient = {
-    #   enable = true;
-    #   protocol = "cloudflare";
-    #   usev4 = "webv4, webv4=checkip.dyndns.org";
+    ddclient = {
+      enable = true;
+      protocol = "cloudflare";
+      usev4 = "webv4, webv4=checkip.dyndns.org";
 
-    #   # The actual domain you want to update
-    #   zone = lib.godtamnix.decode "Z29kdGFtaXQuY29t";
-    #   domains = [
-    #     (lib.godtamnix.decode "YmVhc3RpZXNlcnZlcnYyLmdvZHRhbWl0LmNvbQ==")
-    #     (lib.godtamnix.decode "Y2hyaXNmbGl4LmdvZHRhbWl0LmNvbQ==")
-    #     (lib.godtamnix.decode "cGhvdG9zLmdvZHRhbWl0LmNvbQ==")
-    #     (lib.godtamnix.decode "Y2xvdWQuZ29kdGFtaXQuY29t")
-    #   ];
+      # The actual domain you want to update
+      zone = lib.godtamnix.decode "Z29kdGFtaXQuY29t";
+      domains = [
+        (lib.godtamnix.decode "YmVhc3RpZXNlcnZlcnYyLmdvZHRhbWl0LmNvbQ==")
+        (lib.godtamnix.decode "Y2hyaXNmbGl4LmdvZHRhbWl0LmNvbQ==")
+        (lib.godtamnix.decode "cGhvdG9zLmdvZHRhbWl0LmNvbQ==")
+        (lib.godtamnix.decode "Y2xvdWQuZ29kdGFtaXQuY29t")
+      ];
 
-    #   username = "token";
-    #   passwordFile = config.sops.secrets.cloudflare_api_token.path;
+      username = "token";
+      passwordFile = config.sops.secrets.cloudflare_api_token.path;
 
-    #   # How often to check for an IP change (e.g., every 5 minutes)
-    #   interval = "2min";
-    # };
+      # How often to check for an IP change (e.g., every 5 minutes)
+      interval = "2min";
+    };
 
     displayManager = {
       autoLogin = {
