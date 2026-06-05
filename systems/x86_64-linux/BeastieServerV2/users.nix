@@ -15,8 +15,7 @@
           "mpd"
           "docker"
           "podman"
-          "plex"
-          "jellyfin"
+          "media"
         ];
         shell = pkgs.fish;
 
@@ -27,5 +26,9 @@
         ];
       };
     };
+  };
+
+  users.groups = {
+    media = {};
   };
 }

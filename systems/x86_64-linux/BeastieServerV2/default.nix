@@ -175,6 +175,8 @@ in {
     jellyfin = {
       enable = true;
       openFirewall = true;
+      group = "media";
+
       hardwareAcceleration = {
         enable = true;
         type = "vaapi";
@@ -208,6 +210,7 @@ in {
     plex = {
       enable = true;
       openFirewall = true;
+      group = "media";
 
       accelerationDevices = [
         "/dev/dri/renderD128"
