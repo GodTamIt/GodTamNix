@@ -34,6 +34,12 @@ in {
       libva-utils
       usbutils
       pciutils
+
+      # Filesystem Utilities
+      btrfs-list
+      dosfstools
+      e2fsprogs
+      exfatprogs
     ];
 
     # NixOS config options
