@@ -15,8 +15,8 @@ keys:
   #   grep -oE 'age1[0-9a-z]+' ~/.config/sops/age/keys.txt                  # user pubkey
   # Then replace the placeholders below with the real values, re-run
   # `sops updatekeys secrets/BeastieServerV2/default.yaml`, and re-build.
-  - &BeastieServerV2 age1REPLACE_ME_HOST_KEY
-  - &godtamit-BeastieServerV2 age1REPLACE_ME_USER_KEY
+  - &BeastieServerV2 age1lzp44tfsadmsp669u4e6ma9dlj3wwms44f7ydhmzlm9tvfpjv30ssjm2rj
+  - &godtamit-BeastieServerV2 age1hcrm3rwpal3pgvekcluysya6ezyymn84f7r9382jyedprj9geymscya522
   - &IceCube age1qfyt67lmzynymvstl0e7l0sstgh2wev6htt34s2lphapzsdr246s5txqm8
   - &godtamit-IceCube age1gmxyeqces6e0t2d5v5lcplm7e4fkw64w4yvfcjz2ca4ee2k43v5smre7z9
 creation_rules:
