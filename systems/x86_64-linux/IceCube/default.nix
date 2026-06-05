@@ -139,11 +139,6 @@ in {
     };
 
     displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "godtamit";
-      };
-
       sddm = {
         enable = true;
         # wayland.enable = true;

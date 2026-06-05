@@ -159,10 +159,17 @@ in {
     #   interval = "2min";
     # };
 
-    displayManager.sddm = {
-      enable = true;
-      # wayland.enable = true;
-      # wayland.compositor = "weston";
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "godtamit";
+      };
+
+      sddm = {
+        enable = true;
+        # wayland.enable = true;
+        # wayland.compositor = "weston";
+      };
     };
 
     jellyfin = {
