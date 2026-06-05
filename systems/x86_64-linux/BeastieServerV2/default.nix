@@ -39,27 +39,27 @@ in {
       podman = enabled;
     };
 
-    # services = {
-    #   web = {
-    #     nginx.enable = true;
-    #     ddosProtection = true;
+    services = {
+      web = {
+        nginx.enable = true;
+        ddosProtection = true;
 
-    #     vhosts = {
-    #       jellyfin = {
-    #         enable = true;
-    #         domain = lib.godtamnix.decode "Y2hyaXNmbGl4LmdvZHRhbWl0LmNvbQ==";
-    #       };
-    #       nextcloud = {
-    #         enable = true;
-    #         domain = lib.godtamnix.decode "Y2xvdWQuZ29kdGFtaXQuY29t";
-    #       };
-    #       immich = {
-    #         enable = true;
-    #         domain = lib.godtamnix.decode "cGhvdG9zLmdvZHRhbWl0LmNvbQ==";
-    #       };
-    #     };
-    #   };
-    # };
+        vhosts = {
+          jellyfin = {
+            enable = true;
+            domain = lib.godtamnix.decode "Y2hyaXNmbGl4LmdvZHRhbWl0LmNvbQ==";
+          };
+          nextcloud = {
+            enable = true;
+            domain = lib.godtamnix.decode "Y2xvdWQuZ29kdGFtaXQuY29t";
+          };
+          immich = {
+            enable = true;
+            domain = lib.godtamnix.decode "cGhvdG9zLmdvZHRhbWl0LmNvbQ==";
+          };
+        };
+      };
+    };
   };
 
   # Let's Encrypt via Cloudflare DNS-01.
