@@ -2,6 +2,7 @@
   flake.lib = {
     # keep-sorted start block=yes newline_separated=yes
     base64 = import ./base64 {inherit inputs;};
+    btrfs = import ./btrfs {inherit inputs;};
     file = import ./file {
       inherit inputs;
       self = ../.;

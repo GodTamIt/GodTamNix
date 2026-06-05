@@ -7,6 +7,7 @@ in {
   # Expose all godtamnix lib namespaces
   inherit
     (godtamnixLib.flake.lib)
+    btrfs
     file
     system
     theme

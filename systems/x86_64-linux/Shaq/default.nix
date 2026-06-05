@@ -182,6 +182,29 @@ in {
     };
   };
 
+  # TEMP: scrub module test — will be reverted
+  godtamnix.services.btrfs.scrub = {
+    enable = true;
+    mounts = {
+      root = {
+        mountPoint = "/";
+        interval = "monthly";
+        preHook = "echo pre";
+        postHook = "echo post";
+      };
+      # Two mounts with the same basename to prove no baseNameOf
+      # collision: distinct names -> distinct units.
+      srvData = {
+        mountPoint = "/data";
+        interval = "weekly";
+      };
+      nestedData = {
+        mountPoint = "/srv/data";
+        interval = "weekly";
+      };
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

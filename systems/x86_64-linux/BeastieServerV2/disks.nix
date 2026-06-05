@@ -113,24 +113,53 @@ in {
     };
   };
 
-  services.btrbk.instances."media" = {
-    onCalendar = "*-*-* 09:15:00";
-    settings = {
-      timestamp_format = "long";
-
-      # --- LOCAL snapshot retention (/mnt/array/@media/.snapshots) ---
-      snapshot_preserve_min = "2d"; # keep everything for at least 2 days
-      snapshot_preserve = "14d 4w"; # then 14 dailies + 4 weeklies
-
-      # --- BACKUP target retention (/mnt/backup/@media), longer/different ---
-      target_preserve_min = "no"; # no forced minimum; policy governs fully
-      target_preserve = "7d 6w 4m"; # 7 dailies, 6 weeklies, 4 monthlies
-
-      volume."/mnt/array" = {
-        subvolume = "@media";
-        snapshot_dir = "@media/.snapshots"; # -> /mnt/array/@media/.snapshots
-        target = "/mnt/backup/@array/@media"; # plain local path, must be on btrfs
+  godtamnix.services.btrfs.scrub = {
+    enable = true;
+    mounts = {
+      root = {
+        mountPoint = "/";
+        interval = "*-*-15 04:00:00"; # monthly on the 15th
       };
+
+      array = {
+        mountPoint = "/mnt/array";
+        interval = "*-01,04,07,10 09:30:00"; # every 3 months, started in the morning.
+        preHook = "runuser -l godtamit -c 'podman pause transmission || true'";
+        postHook = "runuser -l godtamit -c 'podman unpause transmission || true'";
+      };
+
+      backup = {
+        mountPoint = "/mnt/backup";
+        interval = "*-02,06,11 03:00:00";
+      };
+    };
+  };
+
+  services = {
+    btrbk.instances."media" = {
+      onCalendar = "*-*-* 09:15:00";
+      settings = {
+        timestamp_format = "long";
+
+        # --- LOCAL snapshot retention (/mnt/array/@media/.snapshots) ---
+        snapshot_preserve_min = "2d"; # keep everything for at least 2 days
+        snapshot_preserve = "14d 4w"; # then 14 dailies + 4 weeklies
+
+        # --- BACKUP target retention (/mnt/backup/@media), longer/different ---
+        target_preserve_min = "no"; # no forced minimum; policy governs fully
+        target_preserve = "7d 6w 4m"; # 7 dailies, 6 weeklies, 4 monthlies
+
+        volume."/mnt/array" = {
+          subvolume = "@media";
+          snapshot_dir = "@media/.snapshots"; # -> /mnt/array/@media/.snapshots
+          target = "/mnt/backup/@array/@media"; # plain local path, must be on btrfs
+        };
+      };
+    };
+
+    # Explicitly disable btrfs autoScrub since we use our own scrubbing utilities.
+    btrfs.autoScrub = {
+      enable = false;
     };
   };
 
