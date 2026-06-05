@@ -71,6 +71,7 @@ in {
           antigravity
           go
           jq
+          python3
           rclone
           rsync
         ]
