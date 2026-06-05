@@ -114,7 +114,7 @@ in {
   };
 
   services.btrbk.instances."media" = {
-    onCalendar = "daily"; # how often snapshots are taken
+    onCalendar = "*-*-* 09:15:00";
     settings = {
       timestamp_format = "long";
 
@@ -124,19 +124,19 @@ in {
 
       # --- BACKUP target retention (/mnt/backup/@media), longer/different ---
       target_preserve_min = "no"; # no forced minimum; policy governs fully
-      target_preserve = "7d 6w 4m"; # 30 dailies, 12 weeklies, 12 monthlies
+      target_preserve = "7d 6w 4m"; # 7 dailies, 6 weeklies, 4 monthlies
 
       volume."/mnt/array" = {
         subvolume = "@media";
         snapshot_dir = "@media/.snapshots"; # -> /mnt/array/@media/.snapshots
-        target = "/mnt/backup/@media"; # plain local path, must be on btrfs
+        target = "/mnt/backup/@array/@media"; # plain local path, must be on btrfs
       };
     };
   };
 
   # btrbk creates neither the snapshot dir nor the target dir.
   systemd.tmpfiles.rules = [
-    "d /mnt/array/@media/.snapshots 0755 root root"
-    "d /mnt/backup/@media          0755 root root"
+    "d /mnt/array/@media/.snapshots       0755 root root"
+    "d /mnt/backup/@array/@media          0755 root root"
   ];
 }
