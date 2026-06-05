@@ -12,8 +12,8 @@
   # onto each vhost's `extraConfig`. Empty when protection is disabled
   # so we don't reference undefined zones.
   ddosServerDirectives = lib.optionalString cfg.ddosProtection ''
-    limit_req zone=godtamnix_req burst=20 nodelay;
-    limit_conn godtamnix_conn 10;
+    limit_req zone=godtamnix_req burst=200 nodelay;
+    limit_conn godtamnix_conn 75;
   '';
 in {
   options.godtamnix.services.web = {
@@ -33,10 +33,7 @@ in {
           type = lib.types.str;
           default = "";
           description = ''
-            Public hostname for Jellyfin. Use `lib.godtamnix.decode` with
-            the base64-encoded value so the actual hostname doesn't show
-            up in `git grep`:
-              domain = lib.godtamnix.decode "Y2hyaXNmbGl4LmdvZHRhbWl0LmNvbQ==";
+            Public hostname for Jellyfin.
             Required when `enable = true`.
           '';
         };
@@ -55,8 +52,8 @@ in {
           type = lib.types.str;
           default = "";
           description = ''
-            Public hostname for Nextcloud. Use `lib.godtamnix.decode`
-            with the base64-encoded value. Required when `enable = true`.
+            Public hostname for Nextcloud.
+            Required when `enable = true`.
           '';
         };
 
@@ -74,8 +71,8 @@ in {
           type = lib.types.str;
           default = "";
           description = ''
-            Public hostname for Immich. Use `lib.godtamnix.decode` with
-            the base64-encoded value. Required when `enable = true`.
+            Public hostname for Immich.
+            Required when `enable = true`.
           '';
         };
 
@@ -136,12 +133,7 @@ in {
           proxyWebsockets = false;
           extraConfig = ''
             proxy_buffering off;
-            proxy_set_header Host                 $host;
-            proxy_set_header X-Real-IP            $remote_addr;
-            proxy_set_header X-Forwarded-For      $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto    $scheme;
             proxy_set_header X-Forwarded-Protocol $scheme;
-            proxy_set_header X-Forwarded-Host     $http_host;
           '';
         };
 
@@ -149,12 +141,7 @@ in {
           proxyPass = vhostsCfg.jellyfin.upstream;
           proxyWebsockets = true;
           extraConfig = ''
-            proxy_set_header Host                 $host;
-            proxy_set_header X-Real-IP            $remote_addr;
-            proxy_set_header X-Forwarded-For      $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto    $scheme;
             proxy_set_header X-Forwarded-Protocol $scheme;
-            proxy_set_header X-Forwarded-Host     $http_host;
           '';
         };
       };
