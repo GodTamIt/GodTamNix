@@ -11,7 +11,7 @@
   # Merge plugins into the plugin list if they have configuration
   extraPlugins =
     (lib.optional (cfg.ohMyOpenAgent != {}) "oh-my-openagent")
-    ++ (lib.optional (cfg.ohMyOpenCodeSlim != {}) "oh-my-opencode-slim@2.0.0-beta.13");
+    ++ (lib.optional (cfg.ohMyOpenCodeSlim != {}) "oh-my-opencode-slim@2.0.0-beta.15");
 
   finalSettings =
     cfg.settings
