@@ -214,23 +214,23 @@ in {
   };
 
   services = {
-    # open-design = {
-    #   enable = true;
-    #   autoStart = true;
+    open-design = {
+      enable = true;
+      autoStart = true;
 
-    #   webFrontend = {
-    #     enable = true;
-    #     host = "http://127.0.0.1";
-    #     port = 17457;
+      webFrontend = {
+        enable = true;
+        host = "127.0.0.1";
+        port = 17457;
 
-    #     allowedOrigins = [
-    #       "http://localhost:17457"
-    #       "https://localhost:17457"
-    #       "http://127.0.0.1:17457"
-    #       "https://127.0.0.1:17457"
-    #     ];
-    #   };
-    # };
+        allowedOrigins = [
+          "http://localhost:17457"
+          "https://localhost:17457"
+          "http://127.0.0.1:17457"
+          "https://127.0.0.1:17457"
+        ];
+      };
+    };
 
     hyprpaper = {
       enable = true;

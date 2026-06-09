@@ -1119,16 +1119,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1780994765,
-        "narHash": "sha256-LcL2H0UBtZGlZm4zievw/365l54V3GKqsVt63SUJYqw=",
-        "owner": "nexu-io",
+        "lastModified": 1780998767,
+        "narHash": "sha256-ZPngm3kcEsjBlAUeGzV5ANTwcvpRCa8EAFGUfXp96hI=",
+        "owner": "GodTamIt",
         "repo": "open-design",
-        "rev": "e660832afbf9b176b45a9ed5c13bd58ad9b82402",
+        "rev": "923c3501d20456887867179ca947d2f98d154710",
         "type": "github"
       },
       "original": {
-        "owner": "nexu-io",
-        "ref": "main",
+        "owner": "GodTamIt",
+        "ref": "fix-nix",
         "repo": "open-design",
         "type": "github"
       }
