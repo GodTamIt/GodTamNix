@@ -36,6 +36,7 @@ in {
         "mbedtls-2.28.10"
         # dev shells
         "beekeeper-studio-5.5.7"
+        "webull-desktop-9.3.0"
       ];
     };
   };

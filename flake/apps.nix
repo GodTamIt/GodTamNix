@@ -24,6 +24,7 @@ _: {
           "nixpkgs-master"
           "nixpkgs-unstable"
           "llm-agents"
+          "open-design"
           "rust-overlay"
         ];
       };
