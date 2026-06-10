@@ -163,6 +163,33 @@ in {
 
     udisks2 = enabled;
 
+    hermes-agent = {
+      enable = true;
+      addToSystemPackages = true;
+      environmentFiles = [config.sops.secrets."hermes-env".path];
+      extraDependencyGroups = [
+        "messaging"
+        "hindsight"
+      ];
+      settings = {
+        model = {
+          provider = "minimax";
+          default = "MiniMax-M3";
+        };
+        toolsets = ["all"];
+        memory = {
+          memory_enabled = true;
+          user_profile_enabled = true;
+          provider = "hindsight";
+        };
+        gateway = {
+          platforms.google_chat = {
+            enabled = true;
+          };
+        };
+      };
+    };
+
     xserver = {
       enable = true;
       xkb = {
@@ -179,31 +206,6 @@ in {
       suspend.enable = false;
       hibernate.enable = false;
       hybrid-sleep.enable = false;
-    };
-  };
-
-  services.hermes-agent = {
-    enable = true;
-    addToSystemPackages = true;
-    environmentFiles = [config.sops.secrets."hermes-env".path];
-    extraDependencyGroups = [
-      "messaging"
-      "hindsight"
-    ];
-    # extraPythonPackages = with pkgs.python312Packages; [
-    #   google-cloud-pubsub
-    # ];
-    settings = {
-      model = {
-        provider = "minimax";
-        default = "MiniMax-M3";
-      };
-      toolsets = ["all"];
-      memory = {
-        memory_enabled = true;
-        user_profile_enabled = true;
-        provider = "hindsight";
-      };
     };
   };
 
