@@ -16,6 +16,7 @@
           "docker"
           "podman"
           "kvm"
+          "hermes"
         ];
         shell = pkgs.fish;
 
@@ -40,6 +41,7 @@
           "mpd"
           "docker"
           "podman"
+          "hermes"
         ];
         shell = pkgs.fish;
       };

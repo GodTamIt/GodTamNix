@@ -116,6 +116,11 @@
       url = "github:numtide/llm-agents.nix";
     };
 
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     open-design = {
       url = "github:GodTamIt/open-design/fix-nix";
       inputs = {

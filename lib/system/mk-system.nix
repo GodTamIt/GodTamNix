@@ -81,6 +81,7 @@ in
         inputs.catppuccin.nixosModules.catppuccin
         inputs.nix-index-database.nixosModules.nix-index
         inputs.nix-flatpak.nixosModules.nix-flatpak
+        inputs.hermes-agent.nixosModules.default
 
         # Auto-inject home configurations for this system+hostname
         homeManagerConfig

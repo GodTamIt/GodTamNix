@@ -205,6 +205,15 @@ Export via `flake.lib.<category>` in `lib/default.nix`. Keep-sorted the export l
 
 Use `lib.godtamnix.file.importModulesRecursive` for recursive module discovery. Use `lib.godtamnix.file.importDir` for flat directory imports. Use `lib.godtamnix.file.importSubdirs` for importing files from subdirectories.
 
+### Git Tracking Required
+
+Nix flakes read from the working tree, **but `importModulesRecursive` and other
+filesystem walks only see files tracked by git**. After creating a new
+`default.nix`, secret file, or any other module/config file, run
+`git add <path>` before re-evaluating the flake — otherwise new modules will
+silently not exist and you'll see errors like
+`The option 'godtamnix.<x>' does not exist`.
+
 ### Formatting & Linting
 
 - **Formatter:** `alejandra` (via treefmt)
