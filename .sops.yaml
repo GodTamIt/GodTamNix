@@ -25,6 +25,7 @@ creation_rules:
       - age:
           - *Shaq
           - *godtamit-Shaq
+          - *godtamit-IceCube
   - path_regex: secrets/IceCube/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
