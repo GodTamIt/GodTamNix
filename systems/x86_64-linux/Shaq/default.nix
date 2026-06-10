@@ -169,6 +169,7 @@ in {
       addToSystemPackages = true;
       environmentFiles = [config.sops.secrets."hermes-env".path];
       extraDependencyGroups = [
+        "anthropic"
         "messaging"
         "hindsight"
       ];
