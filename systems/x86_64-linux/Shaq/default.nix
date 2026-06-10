@@ -182,11 +182,6 @@ in {
           user_profile_enabled = true;
           provider = "hindsight";
         };
-        gateway = {
-          platforms.google_chat = {
-            enabled = true;
-          };
-        };
       };
     };
 
