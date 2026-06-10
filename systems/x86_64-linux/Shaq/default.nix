@@ -190,9 +190,9 @@ in {
       "messaging"
       "hindsight"
     ];
-    extraPythonPackages = with pkgs.python312Packages; [
-      google-cloud-pubsub
-    ];
+    # extraPythonPackages = with pkgs.python312Packages; [
+    #   google-cloud-pubsub
+    # ];
     settings = {
       model = {
         provider = "minimax";
