@@ -11,7 +11,7 @@ _: {
       };
       "google-chat-sa" = {
         sopsFile = ../../../secrets/Shaq/google-chat-sa.json;
-        format = "json";
+        format = "binary";
         path = "/var/lib/hermes/google-chat-sa.json";
         owner = "hermes";
         group = "hermes";
