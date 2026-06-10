@@ -25,7 +25,13 @@
           package = pkgs.eslint_d;
         };
         luacheck.enable = true;
-        pre-commit-hook-ensure-sops.enable = true;
+        pre-commit-hook-ensure-sops = {
+          enable = true;
+          # The hook json/yaml-parses every file under secrets/ to verify it's
+          # encrypted. Docs like secrets/*/README.md aren't secrets and aren't
+          # parseable, so exclude Markdown.
+          excludes = ["\\.md$"];
+        };
         statix.enable = true;
         treefmt.enable = true;
         typos = {
