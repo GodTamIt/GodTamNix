@@ -168,6 +168,7 @@ in {
       enable = true;
       addToSystemPackages = true;
       environmentFiles = [config.sops.secrets."hermes-env".path];
+      extraArgs = ["-vv"];
       extraDependencyGroups = [
         "anthropic"
         "messaging"
