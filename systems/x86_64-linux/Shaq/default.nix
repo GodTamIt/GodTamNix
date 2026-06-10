@@ -182,11 +182,6 @@ in {
     };
   };
 
-  # Hermes Agent (Nous Research) — native NixOS module from
-  # github:NousResearch/hermes-agent. LLM key in secrets/Shaq/hermes.yaml,
-  # Google Chat service-account JSON in secrets/Shaq/google-chat-sa.json
-  # (both SOPS-encrypted). Replace the placeholder MINIMAX_API_KEY and
-  # fill in the real SA JSON downloaded from GCP before first deploy.
   services.hermes-agent = {
     enable = true;
     addToSystemPackages = true;
@@ -195,14 +190,8 @@ in {
       "messaging"
       "hindsight"
     ];
-    # Google Chat adapter needs these Python libs at runtime — no Hermes
-    # pyproject extra exists for them yet, so we seal them in via the
-    # build-time venv. See:
-    #   https://hermes-agent.nousresearch.com/docs/user-guide/messaging/google_chat
     extraPythonPackages = with pkgs.python312Packages; [
       google-cloud-pubsub
-      google-api-python-client
-      google-auth
     ];
     settings = {
       model = {
