@@ -13,6 +13,7 @@ in {
     # Include the results of the hardware scan.
     ./disks.nix
     ./hardware.nix
+    ./hermes.nix
     ./sops.nix
     ./users.nix
   ];
@@ -170,20 +171,6 @@ in {
       extraDependencyGroups = [
         "messaging"
         "hindsight"
-      ];
-      # Google Chat's adapter lazy-imports google.cloud.pubsub_v1,
-      # googleapiclient and google_auth_httplib2. None of these ship in the
-      # "messaging" extra (Telegram/Discord/Slack only), and google-cloud-pubsub
-      # isn't in any hermes extra at all — so check_google_chat_requirements()
-      # fails and the gateway reports "No messaging platforms enabled" before it
-      # ever looks at the GOOGLE_CHAT_* env vars. Pull the whole stack from one
-      # source (nixpkgs) to keep the shared google-api-core/protobuf transitive
-      # deps consistent.
-      extraPythonPackages = with pkgs.python312Packages; [
-        google-cloud-pubsub
-        google-api-python-client
-        google-auth-httplib2
-        google-auth-oauthlib
       ];
       settings = {
         model = {
