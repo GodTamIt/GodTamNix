@@ -171,6 +171,11 @@ in {
         "messaging"
         "hindsight"
       ];
+      # Google Chat adapter needs google-cloud-pubsub at runtime; the
+      # other google libs are already in Hermes's sealed venv.
+      extraPythonPackages = with pkgs.python312Packages; [
+        google-cloud-pubsub
+      ];
       settings = {
         model = {
           provider = "minimax";
