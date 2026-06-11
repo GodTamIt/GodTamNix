@@ -30,6 +30,7 @@ in {
     brave
     firefox
     google-chrome
+    plex
     plex-desktop
     ytmdesktop
     zed-editor
