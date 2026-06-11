@@ -1,5 +1,6 @@
 [default.extend-words]
 ane = "ane"
+browseable = "browseable"
 
 [files]
 extend-exclude = ["secrets/"]

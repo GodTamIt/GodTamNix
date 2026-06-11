@@ -220,6 +220,43 @@ in {
     };
 
     udisks2 = enabled;
+
+    samba = {
+      enable = true;
+      openFirewall = true;
+      settings = {
+        global = {
+          # Restrict to local network only.
+          "hosts allow" = "192.168.0.0/16";
+          # Never silently downgrade unknown users to guest.
+          "map to guest" = "never";
+        };
+        arraymisc = {
+          path = "/mnt/array/@media/misc";
+          "browseable" = "yes";
+          "read only" = "no";
+          "guest ok" = "no";
+          "create mask" = "0664";
+          "directory mask" = "0775";
+        };
+        docker = {
+          path = "/mnt/array/@media/docker";
+          "browseable" = "yes";
+          "read only" = "no";
+          "guest ok" = "no";
+          "create mask" = "0664";
+          "directory mask" = "0775";
+        };
+        Plex = {
+          path = "/mnt/array/@media/Plex";
+          "browseable" = "yes";
+          "read only" = "no";
+          "guest ok" = "no";
+          "create mask" = "0664";
+          "directory mask" = "0775";
+        };
+      };
+    };
   };
 
   # This value determines the NixOS release from which the default
