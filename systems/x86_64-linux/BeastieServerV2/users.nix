@@ -17,6 +17,7 @@
           "podman"
           "media"
           "tor"
+          "hermes"
         ];
         shell = pkgs.fish;
 
