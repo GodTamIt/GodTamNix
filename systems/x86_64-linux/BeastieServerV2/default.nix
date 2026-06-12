@@ -242,6 +242,12 @@ in {
           provider = "hindsight";
         };
       };
+      mcpServers = {
+        alphavantage = {
+          url = "https://mcp.alphavantage.co/mcp?apikey=\${ALPHAVANTAGE_API_KEY}";
+          enabled = true;
+        };
+      };
     };
 
     samba = {
