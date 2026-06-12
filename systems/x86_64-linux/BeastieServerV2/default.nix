@@ -221,6 +221,29 @@ in {
 
     udisks2 = enabled;
 
+    hermes-agent = {
+      enable = true;
+      addToSystemPackages = true;
+      environmentFiles = [config.sops.secrets."hermes-env".path];
+      extraDependencyGroups = [
+        "anthropic"
+        "messaging"
+        "hindsight"
+      ];
+      settings = {
+        model = {
+          provider = "minimax";
+          default = "MiniMax-M3";
+        };
+        toolsets = ["all"];
+        memory = {
+          memory_enabled = true;
+          user_profile_enabled = true;
+          provider = "hindsight";
+        };
+      };
+    };
+
     samba = {
       enable = true;
       openFirewall = true;
