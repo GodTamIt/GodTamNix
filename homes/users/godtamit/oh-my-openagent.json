@@ -2,63 +2,63 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "CrofAI/kimi-k2.6"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "hephaestus": {
-      "model": "CrofAI/glm-5.1"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "oracle": {
-      "model": "CrofAI/glm-5.1"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "librarian": {
-      "model": "CrofAI/deepseek-v4-flash"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "explore": {
-      "model": "CrofAI/deepseek-v4-flash"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "multimodal-looker": {
-      "model": "CrofAI/kimi-k2.6"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "prometheus": {
-      "model": "CrofAI/kimi-k2.6"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "metis": {
-      "model": "CrofAI/mimo-v2.5-pro"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "momus": {
-      "model": "CrofAI/mimo-v2.5-pro"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "atlas": {
-      "model": "CrofAI/kimi-k2.6"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "sisyphus-junior": {
-      "model": "CrofAI/deepseek-v4-flash"
+      "model": "minimax-coding-plan/MiniMax-M3"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "CrofAI/kimi-k2.6"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "ultrabrain": {
-      "model": "CrofAI/mimo-v2.5-pro"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "deep": {
-      "model": "CrofAI/glm-5.1"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "artistry": {
-      "model": "CrofAI/kimi-k2.6"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "quick": {
-      "model": "CrofAI/deepseek-v4-flash"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "unspecified-low": {
-      "model": "CrofAI/deepseek-v4-flash"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "unspecified-high": {
-      "model": "CrofAI/glm-5.1"
+      "model": "minimax-coding-plan/MiniMax-M3"
     },
     "writing": {
-      "model": "CrofAI/kimi-k2.6"
+      "model": "minimax-coding-plan/MiniMax-M3"
     }
   }
 }
