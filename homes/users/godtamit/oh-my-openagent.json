@@ -1,5 +1,21 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "sisyphus_agent": {
+    "default_builder_enabled": true,
+    "planner_enabled": true,
+    "replace_plan": false
+  },
+  "background_task": {
+    "providerConcurrency": {
+      "minimax-coding-plan": 4
+    }
+  },
+  "experimental": {
+    "dynamic_context_pruning": {
+      "enabled": true,
+      "notification": "minimal"
+    }
+  },
   "agents": {
     "sisyphus": {
       "model": "minimax-coding-plan/MiniMax-M3"
