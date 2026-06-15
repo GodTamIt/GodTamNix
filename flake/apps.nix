@@ -19,7 +19,7 @@ _: {
       };
 
       edge = {
-        description = "Bleeding edge and fast updating inputs.";
+        description = "bleeding edge and fast updating inputs";
         inputs = [
           "nixpkgs-master"
           "nixpkgs-unstable"
@@ -29,7 +29,7 @@ _: {
       };
 
       system = {
-        description = "System management";
+        description = "system management";
         inputs = [
           "disko"
           "home-manager"
@@ -43,7 +43,7 @@ _: {
       };
 
       apps = {
-        description = "Applications & packages";
+        description = "applications & packages";
         inputs = [
           "anyrun-nixos-options"
           "catppuccin"
