@@ -5,6 +5,7 @@
     "planner_enabled": true,
     "replace_plan": false
   },
+  "disabled_agents": ["hephaestus"],
   "background_task": {
     "providerConcurrency": {
       "minimax-coding-plan": 4
