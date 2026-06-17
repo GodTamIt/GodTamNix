@@ -4,6 +4,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   inherit (lib.godtamnix) enabled;
@@ -235,6 +236,7 @@ in {
         "messaging"
         "hindsight"
       ];
+      extraPackages = [pkgs.python3];
       settings = {
         model = {
           provider = "minimax";

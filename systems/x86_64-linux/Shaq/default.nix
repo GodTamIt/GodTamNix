@@ -175,10 +175,7 @@ in {
         "messaging"
         "hindsight"
       ];
-      # Puts the nix CLI on the hermes-agent systemd unit's PATH so MCP server
-      # commands can use `nix run nixpkgs#<tool>` without baking a per-tool
-      # store path into the system closure.
-      extraPackages = [pkgs.nix];
+      extraPackages = [pkgs.nix pkgs.python3];
       settings = {
         model = {
           provider = "minimax";
@@ -192,12 +189,6 @@ in {
         };
       };
       mcpServers = {
-        # `instamcp` (mpython77/instamcp on PyPI). Routed through `nix run` so
-        # the uv version tracks the registry instead of this flake's pinned
-        # nixpkgs; first MCP call fetches uv into the daemon store, subsequent
-        # calls reuse it. INSTAGRAM_MCP_IMPERSONATE picks curl_cffi's TLS
-        # fingerprint — firefox147 keeps the fingerprint rotated away from
-        # Instagram's default chrome142 detector.
         instagram = {
           command = "nix";
           args = [
