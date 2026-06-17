@@ -231,6 +231,7 @@ in {
       };
       extraDependencyGroups = [
         "anthropic"
+        "mcp"
         "messaging"
         "hindsight"
       ];

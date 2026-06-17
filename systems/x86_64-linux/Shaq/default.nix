@@ -171,6 +171,7 @@ in {
       # extraArgs = ["-vv"];
       extraDependencyGroups = [
         "anthropic"
+        "mcp"
         "messaging"
         "hindsight"
       ];
