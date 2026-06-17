@@ -174,6 +174,10 @@ in {
         "messaging"
         "hindsight"
       ];
+      # Puts the nix CLI on the hermes-agent systemd unit's PATH so MCP server
+      # commands can use `nix run nixpkgs#<tool>` without baking a per-tool
+      # store path into the system closure.
+      extraPackages = [pkgs.nix];
       settings = {
         model = {
           provider = "minimax";
@@ -184,6 +188,32 @@ in {
           memory_enabled = true;
           user_profile_enabled = true;
           provider = "hindsight";
+        };
+      };
+      mcpServers = {
+        # `instamcp` (mpython77/instamcp on PyPI). Routed through `nix run` so
+        # the uv version tracks the registry instead of this flake's pinned
+        # nixpkgs; first MCP call fetches uv into the daemon store, subsequent
+        # calls reuse it. INSTAGRAM_MCP_IMPERSONATE picks curl_cffi's TLS
+        # fingerprint — firefox147 keeps the fingerprint rotated away from
+        # Instagram's default chrome142 detector.
+        instagram = {
+          command = "nix";
+          args = [
+            "run"
+            "nixpkgs#uv"
+            "--"
+            "tool"
+            "run"
+            "--from"
+            "instamcp"
+            "instamcp"
+          ];
+          env = {
+            INSTAGRAM_MCP_COOKIES = config.sops.secrets."instagram-cookies".path;
+            INSTAGRAM_MCP_IMPERSONATE = "firefox147";
+          };
+          enabled = true;
         };
       };
     };

@@ -17,6 +17,17 @@ _: {
         group = "hermes";
         mode = "0600";
       };
+      # Cookie-Editor JSON dump from instagram.com (sessionid, csrftoken,
+      # ds_user_id, ...). Encrypted as binary so the full document is mounted
+      # verbatim — see secrets/Shaq/README.md for the populate workflow.
+      "instagram-cookies" = {
+        sopsFile = ../../../secrets/Shaq/instagram-cookies.json;
+        format = "binary";
+        path = "/var/lib/hermes/instagram-cookies.json";
+        owner = "hermes";
+        group = "hermes";
+        mode = "0600";
+      };
     };
   };
 }
