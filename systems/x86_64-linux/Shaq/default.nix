@@ -208,7 +208,7 @@ in {
             "run"
             "--from"
             "instamcp"
-            "instamcp"
+            "instagram-mcp"
           ];
           env = {
             INSTAGRAM_MCP_COOKIES = config.sops.secrets."instagram-cookies".path;
