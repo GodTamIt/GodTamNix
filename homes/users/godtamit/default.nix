@@ -27,7 +27,7 @@
     programs.terminal.ai.opencode = {
       settings = builtins.fromJSON (builtins.readFile ./opencode.json);
       ohMyOpenAgent = builtins.fromJSON (builtins.readFile ./oh-my-openagent.json);
-      # ohMyOpenCodeSlim = builtins.fromJSON (builtins.readFile ./oh-my-opencode-slim.json);
+      ohMyOpenCodeSlim = builtins.fromJSON (builtins.readFile ./oh-my-opencode-slim.json);
     };
   };
 

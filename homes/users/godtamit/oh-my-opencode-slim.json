@@ -11,28 +11,28 @@
       "oracle": {
         "model": "minimax-coding-plan/MiniMax-M3",
         "skills": [],
-        "mcps": []
+        "mcps": ["*"]
       },
       "librarian": {
         "model": "minimax-coding-plan/MiniMax-M3",
         "variant": "low",
         "skills": [],
-        "mcps": ["websearch", "context7", "grep_app"]
+        "mcps": ["*"]
       },
       "explorer": {
         "model": "minimax-coding-plan/MiniMax-M3",
         "skills": [],
-        "mcps": []
+        "mcps": ["*"]
       },
       "designer": {
         "model": "minimax-coding-plan/MiniMax-M3",
         "skills": ["agent-browser"],
-        "mcps": []
+        "mcps": ["*"]
       },
       "fixer": {
         "model": "minimax-coding-plan/MiniMax-M3",
         "skills": [],
-        "mcps": []
+        "mcps": ["*"]
       }
     },
 
