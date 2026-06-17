@@ -225,6 +225,10 @@ in {
       enable = true;
       addToSystemPackages = true;
       environmentFiles = [config.sops.secrets."hermes-env".path];
+      environment = {
+        DISCORD_HOME_CHANNEL = "1515098112245497987";
+        DISCORD_HOME_CHANNEL_NAME = "events";
+      };
       extraDependencyGroups = [
         "anthropic"
         "messaging"
