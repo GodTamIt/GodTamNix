@@ -23,7 +23,7 @@ _: {
       "instagram-cookies" = {
         sopsFile = ../../../secrets/Shaq/instagram-cookies.json;
         format = "binary";
-        path = "/var/lib/hermes/instagram-cookies.json";
+        path = "/var/lib/hermes/workspace/cookies.json";
         owner = "hermes";
         group = "hermes";
         mode = "0600";

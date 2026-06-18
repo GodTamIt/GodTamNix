@@ -168,6 +168,7 @@ in {
       enable = true;
       addToSystemPackages = true;
       environmentFiles = [config.sops.secrets."hermes-env".path];
+      environment.GOOGLE_CHAT_HOME_CHANNEL = "spaces/AAQAqN3X80U";
       # extraArgs = ["-vv"];
       extraDependencyGroups = [
         "anthropic"

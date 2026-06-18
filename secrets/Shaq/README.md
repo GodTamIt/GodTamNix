@@ -4,12 +4,12 @@ sops-nix encrypted secrets for the Shaq host. Recipients are defined by the
 `secrets/Shaq/...` rules in the repo-root `.sops.yaml`; they're consumed in
 `systems/x86_64-linux/Shaq/sops.nix`.
 
-| File                       | sops format | Consumed as                                            |
-| -------------------------- | ----------- | ------------------------------------------------------ |
-| `default.yaml`             | yaml        | `cloudflare_api_token` (ddclient)                      |
-| `hermes.yaml`              | yaml        | `hermes-env` (hermes-agent env file)                   |
-| `google-chat-sa.json`      | **binary**  | full SA JSON at `/var/lib/hermes/google-chat-sa.json`  |
-| `instagram-cookies.json`   | **binary**  | full Cookie-Editor JSON at `/var/lib/hermes/instagram-cookies.json` (mounted as `INSTAGRAM_MCP_COOKIES` for the `instamcp` MCP server) |
+| File                     | sops format | Consumed as                                                                                                                                                  |
+| ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `default.yaml`           | yaml        | `cloudflare_api_token` (ddclient)                                                                                                                            |
+| `hermes.yaml`            | yaml        | `hermes-env` (hermes-agent env file)                                                                                                                         |
+| `google-chat-sa.json`    | **binary**  | full SA JSON at `/var/lib/hermes/google-chat-sa.json`                                                                                                        |
+| `instagram-cookies.json` | **binary**  | full Cookie-Editor JSON at `/var/lib/hermes/workspace/cookies.json` (picked up by the `instamcp` MCP server's CWD-based fallback loader — no env var needed) |
 
 ## `google-chat-sa.json` must be encrypted as `binary`, not `json`
 
@@ -19,7 +19,7 @@ binary blob (`{ "data": "ENC[...]", "sops": {...} }`) and declared with
 `format = "binary"` in `sops.nix`.
 
 Do **not** encrypt it as structured `json`. In sops-nix the `json`/`yaml`/etc.
-formats are *extractors*: they parse the decrypted document and write a single
+formats are _extractors_: they parse the decrypted document and write a single
 **scalar string** at `key` (defaulting to the secret name) to the output file.
 They cannot emit a whole document or a sub-object. Using `format = "json"` here
 produces:
@@ -28,7 +28,7 @@ produces:
 - `no binary data found in tree` — when `format = "binary"` is set but the file
   was encrypted structurally (no single `data` field).
 
-Either failure aborts the entire `setupSecrets` activation, so *all* secrets
+Either failure aborts the entire `setupSecrets` activation, so _all_ secrets
 (including `cloudflare_api_token`) go missing and unrelated units like
 `ddclient.service` fail too. The fix is always the same: re-encrypt as binary.
 
@@ -55,13 +55,11 @@ not wrapped under another key.
 
 Consumed by the `instamcp` MCP server (registered in
 `systems/x86_64-linux/Shaq/default.nix`). hermes-agent invokes it via
-`nix run nixpkgs#uv -- tool run --from instamcp instamcp` — uv is pulled
-from the registry on first call (cached by the nix daemon after), so the
-flake doesn't need to pin a specific uv. `INSTAGRAM_MCP_COOKIES` points the
-server at the mounted file; `INSTAGRAM_MCP_IMPERSONATE=firefox147` rotates
-curl_cffi's TLS fingerprint away from Instagram's well-known chrome142
-default. Same binary-blob treatment as `google-chat-sa.json` — encrypt the
-full document, do not let sops parse it structurally.
+`nix run nixpkgs#uv -- tool run --from instamcp instagram-mcp` — uv is
+pulled from the registry on first call (cached by the nix daemon after), so
+the flake doesn't need to pin a specific uv. Same binary-blob treatment as
+`google-chat-sa.json` — encrypt the full document, do not let sops parse it
+structurally.
 
 ### Populating it
 
@@ -90,10 +88,10 @@ document, and `instamcp` picks the active session from the file contents.
 `instamcp`'s loader (`instagram_mcp/cookie_manager.py`) auto-detects two
 formats by the file's first non-whitespace byte:
 
-| First char | Format      | Source extension                        |
-| ---------- | ----------- | --------------------------------------- |
-| `[` or `{` | JSON array  | Cookie-Editor / EditThisCookie export   |
-| anything   | Netscape    | `Get cookies.txt LOCALLY` export        |
+| First char | Format     | Source extension                      |
+| ---------- | ---------- | ------------------------------------- |
+| `[` or `{` | JSON array | Cookie-Editor / EditThisCookie export |
+| anything   | Netscape   | `Get cookies.txt LOCALLY` export      |
 
 **JSON** — top-level is a JSON array of cookie objects (a single object is
 also accepted and wrapped). Each entry only needs `name` and `value`;
@@ -117,7 +115,7 @@ entry looks like:
     "id": 1
   },
   { "domain": ".instagram.com", "name": "ds_user_id", "value": "7123456789" },
-  { "domain": ".instagram.com", "name": "csrftoken",  "value": "xYz…" }
+  { "domain": ".instagram.com", "name": "csrftoken", "value": "xYz…" }
 ]
 ```
 
