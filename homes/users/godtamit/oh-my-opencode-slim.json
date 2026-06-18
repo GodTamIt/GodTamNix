@@ -4,43 +4,62 @@
   "presets": {
     "open": {
       "orchestrator": {
-        "model": "minimax-coding-plan/MiniMax-M3",
-        "skills": ["*"],
-        "mcps": ["*"]
+        "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "*"
+        ]
       },
       "oracle": {
-        "model": "minimax-coding-plan/MiniMax-M3",
+        "model": "synthetic-custom/hf:zai-org/GLM-5.2",
         "skills": [],
-        "mcps": ["*"]
+        "mcps": [
+          "*"
+        ]
       },
       "librarian": {
         "model": "minimax-coding-plan/MiniMax-M3",
         "variant": "low",
         "skills": [],
-        "mcps": ["*"]
+        "mcps": [
+          "*"
+        ]
       },
       "explorer": {
         "model": "minimax-coding-plan/MiniMax-M3",
         "skills": [],
-        "mcps": ["*"]
+        "mcps": [
+          "*"
+        ]
       },
       "designer": {
-        "model": "minimax-coding-plan/MiniMax-M3",
-        "skills": ["agent-browser"],
-        "mcps": ["*"]
+        "model": "synthetic-custom/hf:moonshotai/Kimi-K2.6",
+        "skills": [
+          "agent-browser"
+        ],
+        "mcps": [
+          "*"
+        ]
       },
       "fixer": {
         "model": "minimax-coding-plan/MiniMax-M3",
         "skills": [],
-        "mcps": ["*"]
+        "mcps": [
+          "*"
+        ]
       }
     },
-
     "open-novita": {
       "orchestrator": {
         "model": "novita-ai/moonshotai/kimi-k2.6",
-        "skills": ["*"],
-        "mcps": ["*"]
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "*"
+        ]
       },
       "oracle": {
         "model": "CrofAI/glm-5.1",
@@ -52,7 +71,11 @@
         "model": "CrofAI/deepseek-v4-flash",
         "variant": "low",
         "skills": [],
-        "mcps": ["websearch", "context7", "grep_app"]
+        "mcps": [
+          "websearch",
+          "context7",
+          "grep_app"
+        ]
       },
       "explorer": {
         "model": "CrofAI/deepseek-v4-flash",
@@ -61,7 +84,9 @@
       },
       "designer": {
         "model": "novita-ai/moonshotai/kimi-k2.6",
-        "skills": ["agent-browser"],
+        "skills": [
+          "agent-browser"
+        ],
         "mcps": []
       },
       "fixer": {
@@ -77,19 +102,35 @@
     "main_pane_size": 60
   },
   "council": {
-    "master": { "model": "minimax-coding-plan/MiniMax-M3" },
+    "master": {
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2"
+    },
     "default_preset": "balanced",
     "presets": {
       "balanced": {
-        "alpha": { "model": "minimax-coding-plan/MiniMax-M3" },
-        "beta": { "model": "CrofAI/deepseek-v4-pro" },
-        "gamma": { "model": "CrofAI/glm-5.1" }
+        "alpha": {
+          "model": "minimax-coding-plan/MiniMax-M3"
+        },
+        "beta": {
+          "model": "synthetic-custom/hf:zai-org/GLM-5.2"
+        },
+        "gamma": {
+          "model": "synthetic-custom/hf:moonshotai/Kimi-K2.6"
+        }
       },
       "heavy": {
-        "reviewer": { "model": "minimax-coding-plan/MiniMax-M3" },
-        "coder": { "model": "CrofAI/deepseek-v4-pro" },
-        "creative": { "model": "CrofAI/kimi-k2.6" },
-        "thinker": { "model": "CrofAI/glm-5.1" }
+        "reviewer": {
+          "model": "synthetic-custom/hf:zai-org/GLM-5.2"
+        },
+        "coder": {
+          "model": "synthetic-custom/hf:zai-org/GLM-5.2"
+        },
+        "creative": {
+          "model": "synthetic-custom/hf:moonshotai/Kimi-K2.6"
+        },
+        "thinker": {
+          "model": "synthetic-custom/hf:moonshotai/Kimi-K2.6"
+        }
       }
     }
   }
