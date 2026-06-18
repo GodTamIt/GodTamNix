@@ -3,33 +3,6 @@
   "lsp": true,
   "plugin": [],
   "provider": {
-    "deepinfra-custom": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "DeepInfra (Manual)",
-      "options": {
-        "baseURL": "https://api.deepinfra.com/v1/openai"
-      },
-      "models": {
-        "google/gemma-4-31B-it": {
-          "name": "Gemma 4 31B",
-          "limit": { "context": 262144, "output": 262144 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] }
-        },
-        "moonshotai/Kimi-K2.6": {
-          "name": "Kimi K2.6",
-          "limit": { "context": 262144, "output": 16384 },
-          "modalities": {
-            "input": ["text", "image", "video"],
-            "output": ["text"]
-          }
-        },
-        "stepfun-ai/Step-3.5-Flash": {
-          "name": "Step-3.5-Flash",
-          "limit": { "context": 262144, "output": 262144 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] }
-        }
-      }
-    },
     "CrofAI": {
       "npm": "@ai-sdk/anthropic",
       "name": "CrofAI",
@@ -169,6 +142,81 @@
           "name": "Qwen 3.5 9B",
           "limit": { "context": 262144, "output": 262144 },
           "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        }
+      }
+    },
+    "synthetic-custom": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Synthetic (Anthropic)",
+      "options": {
+        "baseURL": "https://api.synthetic.new/anthropic/v1"
+      },
+      "models": {
+        "syn:large:text": {
+          "name": "Synthetic Large (Text)",
+          "limit": { "context": 524288, "output": 65536 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "syn:small:text": {
+          "name": "Synthetic Small (Text)",
+          "limit": { "context": 196608, "output": 65536 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "syn:large:vision": {
+          "name": "Synthetic Large (Vision)",
+          "limit": { "context": 262144, "output": 65536 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "syn:small:vision": {
+          "name": "Synthetic Small (Vision)",
+          "limit": { "context": 262144, "output": 65536 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "hf:zai-org/GLM-5.2": {
+          "name": "GLM 5.2",
+          "limit": { "context": 524288, "output": 65536 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "hf:moonshotai/Kimi-K2.6": {
+          "name": "Kimi K2.6",
+          "limit": { "context": 262144, "output": 65536 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "hf:Qwen/Qwen3.6-27B": {
+          "name": "Qwen 3.6 27B",
+          "limit": { "context": 262144, "output": 65536 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "hf:MiniMaxAI/MiniMax-M3": {
+          "name": "MiniMax M3",
+          "limit": { "context": 524288, "output": 65536 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "reasoning": true
+        },
+        "hf:zai-org/GLM-4.7-Flash": {
+          "name": "GLM 4.7 Flash",
+          "limit": { "context": 196608, "output": 65536 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "hf:nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4": {
+          "name": "NVIDIA Nemotron 3 Super 120B",
+          "limit": { "context": 262144, "output": 65536 },
+          "modalities": { "input": ["text"], "output": ["text"] },
+          "reasoning": true
+        },
+        "hf:zai-org/GLM-4.7": {
+          "name": "GLM 4.7",
+          "limit": { "context": 202752, "output": 65536 },
+          "modalities": { "input": ["text"], "output": ["text"] },
           "reasoning": true
         }
       }
