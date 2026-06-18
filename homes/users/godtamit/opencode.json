@@ -148,7 +148,7 @@
     },
     "synthetic-custom": {
       "npm": "@ai-sdk/anthropic",
-      "name": "Synthetic (Anthropic)",
+      "name": "Synthetic (Custom)",
       "options": {
         "baseURL": "https://api.synthetic.new/anthropic/v1"
       },
