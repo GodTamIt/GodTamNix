@@ -175,7 +175,7 @@ in {
         "messaging"
         "hindsight"
       ];
-      extraPackages = [pkgs.nix pkgs.python3];
+      extraPackages = [pkgs.nix];
       settings = {
         model = {
           provider = "minimax";
