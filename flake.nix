@@ -122,7 +122,7 @@
     };
 
     open-design = {
-      url = "github:GodTamIt/open-design/fix-nix";
+      url = "github:nexu-io/open-design";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
