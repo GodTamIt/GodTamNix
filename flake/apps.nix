@@ -48,6 +48,7 @@ _: {
           "anyrun-nixos-options"
           "catppuccin"
           "firefox-addons"
+          "hermes-agent"
           "hypr-socket-watch"
           "llm-agents"
           "nh"
