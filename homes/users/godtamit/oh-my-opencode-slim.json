@@ -1,67 +1,54 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-  "preset": "open",
+  "preset": "plans",
+  "disabled_agents": [],
   "presets": {
-    "open": {
+    "plans": {
       "orchestrator": {
         "model": "synthetic-custom/hf:zai-org/GLM-5.2",
         "variant": "high",
-        "skills": [
-          "*"
-        ],
-        "mcps": [
-          "*"
-        ]
+        "skills": ["*"],
+        "mcps": ["*"]
       },
       "oracle": {
         "model": "synthetic-custom/hf:zai-org/GLM-5.2",
         "variant": "xhigh",
         "skills": [],
-        "mcps": [
-          "*"
-        ]
+        "mcps": ["*"]
       },
       "librarian": {
         "model": "minimax-coding-plan/MiniMax-M3",
-        "variant": "low",
+        "variant": "thinking",
         "skills": [],
-        "mcps": [
-          "*"
-        ]
+        "mcps": ["*"]
       },
       "explorer": {
         "model": "minimax-coding-plan/MiniMax-M3",
+        "variant": "thinking",
         "skills": [],
-        "mcps": [
-          "*"
-        ]
+        "mcps": ["*"]
       },
       "designer": {
         "model": "synthetic-custom/hf:moonshotai/Kimi-K2.6",
-        "skills": [
-          "agent-browser"
-        ],
-        "mcps": [
-          "*"
-        ]
+        "skills": ["agent-browser"],
+        "mcps": ["*"]
       },
       "fixer": {
         "model": "minimax-coding-plan/MiniMax-M3",
+        "variant": "thinking",
         "skills": [],
-        "mcps": [
-          "*"
-        ]
+        "mcps": ["*"]
+      },
+      "observer": {
+        "model": "synthetic-custom/hf:moonshotai/Kimi-K2.6",
+        "mcps": ["*"]
       }
     },
     "open-novita": {
       "orchestrator": {
         "model": "novita-ai/moonshotai/kimi-k2.6",
-        "skills": [
-          "*"
-        ],
-        "mcps": [
-          "*"
-        ]
+        "skills": ["*"],
+        "mcps": ["*"]
       },
       "oracle": {
         "model": "CrofAI/glm-5.1",
@@ -73,11 +60,7 @@
         "model": "CrofAI/deepseek-v4-flash",
         "variant": "low",
         "skills": [],
-        "mcps": [
-          "websearch",
-          "context7",
-          "grep_app"
-        ]
+        "mcps": ["websearch", "context7", "grep_app"]
       },
       "explorer": {
         "model": "CrofAI/deepseek-v4-flash",
@@ -86,9 +69,7 @@
       },
       "designer": {
         "model": "novita-ai/moonshotai/kimi-k2.6",
-        "skills": [
-          "agent-browser"
-        ],
+        "skills": ["agent-browser"],
         "mcps": []
       },
       "fixer": {
@@ -124,8 +105,8 @@
       },
       "heavy": {
         "reviewer": {
-          "model": "synthetic-custom/hf:zai-org/GLM-5.2",
-          "variant": "xhigh"
+          "model": "minimax-coding-plan/MiniMax-M3",
+          "variant": "thinking"
         },
         "coder": {
           "model": "synthetic-custom/hf:zai-org/GLM-5.2",

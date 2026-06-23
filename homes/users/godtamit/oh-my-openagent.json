@@ -19,63 +19,80 @@
   },
   "agents": {
     "sisyphus": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "high"
     },
     "hephaestus": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "xhigh"
     },
     "oracle": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "xhigh"
     },
     "librarian": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "minimax-coding-plan/MiniMax-M3",
+      "variant": "thinking"
     },
     "explore": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "minimax-coding-plan/MiniMax-M3",
+      "variant": "thinking"
     },
     "multimodal-looker": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:moonshotai/Kimi-K2.6"
     },
     "prometheus": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "high"
     },
     "metis": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "xhigh"
     },
     "momus": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "xhigh"
     },
     "atlas": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "high"
     },
     "sisyphus-junior": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "minimax-coding-plan/MiniMax-M3",
+      "variant": "thinking"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:moonshotai/Kimi-K2.6"
     },
     "ultrabrain": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "high"
     },
     "deep": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "xhigh"
     },
     "artistry": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "high"
     },
     "quick": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "minimax-coding-plan/MiniMax-M3",
+      "variant": "none"
     },
     "unspecified-low": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "high"
     },
     "unspecified-high": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "variant": "xhigh"
     },
     "writing": {
-      "model": "minimax-coding-plan/MiniMax-M3"
+      "model": "minimax-coding-plan/MiniMax-M3",
+      "variant": "thinking"
     }
   }
 }
