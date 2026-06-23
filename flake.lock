@@ -754,11 +754,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1781503187,
-        "narHash": "sha256-pLA0eFk5bQtU7C+PtenLwfULE53KPFofCacI1t+YNiM=",
+        "lastModified": 1782166408,
+        "narHash": "sha256-bAgLlHVh6HEhEKKvmtc7kGAu5d6JGecr0jVdDJdYkCM=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "43a729a5df4827fd76c8c65795ee07bcd7c5a015",
+        "rev": "8383ddd91648932b480499f886c3c4b288c7d5ad",
         "type": "github"
       },
       "original": {
@@ -934,11 +934,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1781359544,
-        "narHash": "sha256-iUuzKQcyXvopYDDzFpMK5eQKP3WIJExYny2kJtbgUcE=",
+        "lastModified": 1781607440,
+        "narHash": "sha256-rxO+uc/KFbSJp+pgyXRuAX6QlG9hJdnt0BXpEQRXY+U=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9f11f828c213641c2369a9f1fa31fe31557e3156",
+        "rev": "3e41b24abd260e8f71dbe2f5737d24122f972158",
         "type": "github"
       },
       "original": {
@@ -998,11 +998,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1781546598,
-        "narHash": "sha256-HWlt6Wjjxbs4uOFpmJDASG0Dkl0kzw/gOTgUQ9SA1Qo=",
+        "lastModified": 1782174034,
+        "narHash": "sha256-3f2VP/sAUahXVVQodt3CW7j9pKdSUbS4ejNR5EBkTps=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "bed020fc902b4bfd0768b04cd8e697c06bdbe289",
+        "rev": "691bc285bc31189c3186c00b88b10ca829a884ef",
         "type": "github"
       },
       "original": {
@@ -1013,11 +1013,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1781454065,
-        "narHash": "sha256-d2xfDjnfRuf/xYGdu9VVRHiav/2w5hDL/5cw2TuVAXw=",
+        "lastModified": 1781607440,
+        "narHash": "sha256-rxO+uc/KFbSJp+pgyXRuAX6QlG9hJdnt0BXpEQRXY+U=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9eac87a12312b8f60dd52e1c6e1a265f6fc7f5fc",
+        "rev": "3e41b24abd260e8f71dbe2f5737d24122f972158",
         "type": "github"
       },
       "original": {
@@ -1186,11 +1186,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781971700,
-        "narHash": "sha256-kK4RokYBVqKDmkeXA1UcxV8JNCQzKToOsKcUgGUlH0E=",
+        "lastModified": 1782173999,
+        "narHash": "sha256-aLtr/FIDafue5E/Lrpk3BGukGHpJJlvPOnV+ZIgYReE=",
         "owner": "nexu-io",
         "repo": "open-design",
-        "rev": "d5d9a761cadbb6394738022b2467bf26be79f843",
+        "rev": "91e5207d72dc5bc9803857240b8161569c2fa547",
         "type": "github"
       },
       "original": {
