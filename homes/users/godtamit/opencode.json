@@ -147,7 +147,7 @@
       }
     },
     "synthetic-custom": {
-      "npm": "@ai-sdk/openai",
+      "npm": "@ai-sdk/openai-compatible",
       "name": "Synthetic (Custom)",
       "options": {
         "baseURL": "https://api.synthetic.new/openai/v1"
