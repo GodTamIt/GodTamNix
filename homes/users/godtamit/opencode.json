@@ -147,10 +147,10 @@
       }
     },
     "synthetic-custom": {
-      "npm": "@ai-sdk/anthropic",
+      "npm": "@ai-sdk/openai",
       "name": "Synthetic (Custom)",
       "options": {
-        "baseURL": "https://api.synthetic.new/anthropic/v1"
+        "baseURL": "https://api.synthetic.new/openai/v1"
       },
       "models": {
         "syn:large:text": {
@@ -183,9 +183,9 @@
           "modalities": { "input": ["text"], "output": ["text"] },
           "reasoning": true,
           "variants": {
-            "none": { "effort": "none" },
-            "high": { "effort": "high" },
-            "xhigh": { "effort": "xhigh" },
+            "none": { "reasoningEffort": "none" },
+            "high": { "reasoningEffort": "high" },
+            "xhigh": { "reasoningEffort": "xhigh" },
             "max": { "disabled": true }
           }
         },
@@ -201,10 +201,10 @@
           "modalities": { "input": ["text", "image"], "output": ["text"] },
           "reasoning": true,
           "variants": {
-            "none": { "effort": "none" },
-            "low": { "effort": "low" },
-            "medium": { "effort": "medium" },
-            "high": { "effort": "high" }
+            "none": { "reasoningEffort": "none" },
+            "low": { "reasoningEffort": "low" },
+            "medium": { "reasoningEffort": "medium" },
+            "high": { "reasoningEffort": "high" }
           }
         },
         "hf:MiniMaxAI/MiniMax-M3": {
