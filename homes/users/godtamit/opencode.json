@@ -2,6 +2,11 @@
   "$schema": "https://opencode.ai/config.json",
   "lsp": true,
   "plugin": [],
+  "compaction": {
+    "auto": true,
+    "reserved": 25000,
+    "prune": true
+  },
   "provider": {
     "CrofAI": {
       "npm": "@ai-sdk/anthropic",
