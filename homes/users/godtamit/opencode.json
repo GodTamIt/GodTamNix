@@ -5,7 +5,7 @@
   "compaction": {
     "auto": true,
     "reserved": 25000,
-    "prune": true
+    "prune": false
   },
   "provider": {
     "CrofAI": {
