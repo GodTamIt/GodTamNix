@@ -228,7 +228,7 @@ in {
       environment = {
         DISCORD_HOME_CHANNEL = "1515098112245497987";
         DISCORD_HOME_CHANNEL_NAME = "events";
-        TELEGRAM_OBSERVE_UNMENTIONED_GROUP_MESSAGES = true;
+        TELEGRAM_OBSERVE_UNMENTIONED_GROUP_MESSAGES = "true";
       };
       extraDependencyGroups = [
         "anthropic"
