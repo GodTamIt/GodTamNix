@@ -228,6 +228,7 @@ in {
       environment = {
         DISCORD_HOME_CHANNEL = "1515098112245497987";
         DISCORD_HOME_CHANNEL_NAME = "events";
+        TELEGRAM_OBSERVE_UNMENTIONED_GROUP_MESSAGES = true;
       };
       extraDependencyGroups = [
         "anthropic"
@@ -245,6 +246,12 @@ in {
           memory_enabled = true;
           user_profile_enabled = true;
           provider = "hindsight";
+        };
+        platforms = {
+          telegram = {
+            max_commands = 50;
+            priority_mode = "append";
+          };
         };
       };
       mcpServers = {
