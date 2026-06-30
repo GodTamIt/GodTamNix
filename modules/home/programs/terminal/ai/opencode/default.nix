@@ -13,7 +13,8 @@
   # Merge plugins into the plugin list if they have configuration
   extraPlugins =
     (lib.optional (cfg.ohMyOpenAgent != {}) "oh-my-openagent")
-    ++ (lib.optional (cfg.ohMyOpenCodeSlim != {}) "oh-my-opencode-slim");
+    ++ (lib.optional (cfg.ohMyOpenCodeSlim != {}) "oh-my-opencode-slim")
+    ++ (lib.optional cfg.tpsMeter "opencode-throughput");
 
   # agent-browser reads this on every CLI/daemon invocation, so the browser
   # binary it drives is pinned at build time and survives shell reloads.
@@ -53,6 +54,14 @@ in {
       type = types.attrs;
       default = {};
       description = "Settings for oh-my-opencode-slim (oh-my-opencode-slim.jsonc)";
+    };
+    tpsMeter = mkOption {
+      type = types.bool;
+      default = true;
+      description = ''
+        Whether to add the `@devinoldenburg/opencode-tps-meter` plugin to the
+        opencode plugin list. It renders a tokens-per-second meter in the TUI.
+      '';
     };
     agentBrowser = mkOption {
       type = types.submodule {
