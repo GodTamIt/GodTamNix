@@ -5,13 +5,13 @@
   "presets": {
     "plans": {
       "orchestrator": {
-        "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "high",
         "skills": ["*"],
         "mcps": ["*"]
       },
       "oracle": {
-        "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "xhigh",
         "skills": [],
         "mcps": ["*"]
@@ -86,7 +86,7 @@
   },
   "council": {
     "master": {
-      "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+      "model": "zai-coding-plan/glm-5.2",
       "variant": "xhigh"
     },
     "default_preset": "balanced",
@@ -96,7 +96,7 @@
           "model": "minimax-coding-plan/MiniMax-M3"
         },
         "beta": {
-          "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+          "model": "zai-coding-plan/glm-5.2",
           "variant": "xhigh"
         },
         "gamma": {
@@ -109,7 +109,7 @@
           "variant": "thinking"
         },
         "coder": {
-          "model": "synthetic-custom/hf:zai-org/GLM-5.2",
+          "model": "zai-coding-plan/glm-5.2",
           "variant": "xhigh"
         },
         "creative": {
