@@ -19,7 +19,7 @@ _: {
       };
 
       edge = {
-        description = "bleeding edge and fast updating inputs";
+        description = "bleeding edge and fast updating";
         inputs = [
           "nixpkgs-master"
           "nixpkgs-unstable"
