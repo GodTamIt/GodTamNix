@@ -1,0 +1,15 @@
+{
+  "packages": [
+    "npm:pi-tps",
+    "npm:pi-mcp-adapter",
+    "npm:pi-open-agents",
+    "npm:pi-smart-web-search",
+    "npm:@aliou/pi-synthetic"
+  ],
+  "enabledModels": [
+    "zai/glm-5.2",
+    "synthetic/hf:zai-org/GLM-5.2",
+    "synthetic/hf:moonshotai/Kimi-K2.7-Code",
+    "minimax/MiniMax-M3"
+  ]
+}

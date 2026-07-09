@@ -56,6 +56,7 @@ in {
     gemini-cli
     oh-my-opencode
     opencode
+    pi
     rtk
     ;
 
