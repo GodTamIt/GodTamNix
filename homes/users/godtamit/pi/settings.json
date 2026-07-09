@@ -3,7 +3,7 @@
     "npm:pi-tps",
     "npm:pi-mcp-adapter",
     "npm:pi-open-agents",
-    "npm:pi-smart-web-search",
+    "npm:pi-web-access",
     "npm:@aliou/pi-synthetic"
   ],
   "enabledModels": [
