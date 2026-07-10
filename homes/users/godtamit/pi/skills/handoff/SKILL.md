@@ -5,8 +5,7 @@ description: Shared return-payload contract for all subagents; defines the HANDO
 
 # HANDOFF contract
 
-End every run by emitting exactly one HANDOFF block and nothing after it. Markdown,
-not JSON: the consumer is the parent LLM, and code snippets must not be string-escaped.
+End every run by emitting exactly one markdown HANDOFF block and nothing after it. The consumer is the parent LLM, and code snippets must not be string-escaped.
 Fixed field order so the parent can scan positionally.
 
 ```markdown
@@ -32,7 +31,7 @@ Result spec calls for them>
 
 ## Budget rules (apply to the HANDOFF only, not internal work)
 
-- Default budget: ~800 tokens. If the dispatch contains `depth: deep`: up to ~2000.
+- Default budget: ~800 tokens. Expand as needed.
 - Compress by omission, not truncation: drop whole low-priority findings and name
   them in Gaps. Never clip a finding, code sketch, or failure entry mid-item — a
   complete subset beats a clipped superset.

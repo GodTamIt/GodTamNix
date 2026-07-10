@@ -41,4 +41,4 @@ One entry per finding:
   callers: `path/a.ts:17`, `path/b.ts:9` | none traced
 ```
 
-Plus at most 5 one-line structure notes relevant to the question. Budget: ≤10 findings default, ≤25 on `depth: deep`; rank by relevance and name the dropped tail in Gaps.
+Plus at most 5 one-line structure notes relevant to the question. Rank results by relevance.

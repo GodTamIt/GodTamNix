@@ -1,6 +1,7 @@
 {
   "packages": [
     "npm:@benvargas/pi-synthetic-provider",
+    "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-mcp-adapter",
     "npm:pi-open-agents",
