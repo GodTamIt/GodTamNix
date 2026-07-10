@@ -1,10 +1,11 @@
 {
   "packages": [
-    "npm:pi-tps",
+    "npm:@benvargas/pi-synthetic-provider",
+    "npm:@juicesharp/rpiv-todo",
     "npm:pi-mcp-adapter",
     "npm:pi-open-agents",
-    "npm:pi-web-access",
-    "npm:@aliou/pi-synthetic"
+    "npm:pi-tps",
+    "npm:pi-web-access-lean"
   ],
   "enabledModels": [
     "zai/glm-5.2",

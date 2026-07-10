@@ -3,9 +3,7 @@ name: scout
 description: Read-only code discovery — find symbols, callers, definitions, paths, dependency traces, git history; use before editing to pinpoint exact paths and line ranges; never writes or runs code
 mode: subagent
 model: minimax/minimax-m3
-thinking: minimal
-# replace (not replace-all): workspace AGENTS.md/CLAUDE.md conventions aid navigation,
-# and this window is cheap M3 tokens
+thinking: high
 systemPrompt: replace
 skills: handoff
 permission:

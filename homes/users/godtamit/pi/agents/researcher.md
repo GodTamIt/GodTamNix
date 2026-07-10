@@ -1,11 +1,9 @@
 ---
-name: librarian
+name: researcher
 description: External knowledge retrieval — web search, API/library docs, package versions, changelogs, breaking changes, registry lookups; fetches and digests large docs; use for anything outside the repo, not local code
 mode: subagent
 model: minimax/minimax-m3
 thinking: low
-# replace-all: retrieval must run identically regardless of project; version pinning
-# comes from an explicit lockfile read, not from workspace context injection
 systemPrompt: replace-all
 skills: handoff
 permission:

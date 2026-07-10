@@ -3,8 +3,7 @@ name: runner
 description: Runs and triages tests, lint, typecheck, build; classifies failures; use for slow suites, multiple failures, or gating junior's diffs; read-only, never fixes; the primary runs trivial checks itself
 mode: subagent
 model: minimax/minimax-m3
-thinking: minimal
-# replace: canonical test/lint commands typically live in workspace AGENTS.md
+thinking: medium
 systemPrompt: replace
 skills: handoff
 permission:
