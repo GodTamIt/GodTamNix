@@ -31,6 +31,7 @@ in {
 
     # On all NixOS installs, provide basic debugging tools.
     environment.systemPackages = with pkgs; [
+      # System utilities
       libva-utils
       usbutils
       pciutils
@@ -40,6 +41,9 @@ in {
       dosfstools
       e2fsprogs
       exfatprogs
+
+      # Basic development tools
+      python3
     ];
 
     # NixOS config options
