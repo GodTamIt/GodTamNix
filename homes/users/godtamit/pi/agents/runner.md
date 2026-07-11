@@ -1,6 +1,6 @@
 ---
 name: runner
-description: Runs and triages tests, lint, typecheck, build; classifies failures. Use for slow or large suites or gating fixes. Read-only, never fixes.
+description: Runs and triages tests, lint, typecheck, build; classifies failures. Use for slow or large suites or gating fixes.
 mode: subagent
 model: minimax/minimax-m3
 thinking: medium
