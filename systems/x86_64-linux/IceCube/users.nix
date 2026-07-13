@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   godtamnix = {
     users = {
       godtamit = {
-        fullName = "Christopher Tam";
+        fullName = lib.godtamnix.decode "Q2hyaXN0b3BoZXIgVGFt";
         initialPassword = "password";
         isTrusted = true;
         extraGroups = [
@@ -26,7 +30,7 @@
       };
 
       jlh = {
-        fullName = "Lance Hasson";
+        fullName = lib.godtamnix.decode "TGFuY2UgSGFzc29u";
         initialPassword = "password";
         isTrusted = true;
         extraGroups = [
@@ -36,6 +40,11 @@
           "podman"
         ];
         shell = pkgs.fish;
+
+        authorizedKeys = [
+          (lib.godtamnix.decode
+            "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUg2Q1M5MG1WZXNLL2t0ZlNkcjN3bFJXK1A1QnBRTjVyRmpERWZ5WElWWWwgbGFuY2UuaGFzc29uQGdtYWlsLmNvbQ==")
+        ];
       };
     };
   };

@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   godtamnix = {
     users = {
       godtamit = {
-        fullName = "Christopher Tam";
+        fullName = lib.godtamnix.decode "Q2hyaXN0b3BoZXIgVGFt";
         initialPassword = "password";
         isTrusted = true;
         extraGroups = [
