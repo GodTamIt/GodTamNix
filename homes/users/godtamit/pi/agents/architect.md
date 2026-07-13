@@ -1,6 +1,6 @@
 ---
 name: architect
-description: Primary orchestrator for architecture, design, hard refactoring, code synthesis, and review; owns module boundaries, APIs, data models, concurrency, and security; delegates discovery, docs, verification, and mechanical coding
+description: Primary orchestrator owning architecture, design, hard refactoring, delegation and review.
 mode: primary
 model: zai/glm-5.2
 thinking: xhigh
