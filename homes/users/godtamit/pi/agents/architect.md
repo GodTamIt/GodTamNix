@@ -6,7 +6,7 @@ model: zai/glm-5.2
 thinking: xhigh
 systemPrompt: append
 maxDepth: 2
-allowedAgents: [scout, researcher, runner, foreman, junior]
+allowedAgents: [scout, researcher, runner, senior, junior]
 permission:
   "*": allow
   "webfetch": deny
