@@ -3,7 +3,7 @@ name: senior
 description: Frontier-tier implementation and review — dispatch for (a) difficult, fully-specified code the architect does not need to see the edits for, where only the outcome matters, or (b) reviewing and repairing junior-authored changes; returns a compact verdict, never the diff; not for exploratory or design-coupled work where the implementation would inform the design
 mode: subagent
 # Same tier as the architect: hard authoring and real review need frontier judgment
-model: zai/glm-5.2
+model: kimi-coding/k3
 thinking: high
 systemPrompt: replace
 skills: handoff

@@ -11,6 +11,7 @@
   ],
   "enabledModels": [
     "zai/glm-5.2",
+    "kimi-coding/k3",
     "synthetic/hf:zai-org/GLM-5.2",
     "synthetic/hf:moonshotai/Kimi-K2.7-Code",
     "minimax/MiniMax-M3"
