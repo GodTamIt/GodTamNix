@@ -44,6 +44,19 @@ in {
       '';
     };
 
+    models = mkOption {
+      type = types.attrs;
+      default = {};
+      description = ''
+        Custom model definitions, written to ~/.pi/agent/models.json. Declares
+        custom providers/models and per-model overrides for built-in providers;
+        adding a `models` array to a built-in provider merges with its
+        existing models rather than replacing them. See
+        https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md.
+        Reloads every time /model is opened.
+      '';
+    };
+
     agentsDir = mkOption {
       type = types.nullOr types.path;
       default = null;
@@ -93,6 +106,10 @@ in {
 
         ".pi/agent/keybindings.json" = mkIf (cfg.keybindings != {}) {
           text = builtins.toJSON cfg.keybindings;
+        };
+
+        ".pi/agent/models.json" = mkIf (cfg.models != {}) {
+          text = builtins.toJSON cfg.models;
         };
 
         # pi-open-agents discovers agent/subagent definitions from
