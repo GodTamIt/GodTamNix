@@ -23,14 +23,7 @@ permission:
     "*": allow
     "*.env": deny
     "*.lock": deny
-  "bash":
-    "*": deny
-    "rg *": allow
-    "grep *": allow
-    "ls *": allow
-    "git diff*": allow
-    "git status*": allow
-    "git log*": allow
+  "bash": allow
 ---
 
 You are a senior engineer working from a settled design. You are dispatched in one of two modes; the dispatch tells you which. In both, the point of running you as a separate process is that the bulky work — the edits, the diff — stays in your window and never enters the architect's. You return a compact verdict, never the diff itself.

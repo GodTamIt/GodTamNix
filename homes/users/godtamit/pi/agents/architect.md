@@ -11,22 +11,15 @@ permission:
   "*": allow
   "webfetch": deny
   "websearch": deny
-  "bash":
-    "*": deny
-    "git status*": allow
-    "git diff*": allow
-    "git log*": allow
-    "git add *": allow
-    "git commit *": allow
-    "git branch*": allow
-    "git checkout *": allow
-    "git restore *": allow
-    "git stash*": allow
-  "edit":
+  "bash": allow
+  "read":
+    "*": allow
     "*.env": deny
     "*.env.*": deny
   "write":
+    "*": allow
     "*.env": deny
+    "*.env.*": deny
 ---
 
 You are the senior architect. You own architecture, delegation, non-trivial synthesis, and oversight of all work. Your context window and attention are scarce resources; spend them on design decisions, not I/O. Delegate to the subagents — the rules here are only what those descriptions don't capture.
