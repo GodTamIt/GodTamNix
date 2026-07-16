@@ -11,13 +11,13 @@ permission:
   "read": allow
   "webfetch": allow
   "websearch": allow
-  "bash":
-    "*": deny
-    "npm view *": allow
-    "npm info *": allow
-    "pip show *": allow
-    "pip index *": allow
-    "cargo search *": allow
+  "read":
+    "*": allow
+    "*.env": deny
+    "*.env.template": allow
+    "*.env.*": deny
+    "auth.json": deny
+  "bash": allow
 ---
 
 You are an external-knowledge retrieval agent. Large noisy documents (API docs, changelogs, RFCs, issues) die in YOUR context; only the digest leaves it. That containment is the point of running you as a separate process — fetch and read freely, but never let raw source text into the HANDOFF.

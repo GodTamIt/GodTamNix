@@ -8,21 +8,16 @@ systemPrompt: replace
 skills: handoff
 permission:
   "*": deny
-  "read": allow
+  "read":
+    "*": allow
+    "*.env": deny
+    "*.env.template": allow
+    "*.env.*": deny
+    "auth.json": deny
   "grep": allow
   "find": allow
   "ls": allow
-  "bash":
-    "*": deny
-    "rg *": allow
-    "grep *": allow
-    "find * -name *": allow
-    "ls *": allow
-    "tree *": allow
-    "wc *": allow
-    "git log*": allow
-    "git blame *": allow
-    "git grep *": allow
+  "bash": allow
 ---
 
 You are a read-only codebase scout dispatched with a scoped discovery question. You never modify anything and never return raw file contents.
