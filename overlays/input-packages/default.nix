@@ -98,6 +98,16 @@ in {
     doCheck = false;
   };
 
+  # ld64-957.1 crashes with `Trace/BPT trap: 5` (exit 133) on macOS 26
+  # (Tahoe) when built with libc++ hardening. This breaks linking for
+  # autoraise, bitwarden-desktop, and any other package using the classic
+  # linker. Upstream fix (nixpkgs PR #536365) disables
+  # `libcxxhardeningfast`, but it landed on staging/staging-next and hasn't
+  # reached nixpkgs-unstable yet. Drop this override once the fix propagates.
+  ld64 = prev.ld64.overrideAttrs {
+    hardeningDisable = ["libcxxhardeningfast"];
+  };
+
   # aquamarine = prev.aquamarine.overrideAttrs (_old: {
   #   src = prev.fetchFromGitHub {
   #     owner = "hyprwm";
