@@ -98,23 +98,6 @@ in {
     doCheck = false;
   };
 
-  # AutoRaise v5.3 (current in nixpkgs) uses the deprecated
-  # NSApplicationActivateIgnoringOtherApps constant, which spams the build
-  # log with a deprecation warning on macOS 14+. Upstream v5.6 passes 0
-  # instead. Drop this override once nixpkgs ships autoraise >= 5.6.
-  autoraise = let
-    version = "5.6";
-  in
-    prev.autoraise.overrideAttrs (_old: {
-      inherit version;
-      src = final.fetchFromGitHub {
-        owner = "sbmpost";
-        repo = "AutoRaise";
-        rev = "v${version}";
-        hash = "sha256-DQyXHZPM/5rt6Vhmyhb/ienvk0ZXzg6zbVAmUYeaOVA=";
-      };
-    });
-
   # aquamarine = prev.aquamarine.overrideAttrs (_old: {
   #   src = prev.fetchFromGitHub {
   #     owner = "hyprwm";
