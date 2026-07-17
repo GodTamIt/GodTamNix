@@ -40,8 +40,6 @@ in {
           mru-spaces = false;
           tilesize = 64;
           minimize-to-application = true;
-          # Aerospace + macOS Spaces don't play well with animations
-          expose-animation-duration = 0.1;
 
           # NOTE: persistent-apps REPLACES the dock contents; it doesn't append.
           # Home-manager apps go via ~/Applications/Home Manager Apps (created
@@ -83,27 +81,6 @@ in {
         # Disable the chime on boot
         # NOTE: Available on macOS 12+
         # NvramVariables.StartupMute = true;
-      };
-
-      # Disable the macOS Mission Control "Move left/right a space" shortcuts
-      # (Ctrl+Left, Ctrl+Right and shift variants) so AeroSpace's Ctrl+Arrow
-      # bindings for workspace navigation aren't intercepted by macOS.
-      #
-      # Symbolic hotkey IDs:
-      #   79  = Move left a space        (Ctrl+Left)
-      #   80  = Move left a space, shift (Ctrl+Shift+Left)
-      #   81  = Move right a space       (Ctrl+Right)
-      #   82  = Move right a space, shift(Ctrl+Shift+Right)
-      #
-      # macOS needs a logout/login (or `killall Dock; killall SystemUIServer`)
-      # for symbolic hotkey changes to take effect.
-      defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
-        AppleSymbolicHotKeys = {
-          "79".enabled = false;
-          "80".enabled = false;
-          "81".enabled = false;
-          "82".enabled = false;
-        };
       };
 
       # Menu bar icons (Control Center modules). The `NSStatusItem Visible …`

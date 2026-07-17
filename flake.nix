@@ -84,6 +84,13 @@
       url = "github:nix-community/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Sliding/scrollable tiling WM for macOS (Niri/PaperWM-style strips, not
+    # BSP like AeroSpace). darwinModules.paneru exposes services.paneru.* and
+    # installs a per-user LaunchAgent via launchd.user.agents.paneru.
+    paneru = {
+      url = "github:karinushka/paneru/v0.4.3";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
