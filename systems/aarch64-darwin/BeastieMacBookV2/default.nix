@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  inherit (lib.godtamnix) enabled;
+  inherit (lib.godtamnix) disabled enabled;
 in {
   imports = [
     ./sops.nix
@@ -18,7 +18,14 @@ in {
       fonts = enabled;
     };
 
-    services.autoraise = enabled;
+    # NOTE: disabled 2026-07-17. The upstream nixpkgs autoraise (v5.3) fails
+    # to link on aarch64-darwin: cctools' ld64-957.1 crashes with
+    # `Trace/BPT trap: 5` (exit 133) during the link step. Bumping to v5.6
+    # avoids the deprecation warning but still hits the same ld crash.
+    # Re-enable once nixpkgs ships a cctools/ld64 that links autoraise
+    # cleanly, or upstream autoraise drops the SkyLight private framework
+    # dependency that triggers the failing link path.
+    services.autoraise = disabled;
 
     suites.media = enabled;
 
