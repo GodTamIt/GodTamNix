@@ -6,7 +6,9 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit (lib.godtamnix) enabled;
+in {
   godtamnix = {
     user = {
       enable = true;
@@ -22,6 +24,8 @@
         # hardwareDecoding = true;
         # setDefault = true;
       };
+
+      terminal.tmux = enabled;
 
       terminal.ai = {
         opencode = {
