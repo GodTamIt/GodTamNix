@@ -9,6 +9,8 @@ systemPrompt: replace
 skills: handoff
 permission:
   "*": allow
+  "ask_user_question": deny
+  "todo": deny
   "websearch": deny
   "webfetch": deny
   "read":

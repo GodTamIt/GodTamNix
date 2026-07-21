@@ -8,6 +8,8 @@ systemPrompt: replace-all
 skills: handoff
 permission:
   "*": deny
+  "ask_user_question": deny
+  "todo": deny
   "read": allow
   "webfetch": allow
   "websearch": allow

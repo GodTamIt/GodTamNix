@@ -8,6 +8,8 @@ systemPrompt: replace
 skills: handoff
 permission:
   "*": allow
+  "ask_user_question": deny
+  "todo": deny
   "read":
     "*": allow
     "*.env": deny
