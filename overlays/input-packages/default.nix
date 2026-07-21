@@ -68,15 +68,15 @@ in {
     ssh-to-age
     ;
 
-  # Leave this until Antigravity (likely upstream VSCode) adopts Electron 40+.
+  # Leave this until Antigravity IDE (likely upstream VSCode) adopts Electron 40+.
   # https://github.com/microsoft/vscode/issues/284464
-  antigravity = master.antigravity.overrideAttrs (oldAttrs: {
+  antigravity-ide = master.antigravity-ide.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [final.makeWrapper];
 
     postFixup =
       (oldAttrs.postFixup or "")
       + ''
-        wrapProgram $out/bin/antigravity \
+        wrapProgram $out/bin/antigravity-ide \
           --append-flags "--disable-features=WaylandWpColorManagerV1"
       '';
   });

@@ -52,7 +52,7 @@ in {
           in [
             "${hmApps}/Firefox.app"
             "${hmApps}/kitty.app"
-            "${hmApps}/Antigravity.app"
+            "${hmApps}/Antigravity IDE.app"
             "${hmApps}/Discord.app"
             "${hmApps}/Signal.app"
             "/Applications/Plex.app"

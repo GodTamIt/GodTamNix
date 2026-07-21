@@ -205,7 +205,7 @@ in {
         "[workspace 5 silent] ferdium"
         "[workspace 6 silent] ytmdesktop"
         "[workspace 4 silent] firefox"
-        "[workspace 2 silent] antigravity"
+        "[workspace 2 silent] antigravity-ide"
       ];
       monitorv2 = [
         {

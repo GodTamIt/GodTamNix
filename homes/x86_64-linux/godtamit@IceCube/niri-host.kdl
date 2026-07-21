@@ -40,7 +40,7 @@ spawn-at-startup "ferdium"
 spawn-at-startup "signal-desktop"
 spawn-at-startup "ytmdesktop"
 spawn-at-startup "firefox"
-spawn-at-startup "antigravity"
+spawn-at-startup "antigravity-ide"
 
 // Workspace assignments
 window-rule {

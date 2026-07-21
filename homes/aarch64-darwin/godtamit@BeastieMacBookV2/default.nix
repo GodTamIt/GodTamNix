@@ -49,7 +49,7 @@ in {
   home = {
     packages = with pkgs; [
       aldente
-      antigravity
+      antigravity-ide
       bitwarden-desktop
       google-chrome
     ];

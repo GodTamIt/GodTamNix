@@ -184,7 +184,7 @@ in {
         "$shiftMod" = "SUPER SHIFT";
 
         bind = [
-          "$mainMod, return, exec, antigravity"
+          "$mainMod, return, exec, antigravity-ide"
           "$mainMod, T, exec, kitty"
           "$mainMod, O, exec, thunar"
           "$mainMod, Y, exec, kitty -e fish -c 'y; exec fish'"

@@ -84,7 +84,7 @@ in {
       shellAbbrs = {
         ".." = "cd ..";
         "..." = "cd ../..";
-        ag = "antigravity";
+        ag = "antigravity-ide";
         ls = "eza";
         grep = "rg";
         ps = "procs";
@@ -184,7 +184,7 @@ in {
 
   xdg.configFile =
     {
-      "Antigravity/User/settings.json".source = ./antigravity-settings.json;
+      "Antigravity IDE/User/settings.json".source = ./antigravity-settings.json;
     }
     # niri reads ~/.config/niri/config.kdl (the generic config). It `include`s
     # host.kdl, which each host supplies from its own home config — e.g. the

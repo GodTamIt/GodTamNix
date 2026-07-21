@@ -68,7 +68,7 @@ in {
     home = {
       packages = with pkgs;
         [
-          antigravity
+          antigravity-ide
           go
           jq
           python3
@@ -132,7 +132,7 @@ in {
         ]
         ++ lib.optionals cfg.aiEnable [
           # NOTE: hard to get out of neovim
-          # antigravity
+          # antigravity-ide
           github-mcp-server
           github-copilot-cli
         ];

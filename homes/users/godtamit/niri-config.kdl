@@ -166,7 +166,7 @@ window-rule {
 // $shiftMod = SUPER SHIFT.
 binds {
     // Launchers / apps
-    Mod+Return  { spawn "antigravity"; }
+    Mod+Return  { spawn "antigravity-ide"; }
     Mod+T       { spawn "kitty"; }
     Mod+O       { spawn "thunar"; }
     Mod+Y       { spawn "kitty" "-e" "fish" "-c" "y; exec fish"; }
