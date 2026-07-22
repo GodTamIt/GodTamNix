@@ -41,6 +41,7 @@ in {
   #          ╰──────────────────────────────────────────────────────────╯
   inherit
     (master)
+    pi-coding-agent
     wayle
     webull-desktop
     yaziPlugins

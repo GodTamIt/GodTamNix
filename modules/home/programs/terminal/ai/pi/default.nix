@@ -89,7 +89,7 @@ in {
       # fails with ENOENT — provide nodejs (which ships npm) for it to find.
       packages = with pkgs; [
         nodejs
-        pi
+        pi-coding-agent
       ];
 
       # pi reads its global config from ~/.pi/agent/ (NOT ~/.config/), so these
