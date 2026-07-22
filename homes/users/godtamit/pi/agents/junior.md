@@ -1,6 +1,6 @@
 ---
 name: junior
-description: Mechanical pattern-following coding — boilerplate, scaffolding, CRUD, renames, docstrings, config, test stubs; use for clearly-scoped edits with acceptance criteria; not for architecture, APIs, data models, concurrency, or security
+description: Mechanical pattern-following coding — boilerplate, scaffolding, CRUD, renames, docstrings, config, test stubs; use for clearly-scoped edits with acceptance criteria. Not for architecture, data models, or security
 mode: subagent
 model: minimax/minimax-m3
 thinking: medium
