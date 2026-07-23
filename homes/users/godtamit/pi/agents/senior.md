@@ -2,8 +2,7 @@
 name: senior
 description: Frontier-tier implementation — dispatch for difficult, fully-specified code the architect does not need to see the edits for, where only the outcome matters; returns a compact verdict
 mode: subagent
-# Same tier as the architect: hard authoring needs frontier judgment
-model: zai/glm-5.2
+model: kimi-coding/k3
 thinking: high
 systemPrompt: replace
 skills: handoff
