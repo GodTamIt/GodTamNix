@@ -268,6 +268,7 @@ in {
 
   home = {
     packages = with pkgs; [
+      audacity
       onlyoffice-desktopeditors
       thunar
       zoom-us
