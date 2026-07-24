@@ -14,19 +14,29 @@
       email = lib.godtamnix.decode "c2VhbkBhc3QubGl2ZQ==";
     };
 
-    programs.graphical.browsers = {
-      firefox = {
-        enable = true;
-        # gpuAcceleration = true;
-        # hardwareDecoding = true;
-        # setDefault = true;
+    programs = {
+      graphical = {
+        firefox = {
+          enable = true;
+          # gpuAcceleration = true;
+          # hardwareDecoding = true;
+          # setDefault = true;
+        };
       };
-    };
 
-    programs.terminal.ai.opencode = {
-      settings = builtins.fromJSON (builtins.readFile ./opencode.json);
-      ohMyOpenAgent = builtins.fromJSON (builtins.readFile ./oh-my-openagent.json);
-      # ohMyOpenCodeSlim = builtins.fromJSON (builtins.readFile ./oh-my-opencode-slim.json);
+      terminal = {
+        ai = {
+          pi = {
+            enable = true;
+            settings = builtins.fromJSON (builtins.readFile ./pi/settings.json);
+            mcp = builtins.fromJSON (builtins.readFile ./pi/mcp.json);
+            keybindings = builtins.fromJSON (builtins.readFile ./pi/keybindings.json);
+            models = builtins.fromJSON (builtins.readFile ./pi/models.json);
+            agentsDir = ./pi/agents;
+            skillsDir = ./pi/skills;
+          };
+        };
+      };
     };
   };
 
