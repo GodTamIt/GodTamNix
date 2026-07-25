@@ -1,6 +1,7 @@
 {
   "providers": {
     "cheapest-inference": {
+      "name": "Cheapest Inference",
       "baseUrl": "https://api.cheapestinference.com/anthropic",
       "api": "anthropic-messages",
       "apiKey": "$CHEAPEST_INFERENCE_API_KEY",
