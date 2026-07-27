@@ -10,10 +10,8 @@
     "npm:pi-web-access-lean"
   ],
   "enabledModels": [
-    "zai/glm-5.2",
     "kimi-coding/k3",
-    "synthetic/hf:zai-org/GLM-5.2",
-    "synthetic/hf:moonshotai/Kimi-K2.7-Code",
+    "cheapest-inference/glm-5.2",
     "minimax/MiniMax-M3"
   ]
 }
