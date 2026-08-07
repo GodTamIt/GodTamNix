@@ -1,5 +1,22 @@
 {
   "providers": {
+    "standard-compute": {
+      "name": "Standard Compute",
+      "baseUrl": "https://api.stdcmpt.com/v1",
+      "api": "openai-completions",
+      "apiKey": "$STANDARD_COMPUTE_API_KEY",
+      "models": [
+        {
+          "id": "standardcompute",
+          "name": "Standard Compute",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 1048576,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        }
+      ]
+    },
     "cheapest-inference": {
       "name": "Cheapest Inference",
       "baseUrl": "https://api.cheapestinference.com/anthropic",

@@ -10,6 +10,7 @@
     "npm:pi-web-access-lean"
   ],
   "enabledModels": [
+    "standard-compute/standardcompute",
     "kimi-coding/k3",
     "cheapest-inference/glm-5.2",
     "minimax/MiniMax-M3"

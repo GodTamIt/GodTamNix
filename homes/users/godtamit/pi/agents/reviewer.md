@@ -4,7 +4,7 @@ description: Frontier-tier review — dispatch to review and repair subagent-aut
 intelligence as senior.
 mode: subagent
 # Same tier as the architect: real review needs frontier judgment
-model: kimi-coding/k3
+model: standard-compute/standardcompute
 thinking: high
 systemPrompt: replace
 skills: handoff
