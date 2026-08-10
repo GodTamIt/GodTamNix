@@ -30,7 +30,7 @@ in {
     zsh = {
       enable = true;
 
-      initExtra = ''
+      initContent = ''
         export NIX_PATH nixpkgs=channel:nixos-unstable
         export NIX_LOG info
         export TERMINAL kitty
