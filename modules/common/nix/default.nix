@@ -17,6 +17,7 @@ in {
     ripgrep
     tmux
     vim
+    wget
     zsh
 
     # Default fonts for all systems
