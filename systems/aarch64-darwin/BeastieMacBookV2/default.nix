@@ -109,7 +109,7 @@ in {
       # maximize-column            → window_fullwidth       (Mod+M)
       # toggle-window-floating    → window_manage          (Mod+V)
       # switch-preset-column-width → window_resize          (Mod+R)
-      # center-column              → window_center          (Mod+C)
+      # center-column              → (not ported — Mod+C would be Ctrl+C)
       # set-column-width "-10%"    → window_shrink          (Mod+Minus)
       # set-column-width "+10%"    → window_resize          (Mod+Equal)
       # fullscreen-window          → window_fullwidth       (Mod+F) [no true FS]
@@ -154,7 +154,8 @@ in {
         # (preset-cycle + grow-by-10%), so it's a list per paneru's OneOrMore.
         window_resize = ["ctrl - r" "ctrl - equal"]; # niri switch-preset / "+10%"
         window_shrink = "ctrl - minus"; # niri set-column-width "-10%"
-        window_center = "ctrl - c"; # niri center-column
+        # niri center-column (Mod+C) NOT ported: "ctrl - c" steals the terminal's
+        # SIGINT (interrupt). No safe Ctrl-based alternative; drop the bind.
         # niri maximize-column + fullscreen-window both → full width.
         window_fullwidth = ["ctrl - m" "ctrl - f"];
 
