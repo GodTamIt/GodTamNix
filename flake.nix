@@ -88,7 +88,7 @@
     # BSP like AeroSpace). darwinModules.paneru exposes services.paneru.* and
     # installs a per-user LaunchAgent via launchd.user.agents.paneru.
     paneru = {
-      url = "github:karinushka/paneru/v0.4.3";
+      url = "github:karinushka/paneru/v0.4.4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";

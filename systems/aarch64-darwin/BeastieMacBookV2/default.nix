@@ -94,8 +94,8 @@ in {
       # niri action                → paneru action          (binding)
       # focus-column-left          → window_focus_west      (Mod+Left)
       # focus-column-right         → window_focus_east      (Mod+Right)
-      # focus-workspace-up         → window_focus_north     (Mod+Up)
-      # focus-workspace-down       → window_focus_south     (Mod+Down)
+      # focus-workspace-up         → window_virtual_north   (Mod+Up)
+      # focus-workspace-down       → window_virtual_south   (Mod+Down)
       # move-column-left           → window_swap_west       (Mod+Ctrl+Left)
       # move-column-right          → window_swap_east       (Mod+Ctrl+Right)
       # move-window-to-workspace-* → window_virtualmove_*  (Mod+Ctrl+Up/Down)
@@ -127,8 +127,11 @@ in {
         # Focus — arrows (match niri Mod+Arrow).
         window_focus_west = "ctrl - leftarrow";
         window_focus_east = "ctrl - rightarrow";
-        window_focus_north = "ctrl - uparrow";
-        window_focus_south = "ctrl - downarrow";
+        # Virtual workspace switching — the row analog. niri
+        # focus-workspace-up/down → paneru window_virtual_ north/south
+        # (NOT window_focus_*, which is stacked-window focus within a column).
+        window_virtual_north = "ctrl - uparrow";
+        window_virtual_south = "ctrl - downarrow";
 
         # Move/swap windows — Ctrl+Option+arrow (niri Mod+Ctrl+Arrow; using
         # Option instead of Shift keeps it distinct from macOS Ctrl+Arrow Space
@@ -147,6 +150,10 @@ in {
         window_center = "ctrl - c"; # niri center-column
         # niri maximize-column + fullscreen-window both → full width.
         window_fullwidth = ["ctrl - m" "ctrl - f"];
+
+        # Re-anchor the strip: snap all columns to the focused window's width
+        # (fixes accumulated drift from preset width cycling; v0.4.4+).
+        window_balance = "ctrl - b";
 
         # Floating / stacking.
         window_manage = "ctrl - v"; # niri toggle-window-floating
