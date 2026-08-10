@@ -27,6 +27,22 @@ in {
     # dependency that triggers the failing link path.
     services.autoraise = disabled;
 
+    # Hotkey daemon for app launchers — paneru's action set is window-
+    # management only (no spawn/exec), so it pairs with skhd the way niri
+    # bundles `spawn` in its binds. Launch kitty via `open -na` (kitty is a
+    # home-manager app registered with LaunchServices by mac-app-util) so
+    # the binding survives nix store-path churn; `-n` opens a fresh window
+    # every press. Firefox (Mod+B parity → Ctrl+B) uses plain `open -a`
+    # (activate, or launch if not running) — no `-n`, so repeat presses
+    # focus rather than spawning duplicates.
+    services.skhd = {
+      enable = true;
+      bindings = {
+        "ctrl - t" = "open -na kitty";
+        "ctrl - b" = "open -a firefox";
+      };
+    };
+
     suites.media = enabled;
 
     programs = {
@@ -116,7 +132,8 @@ in {
       #
       # Not ported (no paneru equivalent / macOS-native instead):
       #   - Mod+Q close-window      (macOS cmd+W closes windows natively)
-      #   - Mod+Return/T/B/O/Y/D/P app launchers (macOS Spotlight / Raycast)
+      #   - Mod+Return/T/B/O/Y/D/P app launchers (Mod+T kitty + Mod+B firefox
+      #     now via skhd above; the rest via macOS Spotlight / Raycast)
       #   - Mod+L hyprlock          (macOS lock screen)
       #   - hjkl focus              (Ctrl+H/J/K/L conflict with terminal
       #     readline shortcuts — backspace, kill-line, clear-screen. niri's
@@ -158,10 +175,6 @@ in {
         # SIGINT (interrupt). No safe Ctrl-based alternative; drop the bind.
         # niri maximize-column + fullscreen-window both → full width.
         window_fullwidth = ["ctrl - m" "ctrl - f"];
-
-        # Re-anchor the strip: snap all columns to the focused window's width
-        # (fixes accumulated drift from preset width cycling; v0.4.4+).
-        window_balance = "ctrl - b";
 
         # Floating / stacking.
         window_manage = "ctrl - v"; # niri toggle-window-floating
