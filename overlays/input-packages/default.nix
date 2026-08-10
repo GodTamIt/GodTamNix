@@ -1,4 +1,4 @@
-{inputs}: final: prev: let
+{inputs}: final: _prev: let
   # citrix = import inputs.nixpkgs-citrix-workspace {
   #   inherit (final.stdenv.hostPlatform) system;
   #   inherit (final) config;
@@ -92,12 +92,6 @@ in {
           --append-flags "--disable-features=WaylandWpColorManagerV1"
       '';
   });
-
-  # OpenLDAP is failing tests so skip them:
-  # https://github.com/NixOS/nixpkgs/issues/514113
-  openldap = prev.openldap.overrideAttrs {
-    doCheck = false;
-  };
 
   # aquamarine = prev.aquamarine.overrideAttrs (_old: {
   #   src = prev.fetchFromGitHub {
