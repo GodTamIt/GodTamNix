@@ -90,6 +90,13 @@ in {
         right = 5;
       };
 
+      # Clamp the strip to the display edges so the leftmost/rightmost window
+      # always snaps to the screen edge (default `continuous = true` lets the
+      # strip drift, leaving empty space while resizing/focusing).
+      swipe = {
+        continuous = false;
+      };
+
       # ─── Key bindings (ported from niri-config.kdl `binds`) ──────────────
       # niri action                → paneru action          (binding)
       # focus-column-left          → window_focus_west      (Mod+Left)
