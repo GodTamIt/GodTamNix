@@ -49,6 +49,30 @@
         ];
         shell = pkgs.fish;
       };
+
+      eddy = {
+        fullName = lib.godtamnix.decode "RWRkeSBHaGFyYmk=";
+        initialPassword = "password";
+        isTrusted = true;
+        extraGroups = [
+          "nix"
+          "networkmanager"
+          "systemd-journal"
+          "lp"
+          "tss"
+          "power"
+          "mpd"
+          "docker"
+          "podman"
+          "kvm"
+          "hermes"
+        ];
+        shell = pkgs.zsh;
+
+        authorizedKeys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIItT/UINDxVTp1p8Ijmhl/hCmDZ/y6DY0dkvkMiYJbZt eddy.gharbi.ca@gmail.com"
+        ];
+      };
     };
   };
 }

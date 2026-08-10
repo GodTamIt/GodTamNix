@@ -1,0 +1,18 @@
+{
+  "packages": [
+    "npm:@benvargas/pi-synthetic-provider",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@zaganjade/pi-usage",
+    "npm:pi-mcp-adapter",
+    "npm:pi-open-agents",
+    "npm:pi-tps",
+    "npm:pi-web-access-lean"
+  ],
+  "enabledModels": [
+    "standard-compute/standardcompute",
+    "kimi-coding/k3",
+    "cheapest-inference/glm-5.2",
+    "minimax/MiniMax-M3"
+  ]
+}
