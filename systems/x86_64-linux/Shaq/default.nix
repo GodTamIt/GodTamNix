@@ -94,6 +94,7 @@ in {
       enable = true;
       xwayland.enable = true;
     };
+    niri = enabled;
     fish = enabled;
     zsh = enabled;
   };
@@ -115,14 +116,13 @@ in {
         enable = true;
 
         theme = "${pkgs.elegant-sddm}/share/sddm/themes/Elegant";
+        extraPackages = [pkgs.kdePackages.qt5compat];
 
         settings = {
           Users = {
             RememberLastSession = false;
           };
           Autologin = {
-            # 'plasma' is typically the name for the Wayland session
-            # Use 'plasmax11' if you are sticking to X11
             Session = "plasma";
           };
         };

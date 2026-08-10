@@ -1,0 +1,88 @@
+// niri config — host-specific part for Shaq. Lives next to this host's home
+// config (homes/x86_64-linux/godtamit@Shaq/) and is deployed as
+// ~/.config/niri/host.kdl by that default.nix. The generic config.kdl (in the
+// shared user config) pulls it in via `include "host.kdl"`.
+//
+// This mirrors the host-specific Hyprland settings in this directory's
+// default.nix (monitors, workspace pinning, app autostart).
+//
+// Each host that enables niri must provide its own host.kdl — these
+// outputs/workspaces are Shaq's. (config.kdl's `include "host.kdl"` is a hard
+// requirement; niri errors if the included file is missing.)
+
+// Single 1440p@60 display
+output "HDMI-A-5" {
+    mode "2560x1440@60"
+    scale 1
+    position x=0 y=0
+}
+
+// Persistent, named workspaces pinned to the output.
+workspace "dev" { open-on-output "HDMI-A-5"; }
+workspace "browser" { open-on-output "HDMI-A-5"; }
+workspace "media" { open-on-output "HDMI-A-5"; }
+workspace "chat" { open-on-output "HDMI-A-5"; }
+workspace "nix" { open-on-output "HDMI-A-5"; }
+workspace "term" { open-on-output "HDMI-A-5"; }
+workspace "gaming" { open-on-output "HDMI-A-5"; }
+workspace "misc" { open-on-output "HDMI-A-5"; }
+
+// Autostarted apps (Hyprland exec-once launched these with [workspace N silent];
+// the open-on-workspace window rules below route them onto the right
+// workspaces).
+spawn-at-startup "signal-desktop"
+spawn-at-startup "ferdium"
+spawn-at-startup "ytmdesktop"
+spawn-at-startup "firefox"
+spawn-at-startup "antigravity-ide"
+
+// Workspace assignments
+window-rule {
+    match app-id=r#"(?i)ferdium"#
+    match app-id=r#"(?i)signal"#
+    open-on-workspace "chat"
+    open-focused false
+}
+window-rule {
+    match app-id=r#"(?i)youtube.?music"#
+    open-on-workspace "media"
+    open-focused false
+}
+window-rule {
+    match at-startup=true app-id=r#"firefox$"#
+    open-on-workspace "browser"
+    open-focused false
+}
+window-rule {
+    match at-startup=true app-id=r#"(?i)antigravity"#
+    open-on-workspace "dev"
+    open-focused false
+}
+window-rule {
+    match app-id=r#"(?i)steam"#
+    open-on-workspace "gaming"
+    open-focused false
+}
+
+// ─── Permanent workspace keybinds ────────────────────────────────────────────
+binds {
+    // Focus a workspace by number (order matches the workspace declarations above).
+    Mod+1 { focus-workspace "dev"; }
+    Mod+2 { focus-workspace "browser"; }
+    Mod+3 { focus-workspace "media"; }
+    Mod+4 { focus-workspace "chat"; }
+    Mod+5 { focus-workspace "nix"; }
+    Mod+6 { focus-workspace "term"; }
+    Mod+7 { focus-workspace "gaming"; }
+    Mod+8 { focus-workspace "misc"; }
+
+    // Move the focused column to a workspace.
+    Mod+Shift+1 { move-column-to-workspace "dev"; }
+    Mod+Shift+2 { move-column-to-workspace "browser"; }
+    Mod+Shift+3 { move-column-to-workspace "media"; }
+    Mod+Shift+4 { move-column-to-workspace "chat"; }
+    Mod+Shift+5 { move-column-to-workspace "nix"; }
+    Mod+Shift+6 { move-column-to-workspace "term"; }
+    Mod+Shift+7 { move-column-to-workspace "gaming"; }
+    Mod+Shift+8 { move-column-to-workspace "misc"; }
+}

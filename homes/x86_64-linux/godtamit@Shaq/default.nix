@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   inherit (lib.godtamnix) enabled;
@@ -49,38 +50,9 @@ in {
     programs = {
       graphical = {
         bars = {
-          waybar = {
+          wayle = {
             enable = true;
-
-            modules = {
-              workspaces = {
-                enable = true;
-
-                persistentWorkspaces = {
-                  "*" = [
-                    1
-                    2
-                    3
-                    4
-                    5
-                    6
-                    7
-                    8
-                  ];
-                };
-
-                formatIcons = {
-                  "1" = "";
-                  "2" = "󰈮";
-                  "3" = "";
-                  "4" = "󰈹";
-                  "5" = "󰭹";
-                  "6" = "󰎆";
-                  "7" = "";
-                  "8" = "󱤘";
-                };
-              };
-            };
+            settings = fromTOML (builtins.readFile ./wayle.toml);
           };
         };
 
@@ -104,7 +76,8 @@ in {
 
         desktop = {
           wayland = enabled;
-          hyprland = enabled;
+          # hyprland = enabled;
+          niri = enabled;
         };
 
         launchers = {
@@ -118,6 +91,45 @@ in {
           };
         };
       };
+    };
+  };
+
+  programs = {
+    wlogout = {
+      enable = true;
+
+      layout = [
+        {
+          label = "lock";
+          action = "hyprlock";
+          text = "Lock";
+          keybind = "l";
+        }
+        {
+          label = "logout";
+          action = "loginctl terminate-user $USER";
+          text = "Logout";
+          keybind = "e";
+        }
+        {
+          label = "shutdown";
+          action = "systemctl poweroff";
+          text = "Shutdown";
+          keybind = "s";
+        }
+        {
+          label = "suspend";
+          action = "systemctl suspend";
+          text = "Suspend";
+          keybind = "u";
+        }
+        {
+          label = "reboot";
+          action = "systemctl reboot";
+          text = "Reboot";
+          keybind = "r";
+        }
+      ];
     };
   };
 
@@ -165,7 +177,10 @@ in {
   xdg = {
     portal = {
       enable = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+      ];
       config.common.default = "*";
     };
 
@@ -185,6 +200,13 @@ in {
         "application/x-extension-xhtml" = "firefox.desktop";
         "application/x-extension-xht" = "firefox.desktop";
       };
+    };
+
+    # niri host-specific config (outputs, workspace pinning, autostart).
+    # The generic config.kdl in the shared user config pulls this in via
+    # `include "host.kdl"`. Gated so it only deploys when niri is enabled here.
+    configFile = lib.optionalAttrs config.godtamnix.programs.graphical.desktop.niri.enable {
+      "niri/host.kdl".source = ./niri-host.kdl;
     };
   };
 
