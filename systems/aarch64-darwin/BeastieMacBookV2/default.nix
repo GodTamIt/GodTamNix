@@ -29,17 +29,16 @@ in {
 
     # Hotkey daemon for app launchers — paneru's action set is window-
     # management only (no spawn/exec), so it pairs with skhd the way niri
-    # bundles `spawn` in its binds. Launch kitty via `open -na` (kitty is a
-    # home-manager app registered with LaunchServices by mac-app-util) so
-    # the binding survives nix store-path churn; `-n` opens a fresh window
-    # every press. Firefox (Mod+B parity → Ctrl+B) uses plain `open -a`
-    # (activate, or launch if not running) — no `-n`, so repeat presses
-    # focus rather than spawning duplicates.
+    # bundles `spawn` in its binds. App launchers live on the `fn` modifier:
+    # it's the one modifier neither readline, tmux, nor macOS contends for
+    # (skhd and paneru both support it), so it never shadows an in-terminal
+    # chord the way ctrl+letter does (C-b = tmux prefix, C-t = firefox was
+    # colliding with paneru's window_balance, etc.).
     services.skhd = {
       enable = true;
       bindings = {
-        "ctrl - t" = "open -na kitty";
-        "ctrl - b" = "open -a firefox";
+        "fn - t" = "open -na kitty";
+        "fn - b" = "open -a firefox";
       };
     };
 
@@ -132,8 +131,9 @@ in {
       #
       # Not ported (no paneru equivalent / macOS-native instead):
       #   - Mod+Q close-window      (macOS cmd+W closes windows natively)
-      #   - Mod+Return/T/B/O/Y/D/P app launchers (Mod+T kitty + Mod+B firefox
-      #     now via skhd above; the rest via macOS Spotlight / Raycast)
+      #   - Mod+Return/T/B/O/Y/D/P app launchers (Mod+T/Mod+B firefox+kitty
+      #     now via skhd `fn` keys below; the rest via macOS Spotlight /
+      #     Raycast)
       #   - Mod+L hyprlock          (macOS lock screen)
       #   - hjkl focus              (Ctrl+H/J/K/L conflict with terminal
       #     readline shortcuts — backspace, kill-line, clear-screen. niri's
