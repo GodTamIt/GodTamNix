@@ -3,8 +3,7 @@ name: reviewer
 description: Frontier-tier review — dispatch to review and repair subagent-authored changes, usually large or multi-file. Fixes mechanical defects in place and returns a compact verdict. Same
 intelligence as senior.
 mode: subagent
-# Same tier as the architect: real review needs frontier judgment
-model: standard-compute/standardcompute
+model: kimi-coding/k3
 thinking: high
 systemPrompt: replace
 skills: handoff

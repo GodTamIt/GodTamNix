@@ -2,7 +2,7 @@
 name: architect
 description: Primary orchestrator owning architecture, design, hard refactoring, delegation and review.
 mode: primary
-model: standard-compute/standardcompute
+model: kimi-coding/k3
 thinking: xhigh
 systemPrompt: append
 maxDepth: 2

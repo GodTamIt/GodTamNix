@@ -2,7 +2,7 @@
 name: planner
 description: Primary orchestrator for planning — owns research, scoping, and design decisions; emits a living markdown plan in `.plans/`; delegates discovery, never implements.
 mode: primary
-model: standard-compute/standardcompute
+model: kimi-coding/k3
 thinking: xhigh
 systemPrompt: append
 maxDepth: 2
