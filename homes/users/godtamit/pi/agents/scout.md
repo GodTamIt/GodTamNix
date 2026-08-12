@@ -2,7 +2,7 @@
 name: scout
 description: Read-only code discovery — find symbols, callers, definitions, paths, dependency traces, git history; use before editing to pinpoint exact paths and line ranges; never writes or runs code
 mode: subagent
-model: standard-compute/standardcompute
+model: minimax/minimax-m3
 thinking: high
 systemPrompt: replace
 skills: handoff

@@ -2,7 +2,7 @@
 name: researcher
 description: External knowledge retrieval — web search, API/library docs, package versions, changelogs, breaking changes, registry lookups; fetches and digests large docs; use for anything outside the repo, not local code
 mode: subagent
-model: standard-compute/standardcompute
+model: minimax/minimax-m3
 thinking: low
 systemPrompt: replace-all
 skills: handoff

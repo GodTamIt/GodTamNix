@@ -2,7 +2,7 @@
 name: junior
 description: Mechanical pattern-following coding — boilerplate, scaffolding, CRUD, renames, docstrings, config, test stubs; use for clearly-scoped edits with acceptance criteria. Not for architecture, data models, or security
 mode: subagent
-model: standard-compute/standardcompute
+model: minimax/minimax-m3
 thinking: medium
 systemPrompt: replace
 skills: handoff
