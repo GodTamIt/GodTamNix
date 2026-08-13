@@ -2,8 +2,8 @@
 name: senior
 description: Frontier-tier implementation — dispatch for difficult, fully-specified code the architect does not need to see the edits for, where only the outcome matters; returns a compact verdict
 mode: subagent
-model: kimi-coding/k3
-thinking: high
+model: openai-codex/gpt-5.6-sol
+thinking: medium
 systemPrompt: replace
 skills: handoff
 permission:

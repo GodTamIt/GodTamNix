@@ -2,8 +2,8 @@
 name: scout
 description: Read-only code discovery — find symbols, callers, definitions, paths, dependency traces, git history; use before editing to pinpoint exact paths and line ranges; never writes or runs code
 mode: subagent
-model: minimax/minimax-m3
-thinking: high
+model: openai-codex/gpt-5.6-luna
+thinking: medium
 systemPrompt: replace
 skills: handoff
 permission:

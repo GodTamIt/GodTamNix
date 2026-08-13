@@ -2,8 +2,8 @@
 name: researcher
 description: External knowledge retrieval — web search, API/library docs, package versions, changelogs, breaking changes, registry lookups; fetches and digests large docs; use for anything outside the repo, not local code
 mode: subagent
-model: minimax/minimax-m3
-thinking: low
+model: openai-codex/gpt-5.6-terra
+thinking: medium
 systemPrompt: replace-all
 skills: handoff
 permission:

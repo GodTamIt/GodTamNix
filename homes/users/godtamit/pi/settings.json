@@ -10,9 +10,10 @@
     "npm:pi-web-access-lean"
   ],
   "enabledModels": [
-    "standard-compute/standardcompute",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-5.6-luna",
     "kimi-coding/k3",
-    "cheapest-inference/glm-5.2",
     "minimax/MiniMax-M3"
   ]
 }

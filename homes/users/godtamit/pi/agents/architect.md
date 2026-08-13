@@ -2,8 +2,8 @@
 name: architect
 description: Primary orchestrator owning architecture, design, hard refactoring, delegation and review.
 mode: primary
-model: kimi-coding/k3
-thinking: xhigh
+model: openai-codex/gpt-5.6-sol
+thinking: high
 systemPrompt: append
 maxDepth: 2
 allowedAgents: [scout, researcher, runner, senior, reviewer, junior]

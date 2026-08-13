@@ -2,8 +2,8 @@
 name: planner
 description: Primary orchestrator for planning — owns research, scoping, and design decisions; emits a living markdown plan in `.plans/`; delegates discovery, never implements.
 mode: primary
-model: kimi-coding/k3
-thinking: xhigh
+model: openai-codex/gpt-5.6-sol
+thinking: high
 systemPrompt: append
 maxDepth: 2
 allowedAgents: [scout, researcher]
