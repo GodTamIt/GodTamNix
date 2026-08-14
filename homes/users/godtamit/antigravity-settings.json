@@ -18,6 +18,7 @@
   "nix.formatterPath": "alejandra",
 
   "rust-analyzer.cargo.features": "all",
+  "rust-analyzer.server.path": "rust-analyzer",
 
   "shellformat.useEditorConfig": true,
 
