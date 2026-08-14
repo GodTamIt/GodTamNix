@@ -21,7 +21,6 @@ in {
         comic-neue
         material-icons
         material-design-icons
-        mona-sans
         noto-fonts
         source-sans
         source-serif

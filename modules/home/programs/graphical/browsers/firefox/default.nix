@@ -126,7 +126,7 @@ in {
           "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
 
-          "widget.wayland.fractional-scale.enabled" = lock-false;
+          "widget.wayland.fractional-scale.enabled" = lock-true;
         };
       };
     };
