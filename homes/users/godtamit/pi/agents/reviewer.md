@@ -1,7 +1,6 @@
 ---
 name: reviewer
-description: Frontier-tier review — dispatch to review and repair changes. Fixes mechanical defects in place and returns a compact verdict. Same
-intelligence as senior.
+description: Reviews and repairs changes. Fixes mechanical defects in place and returns a compact verdict.
 mode: subagent
 model: openai-codex/gpt-5.6-terra
 thinking: high

@@ -3,7 +3,7 @@ name: runner
 description: Runs and triages tests, lint, typecheck, build; classifies failures. Use for slow or large suites or gating fixes.
 mode: subagent
 model: openai-codex/gpt-5.6-luna
-thinking: low
+thinking: medium
 systemPrompt: replace
 skills: handoff
 permission:
