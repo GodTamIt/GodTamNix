@@ -45,6 +45,7 @@ in {
     lib.optionalAttrs (options ? stylix) {
       home = mkIf (pkgs.stdenv.hostPlatform.isLinux && !config.godtamnix.theme.catppuccin.enable) {
         pointerCursor = {
+          enable = true;
           inherit (cfg.cursor) name package size;
         };
       };

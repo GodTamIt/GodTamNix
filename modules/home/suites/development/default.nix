@@ -116,7 +116,6 @@ in {
           ]
         )
         ++ lib.optionals cfg.kubernetesEnable [
-          atmos
           kubectl
           kubectx
           kubernetes-helmPlugins.helm-diff

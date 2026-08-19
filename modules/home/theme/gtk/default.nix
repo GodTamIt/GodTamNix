@@ -58,6 +58,7 @@ in {
       ];
 
       pointerCursor = mkDefault {
+        enable = true;
         name = mkDefault cfg.cursor.name;
         package = mkDefault cfg.cursor.package;
         size = mkDefault cfg.cursor.size;

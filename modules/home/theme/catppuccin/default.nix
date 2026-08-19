@@ -172,6 +172,7 @@ in {
           ];
 
           pointerCursor = mkIf pkgs.stdenv.hostPlatform.isLinux {
+            enable = true;
             inherit (config.godtamnix.theme.gtk.cursor) name package size;
           };
 

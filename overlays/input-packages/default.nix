@@ -1,4 +1,4 @@
-{inputs}: final: _prev: let
+{inputs}: final: prev: let
   # citrix = import inputs.nixpkgs-citrix-workspace {
   #   inherit (final.stdenv.hostPlatform) system;
   #   inherit (final) config;
@@ -13,6 +13,17 @@
     inherit (final) config;
   };
 in {
+  # Backward-compatibility for deprecated stdenv attributes referenced by external modules
+  stdenv =
+    prev.stdenv
+    // {
+      isLinux = prev.stdenv.isLinux or prev.stdenv.hostPlatform.isLinux;
+      isDarwin = prev.stdenv.isDarwin or prev.stdenv.hostPlatform.isDarwin;
+      isx86_64 = prev.stdenv.isx86_64 or prev.stdenv.hostPlatform.isx86_64;
+      isAarch64 = prev.stdenv.isAarch64 or prev.stdenv.hostPlatform.isAarch64;
+      is64bit = prev.stdenv.is64bit or prev.stdenv.hostPlatform.is64bit;
+    };
+
   #          ╭──────────────────────────────────────────────────────────╮
   #          │                 Firefox Addon repository                 │
   #          ╰──────────────────────────────────────────────────────────╯
