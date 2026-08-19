@@ -1,10 +1,8 @@
 ---
 name: reviewer
-description: Frontier-tier review — dispatch to review and repair subagent-authored changes, usually large or multi-file. Fixes mechanical defects in place and returns a compact verdict. Same
-intelligence as senior.
+description: Reviews and repairs changes. Fixes mechanical defects in place and returns a compact verdict.
 mode: subagent
-# Same tier as the architect: real review needs frontier judgment
-model: kimi-coding/k3
+model: openai-codex/gpt-5.6-terra
 thinking: high
 systemPrompt: replace
 skills: handoff
