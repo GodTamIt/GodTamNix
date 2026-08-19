@@ -1,9 +1,9 @@
 {
   "packages": [
-    "npm:@benvargas/pi-synthetic-provider",
     "npm:@mrclrchtr/supi-ask-user",
     "npm:@xaccefy/pi-xtodo",
     "npm:@zaganjade/pi-usage",
+    "npm:pi-agent-browser-native",
     "npm:pi-mcp-adapter",
     "npm:pi-open-agents",
     "npm:pi-tps",
