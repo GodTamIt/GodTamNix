@@ -12,6 +12,20 @@ in {
       fullName = "Lance Hasson";
     };
 
+    programs = {
+      terminal.ai = {
+        pi = {
+          enable = true;
+          settings = builtins.fromJSON (builtins.readFile ./pi/settings.json);
+          mcp = builtins.fromJSON (builtins.readFile ./pi/mcp.json);
+          keybindings = builtins.fromJSON (builtins.readFile ./pi/keybindings.json);
+          models = builtins.fromJSON (builtins.readFile ./pi/models.json);
+          agentsDir = ./pi/agents;
+          skillsDir = ./pi/skills;
+        };
+      };
+    };
+
     nix = enabled;
   };
 
