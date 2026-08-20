@@ -40,6 +40,11 @@
     };
   };
 
+  home.file = {
+    ".pi/agent/subagents.json".source = ./pi/subagents.json;
+    ".pi/agent/roles".source = ./pi/roles;
+  };
+
   home.packages = with pkgs; [
     fastfetch
     postman

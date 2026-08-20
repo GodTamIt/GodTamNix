@@ -29,6 +29,11 @@ in {
     nix = enabled;
   };
 
+  home.file = {
+    ".pi/agent/subagents.json".source = ./pi/subagents.json;
+    ".pi/agent/roles".source = ./pi/roles;
+  };
+
   programs = {
     fish = {
       enable = true;
