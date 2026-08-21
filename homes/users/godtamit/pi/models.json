@@ -7,20 +7,38 @@
         "gpt-5.6-luna": { "contextWindow": 1050000 }
       }
     },
-    "standard-compute": {
-      "name": "Standard Compute",
-      "baseUrl": "https://api.stdcmpt.com/v1",
+    "zro": {
+      "name": "Zro",
+      "baseUrl": "https://zro.moonmath.ai/v1",
       "api": "openai-completions",
-      "apiKey": "$STANDARD_COMPUTE_API_KEY",
+      "apiKey": "$ZRO_API_KEY",
       "models": [
         {
-          "id": "standardcompute",
-          "name": "Standard Compute",
+          "id": "glm-5.2",
+          "name": "GLM 5.2",
           "reasoning": true,
-          "input": ["text", "image"],
+          "input": ["text"],
+          "contextWindow": 524288,
+          "maxTokens": 64000,
+          "cost": { "input": 1.10, "output": 4.00, "cacheRead": 0.20, "cacheWrite": 0 }
+        },
+        {
+          "id": "deepseek-v4-flash-0731",
+          "name": "DeepSeek V4 Flash 0731",
+          "reasoning": true,
+          "input": ["text"],
           "contextWindow": 1048576,
-          "maxTokens": 32768,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          "maxTokens": 64000,
+          "cost": { "input": 0.14, "output": 0.28, "cacheRead": 0.0028, "cacheWrite": 0 }
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 1048576,
+          "maxTokens": 64000,
+          "cost": { "input": 2.50, "output": 12.00, "cacheRead": 0.45, "cacheWrite": 0 }
         }
       ]
     },
