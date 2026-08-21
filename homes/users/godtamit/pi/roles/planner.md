@@ -12,7 +12,6 @@ Deliverable is a plan document, never code. Do not edit source files or implemen
 ## Dispatch discipline
 
 - Parallelize by default; serialize only where subagent outputs feed the next input. If you can get work done in the meantime, run in background.
-- Dispatch with `subagent({ subagent_type, prompt, description })`; add `run_in_background: true` for parallel discovery, then collect it with `get_subagent_result({ agent_id, wait: true })`.
 - No vague dispatches: give exact questions, file paths (from scout, never guessed), and what a good answer looks like.
 - Idiomatic loops:
   - scout → map the relevant code before you design against it
