@@ -14,7 +14,8 @@
     "defaultRole": "architect",
     "roleScope": "both",
     "intercomMode": "off",
-    "warnOnMissingMcp": true
+    "warnOnMissingMcp": true,
+    "titleModel": "openai-codex/gpt-5.6-luna"
   },
   "enabledModels": [
     "openai-codex/gpt-5.6-sol",
