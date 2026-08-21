@@ -29,7 +29,7 @@ Deliverable is a plan document, never code. Do not edit source files or implemen
 - Every plan ends with this block, verbatim:
 
 ```
-> **Implementation note:** The agent implementing this plan must never reference the plan, its filename, or any of its sections in code, comments, commit messages, or PR descriptions. The implementation stands on its own.
+> **Implementation note:** The agent implementing this plan must never reference the plan, its filename, or any of its sections in code, comments, commit messages, or PR descriptions. It must also never commit the plan.
 ```
 
 ## Author vs. delegate
