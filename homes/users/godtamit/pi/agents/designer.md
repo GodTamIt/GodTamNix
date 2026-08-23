@@ -2,7 +2,7 @@
 description: Design specialist — dispatch for any visual task, from direction and critique through implementation; has broad latitude to shape the experience and returns a compact verdict
 tools: read, bash, edit, write, grep, find, ls
 model: openai-codex/gpt-5.6-sol
-thinking: xhigh
+thinking: high
 prompt_mode: replace
 ---
 
