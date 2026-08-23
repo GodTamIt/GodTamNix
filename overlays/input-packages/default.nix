@@ -64,6 +64,7 @@ in {
   #          ╰──────────────────────────────────────────────────────────╯
   inherit
     (inputs.llm-agents.packages.${final.stdenv.hostPlatform.system})
+    agent-browser
     claude-code
     gemini-cli
     oh-my-opencode

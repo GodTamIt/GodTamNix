@@ -49,10 +49,9 @@ in {
       stylix = enabled;
     };
 
-    # Drive agent-browser with the Brave installed above. `headed` defaults to
-    # true so automation is visible on this desktop; the browser binary is the
-    # nixpkgs Brave wrapper (already carries --ozone-platform=wayland).
-    programs.terminal.ai.opencode.agentBrowser.enable = true;
+    # The llm-agents package drives its wrapped Nix Chromium. Keep `headed`
+    # enabled so automation is visible on this desktop.
+    programs.terminal.ai.agent-browser.enable = true;
 
     programs = {
       graphical = {

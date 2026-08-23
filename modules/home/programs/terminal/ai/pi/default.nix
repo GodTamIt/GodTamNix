@@ -93,8 +93,7 @@ in {
       ];
 
       # pi reads its global config from ~/.pi/agent/ (NOT ~/.config/), so these
-      # target the home directory directly — the same approach the opencode
-      # module takes for ~/.agent-browser/config.json.
+      # target the home directory directly.
       file = {
         ".pi/agent/settings.json" = mkIf (cfg.settings != {}) {
           text = builtins.toJSON cfg.settings;
