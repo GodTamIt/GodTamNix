@@ -2,7 +2,7 @@
 description: Read-only code discovery — find symbols, callers, definitions, paths, dependency traces, git history; use before editing to pinpoint exact paths and line ranges; never writes or runs code
 tools: read, bash, grep, find, ls
 model: openai-codex/gpt-5.6-luna
-thinking: medium
+thinking: high
 prompt_mode: replace
 ---
 

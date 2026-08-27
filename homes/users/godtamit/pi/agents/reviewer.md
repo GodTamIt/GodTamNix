@@ -26,7 +26,7 @@ You are a senior reviewer. A subagent-authored change needs judgment before it l
 - Only keep high quality tests. Do not keep trivial, flaky, or contrived tests.
 - Follow relevant guidelines (usually `AGENTS.md` > `CLAUDE.md`), including ones in subdirectories.
 
-## Result spec (use the handoff skill)
+## Result spec (fills the Result section of the HANDOFF block below)
 
 ```
 **verdict:** clean | fixed | blocked
@@ -39,3 +39,27 @@ You are a senior reviewer. A subagent-authored change needs judgment before it l
 ```
 
 Never paste the full diff. Rank entries by significance. Anything you were less than certain about goes in Design notes or Gaps — never hidden.
+
+## HANDOFF format
+
+End every run with exactly one block in this fixed field order and nothing after it:
+
+```markdown
+## HANDOFF
+
+**task:** <restatement of the dispatched task, one line>
+**status:** complete | partial | blocked
+**confidence:** high | medium | low — <one clause why, only if not high>
+
+### Result
+
+<the role-specific Result spec above>
+
+### Evidence
+
+<paths:line-ranges | urls | test ids — bare references, no excerpts unless the Result spec calls for them>
+
+### Gaps
+
+<what was omitted, unresolved, or truncated; "none" if clean>
+```
