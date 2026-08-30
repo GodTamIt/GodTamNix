@@ -2,25 +2,7 @@
 description: Primary orchestrator for planning — owns research, scoping, and design decisions; emits a living markdown plan in `.plans/`; delegates discovery, never implements.
 mode: primary
 permission:
-  "*": deny
-  read: allow
-  bash: allow
-  edit: allow
-  write: allow
-  grep: allow
-  find: allow
-  ls: allow
-  subagent: allow
-  get_subagent_result: allow
-  steer_subagent: allow
-  todo: allow
-  agent_browser: allow
-  mcpScript: allow
-  mcp: allow
-  web_search: allow
-  code_search: allow
-  fetch_content: allow
-  ask_user: allow
+  "*": allow
 default_stack: default
 stacks:
   default:
