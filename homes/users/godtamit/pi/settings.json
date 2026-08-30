@@ -1,6 +1,6 @@
 {
   "packages": [
-    "npm:pi-agent-roster@0.1.0-alpha.7",
+    "npm:pi-agent-roster@0.1.0",
     "npm:@mrclrchtr/supi-ask-user",
     "npm:@xaccefy/pi-xtodo",
     "npm:@zaganjade/pi-usage",
