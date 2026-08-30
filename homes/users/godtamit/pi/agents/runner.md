@@ -1,8 +1,25 @@
 ---
 description: Runs and triages tests, lint, typecheck, build; classifies failures. Use for slow or large suites or gating fixes.
-tools: read, bash, grep, find, ls
-model: openai-codex/gpt-5.6-luna
-thinking: medium
+permission:
+  "*": deny
+  read: allow
+  bash: allow
+  grep: allow
+  find: allow
+  ls: allow
+default_stack: default
+stacks:
+  default:
+    model: openai-codex/gpt-5.6-luna
+    thinking: medium
+  openai:
+    model: openai-codex/gpt-5.6-luna
+    thinking: medium
+  open:
+    model: zro/glm-5.3-flash
+  kourier:
+    model: kourier/DSV4-Flash-0731
+    thinking: high
 prompt_mode: replace
 ---
 

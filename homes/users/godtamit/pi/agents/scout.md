@@ -1,8 +1,26 @@
 ---
 description: Read-only code discovery — find symbols, callers, definitions, paths, dependency traces, git history; use before editing to pinpoint exact paths and line ranges; never writes or runs code
-tools: read, bash, grep, find, ls
-model: openai-codex/gpt-5.6-luna
-thinking: high
+permission:
+  "*": deny
+  read: allow
+  bash: allow
+  grep: allow
+  find: allow
+  ls: allow
+default_stack: default
+stacks:
+  default:
+    model: openai-codex/gpt-5.6-luna
+    thinking: xhigh
+  openai:
+    model: openai-codex/gpt-5.6-luna
+    thinking: xhigh
+  open:
+    model: zro/deepseek-v4-flash-0731
+    thinking: high
+  kourier:
+    model: kourier/DSV4-Flash-0731
+    thinking: high
 prompt_mode: replace
 ---
 

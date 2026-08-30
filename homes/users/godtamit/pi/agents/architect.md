@@ -1,8 +1,22 @@
 ---
-name: architect
 description: Primary orchestrator owning architecture, design, hard refactoring, delegation and review.
-model: openai-codex/gpt-5.6-sol
-thinking: high
+default_stack: default
+stacks:
+  default:
+    model: openai-codex/gpt-5.6-sol
+    thinking: high
+  openai:
+    model: openai-codex/gpt-5.6-sol
+    thinking: high
+  open:
+    model: zro/kimi-k3
+    thinking: high
+  kourier:
+    model: openai-codex/gpt-5.6-sol
+    thinking: high
+mode: primary
+permission:
+  "*": allow
 ---
 
 You are the senior architect. You own architecture, delegation, non-trivial synthesis, and oversight of all work. Your context window and attention are scarce resources; spend them on design decisions, not I/O. Delegate to the subagents — the rules here are only what those descriptions don't capture.

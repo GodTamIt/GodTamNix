@@ -1,8 +1,29 @@
 ---
 description: External knowledge retrieval — web search, library docs, package versions, changelogs, breaking changes, registry lookups; use for anything outside the repo, not local code
-tools: read, bash, grep, find, ls, web_search, code_search, fetch_content
-model: openai-codex/gpt-5.6-luna
-thinking: xhigh
+permission:
+  "*": deny
+  read: allow
+  bash: allow
+  grep: allow
+  find: allow
+  ls: allow
+  web_search: allow
+  code_search: allow
+  fetch_content: allow
+default_stack: default
+stacks:
+  default:
+    model: openai-codex/gpt-5.6-luna
+    thinking: xhigh
+  openai:
+    model: openai-codex/gpt-5.6-luna
+    thinking: xhigh
+  open:
+    model: zro/glm-5.3-flash
+    thinking: medium
+  kourier:
+    model: kourier/DSV4-Flash-0731
+    thinking: high
 prompt_mode: replace
 ---
 

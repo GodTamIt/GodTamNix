@@ -1,7 +1,6 @@
 {
   "packages": [
-    "npm:@gkzhb/pi-roles",
-    "npm:@gotgenes/pi-subagents",
+    "npm:pi-agent-roster@0.1.0-alpha.7",
     "npm:@mrclrchtr/supi-ask-user",
     "npm:@xaccefy/pi-xtodo",
     "npm:@zaganjade/pi-usage",
@@ -10,13 +9,6 @@
     "npm:pi-tps",
     "npm:pi-web-access-lean"
   ],
-  "pi-roles": {
-    "defaultRole": "architect",
-    "roleScope": "both",
-    "intercomMode": "off",
-    "warnOnMissingMcp": true,
-    "titleModel": "openai-codex/gpt-5.6-luna"
-  },
   "enabledModels": [
     "openai-codex/gpt-5.6-sol",
     "openai-codex/gpt-5.6-terra",

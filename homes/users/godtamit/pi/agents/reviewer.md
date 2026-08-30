@@ -1,8 +1,28 @@
 ---
 description: Reviews and repairs changes. Fixes mechanical defects in place and returns a compact verdict.
-tools: read, bash, edit, write, grep, find, ls
-model: openai-codex/gpt-5.6-terra
-thinking: high
+permission:
+  "*": deny
+  read: allow
+  bash: allow
+  edit: allow
+  write: allow
+  grep: allow
+  find: allow
+  ls: allow
+default_stack: default
+stacks:
+  default:
+    model: openai-codex/gpt-5.6-terra
+    thinking: high
+  openai:
+    model: openai-codex/gpt-5.6-terra
+    thinking: high
+  open:
+    model: zro/kimi-k3
+    thinking: high
+  kourier:
+    model: kourier/DSV4-Flash-0731
+    thinking: high
 prompt_mode: replace
 ---
 

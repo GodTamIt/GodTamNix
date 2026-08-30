@@ -1,8 +1,30 @@
 ---
 description: Frontier-tier implementation — dispatch for difficult, fully-specified code the architect does not need to see the edits for, where only the outcome matters; returns a compact verdict
-tools: read, bash, edit, write, grep, find, ls
+permission:
+  "*": deny
+  read: allow
+  bash: allow
+  edit: allow
+  write: allow
+  grep: allow
+  find: allow
+  ls: allow
 model: openai-codex/gpt-5.6-sol
 thinking: medium
+default_stack: default
+stacks:
+  default:
+    model: openai-codex/gpt-5.6-sol
+    thinking: medium
+  openai:
+    model: openai-codex/gpt-5.6-sol
+    thinking: medium
+  open:
+    model: zro/kimi-k3
+    thinking: medium
+  kourier:
+    model: openai-codex/gpt-5.6-sol
+    thinking: medium
 prompt_mode: replace
 ---
 
