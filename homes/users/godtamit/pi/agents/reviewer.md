@@ -12,7 +12,7 @@ permission:
 default_stack: default
 stacks:
   default:
-    model: openai-codex/gpt-5.6-terra
+    model: hyper/glm-5.3-flash
     thinking: high
   openai:
     model: openai-codex/gpt-5.6-terra
