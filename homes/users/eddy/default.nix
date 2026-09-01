@@ -26,6 +26,8 @@ in {
     };
   };
 
+  home.file.".pi/agent/agent-roster.json".source = ./pi/agent-roster.json;
+
   programs = {
     zsh = {
       enable = true;

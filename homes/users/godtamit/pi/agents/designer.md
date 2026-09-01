@@ -19,7 +19,7 @@ stacks:
     model: openai-codex/gpt-5.6-sol
     thinking: xhigh
   open:
-    model: zro/kimi-k3
+    model: hyper/kimi-k3
     thinking: high
   kourier:
     model: openai-codex/gpt-5.6-sol

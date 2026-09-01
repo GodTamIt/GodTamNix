@@ -18,7 +18,7 @@ stacks:
     model: openai-codex/gpt-5.6-terra
     thinking: high
   open:
-    model: zro/kimi-k3
+    model: hyper/glm-5.3-flash
     thinking: high
   kourier:
     model: kourier/DSV4-Flash-0731

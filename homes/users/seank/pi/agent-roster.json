@@ -1,0 +1,7 @@
+{
+  "excludedExtensionPackages": [
+    "npm:@mrclrchtr/supi-ask-user",
+    "npm:@xaccefy/pi-xtodo"
+  ],
+  "maxConcurrent": 8
+}

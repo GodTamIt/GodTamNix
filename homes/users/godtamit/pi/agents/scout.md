@@ -16,7 +16,7 @@ stacks:
     model: openai-codex/gpt-5.6-luna
     thinking: xhigh
   open:
-    model: zro/deepseek-v4-flash-0731
+    model: hyper/glm-5.3-flash
     thinking: high
   kourier:
     model: kourier/DSV4-Flash-0731

@@ -1,6 +1,5 @@
 {
   "excludedExtensionPackages": [
-    "npm:@gkzhb/pi-roles",
     "npm:@mrclrchtr/supi-ask-user",
     "npm:@xaccefy/pi-xtodo"
   ],

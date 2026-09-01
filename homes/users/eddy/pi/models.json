@@ -1,84 +1,11 @@
 {
   "providers": {
-    "standard-compute": {
-      "name": "Standard Compute",
-      "baseUrl": "https://api.stdcmpt.com/v1",
-      "api": "openai-completions",
-      "apiKey": "$STANDARD_COMPUTE_API_KEY",
-      "models": [
-        {
-          "id": "standardcompute",
-          "name": "Standard Compute",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 1048576,
-          "maxTokens": 32768,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
-        }
-      ]
-    },
-    "cheapest-inference": {
-      "name": "Cheapest Inference",
-      "baseUrl": "https://api.cheapestinference.com/anthropic",
-      "api": "anthropic-messages",
-      "apiKey": "$CHEAPEST_INFERENCE_API_KEY",
-      "authHeader": true,
-      "models": [
-        {
-          "id": "kimi-k2.7",
-          "name": "Kimi K2.7",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
-        },
-        {
-          "id": "kimi-k2.6",
-          "name": "Kimi K2.6",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
-        },
-        {
-          "id": "glm-5.2",
-          "name": "GLM 5.2",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 202752,
-          "maxTokens": 32768,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
-        },
-        {
-          "id": "minimax-m3",
-          "name": "MiniMax M3",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 1048576,
-          "maxTokens": 32768,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
-        },
-        {
-          "id": "deepseek-v4-flash",
-          "name": "DeepSeek V4 Flash",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 1048576,
-          "maxTokens": 32768,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
-        },
-        {
-          "id": "mimo-v2.5",
-          "name": "MiMo v2.5",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 1048576,
-          "maxTokens": 32768,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
-        }
-      ]
+    "openai-codex": {
+      "modelOverrides": {
+        "gpt-5.6-sol": { "contextWindow": 1050000 },
+        "gpt-5.6-terra": { "contextWindow": 1050000 },
+        "gpt-5.6-luna": { "contextWindow": 1050000 }
+      }
     }
   }
 }

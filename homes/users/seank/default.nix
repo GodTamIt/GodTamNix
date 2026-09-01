@@ -40,10 +40,7 @@
     };
   };
 
-  home.file = {
-    ".pi/agent/subagents.json".source = ./pi/subagents.json;
-    ".pi/agent/roles".source = ./pi/roles;
-  };
+  home.file.".pi/agent/agent-roster.json".source = ./pi/agent-roster.json;
 
   home.packages = with pkgs; [
     fastfetch
