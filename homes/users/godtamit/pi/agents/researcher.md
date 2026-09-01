@@ -19,7 +19,7 @@ stacks:
     model: openai-codex/gpt-5.6-luna
     thinking: xhigh
   open:
-    model: hyper/glm-5.3-flash
+    model: zro/glm-5.3-flash
     thinking: medium
   kourier:
     model: kourier/DSV4-Flash-0731

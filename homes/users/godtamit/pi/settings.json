@@ -15,6 +15,7 @@
     "openai-codex/gpt-5.6-terra",
     "openai-codex/gpt-5.6-luna",
     "zro/kimi-k3",
+    "zro/glm-5.3-flash",
     "hyper/kimi-k3",
     "hyper/glm-5.3-flash",
     "hyper/qwen3.8-max",

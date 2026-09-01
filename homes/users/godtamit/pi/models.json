@@ -75,6 +75,9 @@
       "name": "Kourier.sh",
       "baseUrl": "https://api.kourier.sh/v1",
       "api": "openai-completions",
+      "compat": {
+        "supportsDeveloperRole": false
+      },
       "apiKey": "$KOURIER_API_KEY",
       "models": [
         {
