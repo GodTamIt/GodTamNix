@@ -1,13 +1,13 @@
 {
   "packages": [
-    "npm:pi-agent-roster@0.3.0",
+    "npm:pi-agent-roster",
     "npm:@mrclrchtr/supi-ask-user",
     "npm:@xaccefy/pi-xtodo",
     "npm:@zaganjade/pi-usage",
-    "npm:pi-agent-browser-native@0.5.0",
+    "npm:pi-agent-browser-native",
     "npm:pi-mcp-adapter",
     "npm:pi-tps",
-    "npm:pi-web-access-lean",
+    "npm:@tian.zuo/pi-web-search",
     "npm:@charmland/pi-hyper-provider"
   ],
   "enabledModels": [
