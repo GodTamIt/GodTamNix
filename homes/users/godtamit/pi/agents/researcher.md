@@ -8,8 +8,7 @@ permission:
   find: allow
   ls: allow
   web_search: allow
-  code_search: allow
-  fetch_content: allow
+  web_fetch: allow
 default_stack: default
 stacks:
   default:
