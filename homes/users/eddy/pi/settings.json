@@ -2,8 +2,8 @@
   "packages": [
     "npm:pi-agent-roster",
     "npm:@mrclrchtr/supi-ask-user",
+    "npm:@mtrojnar/pi-usage",
     "npm:@xaccefy/pi-xtodo",
-    "npm:@zaganjade/pi-usage",
     "npm:pi-agent-browser-native",
     "npm:pi-mcp-adapter",
     "npm:pi-tps",
