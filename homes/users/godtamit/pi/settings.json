@@ -2,9 +2,9 @@
   "packages": [
     "npm:pi-agent-roster",
     "npm:@mrclrchtr/supi-ask-user",
-    "npm:@mtrojnar/pi-usage",
+    "npm:@ohgodtamit/pi-usage",
     "npm:@xaccefy/pi-xtodo",
-    "npm:pi-agent-browser-native",
+    "npm:@ohgodtamit/pi-agent-browser",
     "npm:pi-mcp-adapter",
     "npm:pi-tps",
     "npm:@tian.zuo/pi-web-search",

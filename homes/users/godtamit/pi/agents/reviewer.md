@@ -15,7 +15,7 @@ stacks:
     model: zro/glm-5.3-flash
     thinking: high
   openai:
-    model: openai-codex/gpt-5.6-terra
+    model: openai-codex/gpt-5.6-sol
     thinking: high
   open:
     model: zro/glm-5.3-flash

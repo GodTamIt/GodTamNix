@@ -16,7 +16,7 @@ stacks:
     thinking: high
   openai:
     model: openai-codex/gpt-5.6-luna
-    thinking: high
+    thinking: max
   open:
     model: zro/glm-5.3-flash
     thinking: high
