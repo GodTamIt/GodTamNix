@@ -3,7 +3,7 @@ description: Primary orchestrator owning architecture, design, hard refactoring,
 default_stack: default
 stacks:
   default:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: high
   openai:
     model: openai-codex/gpt-5.6-sol

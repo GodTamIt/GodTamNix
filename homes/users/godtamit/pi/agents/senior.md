@@ -9,12 +9,12 @@ permission:
   grep: allow
   find: allow
   ls: allow
-model: openai-codex/gpt-5.6-sol
+model: openai-codex/gpt-6-astra
 thinking: high
 default_stack: default
 stacks:
   default:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: high
   openai:
     model: openai-codex/gpt-5.6-sol

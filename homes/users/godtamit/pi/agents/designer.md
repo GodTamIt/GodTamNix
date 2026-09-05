@@ -13,16 +13,16 @@ permission:
 default_stack: default
 stacks:
   default:
-    model: zro/kimi-k3
-    thinking: high
+    model: openai-codex/gpt-6-astra
+    thinking: xhigh
   openai:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: xhigh
   open:
     model: zro/kimi-k3
     thinking: high
   kourier:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: xhigh
 prompt_mode: replace
 ---
