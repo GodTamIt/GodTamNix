@@ -17,13 +17,13 @@ stacks:
     model: openai-codex/gpt-6-astra
     thinking: high
   openai:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: high
   open:
     model: hyper/glm-5.3
     thinking: high
   kourier:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: high
 prompt_mode: replace
 ---
