@@ -24,7 +24,6 @@ _: {
           "nixpkgs-master"
           "nixpkgs-unstable"
           "llm-agents"
-          "open-design"
         ];
       };
 
@@ -54,7 +53,6 @@ _: {
           "nh"
           "nix-flatpak"
           "nix-index-database"
-          "open-design"
           "rust-overlay"
           "stylix"
         ];
