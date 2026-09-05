@@ -2,16 +2,8 @@
 description: External knowledge retrieval — web search, library docs, package versions, changelogs, breaking changes, registry lookups; use for anything outside the repo, not local code
 permission:
   "*": deny
-  read: allow
-  bash: allow
-  grep: allow
-  find: allow
-  ls: allow
-  web_search: allow
-  web_fetch: allow
-default_stack: openai
 stacks:
-  openai:
+  default:
     model: openai-codex/gpt-5.6-luna
     thinking: xhigh
 prompt_mode: replace

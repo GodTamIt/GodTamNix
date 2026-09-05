@@ -2,16 +2,8 @@
 description: Default delegate for most settled, clearly scoped coding tasks — from mechanical edits (boilerplate, CRUD, renames, docstrings, plumbing), basic debugging, to substantial implementation. Not for architecture, data models, or security
 permission:
   "*": deny
-  read: allow
-  bash: allow
-  edit: allow
-  write: allow
-  grep: allow
-  find: allow
-  ls: allow
-default_stack: openai
 stacks:
-  openai:
+  default:
     model: openai-codex/gpt-5.6-luna
     thinking: max
 prompt_mode: append

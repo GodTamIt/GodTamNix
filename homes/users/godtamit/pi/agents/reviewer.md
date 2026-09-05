@@ -12,10 +12,10 @@ permission:
 default_stack: default
 stacks:
   default:
-    model: zro/glm-5.3-flash
+    model: openai-codex/gpt-6-astra
     thinking: high
   openai:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: high
   open:
     model: zro/glm-5.3-flash

@@ -2,14 +2,8 @@
 description: Runs and triages tests, lint, typecheck, build; classifies failures. Use for slow or large suites or gating fixes.
 permission:
   "*": deny
-  read: allow
-  bash: allow
-  grep: allow
-  find: allow
-  ls: allow
-default_stack: openai
 stacks:
-  openai:
+  default:
     model: openai-codex/gpt-5.6-luna
     thinking: medium
 prompt_mode: replace

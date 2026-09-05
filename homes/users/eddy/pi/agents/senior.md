@@ -2,18 +2,10 @@
 description: Specialist reserved for very difficult work requiring exceptional judgment — complex debugging and high-risk security/concurrency/data-integrity changes.
 permission:
   "*": deny
-  read: allow
-  bash: allow
-  edit: allow
-  write: allow
-  grep: allow
-  find: allow
-  ls: allow
 model: openai-codex/gpt-6-astra
 thinking: high
-default_stack: openai
 stacks:
-  openai:
+  default:
     model: openai-codex/gpt-6-astra
     thinking: high
 prompt_mode: replace

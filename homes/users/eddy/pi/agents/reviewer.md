@@ -2,17 +2,9 @@
 description: Reviews and repairs changes. Fixes mechanical defects in place and returns a compact verdict.
 permission:
   "*": deny
-  read: allow
-  bash: allow
-  edit: allow
-  write: allow
-  grep: allow
-  find: allow
-  ls: allow
-default_stack: openai
 stacks:
-  openai:
-    model: openai-codex/gpt-5.6-sol
+  default:
+    model: openai-codex/gpt-6-astra
     thinking: high
 prompt_mode: replace
 ---

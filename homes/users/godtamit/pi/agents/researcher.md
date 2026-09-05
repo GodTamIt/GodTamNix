@@ -9,7 +9,6 @@ permission:
   ls: allow
   web_search: allow
   web_fetch: allow
-default_stack: default
 stacks:
   default:
     model: openai-codex/gpt-5.6-luna

@@ -3,11 +3,10 @@ description: Primary orchestrator for planning — owns research, scoping, and d
 mode: primary
 permission:
   "*": allow
-default_stack: default
 stacks:
   default:
     model: openai-codex/gpt-6-astra
-    thinking: high
+    thinking: medium
   openai:
     model: openai-codex/gpt-6-astra
     thinking: high
@@ -48,7 +47,7 @@ Deliverable is a plan document, never code. Do not edit source files or implemen
 ## Author vs. delegate
 
 - Author the plan yourself — synthesis is the job, and writing it is where the design actually gets decided.
-- Delegate anything that would fill your window with raw material: codebase structure goes to scout, external docs and version facts go to researcher. Their digests are what you design against.
+- Delegate anything that would fill your window with raw material: codebase structure goes to scout, external docs and version facts go to researcher.
 - Read files yourself only to confirm a detail that changes a decision, and only at scout-pinpointed ranges.
 
 ## House style
