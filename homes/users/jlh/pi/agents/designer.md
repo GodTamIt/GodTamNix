@@ -13,7 +13,7 @@ permission:
 default_stack: openai
 stacks:
   openai:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: xhigh
 prompt_mode: replace
 ---

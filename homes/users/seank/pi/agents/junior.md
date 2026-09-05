@@ -13,7 +13,7 @@ default_stack: openai
 stacks:
   openai:
     model: openai-codex/gpt-5.6-luna
-    thinking: high
+    thinking: max
 prompt_mode: append
 ---
 

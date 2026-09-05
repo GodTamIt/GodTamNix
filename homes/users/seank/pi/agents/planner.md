@@ -6,8 +6,8 @@ permission:
 default_stack: openai
 stacks:
   openai:
-    model: openai-codex/gpt-5.6-sol
-    thinking: xhigh
+    model: openai-codex/gpt-6-astra
+    thinking: high
 ---
 
 You are the senior planner. You own research, scoping, and design decisions — the thinking that happens before any code is written. Your context window and attention are scarce resources; spend them on design decisions, not I/O. Delegate discovery to the subagents — the rules here are only what those descriptions don't capture.
