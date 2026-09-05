@@ -3,9 +3,10 @@
 import os
 import shutil
 import subprocess
+import sys
 import threading
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 from rich.console import Console
 from rich.live import Live
@@ -45,13 +46,16 @@ BRANCH_PREFIX = "updates"
 BASE_DIR = Path(os.getcwd())
 
 # Shared state for tracking task progress
-task_state: Dict[str, Dict[str, Any]] = {}
+task_state: dict[str, dict[str, Any]] = {}
 state_lock = threading.Lock()
 console = Console()
 
 
 def update_task_state(
-    task_name: str, status: str = None, output: str = None, error: bool = False
+    task_name: str,
+    status: str | None = None,
+    output: str | None = None,
+    error: bool = False,
 ):
     """Thread-safe update of task state."""
     with state_lock:
@@ -90,7 +94,7 @@ def generate_table() -> Table:
     }
 
     with state_lock:
-        for task_name in TASKS.keys():
+        for task_name in TASKS:
             state = task_state.get(
                 task_name, {"status": "PENDING", "output_lines": [], "error": False}
             )
@@ -118,30 +122,27 @@ def generate_table() -> Table:
 
 def run_command(command, cwd=BASE_DIR, capture_output=False):
     """Runs a shell command, optionally capturing output."""
-    try:
-        env = os.environ.copy()
-        if capture_output:
-            result = subprocess.run(
-                command,
-                shell=True,
-                cwd=cwd,
-                env=env,
-                capture_output=True,
-                text=True,
-            )
-            return result
-        else:
-            subprocess.run(
-                command,
-                shell=True,
-                cwd=cwd,
-                env=env,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-            )
-            return None
-    except subprocess.CalledProcessError:
-        raise
+    env = os.environ.copy()
+    if capture_output:
+        return subprocess.run(
+            command,
+            shell=True,
+            cwd=cwd,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    subprocess.run(
+        command,
+        shell=True,
+        cwd=cwd,
+        env=env,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    return None
 
 
 def setup_full_worktree(worktree_name: str):
@@ -222,7 +223,7 @@ def run_update_in_worktree(task_name: str, task_details: dict, task_events: dict
 
         update_task_state(task_name, status="COMPLETE", output="Update complete!")
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 -- top-level guard so one failed task doesn't kill the others
         update_task_state(task_name, status="ERROR", output=str(e), error=True)
     finally:
         # Signal completion so dependent tasks can proceed
@@ -235,7 +236,7 @@ def main():
         console.print(
             "[bold red]Error:[/bold red] GITHUB_TOKEN environment variable is not set."
         )
-        exit(1)
+        sys.exit(1)
 
     # Get original branch
     result = subprocess.run(
@@ -243,21 +244,22 @@ def main():
         shell=True,
         capture_output=True,
         text=True,
+        check=False,
     )
     original_branch = result.stdout.strip()
 
     # Initialize task state
-    for task_name in TASKS.keys():
+    for task_name in TASKS:
         update_task_state(task_name, status="PENDING")
 
     try:
         # Setup unique worktrees (tasks can share worktrees)
-        unique_worktrees = set(task["worktree"] for task in TASKS.values())
+        unique_worktrees = {task["worktree"] for task in TASKS.values()}
         for worktree_name in unique_worktrees:
             setup_full_worktree(worktree_name)
 
         # Create events for task synchronization
-        task_events = {task_name: threading.Event() for task_name in TASKS.keys()}
+        task_events = {task_name: threading.Event() for task_name in TASKS}
 
         # Start all update tasks in threads
         threads = []
