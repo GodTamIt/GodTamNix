@@ -11,14 +11,14 @@ permission:
   web_fetch: allow
 stacks:
   default:
-    model: openai-codex/gpt-5.6-luna
-    thinking: xhigh
+    model: zro/glm-5.3-flash
+    thinking: high
   openai:
     model: openai-codex/gpt-5.6-luna
     thinking: xhigh
   open:
     model: zro/glm-5.3-flash
-    thinking: medium
+    thinking: high
   kourier:
     model: kourier/DSV4-Flash-0731
     thinking: high

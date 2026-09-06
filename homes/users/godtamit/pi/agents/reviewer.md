@@ -12,13 +12,13 @@ permission:
 default_stack: default
 stacks:
   default:
-    model: openai-codex/gpt-6-astra
-    thinking: medium
+    model: zro/glm-5.3
+    thinking: max
   openai:
     model: openai-codex/gpt-6-astra
     thinking: medium
   open:
-    model: zro/glm-5.3-flash
+    model: zro/glm-5.3
     thinking: high
   kourier:
     model: kourier/DSV4-Flash-0731
