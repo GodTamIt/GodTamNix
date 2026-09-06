@@ -13,10 +13,10 @@ default_stack: default
 stacks:
   default:
     model: openai-codex/gpt-6-astra
-    thinking: high
+    thinking: medium
   openai:
     model: openai-codex/gpt-6-astra
-    thinking: high
+    thinking: medium
   open:
     model: zro/glm-5.3-flash
     thinking: high
