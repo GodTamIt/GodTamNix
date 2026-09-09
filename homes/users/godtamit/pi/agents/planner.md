@@ -11,7 +11,7 @@ stacks:
     model: openai-codex/gpt-6-astra
     thinking: high
   open:
-    model: hyper/glm-5.3
+    model: zro/glm-5.3
     thinking: xhigh
   kourier:
     model: openai-codex/gpt-6-astra
