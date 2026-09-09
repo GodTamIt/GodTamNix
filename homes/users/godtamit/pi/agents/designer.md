@@ -10,7 +10,6 @@ permission:
   find: allow
   ls: allow
   agent_browser: allow
-default_stack: default
 stacks:
   default:
     model: openai-codex/gpt-6-astra

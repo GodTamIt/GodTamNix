@@ -9,7 +9,6 @@ permission:
   grep: allow
   find: allow
   ls: allow
-default_stack: default
 stacks:
   default:
     model: zro/glm-5.3
