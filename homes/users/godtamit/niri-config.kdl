@@ -161,6 +161,15 @@ window-rule {
     open-fullscreen true
 }
 
+// Disable direct scanout on fullscreen surfaces. Nested gamescope + host
+// direct scanout flickers on NVIDIA once the gamescope window goes fullscreen
+// (https://github.com/ValveSoftware/gamescope/issues/1739, NVIDIA bug 5089016).
+// Cost: the compositor stays in the presentation path for fullscreen windows.
+debug {
+    disable-direct-scanout
+}
+
+
 // ─── Key bindings (Hyprland binds) ──────────────────────────────────────────
 // "Mod" is Super on a TTY session. In Hyprland: $mainMod = SUPER,
 // $shiftMod = SUPER SHIFT.
