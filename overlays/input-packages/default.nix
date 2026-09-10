@@ -43,7 +43,6 @@ in {
     google-chrome
     plex
     plex-desktop
-    ytmdesktop
     zed-editor
     ;
 
@@ -56,6 +55,7 @@ in {
     wayle
     webull-desktop
     yaziPlugins
+    ytmdesktop
     yt-dlp
     ;
 
