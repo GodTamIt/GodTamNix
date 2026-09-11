@@ -4,16 +4,16 @@ default_stack: default
 stacks:
   default:
     model: openai-codex/gpt-6-astra
-    thinking: medium
+    thinking: high
   openai:
     model: openai-codex/gpt-6-astra
-    thinking: medium
+    thinking: high
   open:
     model: zro/glm-5.3
     thinking: high
   kourier:
     model: openai-codex/gpt-6-astra
-    thinking: medium
+    thinking: high
 mode: primary
 permission:
   "*": allow

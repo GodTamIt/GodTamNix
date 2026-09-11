@@ -2,7 +2,7 @@
 description: Primary orchestrator owning architecture, design, hard refactoring, delegation and review.
 stacks:
   default:
-    model: openai-codex/gpt-5.6-sol
+    model: openai-codex/gpt-6-astra
     thinking: high
 mode: primary
 permission:
