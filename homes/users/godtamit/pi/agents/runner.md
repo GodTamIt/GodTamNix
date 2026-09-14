@@ -9,13 +9,13 @@ permission:
   ls: allow
 stacks:
   default:
-    model: zro/glm-5.3-flash
+    model: zro/deepseek-v4.1-flash
     thinking: medium
   openai:
     model: openai-codex/gpt-5.6-luna
     thinking: medium
   open:
-    model: zro/glm-5.3-flash
+    model: zro/deepseek-v4.1-flash
     thinking: medium
   kourier:
     model: kourier/DSV4-Flash-0731
