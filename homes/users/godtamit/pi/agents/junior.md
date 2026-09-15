@@ -22,6 +22,9 @@ stacks:
   kourier:
     model: kourier/DSV4-Flash-0731
     thinking: high
+  lite:
+    model: zro/deepseek-v4.1-flash
+    thinking: high
 prompt_mode: append
 ---
 

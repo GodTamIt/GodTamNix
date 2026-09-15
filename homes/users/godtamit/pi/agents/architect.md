@@ -14,6 +14,9 @@ stacks:
   kourier:
     model: openai-codex/gpt-6-astra
     thinking: high
+  lite:
+    model: zro/deepseek-v4.1-flash
+    thinking: high
 mode: primary
 permission:
   "*": allow
