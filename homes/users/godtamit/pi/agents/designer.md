@@ -24,7 +24,7 @@ stacks:
     model: openai-codex/gpt-6-astra
     thinking: xhigh
   lite:
-    model: zro/deepseek-v4.1-flash
+    model: openai-codex/gpt-5.6-sol
     thinking: high
 prompt_mode: replace
 ---
