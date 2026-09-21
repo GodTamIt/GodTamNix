@@ -11,19 +11,19 @@ permission:
   ls: allow
 stacks:
   default:
-    model: zro/glm-5.3
+    model: hyper/glm-5.3
     thinking: max
   openai:
     model: openai-codex/gpt-6-astra
     thinking: medium
   open:
-    model: zro/glm-5.3
+    model: hyper/glm-5.3
     thinking: high
   kourier:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: zro/deepseek-v4.1-flash
+    model: hyper/deepseek-v4.1-flash
     thinking: high
 prompt_mode: replace
 ---
