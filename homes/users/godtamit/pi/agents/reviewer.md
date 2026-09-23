@@ -23,7 +23,7 @@ stacks:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: hyper/deepseek-v4.1-flash
+    model: hyper/glm-5.3-flash
     thinking: high
 prompt_mode: replace
 ---
