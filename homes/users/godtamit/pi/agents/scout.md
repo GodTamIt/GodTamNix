@@ -9,10 +9,10 @@ permission:
   ls: allow
 stacks:
   default:
-    model: hyper/glm-5.3-flash
-    thinking: high
+    model: openai-codex/gpt-6-luna
+    thinking: xhigh
   openai:
-    model: openai-codex/gpt-5.6-luna
+    model: openai-codex/gpt-6-luna
     thinking: xhigh
   open:
     model: hyper/glm-5.3-flash

@@ -11,11 +11,11 @@ permission:
   ls: allow
 stacks:
   default:
-    model: hyper/glm-5.3
-    thinking: max
+    model: openai-codex/gpt-6-sol
+    thinking: xhigh
   openai:
-    model: openai-codex/gpt-6-astra
-    thinking: medium
+    model: openai-codex/gpt-6-sol
+    thinking: xhigh
   open:
     model: hyper/glm-5.3
     thinking: high
