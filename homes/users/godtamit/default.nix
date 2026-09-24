@@ -131,6 +131,22 @@ in {
       };
     };
 
+    kitty = {
+      # Remap kitty's new window/tab/os-window shortcuts to the _with_cwd
+      # variants so they open in the directory of the window they came from
+      # (cwd reporting comes from the fish/kitty shell integration).
+      keybindings = {
+        "ctrl+shift+enter" = "new_window_with_cwd";
+        "ctrl+shift+t" = "new_tab_with_cwd";
+        "ctrl+shift+n" = "new_os_window_with_cwd";
+
+        # macOS flavors of the same shortcuts
+        "cmd+enter" = "new_window_with_cwd";
+        "cmd+t" = "new_tab_with_cwd";
+        "cmd+n" = "new_os_window_with_cwd";
+      };
+    };
+
     ssh = {
       enable = true;
       enableDefaultConfig = false;
