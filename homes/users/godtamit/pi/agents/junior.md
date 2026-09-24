@@ -14,8 +14,8 @@ stacks:
     model: hyper/glm-5.3-flash
     thinking: high
   openai:
-    model: openai-codex/gpt-6-luna
-    thinking: max
+    model: openai-codex/gpt-6-sol
+    thinking: high
   open:
     model: hyper/glm-5.3-flash
     thinking: high
