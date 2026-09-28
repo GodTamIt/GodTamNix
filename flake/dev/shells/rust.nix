@@ -1,28 +1,30 @@
 {
-  lib,
   mkShell,
   pkgs,
   ...
 }: let
-  rustPackages = with pkgs; [
-    cargo
-    clippy
-    rust-analyzer
-    rustc
-    rustfmt
-  ];
+  rustToolchain = pkgs.rust-bin.stable.latest.default.override {
+    extensions = [
+      "clippy"
+      "rust-analyzer"
+      "rust-src"
+      "rustfmt"
+    ];
+  };
 in
   mkShell {
-    packages = rustPackages;
+    packages = [rustToolchain];
 
     shellHook = ''
       echo "🔨 Rust DevShell"
       echo ""
-      echo "📦 Available tools:"
-      ${lib.concatMapStringsSep "\n" (
-          pkg: ''echo "  - ${pkg.pname or pkg.name or "unknown"} (${pkg.version or "unknown"})"''
-        )
-        rustPackages}
+      echo "📦 Rust toolchain: ${rustToolchain.version}"
+      echo "  - rustc"
+      echo "  - cargo"
+      echo "  - clippy"
+      echo "  - rustfmt"
+      echo "  - rust-analyzer"
+      echo "  - rust-src"
       echo ""
       echo "🦀 Ready for Rust development!"
     '';
