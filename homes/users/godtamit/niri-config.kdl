@@ -27,8 +27,8 @@ input {
         natural-scroll
     }
 
-    // Hyprland: input.follow_mouse = 1 (focus follows the pointer).
-    focus-follows-mouse
+    // Keep hover focus without scrolling to off-screen columns.
+    focus-follows-mouse max-scroll-amount="0%"
 }
 
 layout {
