@@ -23,7 +23,7 @@ stacks:
     model: openai-codex/gpt-6-astra
     thinking: high
   lite:
-    model: openai-codex/gpt-6-sol
+    model: openai-codex/gpt-6.1-sol
     thinking: xhigh
 prompt_mode: replace
 ---
