@@ -47,10 +47,6 @@ in {
       stylix = enabled;
     };
 
-    # The llm-agents package drives its wrapped Nix Chromium. Keep `headed`
-    # enabled so automation is visible on this desktop.
-    programs.terminal.ai.agent-browser.enable = true;
-
     programs = {
       graphical = {
         bars = {

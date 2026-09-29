@@ -144,6 +144,7 @@ in {
     godtamnix = {
       programs.terminal = {
         ai = mkIf cfg.aiEnable {
+          agent-browser = lib.mkDefault enabled;
           opencode = lib.mkDefault enabled;
           rtk = lib.mkDefault enabled;
         };
