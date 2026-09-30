@@ -65,7 +65,9 @@ in {
   inherit
     (inputs.llm-agents.packages.${final.stdenv.hostPlatform.system})
     agent-browser
+    chatgpt
     claude-code
+    codex
     gemini-cli
     oh-my-opencode
     opencode

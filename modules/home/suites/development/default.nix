@@ -132,6 +132,8 @@ in {
         ++ lib.optionals cfg.aiEnable [
           # NOTE: hard to get out of neovim
           # antigravity-ide
+          chatgpt
+          codex
           github-mcp-server
           github-copilot-cli
         ];
