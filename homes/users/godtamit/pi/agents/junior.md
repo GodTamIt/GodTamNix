@@ -15,7 +15,7 @@ stacks:
     thinking: high
   openai:
     model: openai-codex/gpt-6.1-sol
-    thinking: high
+    thinking: medium
   open:
     model: hyper/glm-5.3-flash
     thinking: high
@@ -23,8 +23,8 @@ stacks:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: openai-codex/gpt-6-luna
-    thinking: xhigh
+    model: openai-codex/gpt-6.1-sol
+    thinking: medium
 prompt_mode: append
 ---
 
