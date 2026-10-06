@@ -140,6 +140,7 @@ window-rule {
 }
 window-rule {
     match app-id=r#"(?i)vlc"#
+    match app-id=r#"(?i)signal"#
     opacity 1.0
 }
 
