@@ -1,4 +1,5 @@
 {
+  "extensions": ["-builtin:mcp"],
   "packages": [
     "npm:pi-agent-roster",
     "npm:@mrclrchtr/supi-ask-user",
