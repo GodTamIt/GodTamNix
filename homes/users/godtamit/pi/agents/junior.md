@@ -11,8 +11,8 @@ permission:
   ls: allow
 stacks:
   default:
-    model: hyper/glm-5.3-flash
-    thinking: high
+    model: openai-codex/gpt-6.1-sol
+    thinking: medium
   openai:
     model: openai-codex/gpt-6.1-sol
     thinking: medium
