@@ -36,7 +36,7 @@ in {
         "mbedtls-2.28.10"
         "electron-39.8.10"
         # dev shells
-        "beekeeper-studio-5.5.7"
+        "beekeeper-studio-6.1.4"
         "webull-desktop-9.3.0"
       ];
     };
