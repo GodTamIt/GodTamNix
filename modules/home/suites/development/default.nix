@@ -69,6 +69,8 @@ in {
       packages = with pkgs;
         [
           antigravity-ide
+          gh
+          gh-pr-review
           go
           jq
           python3

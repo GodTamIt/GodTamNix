@@ -40,6 +40,8 @@ in {
     (unstable)
     brave
     firefox
+    gh
+    gh-pr-review
     google-chrome
     plex
     plex-desktop
