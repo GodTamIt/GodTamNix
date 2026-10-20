@@ -23,7 +23,7 @@ stacks:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: hyper/glm-5.3-flash
+    model: openai-codex/gpt-6.1-sol
     thinking: high
 prompt_mode: replace
 ---
