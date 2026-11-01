@@ -104,6 +104,10 @@
       url = "github:noctalia-dev/noctalia-shell/v5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    serpantinum = {
+      url = "github:ilyamiro/serpantinum";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ssh-to-age = {
       url = "github:Mic92/ssh-to-age/v1.3.0";
       inputs.nixpkgs.follows = "nixpkgs";

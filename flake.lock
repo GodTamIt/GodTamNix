@@ -1293,6 +1293,7 @@
         "noctalia": "noctalia",
         "paneru": "paneru",
         "rust-overlay": "rust-overlay_3",
+        "serpantinum": "serpantinum",
         "sops-nix": "sops-nix",
         "ssh-to-age": "ssh-to-age",
         "stylix": "stylix"
@@ -1356,6 +1357,43 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "serpantinum": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "serpantinum-wallpapers": "serpantinum-wallpapers"
+      },
+      "locked": {
+        "lastModified": 1793209075,
+        "narHash": "sha256-YKcvZLpypId++ALcMDNhzS7cIl5MnpolEmU4ZqOqx1c=",
+        "owner": "ilyamiro",
+        "repo": "serpantinum",
+        "rev": "a62f82500a68f8c6026309dcf035bab347ec5ff0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ilyamiro",
+        "repo": "serpantinum",
+        "type": "github"
+      }
+    },
+    "serpantinum-wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789127588,
+        "narHash": "sha256-L3xRtDXH1ERwVIP+ztT6qn7YYh3aHpfpy1/nvyjvKIc=",
+        "owner": "ilyamiro",
+        "repo": "shell-wallpapers",
+        "rev": "4f5994aff60403f88d3f0378e6f9c9d0a00b0289",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ilyamiro",
+        "repo": "shell-wallpapers",
         "type": "github"
       }
     },

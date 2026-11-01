@@ -5,6 +5,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }: let
   inherit (lib.godtamnix) enabled;
@@ -15,6 +16,7 @@ in {
     ./hardware.nix
     ./sops.nix
     ./users.nix
+    inputs.serpantinum.nixosModules.default
   ];
 
   godtamnix = {
@@ -106,6 +108,7 @@ in {
     };
     niri = enabled;
     fish = enabled;
+    serpantinum = enabled;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

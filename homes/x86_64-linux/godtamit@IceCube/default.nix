@@ -112,9 +112,63 @@ in {
             };
           };
 
-          wayle = {
+          serpantinum = {
             enable = true;
-            settings = fromTOML (builtins.readFile ./wayle.toml);
+            wallpapers = {
+              DP-5 = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-mclaren-0.png";
+              DP-6 = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-mclaren-1.png";
+            };
+            settings = {
+              wallpaperDir = "${pkgs.godtamnix.wallpapers}/share/wallpapers";
+              bar = {
+                position = "top";
+                style = "solid";
+                workspaceCount = 5;
+                autohide = false;
+                hideEmptyWorkspaces = false;
+                batStyle = "button";
+                timeStyle = "classic";
+                timeShowDate = false;
+                time.format = "ddd, MMM d HH:mm:ss";
+                sysmonStats = ["cpu" "ram"];
+                modules = {
+                  left = ["workspaces" "timedate" "weather"];
+                  center = ["focus"];
+                  right = ["media" "wifi" "bt" "vol" "sysmon" "left" "bat"];
+                };
+              };
+              theme = {
+                fontFamily = "Noto Sans";
+                elementOpacity = 85;
+                activePreset = "Mocha";
+                matugen = false;
+                colors = {
+                  base = "#11111b";
+                  mantle = "#181825";
+                  surface0 = "#1e1e2e";
+                  text = "#cdd6f4";
+                  subtext1 = "#bac2de";
+                  blue = "#b4befe";
+                };
+              };
+              general = {
+                weatherUnit = "imperial";
+                location = {
+                  city = "Jersey City";
+                  timezone = "America/New_York";
+                  latitude = 40.7178;
+                  longitude = -74.0431;
+                };
+                performance = false;
+                quickactions = true;
+              };
+              dock.enabled = false;
+              idle = {
+                enabled = false;
+                lockOnSleep = false;
+              };
+              notifications.dnd = false;
+            };
           };
         };
 
@@ -212,29 +266,6 @@ in {
   };
 
   services = {
-    hyprpaper = {
-      enable = true;
-
-      settings = {
-        wallpaper = [
-          {
-            monitor = "DP-5";
-            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-mclaren-0.png";
-            fit_mode = "cover";
-          }
-          {
-            monitor = "DP-6";
-            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-mclaren-1.png";
-            fit_mode = "cover";
-          }
-          {
-            monitor = "";
-            path = "${pkgs.godtamnix.wallpapers}/share/wallpapers/cyberpunk-mclaren.png";
-          }
-        ];
-      };
-    };
-
     udiskie = {
       enable = true;
       automount = true;
