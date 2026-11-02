@@ -30,6 +30,8 @@ in {
     config = {
       allowAliases = false;
       allowUnfree = true;
+      # NOTE: OnlyOffice still needs GTK2; migrate before NixOS 27.05.
+      problems.handlers."gtk+".broken = "warn";
       permittedInsecurePackages = [
         # NOTE: needed by emulationstation
         "freeimage-3.18.0-unstable-2024-04-18"

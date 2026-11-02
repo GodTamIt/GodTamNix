@@ -83,7 +83,7 @@ in {
           postman
         ]
         ++ lib.optionals cfg.awsEnable [
-          awscli
+          awscli2
         ]
         ++ lib.optionals cfg.dockerEnable [
           podman
