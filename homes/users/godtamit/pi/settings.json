@@ -8,17 +8,16 @@
     "npm:@ohgodtamit/pi-agent-browser",
     "npm:pi-mcp-adapter",
     "npm:pi-tps",
-    "npm:@tian.zuo/pi-web-search",
-    "npm:@charmland/pi-hyper-provider"
+    "npm:@tian.zuo/pi-web-search"
   ],
   "enabledModels": [
     "openai-codex/gpt-6-astra",
     "openai-codex/gpt-6.1-sol",
     "openai-codex/gpt-6-luna",
-    "hyper/kimi-k3",
-    "hyper/glm-5.3-flash",
-    "hyper/glm-5.3",
-    "hyper/deepseek-v4.1-flash",
-    "hyper/qwen3.8-max"
+    "piramyd/kimi-k3.1-pro",
+    "piramyd/glm-5.3-flash",
+    "piramyd/deepseek-v4.1-flash",
+    "piramyd/deepseek-v4.1-flash-ultrafast",
+    "piramyd/qwen3.8-uncensored"
   ]
 }
