@@ -110,6 +110,7 @@
       "baseUrl": "https://api.piramyd.cloud/v1",
       "api": "openai-completions",
       "apiKey": "$PIRAMYD_API_KEY",
+      "compat": { "maxTokensField": "max_tokens" },
       "models": [
         {
           "id": "deepseek-v4.1-flash",
