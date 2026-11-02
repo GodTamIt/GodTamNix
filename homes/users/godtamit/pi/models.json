@@ -104,6 +104,116 @@
           "maxTokens": 262144
         }
       ]
+    },
+    "piramyd": {
+      "name": "Piramyd",
+      "baseUrl": "https://api.piramyd.cloud/v1",
+      "api": "openai-completions",
+      "apiKey": "$PIRAMYD_API_KEY",
+      "models": [
+        {
+          "id": "deepseek-v4.1-flash",
+          "name": "DeepSeek V4.1 Flash 1017",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "low",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "input": ["text", "image"],
+          "contextWindow": 1048576,
+          "maxTokens": 393216
+        },
+        {
+          "id": "deepseek-v4.1-flash-ultrafast",
+          "name": "DeepSeek V4.1 Flash Ultrafast",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "low",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "input": ["text", "image"],
+          "contextWindow": 1048576,
+          "maxTokens": 943718
+        },
+        {
+          "id": "glm-5.3-flash",
+          "name": "GLM 5.3 Flash",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "low",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "input": ["text", "image"],
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "low",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "input": ["text", "image"],
+          "contextWindow": 1050000,
+          "maxTokens": 128000
+        },
+        {
+          "id": "kimi-k3.1-pro",
+          "name": "Kimi K3.1 Pro",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "low",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "input": ["text", "image"],
+          "contextWindow": 1048576,
+          "maxTokens": 943718
+        },
+        {
+          "id": "qwen3.8-uncensored",
+          "name": "Qwen3.8 Uncensored",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "low",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "input": ["text", "image"],
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        }
+      ]
     }
   }
 }

@@ -17,7 +17,7 @@ stacks:
     model: openai-codex/gpt-6.1-sol
     thinking: xhigh
   open:
-    model: hyper/glm-5.3
+    model: piramyd/kimi-k3.1-pro
     thinking: high
   kourier:
     model: kourier/DSV4-Flash-0731

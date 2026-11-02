@@ -11,7 +11,7 @@ stacks:
     model: openai-codex/gpt-6-astra
     thinking: high
   open:
-    model: hyper/glm-5.3
+    model: piramyd/kimi-k3.1-pro
     thinking: xhigh
   kourier:
     model: openai-codex/gpt-6-astra
