@@ -11,8 +11,8 @@ permission:
   web_fetch: allow
 stacks:
   default:
-    model: openai-codex/gpt-6-luna
-    thinking: xhigh
+    model: piramyd/deepseek-v4.1-flash-ultrafast
+    thinking: high
   openai:
     model: openai-codex/gpt-6-luna
     thinking: xhigh
@@ -23,8 +23,8 @@ stacks:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: openai-codex/gpt-6-luna
-    thinking: xhigh
+    model: piramyd/deepseek-v4.1-flash-ultrafast
+    thinking: high
 prompt_mode: replace
 ---
 
