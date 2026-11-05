@@ -15,13 +15,13 @@ stacks:
     model: openai-codex/gpt-6-luna
     thinking: medium
   open:
-    model: piramyd/deepseek-v4.1-flash-ultrafast
+    model: piramyd/deepseek-v4.1-flash
     thinking: medium
   kourier:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: piramyd/deepseek-v4.1-flash-ultrafast
+    model: piramyd/deepseek-v4.1-flash
     thinking: medium
 prompt_mode: replace
 ---

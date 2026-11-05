@@ -16,8 +16,8 @@
     "openai-codex/gpt-6-luna",
     "piramyd/kimi-k3.1-pro",
     "piramyd/glm-5.3-flash",
+    "piramyd/glm-5.3",
     "piramyd/deepseek-v4.1-flash",
-    "piramyd/deepseek-v4.1-flash-ultrafast",
     "piramyd/qwen3.8-uncensored"
   ]
 }

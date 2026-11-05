@@ -9,19 +9,19 @@ permission:
   ls: allow
 stacks:
   default:
-    model: piramyd/deepseek-v4.1-flash-ultrafast
+    model: piramyd/deepseek-v4.1-flash
     thinking: high
   openai:
     model: openai-codex/gpt-6-luna
     thinking: xhigh
   open:
-    model: piramyd/deepseek-v4.1-flash-ultrafast
+    model: piramyd/deepseek-v4.1-flash
     thinking: high
   kourier:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: piramyd/deepseek-v4.1-flash-ultrafast
+    model: piramyd/deepseek-v4.1-flash
     thinking: xhigh
 prompt_mode: replace
 ---

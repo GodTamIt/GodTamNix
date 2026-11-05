@@ -17,7 +17,7 @@ stacks:
     model: openai-codex/gpt-6.1-sol
     thinking: medium
   open:
-    model: piramyd/deepseek-v4.1-flash-ultrafast
+    model: piramyd/deepseek-v4.1-flash
     thinking: high
   kourier:
     model: kourier/DSV4-Flash-0731
