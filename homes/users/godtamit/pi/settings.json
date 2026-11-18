@@ -11,8 +11,8 @@
     "npm:@tian.zuo/pi-web-search"
   ],
   "enabledModels": [
-    "openai-codex/gpt-6-astra",
-    "openai-codex/gpt-6.1-sol",
+    "openai-codex/gpt-6.2-astra",
+    "openai-codex/gpt-6.2-sol",
     "openai-codex/gpt-6-luna",
     "piramyd/kimi-k3.1-pro",
     "piramyd/glm-5.3-flash",

@@ -11,10 +11,10 @@ permission:
   ls: allow
 stacks:
   default:
-    model: openai-codex/gpt-6.1-sol
+    model: openai-codex/gpt-6.2-sol
     thinking: medium
   openai:
-    model: openai-codex/gpt-6.1-sol
+    model: openai-codex/gpt-6.2-sol
     thinking: medium
   open:
     model: piramyd/deepseek-v4.1-flash
@@ -23,7 +23,7 @@ stacks:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: openai-codex/gpt-6.1-sol
+    model: openai-codex/gpt-6.2-sol
     thinking: medium
 prompt_mode: append
 ---

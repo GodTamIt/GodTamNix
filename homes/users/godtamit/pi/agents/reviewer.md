@@ -11,10 +11,10 @@ permission:
   ls: allow
 stacks:
   default:
-    model: openai-codex/gpt-6.1-sol
+    model: openai-codex/gpt-6.2-sol
     thinking: xhigh
   openai:
-    model: openai-codex/gpt-6.1-sol
+    model: openai-codex/gpt-6.2-sol
     thinking: xhigh
   open:
     model: piramyd/kimi-k3.1-pro
@@ -23,7 +23,7 @@ stacks:
     model: kourier/DSV4-Flash-0731
     thinking: high
   lite:
-    model: openai-codex/gpt-6.1-sol
+    model: openai-codex/gpt-6.2-sol
     thinking: high
 prompt_mode: replace
 ---

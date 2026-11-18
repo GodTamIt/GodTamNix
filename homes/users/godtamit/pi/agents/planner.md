@@ -5,19 +5,19 @@ permission:
   "*": allow
 stacks:
   default:
-    model: openai-codex/gpt-6-astra
+    model: openai-codex/gpt-6.2-astra
     thinking: medium
   openai:
-    model: openai-codex/gpt-6-astra
+    model: openai-codex/gpt-6.2-astra
     thinking: high
   open:
     model: piramyd/kimi-k3.1-pro
     thinking: xhigh
   kourier:
-    model: openai-codex/gpt-6-astra
+    model: openai-codex/gpt-6.2-astra
     thinking: high
   lite:
-    model: openai-codex/gpt-6.1-sol
+    model: openai-codex/gpt-6.2-sol
     thinking: high
 ---
 
