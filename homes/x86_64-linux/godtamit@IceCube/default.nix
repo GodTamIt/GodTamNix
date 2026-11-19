@@ -275,6 +275,7 @@ in {
   home = {
     packages = with pkgs; [
       audacity
+      blender
       onlyoffice-desktopeditors
       thunar
       zoom-us
