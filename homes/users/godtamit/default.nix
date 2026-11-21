@@ -47,24 +47,47 @@ in {
     };
   };
 
-  home.file = {
-    ".pi/agent/agent-roster.json".source = ./pi/agent-roster.json;
-  };
+  home = {
+    file = {
+      ".pi/agent/agent-roster.json".source = ./pi/agent-roster.json;
+    };
 
-  home.packages = with pkgs;
-    [
-      discord
-      fastfetch
-      signal-desktop
-      unzrip
-    ]
-    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-      ferdium
-      # webull-desktop
-    ]
-    ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
-      scroll-reverser
-    ];
+    # Claude Code rewrites its own settings.json (/model, effort, prompts), so
+    # rather than an immutable store symlink, deep-merge the checked-in keys into
+    # the mutable file on every activation. Checked-in values win on conflict.
+    activation.claudeCodeSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      settings="${config.programs.claude-code.configDir}/settings.json"
+      existing='{}'
+      if [ -f "$settings" ] && ${lib.getExe pkgs.jq} -e 'type == "object"' "$settings" >/dev/null 2>&1; then
+        existing="$(cat "$settings")"
+      fi
+      merged="$(printf '%s' "$existing" \
+        | ${lib.getExe pkgs.jq} --slurpfile managed ${./claude-settings.json} '. * $managed[0]')"
+      if [[ -v DRY_RUN ]]; then
+        echo "Would merge ${./claude-settings.json} into $settings"
+      else
+        mkdir -p "$(dirname "$settings")"
+        tmp="$(mktemp "$settings.XXXXXX")"
+        printf '%s\n' "$merged" > "$tmp"
+        mv -f "$tmp" "$settings"
+      fi
+    '';
+
+    packages = with pkgs;
+      [
+        discord
+        fastfetch
+        signal-desktop
+        unzrip
+      ]
+      ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+        ferdium
+        # webull-desktop
+      ]
+      ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+        scroll-reverser
+      ];
+  };
 
   programs = {
     claude-code = {
