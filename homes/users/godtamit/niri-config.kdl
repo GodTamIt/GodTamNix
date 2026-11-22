@@ -141,6 +141,8 @@ window-rule {
 window-rule {
     match app-id=r#"(?i)vlc"#
     match app-id=r#"(?i)signal"#
+    match app-id=r#"(?i)^(google-chrome|chromium|chromium-browser)$"#
+    match app-id=r#"(?i)^blender$"#
     opacity 1.0
 }
 
