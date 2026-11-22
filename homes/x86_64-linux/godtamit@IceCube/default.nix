@@ -275,7 +275,8 @@ in {
   home = {
     packages = with pkgs; [
       audacity
-      blender
+      # CUDA-enabled build (Cycles GPU rendering + OptiX), cached on cache.nixos-cuda.org
+      pkgsCuda.blender
       onlyoffice-desktopeditors
       thunar
       zoom-us
