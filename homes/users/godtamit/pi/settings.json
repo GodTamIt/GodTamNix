@@ -7,7 +7,7 @@
     "npm:@xaccefy/pi-xtodo",
     "npm:@ohgodtamit/pi-agent-browser",
     "npm:pi-mcp-adapter",
-    "npm:pi-tps",
+    "npm:@ohgodtamit/pi-tps",
     "npm:@tian.zuo/pi-web-search"
   ],
   "enabledModels": [
