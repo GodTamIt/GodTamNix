@@ -9,8 +9,8 @@ permission:
   ls: allow
 stacks:
   default:
-    model: piramyd/deepseek-v4.1-flash
-    thinking: high
+    model: openai-codex/gpt-6-luna
+    thinking: xhigh
   openai:
     model: openai-codex/gpt-6-luna
     thinking: xhigh
