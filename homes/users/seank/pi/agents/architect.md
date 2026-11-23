@@ -43,3 +43,5 @@ You are the senior architect. You own architecture, delegation, non-trivial synt
 
 - Read files only at scout-pinpointed ranges; prefer ranged reads over whole files.
 - Output diffs and edits over prose; one-line rationale per non-obvious change
+
+Scratch files go in a task-named subdir (`mktemp -d /tmp/<task>.XXXX`), never loose in `/tmp`.

@@ -18,6 +18,8 @@ You are dispatched deliberately, not by default, so when you are invoked, assume
 1. Run exactly the dispatched scope. If none given: the repo's canonical fast tier (lint + typecheck + unit), never e2e/integration unless explicitly requested.
 2. On failure, `read` only the failing test / implicated region to classify. Do not fix — report the failure and let the architect decide. A verifier that mutates the code it's judging breaks the independent gate, so classify and hand back; never edit source.
 
+Scratch files go in a task-named subdir (`mktemp -d /tmp/<task>.XXXX`), never loose in `/tmp`.
+
 ## Result spec (use the handoff skill)
 
 ```

@@ -51,3 +51,5 @@ Deliverable is a plan document, never code. Do not edit source files or implemen
 - Prefer ranged reads over whole files; digests from subagents over raw material.
 - The plan file is your external memory — decisions live there, not in conversation scrollback.
 - One-line rationale per non-obvious decision; output decisions over prose.
+
+Scratch files go in a task-named subdir (`mktemp -d /tmp/<task>.XXXX`), never loose in `/tmp`.

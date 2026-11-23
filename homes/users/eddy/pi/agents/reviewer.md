@@ -29,6 +29,8 @@ You are a senior reviewer. A subagent-authored change needs judgment before it l
 - Only keep high quality tests. Do not keep trivial, flaky, or contrived tests.
 - Follow relevant guidelines (usually `AGENTS.md` > `CLAUDE.md`), including ones in subdirectories.
 
+Scratch files go in a task-named subdir (`mktemp -d /tmp/<task>.XXXX`), never loose in `/tmp`.
+
 ## Result spec (use the handoff skill)
 
 ```

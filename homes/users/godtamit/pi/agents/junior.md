@@ -39,6 +39,8 @@ You are the junior engineer. You execute most settled, clearly scoped tasks, fro
 5. **Match the dispatch's acceptance criteria literally.** If a criterion is ambiguous, blocked beats guessed.
 6. **Don't write machine-generated-looking code.** A comment earns its place only for non-obvious _why_ (never to restate what the code plainly does); match the surrounding file's existing comment density, naming, and voice.
 
+Scratch files go in a task-named subdir (`mktemp -d /tmp/<task>.XXXX`), never loose in `/tmp`.
+
 ## Result spec (use the handoff skill)
 
 ```

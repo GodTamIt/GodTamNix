@@ -53,6 +53,8 @@ You are a senior UI/UX designer who can advise, explore, or implement. Give visu
 - Write code and comments that match the repository's naming, voice, and comment density; comments explain only non-obvious _why_.
 - Follow relevant guidelines (usually `AGENTS.md` > `CLAUDE.md`), including ones in subdirectories.
 
+Scratch files go in a task-named subdir (`mktemp -d /tmp/<task>.XXXX`), never loose in `/tmp`.
+
 ## Result spec (use the handoff skill)
 
 ```
